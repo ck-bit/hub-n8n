@@ -1,0 +1,622 @@
+{
+  "active": false,
+  "connections": {
+    "WTrigger": {
+      "main": [
+        [
+          {
+            "node": "Unzip Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Files Metadata": {
+      "main": [
+        [
+          {
+            "node": "Filter Unsupported",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UploadFile": {
+      "main": [
+        [
+          {
+            "node": "GetSignedURL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetSignedURL": {
+      "main": [
+        [
+          {
+            "node": "OCR",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OCR": {
+      "main": [
+        [
+          {
+            "node": "Prepare",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unzip Files": {
+      "main": [
+        [
+          {
+            "node": "Files Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Unsupported": {
+      "main": [
+        [
+          {
+            "node": "UploadFile",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unsupported Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare": {
+      "main": [
+        [
+          {
+            "node": "Format",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final Payload": {
+      "main": [
+        [
+          {
+            "node": "Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store": {
+      "main": [
+        []
+      ]
+    },
+    "Unsupported Files": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Final Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-05T06:13:34.587Z",
+  "id": "nm2fPZKUkGNm8xc8",
+  "meta": null,
+  "name": "ProcessZip",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1920,
+        -5
+      ],
+      "id": "026ff4a9-d03c-4e81-a90b-bf65aeb48585",
+      "name": "WTrigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst results = [];\n\nitems.forEach(item => {\n  const binaries = item.binary || {};\n\n  Object.keys(binaries).forEach(key => {\n    const b = binaries[key];\n    const mime = b?.mimeType || \"\";\n    const fileName = b?.fileName || \"\";\n\n    // Supported types\n    const isPdf = mime.includes(\"pdf\") || fileName.toLowerCase().endsWith(\".pdf\");\n    const isDocx = mime.includes(\"word\") || fileName.toLowerCase().endsWith(\".docx\");\n    const supported = isPdf || isDocx;\n\n    // Build output object for this single attachment\n    const out = {\n      json: {\n        fileName,\n        mimeType: mime,\n        file_type_supported: supported,\n        file_key: key   // include file_key\n      }\n    };\n\n    // Attach binary if supported\n    if (supported) {\n      out.binary = { [key]: b };\n    }\n\n    results.push(out);\n  });\n});\n\nreturn results;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1480,
+        -5
+      ],
+      "id": "7b288788-09b3-4a5d-b19b-60046ea6d644",
+      "name": "Files Metadata",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "=https://api.mistral.ai/v1/files/{{ $json.id }}/url",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -820,
+        -155
+      ],
+      "id": "a90d209a-72c9-4b17-b669-f232975c1d68",
+      "name": "GetSignedURL",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "purpose",
+              "value": "ocr"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "=file",
+              "inputDataFieldName": "={{ $json.file_key }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1040,
+        -80
+      ],
+      "id": "4c3d3ac2-4431-4777-b2f3-757862c9e942",
+      "name": "UploadFile",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/ocr",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"mistral-ocr-latest\",\n  \"document\": {\n    \"type\": \"document_url\",\n    \"document_url\": \"{{ $json.url }}\"\n  },\n  \"include_image_base64\": true\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -600,
+        -230
+      ],
+      "id": "fc3ff5e6-d95f-4224-a427-f18856c592f3",
+      "name": "OCR",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "=data"
+      },
+      "type": "n8n-nodes-base.compression",
+      "typeVersion": 1.1,
+      "position": [
+        -1700,
+        -5
+      ],
+      "id": "89bee48b-4385-417c-a957-4fd996b4ab2a",
+      "name": "Unzip Files"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7437d958-afb1-447e-b515-ae90201675c3",
+              "leftValue": "={{ $json.file_type_supported }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1260,
+        -5
+      ],
+      "id": "1e1f5d1e-b875-42f4-aed0-6f8a3e508d86",
+      "name": "Filter Unsupported"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\n\nfunction toPageMarkdown(page) {\n  // Prefer page.markdown, then page.text/content, else stringify if object, else empty\n  if (page && typeof page === 'object') {\n    if (typeof page.markdown === 'string') return page.markdown;\n    if (typeof page.text === 'string') return page.text;\n    if (typeof page.content === 'string') return page.content;\n    try {\n      return JSON.stringify(page);\n    } catch {\n      return '';\n    }\n  }\n  if (typeof page === 'string') return page;\n  return '';\n}\n\nreturn items.map(item => {\n  const pages = Array.isArray(item.json?.pages) ? item.json.pages : [];\n  const parts = pages.map((page, idx) => `Page ${idx + 1}\\n\\n${toPageMarkdown(page)}`);\n  const document = parts.join(\"\\n\\n---\\n\\n\").trim();\n  return {\n    json: {\n      document\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -380,
+        -280
+      ],
+      "id": "e3f01b85-d7e9-4a94-a31d-cdf16bdd3f18",
+      "name": "Prepare"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb75be27-557a-46c8-bb18-0061c6731a7b",
+              "name": "file_name",
+              "value": "={{ $('Files Metadata').item.json.fileName }}",
+              "type": "string"
+            },
+            {
+              "id": "4aa08fc0-ee3c-4652-bd91-02d6b9fbef5d",
+              "name": "document",
+              "value": "={{ $json.document }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -160,
+        -280
+      ],
+      "id": "e0463b49-502c-428e-b543-d4b2d956362f",
+      "name": "Format"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "63fed44c-a31d-474a-8df7-994c7a9cb0bf",
+              "name": "ThreadId",
+              "value": "={{ $('WTrigger').first().json.threadId }}",
+              "type": "string"
+            },
+            {
+              "id": "a46526fc-743d-47e5-8748-e575fd7a683c",
+              "name": "Label",
+              "value": "BULK-DEALS-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "99680fd6-5c40-4187-9cf1-7bb2e1d39473",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "f97cf31c-07dd-424d-bdc3-00b429f6737f",
+              "name": "documents",
+              "value": "={{ $('Merge').all().map(item => item.json)}}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        -5
+      ],
+      "id": "707676fc-d2c8-4e56-b992-a08e830640c5",
+      "name": "Final Payload",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=session_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        500,
+        -5
+      ],
+      "id": "b8d7cf3e-15d3-49bf-a3f8-44aa57629224",
+      "name": "Store",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb75be27-557a-46c8-bb18-0061c6731a7b",
+              "name": "file_name",
+              "value": "={{ $('Files Metadata').item.json.fileName }}",
+              "type": "string"
+            },
+            {
+              "id": "4aa08fc0-ee3c-4652-bd91-02d6b9fbef5d",
+              "name": "document",
+              "value": "={{ $json.document }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -380,
+        -5
+      ],
+      "id": "0bb32957-4aa4-4187-b684-d0be751dccb4",
+      "name": "Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb75be27-557a-46c8-bb18-0061c6731a7b",
+              "name": "file_name",
+              "value": "={{ $('Files Metadata').item.json.fileName }}",
+              "type": "string"
+            },
+            {
+              "id": "4aa08fc0-ee3c-4652-bd91-02d6b9fbef5d",
+              "name": "document",
+              "value": "=not_supported",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -160,
+        195
+      ],
+      "id": "311087ea-93e8-4889-abf5-0257a4953bda",
+      "name": "Unsupported Files",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        60,
+        -5
+      ],
+      "id": "c985aad3-fc58-46d7-b6a2-74cdeee2a308",
+      "name": "Merge"
+    }
+  ],
+  "pinData": {
+    "WTrigger": [
+      {
+        "json": {
+          "id": "19928c764c005a5e",
+          "threadId": "19928c764c005a5e",
+          "labelIds": [
+            "UNREAD",
+            "IMPORTANT",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 5601,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])\r\n        by mx.google.com with SMTPS id 38308e7fff4ca-3380629ab39sor21911611fa.14.2025.09.08.03.03.00\r\n        for <asst@patchbay.xyz>\r\n        (Google Transport Security);\r\n        Mon, 08 Sep 2025 03:03:00 -0700 (PDT)",
+            "x-received": "X-Received: by 2002:a2e:be9e:0:b0:337:e190:6814 with SMTP id\r\n 38308e7fff4ca-33b5cfd0d57mr23418511fa.20.1757325779482; Mon, 08 Sep 2025\r\n 03:02:59 -0700 (PDT)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1757325780; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=Qv6DFx4CvlAb9qBnGnWNzfbfEEiPRiavFS+m2sQXceSlBUDfJysqJ7W3WkTW85dcLe\r\n         ovGJ1LcSAzUnRn+1Nl/RhbTA2etimaem8ozccZTbvvQ49NNZwWUitKJpYi2EupfI3nki\r\n         efzLBJAwwffRb1wLgzcOMaHz1mFq4yyHJoGNwrWYrOz1kIJxRvPku+qISvlLVhiiSqQ1\r\n         1oCf/GWl9TzLnI12idblivvyjVF9+FpLztGoI/jKyjKag/2IDG5GN5c+rZnCDkq2dbZd\r\n         9YVwVaSxqzNM4OKCIW9buAUQPpQFJChPBPn0WsnVTrzdfGwWv0VWJ64+nDlQQyQgaQNY\r\n         wYjg==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=to:subject:message-id:date:from:mime-version:dkim-signature;\r\n        bh=/OReHVx4YM/cLR9krympNNwQnz+r9Kos49MlA3m/W+Q=;\r\n        fh=DMmMUZIENHBtyGzhD08EfjLYhpSVkpXTVqQRauSDXLU=;\r\n        b=D8ulHDxaOtX4w/7hf+Y1cMZIUqVPa7wqDn09SMNmq3PKh3mdhwGTiw3eBIULF4X/jC\r\n         PuRAQy/iiWJguHZ9izhs9hQsjU0qLL3EficNE67jCbLBGJum/wkCTCcSLTi3w2JRwzdo\r\n         DsRVdwNpEIoh4V5mFgG+xJJM1C8lGZ7UvkuQvtEJFpuLlC/FniljDxOEAfqR9EFWlmh1\r\n         RHe+ai+S3g/fwaUtPtzAqv4cT4iNA2jacLKnu2MRkpbLrOKXBfGcleBtQCZjTRpubtUP\r\n         Py1XaIegm4ijvt5Gf3zH3tI/QThfUH0iWEx/aGOIanbo0JcT17dFd24w7iJ8DZdVnhIR\r\n         WzFQ==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=VnQePETm;\r\n       spf=pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=pass header.i=@patchbay.xyz",
+            "return-path": "Return-Path: <dwayne@patchbay.xyz>",
+            "received-spf": "Received-SPF: pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=VnQePETm;\r\n       spf=pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=pass header.i=@patchbay.xyz",
+            "dkim-signature": "DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=patchbay.xyz; s=google; t=1757325779; x=1757930579; darn=patchbay.xyz;\r\n        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject\r\n         :date:message-id:reply-to;\r\n        bh=/OReHVx4YM/cLR9krympNNwQnz+r9Kos49MlA3m/W+Q=;\r\n        b=VnQePETm3+N51vGtgaIPzEoSuM2Ew2VedYu1VhObBYvJGgYPw/4I218QAyQX76mIdx\r\n         wQrkMgjytvPen4tn0MezWWEsI1IEzJmRuPQ73BV1xiwt+o7xIY5NgmDx9sp11TPOoLpm\r\n         qXcoXl8m6KLBfB7OhUHz7YnJ+X6TyJudblzNs=",
+            "x-google-dkim-signature": "X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20230601; t=1757325779; x=1757930579;\r\n        h=to:subject:message-id:date:from:mime-version:x-gm-message-state\r\n         :from:to:cc:subject:date:message-id:reply-to;\r\n        bh=/OReHVx4YM/cLR9krympNNwQnz+r9Kos49MlA3m/W+Q=;\r\n        b=K1fkVpobwMssNs4zz2GeNNttBEiFms4dNb3GNImU33oM2Rlufp2Sb/RDoW/p4+cMsZ\r\n         0+S4HseSLXQHaJQ3s115iF/00wO1g1eKXhUEyhb0NmG/yH/qzW3DGc/ltmUYXzU30gRs\r\n         8+PjuGUIgop1sVXqEh4GPuYMIeebLOFyZeuISVb0ShxaBwN2zf1myXeAJz4jC1yghZJt\r\n         6Xnh5uiBUmYsQcc/2DNohBDft1kAw0DFK6fqQgSXxi+bwAogrOD3Sv6iJRms6VP2niE6\r\n         YjwQGuyJ75m2xY3NaSkRZVLhDIoORlH87lQldjdtWwwTb+T2WQ1fneYBc8xBXXoGw58T\r\n         z90Q==",
+            "x-gm-message-state": "X-Gm-Message-State: AOJu0Yy/gWx3vIjbIgXWuo0I7qGyzELhE7DZrnA8CRijzVSlAEuOw7Oh\r\n\tYe0dNrB2PS+6B5Mfojfud0ef3g/5LyWrs55w5HBa/LKzSB5Mkb94L1juh1b9M5n2LDrim+bkthv\r\n\tqmpuccp/Ra3VUSswrWJkD6+we18fTmoIraliCcHPT2Zox7NFF049G/no=",
+            "x-gm-gg": "X-Gm-Gg: ASbGncuPrzvWssvcC9tS060MULZTah1vu/rKFrmuh/vAlco17cRweR07/LPgD04iNC9\r\n\tBFB/aUZWeo8RwaB6+yGaapPpDfll/joYT4g3UaJpeXC9LTMlaxzCGly5A+b6huHC9Ru0gn1ocVF\r\n\tcgeRMHikgvYBwnNd43Wdp59yEQRfjMqOE+jcenbFgp9yuOh3MMsX6splgeKhGujd98emtVqb0XL\r\n\thr5Pn8r15ok8HGZyV09qOHPtsU2KkNOi0E97FCuxkKv27RwsW7NT8rnRtLUwuefnGA00CnCqQ==",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IFAQB7gs9eCFzXEu0ATozvJV80AU4EJeIrA9brAGf5zI33SJ3pfHV9E4mYD3mcXmYC9QoCIFgZPwiiyjOe89tA=",
+            "mime-version": "MIME-Version: 1.0",
+            "from": "From: Dwayne Hoover <dwayne@patchbay.xyz>",
+            "date": "Date: Mon, 8 Sep 2025 17:02:46 +0700",
+            "x-gm-features": "X-Gm-Features: Ac12FXySiBz6YYDJKgVJ-Wg1KWJVJG3Mp041V8UKxw_OzV_QlP3XpFnjFi26ksE",
+            "message-id": "Message-ID: <CAP=u+8DnMZP9PqpS2=NpgE_Q-pWsugEJAd=XaP35U=Fvsb-fTg@mail.gmail.com>",
+            "subject": "Subject: Zip Processing",
+            "to": "To: Assistant Assistant <asst@patchbay.xyz>",
+            "content-type": "Content-Type: multipart/alternative; boundary=\"000000000000d75867063e474a1c\""
+          },
+          "html": "<div dir=\"ltr\">Process all the attached deals provided in the zip file.</div>\n",
+          "text": "Process all the attached deals provided in the zip file.\n",
+          "textAsHtml": "<p>Process all the attached deals provided in the zip file.</p>",
+          "subject": "Zip Processing",
+          "date": "2025-09-08T10:02:46.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "asst@patchbay.xyz",
+                "name": "Assistant Assistant"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Assistant Assistant</span> &lt;<a href=\"mailto:asst@patchbay.xyz\" class=\"mp_address_email\">asst@patchbay.xyz</a>&gt;</span>",
+            "text": "\"Assistant Assistant\" <asst@patchbay.xyz>"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "dwayne@patchbay.xyz",
+                "name": "Dwayne Hoover"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Dwayne Hoover</span> &lt;<a href=\"mailto:dwayne@patchbay.xyz\" class=\"mp_address_email\">dwayne@patchbay.xyz</a>&gt;</span>",
+            "text": "\"Dwayne Hoover\" <dwayne@patchbay.xyz>"
+          },
+          "messageId": "<CAP=u+8DnMZP9PqpS2=NpgE_Q-pWsugEJAd=XaP35U=Fvsb-fTg@mail.gmail.com>"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    },
+    {
+      "createdAt": "2025-07-17T04:49:58.248Z",
+      "updatedAt": "2025-07-17T04:49:58.248Z",
+      "id": "lsVrWvDOcUhldARt",
+      "name": "in-devop"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-18T15:00:45.367Z",
+  "versionId": "17c03629-50cd-4cf1-a431-cbfe50f98ab9"
+}
