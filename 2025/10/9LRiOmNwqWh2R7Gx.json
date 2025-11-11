@@ -1,0 +1,702 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "User Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sub_session": {
+      "main": [
+        [
+          {
+            "node": "User Session1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If9": {
+      "main": [
+        [
+          {
+            "node": "sub_session",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "subsession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "subsession": {
+      "main": [
+        [
+          {
+            "node": "User Session4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session": {
+      "main": [
+        [
+          {
+            "node": "If9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session1": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deal Search1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input": {
+      "main": [
+        [
+          {
+            "node": "Finder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invoice Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finder": {
+      "main": [
+        [
+          {
+            "node": "User Session3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session4": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-04T07:42:11.435Z",
+  "id": "9LRiOmNwqWh2R7Gx",
+  "meta": null,
+  "name": "DI-MAIN",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "ai_input"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -7320,
+        2760
+      ],
+      "id": "f4b10feb-97b1-442f-b69b-8d7a7699af22",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "text",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -5720,
+        2980
+      ],
+      "id": "c41f7542-8201-4556-bf72-02a0f86e7820",
+      "name": "OpenAI Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "client_search",
+        "description": "=This tool is called everytime a customer/client/person associated with the Manager is being authenticated and verified.",
+        "workflowId": {
+          "__rl": true,
+          "value": "LlZxIeogO9hPJ72V",
+          "mode": "list",
+          "cachedResultName": "DI-SUBS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{  {\n\"user_id\": $('Input').first().json.session.user_id,\n\"person_legal_name\": $fromAI(\"person_legal_name\", \"Extract name(Exclude nickname or performer name) of the individual human (e.g., contributor, producer, mixer etc) represented by the manager in the email thread. A 'person' in this refers strictly to a human individual involved in the creation or production of music. This is not the same as an Artist. Set to '' if not provided\", \"string\"),\n\"person_performer_name\": $fromAI(\"person_performer_name\", \"Extract perfomer name for the person represented by the manager in the email thread. This may be A 'performer' mentioned in the email conversation/reference document involved in the creation or production of music. Strictly. don't include the artist or masters names in this. Set to legal name or '' if legal name is not provided\", \"string\"),\n\"person_role\": $fromAI(\"person_role\", \"Industry-standard role (e.g., Producer, Mixer, Songwriter, Performer, Engineer) by which the person is mentioned in this thread. Must use standard music industry terminology.\", \"string\"),\nsession_data: $json.session.session_data,\nManager: $('Trigger').item.json.data.Manager\n} }}",
+            "action": "client_search"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -5600,
+        2980
+      ],
+      "id": "8fd4d531-838b-4e7e-8310-305309cc5ce9",
+      "name": "Client Search"
+    },
+    {
+      "parameters": {
+        "jsCode": "const { Clients, ...managerWithoutClients } = $('Trigger').first().json.data.Manager;\n\nreturn [\n  {\n    json: {\n      sub_session: {\n        type: \"wf_deal_and_invoice\",\n        thread_id: $('Trigger').first().json.data.session_data.ThreadId,\n        Manager: managerWithoutClients\n      },\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6720,
+        2660
+      ],
+      "id": "6a7a076c-d442-44fd-9807-7b614b211bb6",
+      "name": "sub_session"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eaaa7599-aec4-4ecb-88ec-e91e4dd291c7",
+              "leftValue": "={{ $json.user_session===null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -6940,
+        2760
+      ],
+      "id": "872b6f11-0b97-49c5-ae0e-70e4fa994429",
+      "name": "If9"
+    },
+    {
+      "parameters": {
+        "jsCode": "const { Clients, ...managerWithoutClients } = $('Trigger').first().json.data.Manager;\nconst userSessionString = $input.item.json.user_session;\nconst userSession = JSON.parse(userSessionString);\nuserSession.Manager = managerWithoutClients;\nuserSession.type = \"wf_deal_and_invoice\";\nuserSession.thread_id = $('Trigger').first().json.data.session_data.ThreadId;\nreturn {sub_session: userSession};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6720,
+        2840
+      ],
+      "id": "375cce5c-1341-49ee-a49c-b685058203ce",
+      "name": "subsession"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.data.session_data.ThreadId+$json.data.user_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -7160,
+        2760
+      ],
+      "id": "a2fa92ab-7586-4cb0-86d9-78f43cda99e6",
+      "name": "User Session",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $json.sub_session.thread_id+$json.sub_session.Manager.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -6500,
+        2660
+      ],
+      "id": "b38b768a-5b44-4058-9e13-e9ab1bbefdba",
+      "name": "User Session1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "deal_search",
+        "description": "=This tool is called everytime a information about deal is needed. ile.\n- Identify if a deal exists for the the email thread.\n- Extract terms for new deal creation.\n- Identify updates needed to a deal.",
+        "workflowId": {
+          "__rl": true,
+          "value": "LlZxIeogO9hPJ72V",
+          "mode": "list",
+          "cachedResultName": "DI-SUBS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{  {\n\"user_id\": $('Input').first().json.session.user_id,\nsession_data: $json.session.session_data,\nlast_email: $json.session.last_email,\nhistory:$json.session.history\n} }}",
+            "action": "deal_search"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -5480,
+        2980
+      ],
+      "id": "99f0a51c-2a29-4799-9f26-f7162a7df39f",
+      "name": "Deal Search1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8bbcecc1-c9e7-4b72-9072-e3d662963236",
+              "name": "session",
+              "value": "={{  $('Trigger').item.json.data }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5860,
+        2760
+      ],
+      "id": "64f106fb-538f-4571-adf0-c056afd4bb68",
+      "name": "Input"
+    },
+    {
+      "parameters": {
+        "name": "invoice_search",
+        "description": "=This tool is called everytime information about invoice is needed. ile.\n- Identify if a invoice exists for the the email thread or a deal.\n- Extract terms for new invoice create.\n- Identify updates needed to a invoice.",
+        "workflowId": {
+          "__rl": true,
+          "value": "LlZxIeogO9hPJ72V",
+          "mode": "list",
+          "cachedResultName": "DI-SUBS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{  {\n\"user_id\": $('Input').first().json.session.user_id,\nsession_data: $json.session.session_data,\nlast_email: $json.session.history,\nhistory:$json.session.history\n} }}",
+            "action": "invoice_search"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -5360,
+        2980
+      ],
+      "id": "1eab6aa0-f457-4cc7-8d37-e021dfe7af59",
+      "name": "Invoice Search"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c64b45d-7d25-4593-8614-aeeb7cfdf60b",
+              "name": "deal_and_invoice_findings",
+              "value": "={{ $('Finder').first().json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "ea696e19-bb99-417f-abf1-a2f59a3e09a5",
+              "name": "metadata",
+              "value": "={{ $json.user_session.parseJson() }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5040,
+        2760
+      ],
+      "id": "1bf92967-4a73-461b-a01f-2b197e236bcb",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_199bab5d06c5ffacb07af3f8-c51e-42df-b5c7-6b5248a5ee5e"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -6960,
+        3060
+      ],
+      "id": "411972b1-f5b8-4f23-afc1-fd318d2f0279",
+      "name": "User Session2",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyse the below recent email, previous discussion on the deal an details from document(If provided) to decide the correct classify and extract the data in a welll structured format according to the provided schema.;\n\nLatest Email: {{ $json.session.last_email }}\n\nEmail Thread: {{\n`Subject: ${$json.session.session_data.Subject}\\n, Emails: ${$json.session.session_data.Emails}`\n}}\n\nDeal Document: {{ $json.session.session_data.last_attachment?.document || '' }}\n\nManager's Metadata: {{ JSON.stringify($json.session.Manager, null, ' ') }}",
+        "options": {
+          "systemMessage": "=Expert agent that executes client verification, deal searches, and invoice searches. Reports findings to the Recommender Agent for final recommendations to Manager.\n\n---\n\n## CRITICAL TOOL USAGE RULE\n\n**ALWAYS call relevant tools on EVERY interaction** - even for corrections or follow-ups. Tools provide the latest system state. Never rely solely on previous tool results or cached data.\n\n---\n\n## EXECUTION FLOW\n\n### Sequential Steps (unless instructed to skip):\n1. Client Verification → 2. Deal Search → 3. Invoice Search → 4. File Operations (optional)\n\n### Core Rules:\n- **Call tools every time** to get latest data\n- Never skip steps even with incomplete info\n- Never hallucinate - use `null` for missing data\n- Process tool responses completely before next step\n- Check latest user email for specific requests or clarifications\n\n---\n\n## HANDLING CORRECTIONS & FOLLOW-UPS\n\n### When Manager Provides Corrections or New Info:\n\n**Step 1: Acknowledge & Extract**\n- Identify what was corrected (Client/Deal/Invoice)\n- Note previous value vs. updated value\n- Determine affected downstream steps\n\n**Step 2: Re-Execute with Tool Calls**\n- **Client correction** → Re-call `client_search` with corrected name/identifier → Re-call `deal_search` → Re-call `invoice_search` (if applicable)\n- **Deal correction** → Re-call `deal_search` with corrected parameters → Re-call `invoice_search` (if applicable)\n- **Invoice correction** → Re-call `invoice_search` with corrected parameters\n\n**Step 3: Confirm Updates**\n- Verify re-execution completed with fresh tool calls\n- Confirm new results align with correction\n\n### Priority Rules for Conflicting Data:\n1. **Latest manager correction** (highest)\n2. **Current tool call results**\n3. Last Email\n4. Email Thread\n5. Deal Document\n\n---\n\n## DEFINITIONS\n\n**Person**: Individual contributor (producer, mixer, songwriter, performer)\n- Fields: `person_legal_name`, `person_performer_name`\n- Example: John Smith (legal), DJ Snake (performer)\n\n**Artist**: Musical brand/entity\n- Field: `artist_name`\n- Example: The Beatles, Daft Punk\n\n**Note**: Same name can be both (e.g., Bella Poarch)\n\n---\n\n## STEP 1: CLIENT VERIFICATION\n\n### Include:\nProducers, mixers, songwriters, performers, contributors mentioned in communications\n\n### Exclude:\nManager (unless self-representing), organizations, pure artist entities\n\n### Process:\n1. Extract names from all sources\n2. **Call `client_search` for each unique name** (mandatory, even if previously called)\n3. Process response:\n\n| Tool Response | Status | Action |\n|---------------|--------|---------|\n| Success with data | `verified` | Extract exact values, proceed to Step 2 |\n| Not found | `not_found` | Flag for manager confirmation, STOP |\n| Timeout (3 attempts) | `unknown` | Continue with caveat |\n| Error | `unknown` | Continue with caveat |\n\n### If Multiple Matches:\nFlag for clarification: List all matches with distinguishing details (book_id, role, location). Request manager specify correct option.\n\n### Next Action:\n- **Verified** → Proceed to Step 2 (carry forward `book_id`, `book_number`)\n- **Not verified** → STOP and flag for manager confirmation\n\n---\n\n## STEP 2: DEAL SEARCH & ANALYSIS\n\n### Execution:\nOnly if client verification successful OR manager override provided\n\n### Process:\n1. **Call `deal_search` with verified client data** (mandatory, even if previously called)\n2. Analyze `deal_search_findings`\n3. Determine action based on `deal_next_step`:\n4. Follow 'the next_tool_instructions'(if provided) from the tool output to decide proceeding to next step.\n\n| deal_next_step | deal_metadata.status | Action |\n|----------------|---------------------|---------|\n| `create_new`, `await_confirmation` | Any | **STOP** - Compile, don't proceed to Step 3 |\n| `update` | `Review` | **STOP** - Compile (no invoicing during Review) |\n| `update` | Other | Compile, **proceed to Step 3** |\n| `no_action` | Any | Note: No changes needed; file storage available |\n\n---\n\n## STEP 3: INVOICE SEARCH & ANALYSIS\n\n### Execution:\nIf Step 2 allows progression OR standalone invoice query\n\n### Process:\n1. **Call `invoice_search` with relevant data** (mandatory, even if previously called)\n2. Analyze `invoice_search_findings` and `invoice_next_step`\n3. Determine action:\n\n| invoice_next_step | Action |\n|-------------------|---------|\n| `create_new`, `await_confirmation` | **STOP** - Compile results |\n| `update` | **STOP** - Compile results |\n| `no_action` | Note: No action needed; file sharing available |\n\n---\n\n## STEP 4: FILE OPERATIONS\n\n### Execution:\nOnly when user requests AND deal/invoice exists with satisfied metadata\n\n### Process:\nCall relevant file tools as requested.\n\n---\n\n## OUTPUT FORMAT\n\n### CORRECTION ACKNOWLEDGMENT (if applicable)\n- **Corrected Field**: [field name]\n- **Previous Value**: [old value]\n- **Updated Value**: [new value]\n- **Re-executed Steps**: [list of tools called with corrected data]\n\n---\n\n### CLIENT/PERSON VERIFICATION\n\n**Status**: [verified / not_found / unknown]\n\n**Verified Details** (if verified):\n- Book ID: [value]\n- Book Number: [value]\n- Legal Name: [value]\n- Performer Name: [value or null]\n- Role: [value]\n- Other relevant fields: [values]\n\n**Issues** (if not_found or unknown):\n- [Description of issue]\n- [Required action from manager]\n\n**Multiple Matches** (if applicable):\n- Option 1: [book_id, name, role, location]\n- Option 2: [book_id, name, role, location]\n- **Manager Action Required**: Please specify correct client\n\n---\n\n### DEAL FINDINGS\n\n**Search Status**: [Executed / Skipped - reason]\ndeal_next_step: create_new|update|await_confirmation|no_action\n\n**Existing Deal** (if found):\n- Deal Number: [value]\n- Status: [value]\n- Deal Type: [value]\n- Key Terms: [summary of relevant terms]\n- Metadata Completeness: [assessment]\n\n**Next Step**: [create_new / update / await_confirmation / no_action]\n\n**Recommended Action**:\n- [Clear description of what needs to happen with the deal]\n- [Any specific fields requiring manager input]\n\n**Stop Checkpoint** (if applicable):\n- ⚠️ **STOPPED**: [Reason - e.g., \"New deal requires manager approval\" / \"Deal in Review status\"]\n- **Manager Action Required**: [Specific next step]\n\n---\n\n### INVOICE FINDINGS\n\n**Search Status**: [Executed / Skipped - reason]\ninvoice_next_step: create_new|update|await_confirmation|no_action\n\n**Existing Invoice** (if found):\n- Invoice Number: [value]\n- Status: [value]\n- Amount: [value]\n- Date: [value]\n- Metadata Completeness: [assessment]\n\n**Next Step**: [create_new / update / await_confirmation / no_action]\n\n**Recommended Action**:\n- [Clear description of what needs to happen with the invoice]\n- [Any specific fields requiring manager input]\n\n**Stop Checkpoint** (if applicable):\n- ⚠️ **STOPPED**: [Reason - e.g., \"New invoice requires manager approval\"]\n- **Manager Action Required**: [Specific next step]\n\n---\n\n### SPECIFIC USER REQUESTS\n\n**Latest Email Analysis**:\n- [Summary of any specific requests, questions, or clarifications from the latest user email]\n- [Action items derived from user's specific needs]\n\n---\n\n### MANAGER DECISION POINTS\n\n**Immediate Actions Required**:\n1. [Action item 1 - if any]\n2. [Action item 2 - if any]\n\n**Confirmations Needed**:\n1. [Confirmation point 1 - if any]\n2. [Confirmation point 2 - if any]\n\n**Available Options**:\n- [Option A: description and implications]\n- [Option B: description and implications]\n\n---\n\n### CAVEATS & UNCERTAINTIES\n\n- [Any assumptions made]\n- [Missing information that may affect recommendations]\n- [System uncertainties or timeout issues]\n\n---\n\n## KEY PRINCIPLES\n\n✓ **Call tools on every interaction** - they reflect latest system state  \n✓ **Re-execute downstream steps** when upstream data corrects  \n✓ **Manager corrections override tool results** when conflicting  \n✓ **Acknowledge all corrections explicitly** with before/after values  \n✓ **Stop at designated checkpoints** (create_new, await_confirmation, Review status)  \n✓ **Never skip verification tools** even if name seems familiar  \n✓ **Check latest email for specific user requests** before finalizing output  \n✓ **Present findings ready for manager decision-making** - clear, actionable, complete\n✓ **Don't invclude sensitive informations with some exceptions** - DON't include sentivie informations such as uuid's(deal_number, invoice_invoice, book_number etc). When refering to deals and invoices, only deal_id and invoice_id(provided as numbers) can be included in the report.\n\n---\n\n## CONVERSATION HISTORY CONTEXT\n\nThe Conversation History is provided below:\n{{ $json.session.history }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -5620,
+        2760
+      ],
+      "id": "58abc812-9e7b-45a2-94b3-934b99d7aefd",
+      "name": "Finder",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('Trigger').first().json.data.session_data.ThreadId+$('Trigger').first().json.data.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -5240,
+        2760
+      ],
+      "id": "a247d9e7-c9d5-4967-bc56-4bd479d255ce",
+      "name": "User Session3",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $json.sub_session.thread_id+$json.sub_session.Manager.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -6500,
+        2840
+      ],
+      "id": "9bb35cdc-f2a5-411a-a0c6-5d8d08bcbf15",
+      "name": "User Session4",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "action": "deals_and_invoices",
+          "data": {
+            "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+            "session_data": {
+              "ThreadId": "199ca1e4028a7c2a",
+              "Emails": "---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 9, 2025, 6:14 PM\nBody: Can you check if there is an invoice already created for this deal?\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 9, 2025, 6:11 PM\nBody: Keep it in current status. Don't touch it.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 9, 2025, 6:07 PM\nBody: Outstanding. Check it again to confirm if it's there.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 9, 2025, 6:03 PM\nBody: Yes, I approve.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 9, 2025, 6:01 PM\nBody: I don't see such a deal. Create a new one please.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 9, 2025, 5:59 PM\nBody: No none of these deals is related to Quincy. Create a master deal with below terms; Name: Quincy Jones. Artist: Arif Lohar Masters: Chunri Chunri, Chaya rahe\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Thu, Oct 9, 2025, 5:56 PM\nBody: From: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Thursday, October 9, 2025 at 5:56 PM\nSubject: Deal\nBody:\nHello. Can you create a new deal for my Client Quincy Jones.\n\n---------------",
+              "Subject": "Deal",
+              "Others": [],
+              "Managers": [
+                {
+                  "name": "Dwayne Hoover",
+                  "address": "dwayne@patchbay.xyz",
+                  "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+                  "person_number": "2752c92b-b570-4f0f-a082-611fe1770ec4",
+                  "Role": "Manager",
+                  "Clients": [
+                    {
+                      "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                      "book_id": "620",
+                      "verification_status": true
+                    }
+                  ]
+                },
+                {
+                  "name": "Agent",
+                  "address": "asst@patchbay.xyz",
+                  "user_id": "9cd5749c-7e7d-4a92-98cd-c1356b626258",
+                  "person_number": "03014402-449b-48bb-8973-212449e99e2f",
+                  "Role": "Manager",
+                  "Clients": []
+                }
+              ],
+              "references": [
+                "<CAP=u+8A30_5pqsPVZNvyY=6+43Vb6xNJ2LYDKHjh9WkOSu+kzA@mail.gmail.com>",
+                "<CAEaeWjTjA=GNq+4b_4vHSXoo+q_etjRzsBSUmHE7aKRjsrabBQ@mail.gmail.com>",
+                "<CAP=u+8ATg_VJ0QU2A52teDQBMtyZLwU-knm8zJmcf4=pEXp6iQ@mail.gmail.com>",
+                "<CAEaeWjS0kLi4O=+ppcv4Y_TUw9DQZ-CgFW-66rfM0oQdDMdBTw@mail.gmail.com>",
+                "<CAP=u+8CaBWRhqCy73EUjUuj2p8v4hqBGtYpgw1_dyzfHhDKm+w@mail.gmail.com>",
+                "<CAEaeWjQmqZfQ0bzj1uiX+80T1BDYx4UBbrZOxowo-9t8pY+oPQ@mail.gmail.com>",
+                "<CAP=u+8AcKvgJq260iDr=kx+pbF8chmeDbKYE9hmFVOAK+OG8Nw@mail.gmail.com>",
+                "<CAEaeWjRH3p2rE2o1WwegK7rRwN2vtfLYxugTM+kkc3UztP20ew@mail.gmail.com>",
+                "<CAP=u+8Dge7sUvRNPM7RVMwJT68TSROcfHaHFVHaXTF0ogWURCw@mail.gmail.com>",
+                "<CAEaeWjQjGt_6UJcUHVAJvcz8puEfh6wqdny42X1sjDnq61kTUQ@mail.gmail.com>",
+                "<CAP=u+8DyT4YZYW+Geae0yuBzrq0JBKRcrVogrmY9U6kDVedxPg@mail.gmail.com>",
+                "<CAEaeWjQ10ktX4dQk1tV7i0wrk+toUz6NkRm-TN0hrD9Btre4cg@mail.gmail.com>"
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            },
+            "last_email": "Can you check if there is an invoice already created for this deal?",
+            "Manager": {
+              "name": "Dwayne Hoover",
+              "address": "dwayne@patchbay.xyz",
+              "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+              "Clients": [
+                {
+                  "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                  "book_id": "620",
+                  "verification_status": true
+                }
+              ]
+            },
+            "history": "### Conversation (last 5 turns)\n\n**User** Keep it in current status. Don't touch it. Last interaction: 2025-10-09T18:12:51.235Z\n\n**AI** Dwayne, the master deal for Producer Quincy Jones with Artist Arif Lohar covering the masters \"Chunri Chunri, Chaya rahe\" is now present in the system. The deal is currently in Needs Review status and awaits your approval before any further steps can be taken. Deal Producer: Quincy Jones Artist: Arif Lohar Masters: Chunri Chunri, Chaya rahe Status: Needs Review Key Terms: Fee USD 1000.00 (50% up front, 50% on delivery); Recoupable Percentage: 30%; Kill Fee: USD 200.00 Payment Status: Unpaid Deal ID: 857 Please reply with \"Approved\" if you'd like me to proceed, or let me know if you require any changes to the deal terms. Best, Patchbay Assistant\n\n**User** Outstanding. Check it again to confirm if it's there. Last interaction: 2025-10-09T18:10:07.048Z\n\n**AI** I have created a new master deal as requested: Producer: Quincy Jones Artist: Arif Lohar Masters: Chunri Chunri, Chaya rahe Status: Needs Review ✓ Action Completed A new master deal for Producer Quincy Jones and Artist Arif Lohar (masters: Chunri Chunri, Chaya rahe) has been created and is now in your system. The deal is currently set to 'Needs Review'. Is there anything else I can help you with? Best, Patchbay Assistant\n\n**User** Yes, I approve. Last interaction: 2025-10-09T18:04:47.862Z\n\n**AI** I have created a new master deal as requested: Deal ID: 857 Producer: Quincy Jones Artist: Arif Lohar Masters: Chunri Chunri, Chaya rahe Status: Needs Review The deal is now in the system and awaits further review or next steps.\n\n**User** \"\" Last interaction: 2025-10-09T18:04:38.889Z\n\n**AI** Dwayne, I found that there is no existing deal matching your requested terms for Producer Quincy Jones with Artist: Arif Lohar and Masters: Chunri Chunri, Chaya rahe. Deal Producer: Quincy Jones Artist: Arif Lohar Masters: Chunri Chunri, Chaya rahe Please reply with \"Approved\" if you'd like me to proceed with creating this new master deal. Best, Patchbay Assistant\n\n**User** I don't see such a deal. Create a new one please. Last interaction: 2025-10-09T18:02:41.796Z\n\n**AI** (no reply found)_"
+          },
+          "ai_input": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-09T18:36:22.528Z",
+  "versionId": "c6a4da9f-5962-4c1f-98c9-898d38ea45c8"
+}
