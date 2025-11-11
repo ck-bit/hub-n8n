@@ -1,0 +1,431 @@
+{
+  "active": false,
+  "connections": {
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "ArtistLookup",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ArtistLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ParserSchema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PreparePayload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PreparePayload": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MasterLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-10T10:26:21.432Z",
+  "id": "edvVZIyd7pzBUOAB",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sync License",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        428,
+        620
+      ],
+      "id": "5c8ea1bc-fc8b-460c-90e2-c1cb142aadc7",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        200
+      ],
+      "id": "a09622b2-9f8d-4762-9600-60d77a22b8ae",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        420
+      ],
+      "id": "b9d244e5-e283-4dcf-818d-c29e8937eee5",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Deal Document: {{ $json.document }}\\n\ntype: {{ $json.subtype }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Your job is to analyse the given \"Deal Document\" and extract the required filds specified in the JSON Schema.\n\nYou must get the relevant data by executing the tools based on \"as needed\"\n\nYour output must be in JSON format."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        444,
+        200
+      ],
+      "id": "39e5b5f5-d560-4ecd-8ef6-555d45725dc2",
+      "name": "Agent"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "ArtistRetriever",
+        "toolDescription": "If \"type\" is \"featured_artist\". Run this tool to get the relevant data. Input to this tool is artist name.",
+        "tableName": "patchbay_embeddings",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "for",
+                "value": "artists"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        340,
+        422.5
+      ],
+      "id": "5589b359-77c1-499d-84b2-a084ca0b6b58",
+      "name": "ArtistLookup",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"book_id\": {\n      \"type\": \"string\",\n      \"description\": \"Identifier for the associated Book of Work. Provided as input.\"\n    },\n    \"artist_name\": {\n      \"type\": \"string\",\n      \"description\": \"Name of the performing or releasing musical entity extracted from tool:ArtistRetriever using the artist name found in the Deal Document.\"\n    },\n    \"artist_number\": {\n      \"type\": \"string\",\n      \"description\": \"Unique identifier for the Artist entity retrieved from tool:ArtistRetriever using the artist name found in the Deal Document.\"\n    },\n    \"master_name\": {\n      \"type\": \"string\",\n      \"description\": \"Name of the master recording related to the sync license, retrieved using the MasterRetriever tool.\"\n    },\n    \"master_number\": {\n      \"type\": \"string\",\n      \"description\": \"Unique identifier for the Master associated with the sync license, retrieved from tool:MasterRetriever.\"\n    },\n    \"spotify_id\": {\n      \"type\": \"string\",\n      \"description\": \"Spotify ID of the master track associated with the sync license deal.\"\n    },\n    \"status\": {\n      \"type\": \"string\",\n      \"description\": \"Current status of the sync license deal as identified in the Deal Document.\",\n      \"enum\": [\n        \"Needs Review\",\n        \"Counterparty Action\",\n        \"Client Signature\",\n        \"Counterparty Signature\",\n        \"Fully Executed\",\n        \"Terminated\"\n      ]\n    },\n    \"status_updated_at\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"Timestamp of the most recent status update from the Deal Document.\"\n    },\n    \"licensor\": {\n      \"type\": \"boolean\",\n      \"description\": \"Indicates whether the client is the licensor in the sync license deal.\"\n    },\n    \"fee_amount\": {\n      \"type\": \"number\",\n      \"description\": \"The amount of the fee agreed upon in the sync license deal.\"\n    },\n    \"fee_currency\": {\n      \"type\": \"string\",\n      \"enum\": [\"USD\", \"EUR\", \"GBP\", \"JPY\", \"AUD\", \"CAD\"],\n      \"description\": \"Currency of the fee amount in the sync license deal.\"\n    },\n    \"agreement_link\": {\n      \"type\": \"string\",\n      \"description\": \"URL or link to access the agreement file (usually a PDF or document).\"\n    },\n    \"agreement_file_key\": {\n      \"type\": \"string\",\n      \"description\": \"Storage key or path to the agreement file in the document storage system.\"\n    },\n    \"notes\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Additional notes or remarks related to the sync license deal, if mentioned in the Deal Document.\"\n    },\n    \"original_file_name\": {\n      \"type\": \"string\",\n      \"description\": \"Original name of the uploaded sync license deal file, extracted from the input payload (excluding file extension).\"\n    },\n    \"priority\": {\n      \"type\": \"integer\",\n      \"description\": \"Priority assigned to the sync license deal (1 being the highest priority).\"\n    },\n    \"start_date\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"date\",\n      \"description\": \"Start date of the sync license deal, if applicable.\"\n    }\n  },\n  \"required\": [\n    \"book_id\",\n    \"artist_name\",\n    \"artist_number\",\n    \"master_name\",\n    \"master_number\",\n    \"spotify_id\",\n    \"status\",\n    \"status_updated_at\",\n    \"licensor\",\n    \"fee_amount\",\n    \"fee_currency\",\n    \"agreement_link\",\n    \"agreement_file_key\",\n    \"original_file_name\",\n    \"priority\"\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        756,
+        420
+      ],
+      "id": "715fb074-21c1-489f-a361-fa0d29b350c0",
+      "name": "ParserSchema"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad142379-c41b-4b51-acb2-31ae1cebf66b",
+              "leftValue": "={{ typeof $json.output === 'string' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        956,
+        200
+      ],
+      "id": "310a3ba3-e1bd-4080-99bb-df1b719cf9df",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1176,
+        400
+      ],
+      "id": "da13c6c4-ac53-4e1e-92c5-f804c1b516c7",
+      "name": "IfFailed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e84ac3-4ec7-4210-b2f1-a6cd94acd695",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ce8bfc-bd10-40ee-b723-cfe88c028dbe",
+              "name": "output.book",
+              "value": "={{ $('Trigger').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "d577df6f-a52a-452b-9cd9-43984f3b367d",
+              "name": "type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1176,
+        200
+      ],
+      "id": "d72d7faa-d4d1-4b4e-8310-75cc2e524ae9",
+      "name": "Update"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k29nXdKslVJNTozZ",
+          "mode": "list",
+          "cachedResultName": "New Fields Recommender"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1396,
+        0
+      ],
+      "id": "b2fda759-2758-4343-98c7-679068cbb1a2",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5142cf48-42e6-4c07-9d0c-77086df272d8",
+              "name": "extracted_schema",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "9a6e5008-0913-4195-837f-3b019b01d042",
+              "name": "deal_document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "caf6f8c2-f645-47ab-a67f-912d120fa7a4",
+              "name": "deal_type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1176,
+        0
+      ],
+      "id": "37c2d511-13d7-497c-bc4e-9b703a6f0aaf",
+      "name": "PreparePayload"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Get Data related to Masters.",
+        "operation": "executeQuery",
+        "query": "SELECT \n    m.id,\n    m.number,\n    m.name,\n    m.isrc,\n    m.master_type,\n    m.status,\n    'master' AS entity_type\nFROM \n    song_master m\nWHERE \n    m.id = (\n        SELECT id \n        FROM books_bookofwork \n        WHERE deleted_at IS NULL  \n          AND number = '{{ $('Trigger').item.json.number }}'\n    )\n    AND m.deleted_at IS NULL;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        636,
+        420
+      ],
+      "id": "5124dba4-1c17-4e26-9632-5c49c073ba39",
+      "name": "MasterLookup",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "none",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "OXd6Bgv6fGlRWzmQ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-22T10:46:55.492Z",
+  "versionId": "0a29d41e-7f99-423e-932b-1175c64cbe4a"
+}
