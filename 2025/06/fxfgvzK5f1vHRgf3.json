@@ -1,0 +1,709 @@
+{
+  "active": false,
+  "connections": {
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "InstrumentLookup",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ParserSchema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InstrumentLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MastersLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ArtistLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PersonLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PreparePayload1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-03T04:20:55.864Z",
+  "id": "fxfgvzK5f1vHRgf3",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Master",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2500,
+        1140
+      ],
+      "id": "4f1e311f-c558-46a1-812a-0df2153c69ff",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Deal Document: {{ $json.document }}\\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are extracting structured data from a Deal Document.\n\nYou have access to the following tools:\n- PersonRetriever: Call once for the producer, mixer, or featured artist. Search on the legal name as found in the document and set as legal_name field. Use \"P/k/a\" or \"profesionally known as\" for the performer_name field as found in the document.\n- MasterRetriever: Call once for each track title found in the document. Titles may appear as: \"Track: XYZ\", “the song entitled…”, in quotes, etc.\n- ArtistRetriever: Call once per artist name found in the document.\n\nOnly use exact names from the document for tool calls. Do not reuse names from previous tool responses.\n\nDo not make duplicate calls for the same name/query. If no result is found, give up and set the field to null. Max iteration should be 1.\n\nIf a bonus is mentioned in the document, include it in the output under the \"bonus\" field in master agreements.\n\nRespond only with JSON matching the output schema.\n",
+          "maxIterations": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -2320,
+        720
+      ],
+      "id": "a17c4b23-b7de-42fc-a75c-f9629f914a99",
+      "name": "Agent",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "maxTries": 2,
+      "alwaysOutputData": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2720,
+        720
+      ],
+      "id": "b7bff6bb-dbe2-46c9-8bb4-ddbb5a0fa2a5",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"type\": {\n            \"type\": \"string\",\n            \"description\": \"The type of deal detected in the document. Use 'Producer' when the deal involves contributions to the master recording as a producer, instrumentalist, or session musician, even if they are not a featured or side artist. Use 'Mixer' when the deal is for mixing work. Use 'Featured Artist' only when the agreement covers a vocal or prominent performance that is credited as a featured or side artist in the release's public-facing metadata.\",\n            \"enum\": [\n                \"Producer\",\n                \"Mixer\",\n                \"Featured Artist\"\n            ]\n        },\n        \"person_name\": {\n            \"type\": \"string\",\n            \"description\": \"Name of the producer, mixer, or featured artist (not main artist) providing services in the document, extracted by running the tool:PersonRetriever with name as query identified from the Deal Document.  A 'person' in this schema refers strictly to a human individual involved in the creation or production of music. This is not the same as an Artist. If the document names someone providing services that name must be passed to tool:PersonRetriever to get the correct match from the database.\"\n        },\n\"person_performer_name\": {\n            \"type\": [\"string\", null],\n            \"description\": \"Performer name of the producer, mixer, or featured artist (not mainartist) extracted by running the tool:PersonRetriever with name as query identified from the Deal Document. A 'person' in this schema refers strictly to a human individual involved in the creation or production of music. This may be the same as the legal name, or different. If the document names someone providing services that name must be passed to tool:PersonRetriever to get the correct match from the database.\"\n        },\n        \"person_number\": {\n            \"type\": [\"string\", null],\n            \"description\": \"number extracted from tool:PersonRetriever payload using the person name (e.g., producer, mixer, contributor) as the query. Used to uniquely identify the Person in the database. Do not set if there is no person found / no matches.\"\n        },\n        \"artist_name\": {\n            \"type\": [\"string\",\n              null],\n            \"description\": \"Name of the performing or releasing musical entity associated with the master recording in the deal document. In producer or mixer deals, this refers to the main artist or group for whom the production or mixing services are being provided. An 'Artist' is the credited performer or act (e.g., solo artist or band) and not the individual producer or mixer. For example, if a producer agreement is for work on a song by 'Bella Poarch', then 'Bella Poarch' is the artist_name. If the artist entity cannot be found in the ArtistRetriever, set this field anyway to the first query.\"\n          \n        },\n        \"artist_number\": {\n            \"type\": [\"string\", null],\n            \"description\": \"number extracted from tool:ArtistRetriever payload using the artist name as query, only set if there is an exact name match. Used to uniquely identify the Artist in the system. If the artist entity cannot be found in the ArtistRetrieve, set this field to null.\"\n        },\n        \"work_for_hire\": {\n            \"type\": \"boolean\",\n            \"description\": \"Indicates whether the deal is a work-for-hire agreement as identified in the Deal Document\",\n            \"default\": true\n        },\n        \"active\": {\n            \"type\": [\n                \"boolean\",\n                null\n            ],\n            \"description\": \"Indicates whether the deal is currently active, as identified in the Deal Document\"\n        },\n        \"status\": {\n            \"type\": \"string\",\n            \"description\": \"Status of the deal as identified in the Deal Document whether both parties have signed or not. If both parties have signed, mark as fully executed. If the counterparty (whoever is not the client), mark as 'Counterparty Signature'. If the client signature is missing, mark as 'Client signature\",\n            \"enum\": [\n                \"Needs Review\",\n                \"Counterparty Action\",\n                \"Client Signature\",\n                \"Counterparty Signature\",\n                \"Fully Executed\",\n                \"Terminated\"\n            ]\n        },\n        \"status_updated_at\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"Timestamp of the most recent status update from the Deal Document\"\n        },\n        \"payment_status\": {\n            \"type\": \"string\",\n            \"description\": \"Payment status as extracted from the Deal Document\",\n            \"enum\": [\n                \"Paid\",\n                \"Unpaid\"\n            ]\n        },\n        \"fee_amount\": {\n            \"type\": \"number\",\n            \"description\": \"Fee amount in the specified currency as extracted from the Deal Document\"\n        },\n        \"fee_currency\": {\n            \"type\": \"string\",\n            \"description\": \"Currency of the fee as extracted from the Deal Document\",\n            \"enum\": [\n                \"USD\",\n                \"EUR\",\n                \"GBP\",\n                \"JPY\",\n                \"AUD\",\n                \"CAD\"\n            ]\n        },\n        \"fee_schedule\": {\n            \"type\": \"string\",\n            \"description\": \"Payment schedule type as extracted from the Deal Document\",\n            \"enum\": [\n                \"100% Up Front\",\n                \"50% Up Front, 50% On Delivery\",\n                \"100% On Delivery\"\n            ]\n        },\n        \"kill_fee_currency\": {\n            \"type\": \"string\",\n            \"description\": \"Currency of the kill fee as extracted from the Deal Document\",\n            \"enum\": [\n                \"USD\",\n                \"EUR\",\n                \"GBP\",\n                \"JPY\",\n                \"AUD\",\n                \"CAD\"\n            ]\n        },\n        \"kill_fee_amount\": {\n            \"type\": \"number\",\n            \"description\": \"Kill fee amount in the specified currency as extracted from the Deal Document\"\n        },\n        \"percent_recoupable\": {\n          \"type\": [\"number\", null],\n          \"minimum\": 0.0,\n          \"maximum\": 1.0,\n          \"description\": \"A decimal number between 0 and 1 representing the percent recoupable\",\n          \"format\": \"float\",\n          \"multipleOf\": 0.0001\n        },\n        \"executed_contract\": {\n            \"type\": \"string\",\n            \"description\": \"Identifier or key for the executed contract file\"\n        },\n        \"execution_date\": {\n            \"type\": \"string\",\n            \"format\": \"date\",\n            \"description\": \"Date the agreement was executed\"\n        },\n        \"priority\": {\n            \"type\": \"integer\",\n            \"description\": \"Priority of the deal for processing or tracking\",\n            \"default\": 1\n        },\n        \"notes\": {\n            \"type\": [\n                \"string\",\n                null\n            ],\n            \"description\": \"Any optional notes related to the deal\"\n        },\n        \"original_file_name\": {\n            \"type\": \"string\",\n            \"description\": \"Assign an appropriate name based on the content of the deal document(including the dealing parties) without extenstions i.e .pdf/.doc etc\"\n        },\n        \"start_date\": {\n            \"type\": \"string\",\n            \"format\": \"date\",\n            \"description\": \"Start date of the agreement\"\n        },\n        \"agreements\": {\n            \"type\": \"array\",\n            \"description\": \"A list of individual master agreements extracted from the deal document. Each item corresponds to one master recording listed in the Schedule 1 or any referenced list of masters/compositions. If the document references multiple masters, a separate agreement object should be created for each. Agreements define the deal terms between a contributor (e.g., producer, mixer, featured artist) and the main artist or label. Do not include the main artist in this list—only named individuals providing creative or technical services. Include bonus field if and only if bonus payouts are explicitly and unambiguously mentioned in the document. Do not infer or fabricate bonus terms. Omit entirely (set to null) if no clear bonus clause is found.\",\n            \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"person_name\": {\n                        \"type\": \"string\",\n                        \"description\": \"This MUST be the same as the master deal. Name of the producer, mixer, or featured artist (not main artist) providing services in the document, in the main schema, extracted by running the tool:PersonRetriever with name as query identified from the Deal Document. A 'person' in this schema refers strictly to a human individual involved in the creation or production of music. This is not the same as an Artist. If the document names someone providing services that name must be passed to tool:PersonRetriever to get the correct match from the database.\"\n                    },\n\n                  \n                    \"person_number\": {\n                        \"type\": [\"string\", null],\n                        \"description\": \"number extracted from tool:PersonRetriever payload using. Used to uniquely identify the Person in the database. Do not set if there is no person found / no matches.\"\n                    },\n                 \"master_name\": {\n  \"type\": \"string\",\n  \"description\": \"The official name of the master recording as it appears in the deal document. Look for track titles or song names even if they appear only once, and even if the language is subtle (e.g., 'the song entitled...', 'Titles:', 'Track: XYZ', 'titled', 'referred to as', or 'commonly known as'). Also refer to the file name itself.\"\n                 },\n\n                  \"type\" :{\n                    \"type\": [\"string\", null],\n                    \"description\": \"Describes the type of master agreement (past, active, or upstream)\",\n                    \"enum\": [\"Past\", \"Active\", \"Upstream\"]\n                  },\n                  \"master_version_subtitle\": {\n\"type\": [\"string\", null],\n\"description\": \"The specific version subtitle of the master recording (e.g., 'Acoustic Version', 'Remix', 'Live Version') as it appears in the deal document. This field is used to distinguish alternate versions of the same master name. If there is no version subtitle for the associated master, set this field to null.\"\n},\n\n           \"master_number\": {\n                        \"type\": [\"string\", null],\n                        \"description\": \"DO NOT set this if we do not find a exactly matching master name from payload of MasterRetriever tool. Search and find master_number from tool:MasterLookup payload if master_name identified from document matches with that of the MasterRetriever payload. If there is no exact match in MastersLookup then set field to null.\"\n                    },\n                    \"status\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"Credit Only\",\n                            \"Needs Drafting\",\n                            \"Awaiting Feedback\",\n                            \"In Review\",\n                            \"Executed\"\n                        ]\n                    },\n                    \"effective_date\": {\n                        \"type\": [\n                            \"string\",\n                            null\n                        ],\n                        \"format\": \"date\",\n                        \"description\": \"Effective date of the agreement, if applicable.\"\n                    },\n                    \"master_royalty\": {\n                         \"type\": [\"number\", null],\n      \"minimum\": 0.0,\n      \"maximum\": 1.0,\n      \"description\": \"A decimal number between 0 and 1 representing the royalty amount\",\n      \"format\": \"float\",\n      \"multipleOf\": 0.0001\n                    },\n                    \"master_royalty_type\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"None\",\n                            \"PPD\",\n                            \"Net Profit\",\n                            \"Net Receipts Equivalent\"\n                        ],\n                        \"description\": \"Type of royalty calculation for the master agreement.\"\n                    },\n                    \"fee\": {\n                        \"type\": \"number\",\n                        \"description\": \"Fee amount associated with the master agreement.\"\n                    },\n                    \"upstream_royalty\": {\n                         \"type\": [\"number\", \"null\"],\n      \"minimum\": 0.0,\n      \"maximum\": 1.0,\n      \"description\": \"A decimal number between 0 and 1 representing the upstream royalty\",\n      \"format\": \"float\",\n      \"multipleOf\": 0.0001\n                    },\n                    \"upstream_royalty_type\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"None\",\n                            \"PPD\",\n                            \"Net Profit\",\n                            \"Net Receipts Equivalent\"\n                        ],\n                        \"description\": \"Type of royalty calculation for the upstream agreement.\"\n                    },\n                    \"upstream_fee\": {\n                        \"type\": \"number\",\n                        \"description\": \"Fee amount associated with the upstream agreement.\"\n                    },\n                    \"upstream_fee_currency\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"USD\",\n                            \"EUR\",\n                            \"GBP\",\n                            \"JPY\",\n                            \"AUD\",\n                            \"CAD\"\n                        ],\n                        \"description\": \"Currency of the fee amount.\"\n                    },\n                    \"neighboring_rights_royalty\": {\n                        \"type\": \"number\",\n                        \"description\": \"Royalty percentage associated with the neighboring rights agreement.\"\n                    },\n                 \"sx_percentage\": {\n  \"type\": [\"number\", null],\n  \"description\": \"Extract the numeric percentage value of artist royalty share being assigned to the LOD (Letter of Direction) recipient for this track on SoundExchange. This is often found in Schedule 1 or summary tables and may be phrased as 'percentage of artist royalties' or 'share to LOD recipient'. Represent this as a decimal between 0.0 and 1.0 (e.g., 5.5% = 0.0555). Do not extract values stated in 'points' or as fractions. If no percentage is clearly stated, set this to null.\",\n  \"minimum\": 0.0,\n  \"maximum\": 1.0,\n \"multipleOf\": 0.0001\n},\n\n\n                    \"start_date\": {\n                        \"type\": [\n                            \"string\",\n                            null\n                        ],\n                        \"format\": \"date\",\n                        \"description\": \"Start date of the master agreement.\"\n                    },\n\n                  \"bonus\": {\n  \"type\": [\"object\", null],\n    \"description\": \"Include bonus field if and only if bonus payouts are explicitly and unambiguously mentioned in the document. Do not infer or fabricate bonus terms. Omit entirely (set to null) if no clear bonus clause is found. Details of a conditional bonus payout to a contributor, based on performance or revenue milestones. This object should be created based on the first clearly defined bonus clause in the agreement, such as thresholds tied to streaming counts or gross earnings. If multiple bonuses are described, include only the first one here and note others in the 'description' field. \",\n  \"properties\": {\n    \"threshold_type\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Streams\",\n           \"Earnings\",\n    \"Other\"\n      ],\n      \"description\": \"The type of milestone that must be reached to trigger a bonus payout. Can be one of: 'streams' (e.g., number of Spotify or Apple Music streams), 'earnings' (e.g., gross revenue from the master), or 'other' (a custom or manual threshold defined in the deal). Do not set if bonus is not mentioned in document.\"\n      \n    },\n    \"threshold_amount\": {\n      \"type\": [\"number\", \"null\"],\n      \"description\": \"The number required for a milestone to be reached to trigger a bonus payout (e.g number of streams, earnings).\"\n    },\n    \"threshold_currency\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Currency of the threshold earnings amount if threshold type is earnings for the bonus\",\n            \"enum\": [\n                \"USD\",\n                \"EUR\",\n                \"GBP\",\n                \"JPY\",\n                \"AUD\",\n                \"CAD\"\n            ]\n    },\n    \"bonus_fee\": {\n      \"type\": [\"number\", \"null\"],\n      \"description\": \"The bonus amount granted to the producer / mixer if threshold is met.\"\n    },\n    \"bonus_currency\": {\n      \"type\": [\"string\", \"null\"],\n       \"description\": \"Currency of the threshold earnings amount if threshold type is earnings for the bonus\",\n        \"enum\": [\n                \"USD\",\n                \"EUR\",\n                \"GBP\",\n                \"JPY\",\n                \"AUD\",\n                \"CAD\"\n            ]\n    },\n    \"description\": {\n      \"type\": [\"string\"],\n      \"description\": \"Include any other additional bonus information (higher bonuses and other payouts if there are more bonuses mentioned)\"\n    },\n    \"achieved\": {\n      \"type\": \"boolean\",\n      \"default\": false\n    }\n  },\n  \"required\": [\"threshold_type\", \"description\", \"bonus_fee\"]\n},\n                    \"credits\": {\n                        \"type\": \"array\",\n                        \"description\": \"List of credits associated with the master agreement\",\n                        \"items\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"credit\": {\n                                    \"type\": \"string\",\n                                    \"enum\": [\n                                        \"Mixer\",\n                                        \"Producer\",\n                                        \"Mastering Engineer\",\n                                        \"Dolby Atmos Mixing Engineer\",\n                                        \"Dolby Atmos Mastering Engineer\",\n                                        \"Additional Production\",\n                                        \"Musician\"\n                                    ]\n                                },\n                                \"instrument\": {\n                                    \"type\": [\n                                        \"string\",\n                                        null\n                                    ],\n                              \"description\": \"If credit = musician, retrieve the name of instrument by calling the tool tool:InstrumentRetriever exactly once for that instrument name. The input to the tool:InstrumentRetriever is instrument name mentioned for the musician in the deal document. If the response is empty, or there is no insrument mentioned in the document, do not call the tol:InstrumentRetriever and set instrument value to null.\"\n                                }\n                            },\n                            \"required\": [\n                                \"credit\"\n                            ]\n                        }\n                    }\n                },\n                \"required\": [\n                    \"person_name\",\n                    \"master_name\"\n                ]\n            }\n        }\n    }, \n    \"required\": [\n        \"type\",\n        \"person_legal_name\",\n        \"artist_name\",\n        \"work_for_hire\",\n        \"active\",\n        \"status\",\n        \"status_updated_at\",\n        \"original_file_name\",\n        \"start_date\",\n        \"agreements\"\n    ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1720,
+        1200
+      ],
+      "id": "ff8a940e-2387-411f-b9c1-350ec674205e",
+      "name": "ParserSchema"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2700,
+        940
+      ],
+      "id": "d0b2e63e-3ef0-4608-bf07-96af66272130",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "InstrumentRetriever",
+        "toolDescription": "If the credit = musician, call this tool exactly once with musical instrument name as input. ",
+        "tableName": "patchbay_embeddings_instruments",
+        "includeDocumentMetadata": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        -2580,
+        960
+      ],
+      "id": "e3ca1ec0-46d8-45b0-a659-6e2a77cd2a34",
+      "name": "InstrumentLookup",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad142379-c41b-4b51-acb2-31ae1cebf66b",
+              "leftValue": "={{ typeof $json.output === 'string' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1800,
+        500
+      ],
+      "id": "37f6b337-05e7-43cb-833c-687a144cf35f",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        940
+      ],
+      "id": "ffe1bd8d-077b-4093-b410-1b0f4f7dec8b",
+      "name": "IfFailed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e84ac3-4ec7-4210-b2f1-a6cd94acd695",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ce8bfc-bd10-40ee-b723-cfe88c028dbe",
+              "name": "output.book",
+              "value": "={{ $('Trigger').item.json.number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1580,
+        400
+      ],
+      "id": "893a85e7-8069-484d-9800-8a38e3214481",
+      "name": "Update"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1840,
+        1040
+      ],
+      "id": "4855155a-0aaa-4f84-9d2e-0c85fb199754",
+      "name": "Auto-fixing Output Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1880,
+        1220
+      ],
+      "id": "13f202a9-451e-4e3d-9845-e17d552a6b97",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "MastersRetriever",
+        "description": "For each master mentioned in the deal contract document, call this tool to retrieve the exact match master by:\n1) Master name\n2 )Master version. \n\nOnly return masters with similar names /version combinations. \n\nOnly set the master number if there is an exact name match.\n\nIf no matches are found, set the master field to null and DO NOT set master number. Only call this once to optimize latency.\nGive up after 1 time.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}",
+            "for": "masters",
+            "threshold": 0.3,
+            "book_number": "={{ $('Trigger').item.json.number }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -2280,
+        960
+      ],
+      "id": "1d59081c-3b7c-45ab-98ab-c0fedb3637f5",
+      "name": "MastersLookup"
+    },
+    {
+      "parameters": {
+        "name": "ArtistRetriever",
+        "description": "=If each artist identified in the \"Deal Document\", run this tool to artist data from the database. Input query to this tool is artist name. Must be an exact match of name. If no matches are found, set the field to null.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}",
+            "for": "artists",
+            "threshold": 0.3
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -2160,
+        960
+      ],
+      "id": "0ab8e5bb-715a-41d5-b504-8b48d2bf432a",
+      "name": "ArtistLookup"
+    },
+    {
+      "parameters": {
+        "name": "PersonRetriever",
+        "description": "=If \"type\" is \"producer\" or \"mixer\" Run this tool exactly one time for a single query to get the relevant data using the name of the producer.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ \n{\nperson_name: $fromAI('person_name', 'Legal name of the writer/songwriter mentioned in the document', 'string'),\nperformer_name: $fromAI('performer_name', 'Performer name  of the writer/songwriter mentioned in the document', 'string'),\nrole: $fromAI('role', 'Role mentioned for the person in the document.', 'string')\n}\n}}",
+            "for": "=persons",
+            "threshold": 0.3
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -2020,
+        960
+      ],
+      "id": "65e5c25e-0361-4f07-b890-adaf0917741d",
+      "name": "PersonLookup"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k29nXdKslVJNTozZ",
+          "mode": "list",
+          "cachedResultName": "New Fields Recommender"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1160,
+        360
+      ],
+      "id": "ac6a25f7-0f6b-4e53-a407-e81864fc3de7",
+      "name": "Execute Workflow1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5142cf48-42e6-4c07-9d0c-77086df272d8",
+              "name": "extracted_schema",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "9a6e5008-0913-4195-837f-3b019b01d042",
+              "name": "deal_document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "caf6f8c2-f645-47ab-a67f-912d120fa7a4",
+              "name": "deal_type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1380,
+        380
+      ],
+      "id": "69bc92e2-dffb-41dc-b17e-91583704c3a9",
+      "name": "PreparePayload1"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "document": "Document Metadata:\n{\"deal_type\":\"Master\",\"deal_discussion\":true,\"deal_id\":null,\"thread_last_updated\":\"2025-10-27T10:33:00Z\",\"deal_next_step\":\"create_new\",\"artist_name\":\"Ali Azmat\",\"masters\":[\"Day Dreaming\",\"Chahat ke din\"]}\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Mon, Oct 27, 2025, 8:46 AM\nBody: Heyy Patchbay, Can you update the deals for my client Quincy Jones with Ali Azmat for the masters mentioned.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Mon, Oct 27, 2025, 8:46 AM\nBody: Heyy Patchbay, Can you update the deals for my client Quincy Jones with Ali Azmat for the masters mentioned.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Mon, Oct 27, 2025, 10:33 AM\nBody: Create a new deal.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Mon, Oct 27, 2025, 8:57 AM\nBody: I want to create a new deal for the project under discussion.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Mon, Oct 27, 2025, 8:46 AM\nBody: Heyy Patchbay, Can you update the deals for my client Quincy Jones with Ali Azmat for the masters mentioned.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Mon, Oct 27, 2025, 8:46 AM\nBody: From: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Monday, October 27, 2025 at 8:46 AM\nSubject: Deal Creation: Quicy Jones X Ali Azmat X (Day Dreaming, Chahat ke din)\nBody:\nHeyy Patchbay,\n\nCan you update the deals for my client Quincy Jones with Ali Azmat for the\nmasters mentioned.\n\n---------------\n### Conversation (last 5 turns)\n\n**User** \"\" Last interaction: 2025-10-27T10:50:29.982Z\n\n**AI** Action Attempted: CreateDeal Status: Failed Details: The attempt to create a new deal for Producer Quincy Jones with Ali Azmat for the masters 'Day Dreaming' and 'Chahat ke din' could not be completed due to a processing error. No further actions have been taken as a result of this failure. Next Steps: Please review the error and try again, or provide additional instructions if you would like to attempt a different action.\n\n**User** Heyy Patchbay, Can you update the deals for my client Quincy Jones with Ali Azmat for the masters mentioned. Last interaction: 2025-10-27T10:50:33.020Z\n\n**AI** X Action Failed The attempt to create a new deal for Producer Quincy Jones with Ali Azmat for the masters 'Day Dreaming' and 'Chahat ke din' could not be completed due to a processing error. No further actions have been taken as a result of this failure. Please review the error and try again, or provide additional instructions if you would like to attempt a different action. Best, Patchbay Assistant\n\n**User** Heyy Patchbay, Can you update the deals for my client Quincy Jones with Ali Azmat for the masters mentioned. Last interaction: 2025-10-27T11:09:54.903Z\n\n**AI** Dwayne, I found that there are already multiple existing deals between Producer Quincy Jones and Ali Azmat for the masters \"Day Dreaming\" and \"Chahat ke din\". Here are the existing deals for these parties and masters: Deal ID 860: Fully Executed, Paid Deal ID 856: Counterparty Signature, Unpaid Deal ID 879: Fully Executed, Unpaid Could you please confirm how you'd like to proceed? Update Deal ID 860 (Fully Executed, Paid) Update Deal ID 856 (Counterparty Signature, Unpaid) Update Deal ID 879 (Fully Executed, Unpaid) Create a brand new deal for Producer Quincy Jones and Ali Azmat for \"Day Dreaming\" and \"Chahat ke din\" Please specify your choice so I can proceed with the correct action. Best, Patchbay Assistant\n\n**User** Update? Last interaction: 2025-11-11T14:54:52.278Z\n\n**AI** Dwayne, I found that Producer Quincy Jones is verified in your workspace, and there are already three deals in the system with Ali Azmat for the masters \"Day Dreaming\" and \"Chahat ke din\": Deal ID: 860 | Status: Fully Executed | Payment Status: Paid Deal ID: 856 | Status: Counterparty Signature | Payment Status: Unpaid Deal ID: 879 | Status: Fully Executed | Payment Status: Unpaid Your request indicates a new deal is needed, but I can't proceed until I have the following missing details: Deal Type (Master, etc.) Status Work For Hire status Execution Date Agreement On File Fee Amount, Currency, and Schedule Kill Fee Percent Recoupable Master Recording terms (Master Name, Status, Effective Date, Fee, Master Royalty, Royalty Type, Credits, Instruments, SX LOD Status) Could you provide these details so I can continue with the new deal creation? Alternatively, if you'd prefer to update or reuse one of the existing deals (IDs: 860, 856, 879), please let me know. Best, Patchbay Assistant\n\n**User** None of these are related to this project. Compile a new deal. Last interaction: 2025-11-11T14:58:37.517Z\n\n**AI** Dwayne, I understand you want to compile a brand new deal between Producer Quincy Jones and Ali Azmat for the masters \"Day Dreaming\" and \"Chahat ke din\", and that none of the existing deals are relevant to this project. To proceed with creating this new deal, I need a few more details: Missing Information Deal Type (Master is assumed, but please confirm) Status (e.g., Draft, Pending, etc.) Work For Hire status Execution Date Agreement On File (Yes/No) Fee Amount and Currency Fee Schedule Kill Fee details Percent Recoupable Master Recording details (Status, Effective Date, Fee, Master Royalty and Type, Credits, Instruments, SX LOD Status) Could you provide these details so I can continue with the new deal creation? Best, Patchbay Assistant",
+          "number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+          "deal_type": "Master"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 780,
+    "errorWorkflow": "OXd6Bgv6fGlRWzmQ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-11T15:06:54.984Z",
+  "versionId": "fdd8ae0b-b329-4ba2-bf23-347cc96b4fec"
+}
