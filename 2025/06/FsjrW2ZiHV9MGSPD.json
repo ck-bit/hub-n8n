@@ -1,0 +1,746 @@
+{
+  "active": true,
+  "connections": {
+    "Router-1": {
+      "main": [
+        [
+          {
+            "node": "OCR",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Process-1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process-1": {
+      "main": [
+        [
+          {
+            "node": "GCPBucket",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GCPBucket": {
+      "main": [
+        [
+          {
+            "node": "UploadFile",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfError1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IfError1": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetSignedURL": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfError1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UploadFile": {
+      "main": [
+        [
+          {
+            "node": "GetSignedURL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OCR": {
+      "main": [
+        [
+          {
+            "node": "SetInput",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfError1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Process-1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "OCR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Router-1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetInput": {
+      "main": [
+        [
+          {
+            "node": "Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extractor": {
+      "main": [
+        [
+          {
+            "node": "Redis1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-03T04:20:00.467Z",
+  "id": "FsjrW2ZiHV9MGSPD",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Orchestration",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4b0ea672-a667-4c33-a163-b711eee6d394",
+              "leftValue": "={{ $json.body.contract_url.startsWith(\"gs://\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2380,
+        580
+      ],
+      "id": "39b06b1c-d69f-4b0c-8d03-d78bb5054f8a",
+      "name": "Router-1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json.message.contract_signed_url;\n\nif (!input.startsWith(\"gs://\")) {\n  throw new Error(\"Invalid GCS link format.\");\n}\n\nconst stripped = input.replace(\"gs://\", \"\");\nconst parts = stripped.split('/');\nconst bucket = parts.shift();\n\n// Join the remaining parts with '/' and then properly encode the entire path\nconst blobPath = parts.join('/');\n\n// Encode the blob path - this will handle spaces, colons, and other special characters\nconst blob = encodeURIComponent(blobPath);\n\nreturn {\n  bucket,\n  blob\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2160,
+        760
+      ],
+      "id": "2f7a622f-233c-4b74-9e17-b23550c51c7c",
+      "name": "Process-1"
+    },
+    {
+      "parameters": {
+        "resource": "object",
+        "operation": "get",
+        "bucketName": "={{ $json.bucket }}",
+        "objectName": "={{ $json.blob }}",
+        "projection": "full",
+        "alt": "media",
+        "getParameters": {},
+        "encryptionHeaders": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.googleCloudStorage",
+      "typeVersion": 1,
+      "position": [
+        -1940,
+        755
+      ],
+      "id": "fb7d23c8-1a22-4df4-8dee-7cc627704b0f",
+      "name": "GCPBucket",
+      "credentials": {
+        "googleCloudStorageOAuth2Api": {
+          "id": "jzaYLc3hMj1WhMUi",
+          "name": "Google Cloud Storage account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1dc24e90-260d-4180-9c62-29e44b403039",
+              "name": "job_id",
+              "value": "={{ $('Request').item.json.body.job_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f8f26781-837a-449f-b347-69488eb59e92",
+              "name": "book_number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "b70e94c2-3e02-476a-8207-847256d0a53b",
+              "name": "status",
+              "value": "=failed",
+              "type": "string"
+            },
+            {
+              "id": "7043de5c-0145-44fd-a2e4-0473823e599f",
+              "name": "contract_url",
+              "value": "={{ $('Request').item.json.body.contract_url }}",
+              "type": "string"
+            },
+            {
+              "id": "a9513d36-2a5b-4b1f-a68d-09c1efc3f4f8",
+              "name": "temp_deal_data",
+              "value": "=Failed on Error: Check workflow logs",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -840,
+        755
+      ],
+      "id": "8e03bdf2-dc36-4a55-b4fd-dac864f9d31e",
+      "name": "IfError1"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=deals:output:{{ $json.job_id }}}",
+        "messageData": "={{ $json.toJsonString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        880
+      ],
+      "id": "cd668429-639e-4579-bbd4-f9e03b0fc88f",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=deals:output:{{ $('Router-1').item.json.body.job_id }}",
+        "messageData": "={{ $json.toJsonString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        380
+      ],
+      "id": "0db08066-87b6-4ac5-b2f0-593f57727711",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/deals/extract-deal-data/status",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -620,
+        680
+      ],
+      "id": "32ed65b3-363c-4090-b834-19fa94bbfaff",
+      "name": "HTTP Request1",
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.mistral.ai/v1/files/{{ $json.id }}/url",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1500,
+        680
+      ],
+      "id": "32b2f0bb-3ea1-4b62-acaf-6b0820bd124f",
+      "name": "GetSignedURL",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "purpose",
+              "value": "ocr"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1720,
+        680
+      ],
+      "id": "40a88761-ab66-4aff-bb08-01143451c3c3",
+      "name": "UploadFile",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/ocr",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"mistral-ocr-latest\",\n  \"document\": {\n    \"type\": \"document_url\",\n    \"document_url\": \"{{ $json.body.contract_signed_url }}\"\n  },\n  \"include_image_base64\": true\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1060,
+        530
+      ],
+      "id": "198a2c21-e1b7-4ae8-8557-392440a8e2fa",
+      "name": "OCR",
+      "retryOnFail": false,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2480,
+        760
+      ],
+      "id": "5838fe42-7101-4442-91b0-f52d6e933874",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "be277a5a-a500-4688-9015-e9d9e1d52acc",
+              "name": "body.contract_signed_url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1280,
+        605
+      ],
+      "id": "b3e4177f-5fbe-44cc-a0bd-ca3f7501c6dd",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"workflow_execution_url\": \"{{ `${$env.N8N_EDITOR_BASE_URL}/workflow/${$workflow.id}/executions/${$execution.id}` }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2380,
+        380
+      ],
+      "id": "33d7cffb-297b-4488-873d-e84e8eb8d94e",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b53ce42a-7b97-43c7-8c91-02c39c38d51c/extract-contract",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2600,
+        480
+      ],
+      "id": "21b6028d-14c4-4ee4-8cc8-dc4afb313069",
+      "name": "Request",
+      "webhookId": "ddc57785-f56b-442e-9288-4c7f1d47a24d"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/deals/extract-deal-data/ingest",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "job_id",
+              "value": "={{ $json.job_id }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=job_id",
+              "value": "={{ $json.job_id }}"
+            },
+            {
+              "name": "book_number",
+              "value": "={{ $json.book_number }}"
+            },
+            {
+              "name": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "name": "contract_signed_url",
+              "value": "={{ $json.contract_signed_url }}"
+            },
+            {
+              "name": "temp_deal_data",
+              "value": "={{ $json.temp_deal_data }}"
+            },
+            {
+              "name": "deal_type",
+              "value": "={{ $json.deal_type }}"
+            },
+            {
+              "name": "contract_file_key",
+              "value": "={{ $json.contract_file_key }}"
+            },
+            {
+              "name": "workflow_execution_url",
+              "value": "={{ $env.N8N_EDITOR_BASE_URL + '/workflow/' + $workflow.id + '/executions/' + $execution.id }}\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -400,
+        580
+      ],
+      "id": "06988809-f1ff-4d68-a831-05ddf3a4c1a2",
+      "name": "HTTP Request",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "kpvXkjvQYZeekDFi",
+          "mode": "list",
+          "cachedResultName": "Extraction"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "job_id": "={{ $json.job_id }}",
+            "book_number": "={{ $json.book_number }}",
+            "contract_signed_url": "={{ $json.contract_signed_url }}",
+            "contract_file_key": "={{ $json.contract_file_key }}",
+            "document": "={{ $json.document }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "job_id",
+              "displayName": "job_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "document",
+              "displayName": "document",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "contract_signed_url",
+              "displayName": "contract_signed_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contract_file_key",
+              "displayName": "contract_file_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -620,
+        480
+      ],
+      "id": "f84d195a-e9e7-4b38-9fb7-30b30f209887",
+      "name": "Extractor",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Check if Request node exists and has been executed\nlet requestData = null;\ntry {\n  const requestNode = $('Request');\n  if (requestNode && requestNode.item && requestNode.item.json && requestNode.item.json.body) {\n    requestData = requestNode.item.json.body;\n  }\n} catch (error) {\n  // Request node doesn't exist or hasn't been called\n  requestData = null;\n}\n\n// Helper function to safely extract value\nconst getValue = (obj, key) => {\n  if (!obj || typeof obj !== 'object') return null;\n  const value = obj[key];\n  return value !== undefined && value !== null ? value : null;\n};\n\n// Process document from current node\nlet document = null;\ntry {\n  const pages = $json?.pages;\n  if (Array.isArray(pages) && pages.length > 0) {\n    document = pages.map(item => [item?.markdown || null]).join(\"\\n\\n\");\n  }\n} catch (error) {\n  document = null;\n}\n\n// Return workflow inputs\nreturn {\n  job_id: getValue(requestData, 'job_id'),\n  book_number: getValue(requestData, 'book_number'),\n  contract_signed_url: getValue(requestData, 'contract_signed_url'),\n  contract_file_key: getValue(requestData, 'contract_file_key'),\n  document: document\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -840,
+        480
+      ],
+      "id": "d72f8732-4985-4e38-b201-ada009726440",
+      "name": "SetInput"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Test workflow’": [
+      {
+        "json": {
+          "message": {
+            "contract_signed_url": "gs://test-abid/BrandDeals/Test_Document_1_Acme_Co_Deal.pdf"
+          }
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "OXd6Bgv6fGlRWzmQ"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:28.765Z",
+      "updatedAt": "2025-05-15T17:50:28.765Z",
+      "id": "v0G772wjLTRankUI",
+      "name": "Carson"
+    },
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    },
+    {
+      "createdAt": "2025-07-14T03:22:48.827Z",
+      "updatedAt": "2025-07-14T03:22:48.827Z",
+      "id": "svU28k8kuaH4ggj4",
+      "name": "Legacy"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-29T05:15:05.975Z",
+  "versionId": "2d99c87f-1174-4770-bd8e-74282f5c97e1"
+}
