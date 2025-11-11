@@ -1,0 +1,1294 @@
+{
+  "active": false,
+  "connections": {
+    "WTrigger": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractDeal": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Fixer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DealTerms": {
+      "main": [
+        [
+          {
+            "node": "ConfirmIfDeal1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ExtractDeal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ConfirmIfDeal1": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Output5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ExtractDeal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fixer": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "ConfirmIfDeal1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ConfirmIfDeal1",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Fixer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reformat1": {
+      "main": [
+        [
+          {
+            "node": "access_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "Reformat1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crypto": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create": {
+      "main": [
+        [
+          {
+            "node": "Output1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token": {
+      "main": [
+        [
+          {
+            "node": "firebaseId",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId": {
+      "main": [
+        [
+          {
+            "node": "Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ClientVerification1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Classifier",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AutoCorrect1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AutoCorrect1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classifier",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AutoCorrect1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "CheckDeal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classifier": {
+      "main": [
+        [
+          {
+            "node": "LogicalRoute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckDeal": {
+      "main": [
+        [
+          {
+            "node": "DealTerms",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LogicalRoute": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Crypto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Output2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-05T12:49:25.715Z",
+  "id": "FtbhlqgbWe0Cbe9c",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "BD-Extraction",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "file",
+              "type": "any"
+            },
+            {
+              "name": "user",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2040,
+        595.5
+      ],
+      "id": "1ed50a4e-a598-45b2-8d79-6460e9e92fd6",
+      "name": "WTrigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "61dae536-27d7-4283-9d83-5e08d58245ed",
+              "leftValue": "={{ $json.file.document !== \"not_supported\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1820,
+        595.5
+      ],
+      "id": "0836186a-8be8-4d38-b515-0ca27a2faac1",
+      "name": "If",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "HrgCVPH9JKKoj5xp",
+          "mode": "list",
+          "cachedResultName": "ExtractDeal-V-1.0.2"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "book_number": "={{ $('Classifier').first().json.output.customer.book_number }}",
+            "document": "={{ $('WTrigger').first().json.file.document }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "job_id",
+              "displayName": "job_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "document",
+              "displayName": "document",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "contract_url",
+              "displayName": "contract_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        544,
+        111.25
+      ],
+      "id": "a3da0c47-78bd-4df4-b5e0-43beba4c71be",
+      "name": "ExtractDeal",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef16f179-351d-441d-b184-6328edcd8162",
+              "name": "message",
+              "value": "={{ $('LogicalRoute').first().json.message_failed }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        984,
+        211.25
+      ],
+      "id": "6c7dab1b-a4f2-489e-be49-947a481d9685",
+      "name": "Output2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b3c8f89b-76ac-4558-bbeb-d98617f44e4d",
+              "name": "message",
+              "value": "=File name provided below is not supported. Currently, only .pdf and .docx files are supported;\nFile Name: {{ $json.file.file_name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1418,
+        671.75
+      ],
+      "id": "26f97085-701e-4b3f-b837-505759d87fd0",
+      "name": "Output3"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"status\": {\n\t\t\t\"type\": [\"boolean\"],\n            \"description\": \"If there is a higly likely match between input1 and input2\"\n    \t},\n      \t\"message\": {\n\t\t\t\"type\": \"string\",\n            \"description\": \"A one sentence message about the presence/absence of the deal in patchbay system with relevant information.\"\n\t\t}\n    }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        56,
+        55
+      ],
+      "id": "c0265485-599a-465e-b079-35c627479a86",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6c7c227f-6ed2-48c7-81e6-0901c13c3db4",
+                    "leftValue": "={{ $json.coalesce.isNotEmpty() && $json.coalesce.confidence_score >= 25 && $json.coalesce.confidence_score < 95 }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0abd766d-4c60-46e8-bc44-6341eb303288",
+                    "leftValue": "={{ $json.coalesce.isEmpty() || $json.coalesce.confidence_score<25 }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e96ad30e-2497-4282-8604-0f0942961d29",
+                    "leftValue": "={{ $json.coalesce.isNotEmpty() && $json.coalesce.confidence_score>=95 }}",
+                    "rightValue": "deals_and_invoices",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -356,
+        -9.75
+      ],
+      "id": "8b2b06b7-586c-4fe7-9c8b-d6c785e4bf08",
+      "name": "DealTerms",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=\"input_1\": {{ JSON.stringify(\n  $('CheckDeal').all().map(item => {\n    const { person_name, artist_name, master_names } = item.json.coalesce;\n    return { person_name, artist_name, master_names };\n  }),\n  null,\n  \" \"\n) }},\n  \n\"input_2\": {{ JSON.stringify({\nperson_name: $('LogicalRoute').first().json.customer.name,\nartist_name: $('LogicalRoute').first().json.deal.artist_name,\nmaster_names: $('LogicalRoute').first().json.deal.master_names,\n  }, null, ' ') \n}}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a matching engine AI responsible for analyzing two inputs:\n- `input_1`: a list of deal objects, each containing information about person, performer, artist, and master names.\n- `input_2`: a single object containing similar attributes to help find a matching deal.\n\nYour task is to:\n1. **Compare `input_2` with each object in `input_1`** using intelligent fuzzy and semantic matching on:\n   - `person_name`\n   - `artist_name`\n   - `master_name`\n2. Use normalization strategies like:\n   - Ignoring middle initials\n   - Case-insensitive comparison\n   - Singular/plural adjustments (e.g., \"SHOW\" vs. \"SHOWS\")\n3. If a **confident match** is found (high similarity in all three fields), return the matching object from `input_1` as per the specified json schema.\n4. If **no close match is found**, return: return the result with no deal_number and deal_id and a message about the deal being not found <insert the details i.e person, artist and master>.\n   ",
+          "maxIterations": 5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -136,
+        -360
+      ],
+      "id": "cd8225e2-622c-4ba0-8177-c5c21c643c22",
+      "name": "ConfirmIfDeal1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "64e10047-32e2-4b01-975d-0cfaf12c7ddd",
+              "leftValue": "={{ $json.output.status }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        324,
+        -162.5
+      ],
+      "id": "13dbe9a8-2388-4cb1-862f-a9c80bb313e9",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5fd707b4-7ce6-451e-bbe1-fc049e3330f9",
+              "name": "message",
+              "value": "={{ $('LogicalRoute').first().json.message_exist }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -16,
+        335
+      ],
+      "id": "d6588401-7346-467f-8c75-e83c2e9fd624",
+      "name": "Output4"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -52,
+        -140
+      ],
+      "id": "51df566f-9e90-4386-ac0e-34d3d441d5cc",
+      "name": "Fixer"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -112,
+        55
+      ],
+      "id": "388e4e91-3a80-4ff7-8fc7-76a9e69d4e6b",
+      "name": "Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5fd707b4-7ce6-451e-bbe1-fc049e3330f9",
+              "name": "message",
+              "value": "={{ $('LogicalRoute').first().json.message_exist }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        544,
+        -212.5
+      ],
+      "id": "c8321ac8-7186-40ea-8dcc-32cc5a101c88",
+      "name": "Output5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5fd707b4-7ce6-451e-bbe1-fc049e3330f9",
+              "name": "message",
+              "value": "={{ $('LogicalRoute').first().json.message_failed }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -356,
+        232.25
+      ],
+      "id": "62cbf83e-5cb4-4d44-aa65-7d44f7f66e49",
+      "name": "Output6"
+    },
+    {
+      "parameters": {
+        "jsCode": "// UUID generator compatible with n8n\nconst generateUUID = () => {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    const r = Math.random() * 16 | 0,\n          v = c === 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n};\n\nconst input = $input.item.json;\n\n// Normalize to ISO date (YYYY-MM-DD) or null\nconst normalizeDate = (value) => {\n  if (!value) return null;\n  const date = new Date(value);\n  return isNaN(date) ? null : date.toISOString().split(\"T\")[0];\n};\n\n// Safely extract agreements\nconst agreements = Array.isArray(input.temp_deal_data?.master_agreements)\n  ? input.temp_deal_data.master_agreements\n  : [];\n\n// Generate AI job ID if missing\nconst ai_extraction_job_id = input.job_id??generateUUID();\n\n// Build output payload\nconst output = {\n  ai_extraction_job_id,\n  book_number: input.book_number,\n  active: input.temp_deal_data?.active ?? false,\n  artist_number: input.temp_deal_data?.artist_number ?? input.temp_deal_data?.artist?.number ?? null,\n  work_for_hire: input.temp_deal_data?.work_for_hire ?? false,\n  executed_contract: input.temp_deal_data?.executed_contract ?? null,\n  execution_date: normalizeDate(input.temp_deal_data?.execution_date),\n  fee_amount: input.temp_deal_data?.fee_amount ?? null,\n  fee_currency: input.temp_deal_data?.fee_currency ?? 'USD',\n  fee_schedule: input.temp_deal_data?.fee_schedule ?? null,\n  kill_fee_amount: input.temp_deal_data?.kill_fee_amount ?? null,\n  kill_fee_currency: input.temp_deal_data?.kill_fee_currency ?? 'USD',\n  payment_status: input.temp_deal_data?.payment_status ?? 'Unpaid',\n  percent_recoupable: input.temp_deal_data?.percent_recoupable ?? null,\n  priority: Number.isInteger(input.temp_deal_data?.priority) ? input.temp_deal_data.priority : 1,\n  person_number: input.temp_deal_data?.person_number ?? input.temp_deal_data?.person?.person_number ?? null,\n  status: input.temp_deal_data?.status ?? 'Needs Review',\n  type: input.temp_deal_data?.type,\n  notes: input.temp_deal_data?.notes ?? null,\n  original_file_name: input.temp_deal_data?.original_file_name ?? null,\n  start_date: normalizeDate(input.temp_deal_data?.start_date),\n  master_credits: agreements.flatMap(agreement =>\n    Array.isArray(agreement.credits)\n      ? agreement.credits.map(c => c.credit)\n      : []\n  ),\n  instruments: agreements.flatMap(agreement =>\n    Array.isArray(agreement.credits)\n      ? agreement.credits.map(c => c.instrument).filter(inst => inst !== null)\n      : []\n  ),\n  master_agreements: agreements.map(agreement => {\n    const credits = Array.isArray(agreement.credits) ? agreement.credits : [];\n    return {\n      person_number: agreement.person_number,\n      master_number: agreement.master_number,\n      deal_number: input.book_number,\n      master_name: agreement.master_name ?? null,\n      master_version_subtitle: agreement.master_version_subtitle ?? null,\n      type: agreement.type ?? null,\n      master_credits: credits.map(c => c.credit),\n      instruments: credits.map(c => c.instrument).filter(inst => inst !== null),\n      status: agreement.status ?? null,\n      effective_date: normalizeDate(agreement.effective_date),\n      upstream_royalty: agreement.upstream_royalty ?? null,\n      upstream_royalty_type: agreement.upstream_royalty_type ?? null,\n      upstream_fee: agreement.upstream_fee ?? null,\n      upstream_fee_currency: agreement.upstream_fee_currency ?? null,\n      fee: agreement.fee ?? null,\n      master_royalty: agreement.master_royalty ?? null,\n      master_royalty_type: agreement.master_royalty_type ?? null,\n      neighboring_rights_royalty: agreement.neighboring_rights_royalty ?? null,\n      sx_percentage: agreement.sx_percentage ?? null,\n      sx_lod_status: agreement.sx_lod_status ?? null,\n      sx_lod_file: agreement.sx_lod_file ?? null,\n      start_date: normalizeDate(agreement.start_date),\n      bonus: agreement.bonus ?? null\n    };\n  })\n};\n\nreturn [{ json: output }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1424,
+        -88.75
+      ],
+      "id": "9f160aa1-ccf3-4196-8755-54bc337cbd61",
+      "name": "Reformat1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/deals/extract-deal-data/ingest",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1204,
+        -13.75
+      ],
+      "id": "0b171b7a-0956-4104-82d0-56cf8ab1a3ef",
+      "name": "HTTP Request7",
+      "retryOnFail": true,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "action": "generate",
+        "dataPropertyName": "job_id"
+      },
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        984,
+        -13.75
+      ],
+      "id": "ed8cd263-1c8d-41aa-a334-6472e4ae78d0",
+      "name": "Crypto"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/masterDeals",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token').item.json.access_token}}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Reformat1').item.json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2084,
+        -163.75
+      ],
+      "id": "8c1c730e-8525-4338-95df-5b6132f2653c",
+      "name": "Create",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1644,
+        -88.75
+      ],
+      "id": "bb4f21fb-8938-47f4-9aa1-0c69087db530",
+      "name": "access_token",
+      "retryOnFail": false,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('WTrigger').item.json.user.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1864,
+        -163.75
+      ],
+      "id": "5408d9f3-d7ae-4a11-8d55-5900215fbf9d",
+      "name": "firebaseId",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef16f179-351d-441d-b184-6328edcd8162",
+              "name": "message",
+              "value": "={{ $('LogicalRoute').first().json.message_success }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2304,
+        -213.75
+      ],
+      "id": "5f91ed3d-09c6-4516-8800-c95e2ff18d20",
+      "name": "Output1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef16f179-351d-441d-b184-6328edcd8162",
+              "name": "message",
+              "value": "={{ $('LogicalRoute').first().json.message_failed }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2304,
+        86.25
+      ],
+      "id": "b3d6e16f-ee83-40db-94b0-f6acf5ca65fe",
+      "name": "Output7"
+    },
+    {
+      "parameters": {
+        "name": "VerifyClient",
+        "description": "Call this tool to verify customer/client associated with the Manager. If no strong bong is found, pass the names available in the thread.",
+        "workflowId": {
+          "__rl": true,
+          "value": "BhzIUYoMuxSE79jf",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.2"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "verify_client",
+            "data": "={{ \n{ \n\"user_id\": $('WTrigger').first().json.user.user_id,\n\"customer_name\": $fromAI(\"person_legal_name\", \"Extract name(Exclude nickname or performer name) of the individual human (e.g., contributor, producer, mixer etc) represented by the manager in the email thread. A 'person' in this refers strictly to a human individual involved in the creation or production of music. This is not the same as an Artist.\", \"string\")\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1512,
+        291.75
+      ],
+      "id": "37ebd64c-2190-4ba0-9683-5cc9b653d234",
+      "name": "ClientVerification1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1572,
+        491.75
+      ],
+      "id": "794edc9e-1a7a-4f3d-a3cb-75588d42bd5e",
+      "name": "Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1392,
+        294.25
+      ],
+      "id": "04fe7601-09f4-4118-9808-7018cd844a08",
+      "name": "AutoCorrect1"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n    \"title\": \"Deal Inputs and Extraction Schema\",\n    \"description\": \"Structured output for client verification (from tool output), deal classification.\",\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n        \"customer\",\n        \"deal\"\n    ],\n    \"properties\": {\n        \"customer\": {\n            \"type\": \"object\",\n            \"description\": \"Customer details associated to the User. Retrieved by running tool:VerifyClient\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"customer_name\",\n                \"customer_status\",\n                \"book_number\",\n                \"book_id\"\n            ],\n            \"properties\": {\n                \"customer_name\": {\n                    \"type\": \"string\",\n                    \"minLength\": 1,\n                    \"description\": \"Exact legal human name from the tool:VerifyClient output (no nicknames, no stage/performer names).\"\n                },\n                \"customer_role\": {\n                    \"type\": \"string\",\n                    \"minLength\": 1,\n                    \"description\": \"Assign an appropriate role to the cusomer based on the services he is providing as mentioined in the docuemnt. Keep it relevant to Music Industry such as producer, Composer etc\"\n                },\n                \"customer_status\": {\n                    \"type\": \"string\",\n                    \"description\": \"Verification status from the tool:VerifyClient output.\",\n                    \"enum\": [\n                        \"verified\",\n                        \"unknown\",\n                        \"not_found\"\n                    ]\n                },\n                \"book_number\": {\n                    \"description\": \"Book number (UUID) if verified. Provided by running tool:VerifyClient; null otherwise.\",\n                    \"anyOf\": [\n                        {\n                            \"type\": \"null\"\n                        },\n                        {\n                            \"type\": \"string\",\n                            \"format\": \"uuid\"\n                        }\n                    ]\n                },\n                \"book_id\": {\n                    \"description\": \"Book ID if verified provided by tool:VerifyClient; null otherwise.\",\n                    \"type\": [\n                        \"string\",\n                        \"null\"\n                    ]\n                }\n            },\n            \"allOf\": [\n                {\n                    \"if\": {\n                        \"properties\": {\n                            \"customer_status\": {\n                                \"const\": \"verified\"\n                            }\n                        },\n                        \"required\": [\n                            \"customer_status\"\n                        ]\n                    },\n                    \"then\": {\n                        \"required\": [\n                            \"book_number\",\n                            \"book_id\"\n                        ],\n                        \"properties\": {\n                            \"book_number\": {\n                                \"type\": \"string\",\n                                \"format\": \"uuid\"\n                            },\n                            \"book_id\": {\n                                \"type\": \"string\",\n                                \"minLength\": 1\n                            }\n                        }\n                    },\n                    \"else\": {\n                        \"properties\": {\n                            \"book_number\": {\n                                \"type\": \"null\"\n                            },\n                            \"book_id\": {\n                                \"type\": \"null\"\n                            }\n                        }\n                    }\n                }\n            ]\n        },\n        \"deal\": {\n            \"type\": \"object\",\n            \"description\": \"Classification details for the identified deal type.\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"deal_type\",\n                \"deal_status\"\n            ],\n            \"properties\": {\n                \"deal_status\": {\n                    \"type\": \"boolean\",\n                    \"description\": \"True if a recognized deal type is discussed; false for Unrecognized.\"\n                },\n                \"deal_type\": {\n                    \"type\": \"string\",\n                    \"description\": \"Primary classification of the deal type.\",\n                    \"enum\": [\n                        \"Record\",\n                        \"Master\",\n                        \"Simple Royalty\",\n                        \"Live Performance\",\n                        \"Sync License\",\n                        \"Publishing\",\n                        \"Neighboring Rights\",\n                        \"Unrecognized\"\n                    ]\n                },\n                \"artist_name\": {\n                    \"description\": \"Name of the performing/releasing entity associated with the deal (e.g., solo or group). Null if not found.\",\n                    \"anyOf\": [\n                        {\n                            \"type\": \"null\"\n                        },\n                        {\n                            \"type\": \"string\",\n                            \"minLength\": 1\n                        }\n                    ]\n                },\n                \"master_names\": {\n                    \"description\": \"Array of master recording names referenced in the document. Use exact titles without extra text. Null if not found.\",\n                    \"anyOf\": [\n                        {\n                            \"type\": \"null\"\n                        },\n                        {\n                            \"type\": \"array\",\n                            \"items\": {\n                                \"type\": \"string\",\n                                \"minLength\": 1\n                            },\n                            \"minItems\": 1,\n                            \"uniqueItems\": true\n                        }\n                    ]\n                }\n            },\n            \"allOf\": [\n                {\n                    \"if\": {\n                        \"properties\": {\n                            \"deal_type\": {\n                                \"const\": \"Unrecognized\"\n                            }\n                        },\n                        \"required\": [\n                            \"deal_type\"\n                        ]\n                    },\n                    \"then\": {\n                        \"properties\": {\n                            \"deal_status\": {\n                                \"const\": false\n                            }\n                        }\n                    },\n                    \"else\": {\n                        \"properties\": {\n                            \"deal_status\": {\n                                \"const\": true\n                            }\n                        },\n                        \"required\": [\n                            \"artist_name\",\n                            \"master_names\"\n                        ],\n                        \"properties\": {\n                            \"master_names\": {\n                                \"type\": \"array\",\n                                \"items\": {\n                                    \"type\": \"string\",\n                                    \"minLength\": 1\n                                },\n                                \"minItems\": 1,\n                                \"uniqueItems\": true\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1284,
+        491.75
+      ],
+      "id": "52dbc676-4b8c-4c70-b6c8-57b6b28c38e8",
+      "name": "Parser1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c72f548-0dbf-491d-ae0e-89d73b019e3d",
+              "leftValue": "={{ $json.forward_to }}",
+              "rightValue": "process",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -796,
+        271.75
+      ],
+      "id": "89f27492-4cf1-4ab7-8ed9-b37b88a9b9d9",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5fd707b4-7ce6-451e-bbe1-fc049e3330f9",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -576,
+        321.75
+      ],
+      "id": "28663fc4-facf-44e3-b21a-dac63c2d9d9c",
+      "name": "Output8"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyse the below deal_document, identify and extract the information required in the provided json parsing schema.;\n\ndeal_document: {{ $json.file.document }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an expert contract classifier and structured information extraction agent for entertainment industry agreements.  \nPerform tasks sequentially and never skip a step, even if information is incomplete.  \nAlways output normalized JSON strictly following the provided schema.  \nDo not hallucinate values. Always include all fields even if empty, null.  \nUse snake_case for all field names.  \n\n---\n\n## Step 1. Customer Verification and Extraction\n- From Deal Document, extract the real human name(Could be producer, Mixer) provided some services to other parties as specipied in the document. It could be any person represented by the 'user' and not the user itself.  \n- Only valid names are full legal names of individuals (contributors, producers, mixers, etc.). Also check performer name if if a legal name is missing for legal name.  \n- Exclude nickname, artist name, and organization name mentioned in the document.  \n- For the identified name, call tool: VerifyClient and assign results to:  \n  - customer_name  \n  - customer_status (verified | unknown | not_found)  \n  - book_number (UUID if verified, null otherwise)  \n  - book_id (if verified, null otherwise)  \n- If no valid name exists, set customer_name = \"\" and customer_status = unknown.\n---\n\n## Step 2. Deal Classification and Relevant information extraction.\n  - Analyze Deal Document for deal type.  \n  - Assign one of: Record, Master, Simple Royalty, Live Performance, Sync License, Publishing, Neighboring Rights, Unrecognised. Below description will help you identify the deals;\n    **Record Deal (Record)**  \n      - Agreement between an artist and a label.  \n      - Mentions recording rights, label_split, distribution_split.  \n      - Often contains reversion_type or reversion_period.  \n      - Language includes record label, recording contract, royalty, ownership.\n\n    **Master Deal (Master)**  \n      - Focused on creation and ownership of master recordings (songs, sound recordings).  \n      - Parties: label/company and producer/musician/mixer.  \n      - Mentions master recording, sound recordings, work_for_hire, recoupable, advance, PPD, royalty, fee_schedule.  \n      - Covers delivery, ownership transfer, sample clearance, credit terms.  \n      - May grant rights to use name, likeness, or composition shares.  \n      - Song-specific discussions between parties also qualify for a master and artist with producer etc.\n      - If a customer, artist and master are present, it's a master deal.\n    \n    **Simple Royalty Deal (Simple Royalty)**  \n    - Agreement with a manager, attorney, or agent.  \n    - Focused on royalty percentages, representation, or commissions.  \n    \n    **Live Performance Deal (Live Performance)**  \n    - Related to live shows, touring, or performances.  \n    - Mentions performance fee, date, venue, payment.  \n    \n    **Sync License Deal (Sync License)**  \n    - Licensing of a song or master recording for use in visual media (film, TV, ads, games).  \n    - Indicators: sync rights, synchronization license, use in film/TV/ad, visual media.  \n    - Parties: artist and licensor/production company.  \n    - Payment typically a flat fee or sync fee.  \n    \n    **Publishing Deal (Publishing)**  \n    - Involves compositions and publishing rights.  \n    - Covers royalty splits for compositions.  \n    - Mentions Publisher, Administrator, Co-Publisher, Sub-Publisher, or Self-Publisher.  \n    \n    **Neighboring Rights Deal (Neighboring Rights)**  \n    - Related to performer or rights owner mandates, societies, territories, repertoire.  \n\n- If multiple types are found, select the most specific.  \n- If uncertain, set deal_type = Unrecognised.  \n- deal_status = true if any recognized deal type is discussed.\n- Furthermore, make sure to extract below data from the provided document;\n  - artist_name: Name of the performing or releasing musical entity associated with the deal being discussed in the email conversation. An Artist is a performance identity (e.g., solo or group). For example, 'Bella Poarch' is an artist. Artist cannot be same as the person.\n  - master_name: Extract correct master(master name). A Master is a finalized audio recording of a musical performance that captures a specific version of a composition, typically created for commercial use, credited to performers or contributors, and owned or controlled by a company under recording agreements. THe contract may mention one or more masters. Make sure to extract complete name of the Master recording without any additional information\n---\n\n## Step 4. Output Rules\n- Output results in normalized JSON strictly following the schema.  \n- Include three top-level objects: customers, deal, invoice.  \n- Do not infer or guess values.  \n- Always process in this exact order:  \n  1. Client Verification  \n  2. Deal Classification"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -1600,
+        71.75
+      ],
+      "id": "ccf4ac13-e93f-4867-8e93-8253516c0602",
+      "name": "Classifier"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "WITH required_names AS (\n  SELECT jsonb_array_elements_text($4::jsonb) AS req_name\n),\ncandidate_deals AS (\n  SELECT\n    d.id,\n    d.fee_amount,\n    d.number AS deal_number,\n    d.book_id,\n    d.status_updated_at,\n    d.payment_status,\n    d.email_thread_last_updated_at,\n    d.status,\n    COALESCE(pp.name, pp.performer_name) AS person_name,\n    ap.name AS artist_name,\n    similarity(COALESCE(pp.name, pp.performer_name), $2) AS sim_person,\n    similarity(ap.name, $3) AS sim_artist\n  FROM deals_masterdeal d\n  JOIN person_personproperties pp ON pp.person_id = d.person_id\n  JOIN person_artistproperties ap ON ap.artist_id  = d.artist_id\n  WHERE\n    d.book_id = $1\n    AND similarity(COALESCE(pp.name, pp.performer_name), $2) >= 0.5\n    AND similarity(ap.name, $3) >= 0.4\n    AND d.deleted_at IS NULL\n),\nper_deal_master_match AS (\n  SELECT\n    cd.id AS deal_id,\n    COUNT(*) FILTER (WHERE msim.best_sim >= 0.4) AS matched_count,\n    COUNT(rn.req_name) AS required_count,\n    AVG(msim.best_sim) AS avg_master_sim,\n    MIN(msim.best_sim) AS min_master_sim\n  FROM candidate_deals cd\n  CROSS JOIN required_names rn\n  LEFT JOIN LATERAL (\n    SELECT MAX(similarity(sm.name, rn.req_name)) AS best_sim\n    FROM deals_masteragreement ma2\n    JOIN song_master sm ON sm.id = ma2.master_id\n    WHERE ma2.deal_id = cd.id\n      AND ma2.deleted_at IS NULL\n  ) msim ON TRUE\n  GROUP BY cd.id\n),\ndeals_with_all_required_masters AS (\n  SELECT\n    cd.*,\n    pdm.avg_master_sim,\n    pdm.min_master_sim\n  FROM candidate_deals cd\n  JOIN per_deal_master_match pdm ON pdm.deal_id = cd.id\n  WHERE pdm.matched_count = pdm.required_count\n),\nfinal_rows AS (\n  SELECT\n    dwrm.fee_amount,\n    dwrm.deal_number,\n    dwrm.id AS deal_id,\n    dwrm.book_id,\n    dwrm.status_updated_at,\n    dwrm.payment_status,\n    dwrm.email_thread_last_updated_at,\n    dwrm.status,\n    dwrm.person_name,\n    dwrm.artist_name,\n    (\n      SELECT COALESCE(json_agg(DISTINCT sm.name ORDER BY sm.name), '[]'::json)\n      FROM deals_masteragreement ma3\n      JOIN song_master sm ON sm.id = ma3.master_id\n      WHERE ma3.deal_id = dwrm.id\n        AND ma3.deleted_at IS NULL\n    ) AS master_names,\n    ROUND(((dwrm.sim_person::numeric + dwrm.sim_artist::numeric + COALESCE(dwrm.avg_master_sim, 0)::numeric) / 3.0) * 100, 2)\n      AS confidence_score,\n    (\n      SELECT json_agg(\n        json_build_object(\n          'id', ma2.id,\n          'number', ma2.number,\n          'status', ma2.status,\n          'effective_date', ma2.effective_date,\n          'master_id', ma2.master_id,\n          'master_royalty', ma2.master_royalty,\n          'upstream_threshold', ma2.upstream_threshold,\n          'sx_lod_status', ma2.sx_lod_status,\n          'fee', ma2.fee,\n          'start_date', ma2.start_date,\n          'credits', (\n            SELECT json_agg(\n              json_build_object(\n                'id', mc.id,\n                'credit', mc.credit,\n                'instrument', mc.instrument\n              )\n            )\n            FROM deals_mastercredit mc\n            WHERE mc.agreement_id = ma2.id\n              AND mc.deleted_at IS NULL\n          )\n        )\n      )\n      FROM (\n        SELECT DISTINCT ma2.*\n        FROM deals_masteragreement ma2\n        WHERE ma2.deal_id = dwrm.id\n          AND ma2.deleted_at IS NULL\n      ) ma2\n    ) AS master_agreements\n  FROM deals_with_all_required_masters dwrm\n  ORDER BY confidence_score DESC\n  LIMIT 1\n)\nSELECT COALESCE(\n  (SELECT row_to_json(final_rows) FROM final_rows LIMIT 1),\n  '{}'::json\n);\n",
+        "options": {
+          "queryReplacement": "={{ $json.customer.book_id}}, {{ $json.customer.name }}, {{ $json.deal.artist_name }}, {{ $json.deal.master_names }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -576,
+        121.75
+      ],
+      "id": "42c3edb7-83d2-4ba8-bd55-ac80ae60e719",
+      "name": "CheckDeal",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JS)\n\n/* ---------- Inputs ---------- */\nconst items = $input.all();\n\n/* ---------- Global file name (from WTrigger) ---------- */\nlet globalFileName = \"<unknown-file>\";\ntry {\n  const wt = $('WTrigger').first();\n  globalFileName = wt?.json?.file?.file_name ?? wt?.json?.file_name ?? \"<unknown-file>\";\n} catch { /* fall back to per-item */ }\n\n/* ---------- Helpers ---------- */\nconst norm = v => String(v ?? \"\").trim().toLowerCase();\nconst safe = (v, fb = \"<unknown>\") => (v == null || String(v).trim() === \"\" ? fb : String(v).trim());\nconst formatMasterNames = names => (Array.isArray(names) && names.length ? names.join(\", \") : \"<none>\");\n\nconst details = ({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw }) => {\n  const parts = [\n    `File Name: ${safe(fileName)}`,\n    `${safe(customerRole)}: ${safe(customerName)}`\n  ];\n  if (artistName !== undefined) parts.push(`Artist Name: ${safe(artistName)}`);\n  if (Array.isArray(masterNames) && masterNames.length) parts.push(`Master Names: ${formatMasterNames(masterNames)}`);\n  if (dealTypeRaw !== undefined) parts.push(`Deal Type: ${safe(dealTypeRaw)}`);\n  return parts.join(\"\\n - \");\n};\n\n/* ---------- Main ---------- */\nreturn items.map(({ json }) => {\n  const output = json.output ?? {};\n  const customer = output.customer ?? {};\n  const deal = output.deal ?? {};\n\n  const fileName = json?.file_name ?? json?.file?.file_name ?? globalFileName;\n\n  const customerName = customer.customer_name ?? null;\n  const customerRole = customer.customer_role ?? 'Client';\n  const customerStatusRaw = customer.customer_status ?? null;\n  const customerStatus = norm(customerStatusRaw);\n  const bookNumber = customer.book_number ?? null;\n  const bookId = customer.book_id ?? null;\n\n  const dealTypeRaw = deal.deal_type ?? null;\n  const dealType = norm(dealTypeRaw);\n  const dealStatus = deal.deal_status ?? null;\n  const artistName = deal.artist_name ?? null;\n  const masterNames = Array.isArray(deal.master_names) ? deal.master_names : [];\n\n  const isNotFound = customerStatus === \"not_found\" || customerStatus === \"unknown\" || customerStatus === \"\";\n  const isExists = customerStatus === \"exists\" || customerStatus === \"verified\";\n  const isMaster = dealType === \"master\";\n  const isUnrecognised = dealType === \"unrecognised\" || dealType === \"unrecognized\" || dealType === \"\" || dealType === null;\n  const isOtherThanMaster = !!dealType && !isMaster && !isUnrecognised;\n\n  let scenario = \"fallback\";\n  let forward_to = \"invalid\";\n  let message =\n    `The data extracted from this file is insufficient and ambiguous for further processing the deal. ` +\n    `Report back to the manager based on the findings below.\\n` +\n    details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n  // Always include these keys; null unless in the process path\n  let message_success = null;\n  let message_failed = null;\n  let message_exist = null;\n  let message_missing = null;\n\n  if (isNotFound && isMaster) {\n    scenario = \"customer_not_found__master\";\n    message =\n      `The ${safe(customerRole)} named ${safe(customerName)} workspace is missing in the Patchbay system due to which the master deal with the details below cannot be processed and created at this time. ` +\n      `Report back to the Manager with the reason and details below:\\n` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n  } else if (isExists && isOtherThanMaster) {\n    scenario = \"customer_exists__other_type\";\n    message =\n      `The ${safe(customerRole)} named ${safe(customerName)} as mentioned in the provided file below has a verified workspace in the Patchbay system; however, processing \"${safe(dealTypeRaw)}\" deals is not supported yet by this Assistant. ` +\n      `Report back to the Manager with the reason and details below.\\n` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n  } else if (isNotFound && isOtherThanMaster) {\n    scenario = \"customer_not_found__other_type\";\n    message =\n      `\"${safe(dealTypeRaw)} are not yet supported by Patchbay Assistant. Also  ${safe(customerRole)} ${safe(customerName)} workspace is missing in the Patchbay System. ` +\n      `Report back to the Manager with progress and below details;` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n  } else if (isExists && isUnrecognised) {\n    scenario = \"customer_exists__unrecognised\";\n    message =\n      `The ${safe(customerRole)} named ${safe(customerName)} as mentioned in the provided has a verified workspace in the Patchbay System, but I could not recognise the type of deal from below provided document` +\n      `Let the manager know about the reason and report back with the details below.\\n` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n  } else if (isNotFound && isUnrecognised) {\n    scenario = \"customer_not_found__unrecognised\";\n    message =\n      `The ${safe(customerRole)} named ${safe(customerName)} as mentioned has no workspace registered in the Manager's account. Also, the deal type cannot be recognised based on the provided document. Respond back to the Manager with the reason and details below;` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n  } else if (isExists && isMaster) {\n    scenario = \"customer_exists__master\";\n    forward_to = \"process\";\n\n    message_success =\n      `The ${safe(customerRole)} named ${safe(customerName)} workspace was successfully verified in Manager's account. Also I have created the Master deal for ${safe(customerName)} in the Patchbay System.` +\n      `Below is the basic detail for which the deal has been created.\\n` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n    message_failed =\n      `Master deal creation for ${safe(customerRole)} named ${safe(customerName)} failed due to some technical reasons. Report back to the Manager with below details and a reason of failure.\\n` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n    message_exist =\n      `${safe(customerRole)} named ${safe(customerName)} is verified in the Manager's workspace. ` +\n      `However, master deal already exists in the Patchbay system for this ${safe(customerRole)}. Report back to manager with below details\\n` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n    message_missing =\n      `FILE: ${safe(fileName)} — Client ${safe(customerName)} is verified. ` +\n      `Master deal is missing and needs to be created for the details below.\\n` +\n      details({ fileName, customerName, customerRole, artistName, masterNames, dealTypeRaw });\n\n    message = message_success;\n  }\n\n  return {\n    json: {\n      forward_to,\n      scenario,\n      message,\n      message_success,\n      message_failed,\n      message_exist,\n      message_missing,\n      file_name: fileName,\n      customer: {\n        name: customerName,\n        status: customerStatusRaw,\n        book_number: bookNumber,\n        book_id: bookId\n      },\n      deal: {\n        status: dealStatus,\n        type: dealTypeRaw,\n        artist_name: artistName,\n        master_names: masterNames // always a list\n      }\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1016,
+        271.75
+      ],
+      "id": "f29dd5e5-5324-494b-b4bb-e7ce147b4b88",
+      "name": "LogicalRoute"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7b1615f4-6ca8-45fe-bb9d-6ca38e19f4ab",
+              "leftValue": "={{ $json.status.includes(\"completed\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        764,
+        36.25
+      ],
+      "id": "97d4b6ba-1b2d-4def-b650-a31d636d13f8",
+      "name": "If4",
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {
+    "WTrigger": [
+      {
+        "json": {
+          "file": {
+            "file_name": "Lil Nas X -w- Alex Goldblatt (FE Producer Agreement) (BIG DUMMY).pdf",
+            "document": "Page 1\n\n# PRODUCER AGREEMENT\n\nThis agreement (\"Agreement\") dated as of March 5, 2025, sets forth the material terms of the agreement between Nasarati, LLC (\"Company\", \"we\" or \"us\"), on the one hand, and Alexander Goldblatt p/k/a \"Alex Goldblatt\" (\"you\" or \"Producer\"), on the other hand, in connection with the master recording(s) set forth below featuring the recorded performance(s) of Montero Lamar Hill p/k/a \"Lil Nas X\" (\"Artist\") recorded in connection with and/or for possible inclusion on, among other things, Artist's upcoming release (the \"Release\") subject to Company's exclusive recording agreement with Columbia Records, a division of Sony Music Entertainment (\"Distributor\" or \"Record Company\"), dated as of March 6, 2019, as amended (\"Recording Agreement\"), the relevant provisions of which (including, without limitation, royalty calculation, accounting, audit and controlled composition provisions and all relevant definitions) are attached hereto as Exhibit A (the \"Recording Agreement Extracts\"). Capitalized terms used herein and not specifically defined herein shall have the meaning(s) ascribed to them in the Recording Agreement; in the event of any discrepancy, the definitions set forth in this Agreement shall be deemed controlling. Producer and Company agree to the following:\n\n|  1. ARTIST: | Montero Lamar Hill p/k/a \"Lil Nas X\" |   |\n| --- | --- | --- |\n|  2. PRODUCER: | Alex Goldblatt |   |\n|  3. COMPANY:\nADDRESS: | Nasarati, LLC\nc/o LL Business Management Inc.\n3000 Marcus Avenue, Suite 1W5\nLake Success, New York 11402\nAttention: Justin Kobay | Contact: Justin Kobay\nEmail: justin@shrkcpasllc.com\nPhone: (516) 616-5900  |\n|  4. PRODUCER\nADDRESS: | Alexander Goldblatt\np/k/a \"Alex Goldblatt\"\n11689 Margate St,\nNorth Hollywood, CA 91601 | Contact: Joshua Hefner\nEmail: jh@markmml.com\nPhone: (337) 739-1312  |\n\n1. COMPOSITION(S) / MASTER(S): One (1) master recording(s) (the \"Master(s)\") embodying Artist's featured performances of the musical composition listed on Schedule 1 (the \"Composition(s)\" and each a \"Composition\") attached hereto and made a part hereof.\n2. SERVICES: Producer shall perform all services in connection with the Master(s) as are customarily performed by producers in the recording industry. The Master(s) shall be commercially and technically satisfactory to both Company and Distributor for the manufacture and sale of records. For the avoidance of doubt, in the event that Producer renders services as a mixer, engineer, vocalist, musician or other performer in connection with the Master, this Agreement shall be automatically deemed to cover such services and Producer shall not be entitled to any additional compensation from Company, Artist or Distributor in connection therewith or otherwise, except as expressly set forth herein. Notwithstanding the foregoing, the parties agree that for purposes of registering with neighboring rights societies, including, but not limited to, the SAG-AFTRA Intellectual Property Rights Distribution Fund, with respect to your contributions as a non-featured performer in connection with Master(s), Producer provided the contribution of programming and/or other instrumental services in furtherance of the Master(s), and Producer is therefore considered a nonfeatured performer on the Master(s) (solely if and as applicable in accordance with your contributions actually embodied on the applicable officially commercially released Master(s)). Company hereby acknowledges the satisfactory completion of Producer's services and the full Delivery and acceptance of the Master(s) hereunder, provided the foregoing acknowledgement shall not in any way prejudice Company's\n\n---\n\nPage 2\n\n|   | or Artist's rights hereunder in the event of any breach of or Producer's representations, warranties, and covenants set forth in this Agreement.  |\n| --- | --- |\n|  7. FEE / ADVANCE / ROYALTY: | Fee / Advance. Company shall pay or shall cause Distributor to pay Producer a fee of Ten Thousand Dollars $(\\$ 10,000.00)$ for the Master delivered and accepted hereunder (the \"Fee\"), Fifty Percent ( $50 \\%$ ) of which such Fee shall not be recoupable from Producer's Royalty (as defined below) but which shall nonetheless be deemed a recoupable Recording Cost (as such term is defined in the Recording Agreement), and Fifty Percent ( $50 \\%$ ) of which such Fee shall be deemed a fully recoupable advance (such portion of the Fee, the \"Advance\") against Producer's Royalty (as defined below). The Fee will be paid promptly following the complete execution of this Agreement.  |\n|   | Royalty. Company shall pay or shall instruct and cause Distributor to pay to Producer a royalty in the amount of One Point Three Percent (1.3\\%) (the \"Base Rate\") PPD as defined in the \"Producer Royalty Provisions\", attached as Schedule 2 and made a part hereof, and pursuant to the irrevocable letter of direction annexed hereto and incorporated by reference herein as Exhibit B on top-line USNRC Net Sales of Records (as defined in the Recording Agreement) (\"Producer's Royalty\") solely embodying Master(s) recorded and produced hereunder. Producer's Royalty shall be calculated, determined, adjusted, reduced and pro-rated on the same basis (without regard to sales based escalations or Artist's overall recoupment status) as Distributor calculates, determines, adjusts, reduces and pro-rates Artist's royalties under the Recording Agreement, and payment of Producer's Royalty shall be subject to the terms and conditions as embodied in the Producer Royalty Provisions and the Recording Agreement Extracts, as applicable.  |\n|  8. CONTROLLED COMPOSITION | The parties acknowledge that the Composition(s) shall be owned and/or controlled in accordance with the ownership interests set forth on Schedule 1. In the event that any composition(s) which are wholly or partly written, owned or controlled by Producer, or Producer Personnel (hereafter defined) is embodied in the Master, Producer hereby irrevocably license (and shall use reasonable efforts to cause their and Producer Personnel's respective publishing designee(s) [each, a \"Producer Publisher\"] to license) their respective share(s), in and to the Composition(s) to Company, Artist, Distributor, and each of their respective designees, licensees, and assignees (sometimes referred to herein collectively as \"Company's Designees\") an irrevocable universe-wide license under copyright to reproduce and exploit their respective share(s) in the Composition(s) as embodied on the Master pursuant to the so-called Controlled Composition clause contained in the Recording Agreement Extracts, but specifically excluding any reductions in the statutory rate or so-called mechanical \"caps\". Further, Producer shall license and/or shall use reasonable efforts to cause their Producer Publisher(s) (and to cause Producer Personnel) to license to Company's Designees, a nonexclusive, worldwide and perpetual synchronization and other necessary use license(s), free of charge or royalty, solely for the purpose of reproducing Producer's and/or Producer Personnel's share of any Composition in any promotional Video (as defined in the Recording Agreement Extracts) and exhibiting, duplicating, manufacturing and distributing copies of such Video only in connection with promotional purposes and only in the event that neither Artist, the co-writers of the Compositions, nor any of their respective publishing designee(s) or affiliates receive any compensation for said promotional use. The foregoing is not intended to limit Producer's or any Producer Publisher's right to receive directly its respective share of publishing monies in connection with \"monetized\" promotional Videos (e.g., Videos exhibited on YouTube, Vimeo or Vevo). For the avoidance of doubt, each applicable writer / publisher shall exclusively administer his/her/its respective share of the applicable Composition(s).  |\n\n---\n\nPage 3\n\n| 9. OWNERSHIP OF MASTER(S) / GRANT OF RIGHTS: | All results and proceeds of the services of Producer and/or any third party furnished or engaged by or on behalf of Producer (hereinafter individually and collectively referred to as “Producer Personnel”), including the Master(s) (but excluding the Composition(s)) (collectively the “Material”) shall be deemed “works-for-hire” for Company within the meaning of the Copyright Act of 1976 (Title 17, U.S.C.), as amended, shall be subject to the provisions of this Agreement, and shall cause any such Producer Personnel to be bound in writing by the terms hereof. For the avoidance of doubt, no co-producer(s) of the Master(s) engaged by us (e.g., the coproducer known professionally as “Some Randoms”) shall be deemed Producer Personnel hereunder. If it is determined that all or any part of the Material does not so qualify, then the Material, together with all rights therein (other than the Composition(s)), shall be automatically assigned to Company and Company’s Designees by this Agreement. Upon signature of this Agreement Producer shall be deemed to have immediately transferred to Company all rights (including but not limited to copyright) in and to the Material (excluding the Composition(s)). You and/or Producer shall, upon Company’s request, execute and deliver to Company any assignments of copyright (including renewals and extensions thereof) in and to the Material as Company may deem necessary to effectuate the terms of this Agreement, and you and/or Producer hereby irrevocably appoint Company as your and/or Producer’s limited attorney-in-fact for the sole purpose of executing such assignments on your and/or Producer’s behalf. Producer further grant to Company and Company’s Designees the right, throughout the universe and in perpetuity, to use Producer’s name, and Producer’s approved likeness and approved biographical material solely in the packaging and metadata of Records embodying the Material and in all promotion and advertising therefor (including, without limitation, in social media posts, music videos and/or so-called promotional trailers for and/or relating to the Master(s) but excluding any commercial endorsements, commercial tie-ins, or merchandise). We shall provide you for your approval any likeness, portrait or pictures of Producer or biographical material about Producer which we propose to use in connection therewith. We will not use any such material which you disapprove in writing within five (5) business days following the date on which such materials are provided to you. No inadvertent, non-repetitive failure to comply with this paragraph will constitute a breach of this Agreement, provided Company and Artist shall use reasonable efforts to cure or cause Distributor to cure such failure on a prospective basis following Company’s and/or Artist’s independent discovery of such failure and/or Producer’s notice to Company and/or Artist of such failure (email to suffice), and you will not be entitled to injunctive relief to restrain the continuing use of any material used in contravention of this paragraph. You shall have the right to submit photographs and likenesses of, and biographical material concerning, Producer and your submission of the same shall constitute your approval thereof. Company and Distributor shall have the exclusive right to exploit the Material in all methods, manner and media, now known or hereafter developed, throughout the universe and in perpetuity, or to refrain therefrom. Producer will waive any claims based on infringement of Producer’s “moral rights”, and understands that the Material may be changed, altered, remixed, or coupled with any other recording(s) or other material in Company’s and Distributor’s sole discretion, subject to the terms and conditions of the Recording Agreement. Producer shall have the right to request that Producer’s credit be removed from the Master(s) if the Material are materially altered in any way (other than for timing or formatting purposes) by giving Company written notice thereof, and, for the avoidance of doubt, we shall use reasonable efforts to cause Producer’s credit to be so removed from the Master(s) on materials prepared after we have been so notified by you in writing of such request. For avoidance of doubt, Producer is not an original author of the copyright underlying the Material and shall not in any event claim any reversionary right under the United States Copyright Act Section 203, or otherwise. |\n| --- | --- |\n\n---\n\nPage 4\n\n|  |   |\n| --- | --- |\n|  10. CREDIT: | With respect to the Master(s), Company shall accord, or shall instruct and use reasonable commercial efforts to cause Distributor to provide, credit to Producer as set forth on Schedule 2 in the liner notes of any record containing the Master(s), on metadata in connection with electronic transmissions and in all print ads placed or controlled by Company or Distributor of one-quarter (1/4) page or larger featuring the Master(s) and shall be equal in style, size, prominence and placement as all other third party producers on the Master. For the avoidance of doubt, Company shall have the right to accord producer credit to any other individuals rendering producer services with respect to the Master(s) hereunder, with the exact order being determined by us and Record Company. Except as expressly provided in this Agreement, all matters relating to credit (including the size and style of type, form, position and placement thereof) shall be within our and Distributor's sole discretion. Company's inadvertent, non-repetitive failure, or any failure by Distributor, to provide such credit shall not be deemed to be a breach of this Agreement, provided that following written notice from Producer, Company uses reasonable commercial efforts to cure or instruct Distributor or other applicable third parties to prospectively cure any such credit failure. For the avoidance of doubt, Producer hereby acknowledge and agree that Artist shall also be credited as a producer of the Master(s) hereunder.  |\n|  11. SAMPLES: | Producer will not \"sample\", \"interpolate\", or otherwise incorporate into (\"Sample,\" \"Sampling\") the Master(s) or Composition(s) (if applicable), or permit any Producer Personnel to Sample any copyrighted or otherwise proprietary material (\"Proprietary Material\") belonging to any person, other than such material owned by Company or Artist and supplied to Producer by Company or Artist for such purpose, unless approved by Company or Artist in writing. You shall advise us in writing of any such Proprietary Material furnished and embodied solely by you, Producer and/or Producer Personnel and shall provide us with all information necessary to obtain appropriate permissions to use same, without restriction, on and in connection with the applicable Master(s). We shall have no obligation to accept any master recordings containing Proprietary Material embodied in the Master(s) solely by Producer and/or Producer Personnel, and our or Distributor's acceptance or use of same shall not relieve you of any obligations hereunder nor deprive us of any rights hereunder. You and Producer warrant and represent that neither the Master nor the underlying composition contain any Proprietary Material furnished and embodied solely by you, Producer and/or any Producer Personnel.  |\n|   | Without limitation of Company's other rights: (a) in connection with any Approved Sample (as hereinafter defined) embodied in the Master(s) solely by Producer, (i) any sums payable by or on behalf of Company or Company's Designees in connection with the clearance of Samples furnished and embodied solely by you, Producer and/or Producer Personnel that have been disclosed to and approved by us in writing prior to commercial release of the applicable Master (\"Approved Sample\") shall be deemed additional recoupable Recording Costs, (ii) you and/or Producer shall be solely responsible for paying for an amount equal to any and all other recurring obligations and similar costs therefor (e.g., royalties or any contingency participation conveyed [whether expressed in royalty or penny-rate terms], etc.), multiplied by the Fraction (hereinafter defined), and (iii) any copyright ownership in the Composition that must be conveyed to a third party with respect to such Approved Sample shall be borne pro-rata by all writers; and (b) notwithstanding anything to the contrary contained herein, any sums payable (including, without limitation, record royalties) by or on behalf of Company or Company's Designees in  |\n\n---\n\nPage 5\n\n|   | connection with the clearance of Samples furnished and embodied solely by Producer and/or Producer Personnel that have not been disclosed to and approved by us prior to commercial release of the applicable Master (\"Undisclosed Sample\") shall be deductible from any and all sums and/or interest due or accorded to Producer hereunder, and any copyright ownership in the Composition that must be conveyed to a third party with respect to such Undisclosed Sample shall be borne entirely by Producer, Producer Personnel and/or Producer Publisher, as applicable. For the avoidance of doubt, Producer shall have no liability or obligation whatsoever in connection with any undisclosed Proprietary Material embodied in the Masters and/or Compositions by Company, Artist, or any third party engaged or furnished by Company and/or Artist (other than you, Producer and/or Producer Personnel), subject to our rights and remedies pursuant to this Agreement.  |\n| --- | --- |\n|  12. REPRESENTATIONS / WARRANTIES: | Producer, on one hand, and Company, on the other hand, each warrant and represent, solely on their own behalf, that (a) it has the right to enter into this Agreement, grant their respective rights hereunder, and perform material terms and obligations hereunder; and (b) to the extent of their respective contributions to the Master(s), there shall be no liens, encumbrances or other charges against the Master(s) at the time of delivery, including, without limitation, any Undisclosed Samples. Producer further represents and warrants that: (i) Producer shall not re-record, produce, arrange, mix or remix for any person or entity other than Company, Artist, or Distributor a master recording embodying the Composition(s) for at least three (3) years from the later of the date of delivery or commercial release of each Master, which such restriction shall be waived in the event the Master(s) are not commercially released within twelve (12) months after delivery; and (ii) no selections, materials, ideas, or other properties furnished by Producer or Producer Personnel and embodied or contained in the Master(s) or the Composition(s) will violate or infringe upon any law or statutory right of any person or entity; (iii) intentionally deleted without implication; (iv) Producer shall be solely responsible for and shall pay any withholding, employment or other taxes required in connection with Producer's services hereunder; and (v) we shall not be required to make any payments of any nature for or in connection with the acquisition, exercise or exploitation of any rights granted to us hereunder, or in connection with your and/or Producer's services (including without limitation, services as a producer, mixer and/or performer) in respect of the Master(s), except as specifically provided in this Agreement. You will arrange for and obtain any necessary approvals from any record company or other third party which may be entitled to Producer's recording services. You will pay all royalties or other compensation (whether in lieu of royalties or otherwise) becoming due to Producer or to any Producer Personnel who perform services or in any way contribute to the recording and/or production of the Master(s) delivered.  |\n|   | Company further represents and warrants that no selections, materials, ideas, or other properties furnished by Company or Artist or anyone engaged or furnished by Company or Artist (other than Producer and/or Producer Personnel) and embodied or contained in the Master(s) or the Composition(s) will violate or infringe upon any law or statutory right of any person or entity.  |\n|  13. INDEMNITY / GOVERNING LAW / VENUE: | (a) Each party hereto agrees to indemnify the other party and the other party's designees, licensees and assigns (collectively, the \"Indemnified Party\") from all damages, liabilities, costs, losses and expenses arising out of or connected with any third party claim, demand, or action arising out of a breach of any of the warranties, representations, or covenants made by such indemnifying party in this Agreement, to the extent reduced to a final judgment in a court of competent jurisdiction or settled with the indemnifying party's prior written consent, such consent not to be unreasonably withheld. Notwithstanding the foregoing, in the event of a claim  |\n\n---\n\nPage 6\n\n|  | alleging copyright or other intellectual property infringement, each party's foregoing indemnity obligation shall be immediate. Further, each party hereby agrees to indemnify the other and its designees, licensees, and assigns from all damages, liabilities, costs, losses, and expenses arising out of or connected with any third-party claim, demand, or action in connection with Proprietary Materials and/or Undisclosed Samples incorporated by the indemnifying party. The indemnifying party will reimburse the Indemnified Party upon written demand for any payment made by the Indemnified Party at any time in respect of any such third party claim, liability, damage or expense to which the foregoing indemnity relates. The Indemnified Party shall give the indemnifying party prompt written notice of any claim to which the foregoing indemnity applies and the indemnifying party may participate in the defense of same with counsel of its choosing at its sole cost and expense; provided that the Indemnified Party's decision in connection with the defense of any such claim shall be final. <br> (b) Pending the determination of any claim relating to Producer's foregoing indemnity obligation, unless Producer posts a bond in a form and amount acceptable to Company in Company's reasonable discretion, Company shall have the right to withhold from any sums due Producer hereunder an amount equal to Producer's potential liability pursuant to this paragraph. If as of the date twelve (12) months following the date such sums were initially withheld, no litigation on the claim has commenced or is imminent and no settlement discussions are then taking place, then the sums so withheld shall be credited to your account (subject to Company's right to once again withhold if litigation subsequently is instigated or becomes imminent). <br> (c) If either party hereto institutes any action, suit or proceeding based upon any matter, claim or controversy arising hereunder or relating hereto, such action shall be brought solely in the State Courts of the State of New York, County of New York and shall be governed by New York law and the parties hereto submit to the jurisdiction and venue of said court, provided that notwithstanding anything to the contrary in this paragraph, if Company or Artist, or Producer, is sued or joined (e.g. by joinder or impleader) in any other court or forum by a person, or entity other than Producer, or Company or Artist, respectively, in respect of any matter that may give rise to a claim by or against Producer, or Company or Artist, hereunder, Producer and Company consent to the jurisdiction of such court or forum over any such claim asserted against Producer or Company or Artist. <br> (d) Regardless of the forum in which any action hereunder is pursued, and without limitation of the right of either party hereunder to pursue other lawful methods of service of process, service of process on the respective party in writing and which is either (a) delivered personally, (b) by Express Mail, Federal Express or other express delivery service (receipt requested), or (c) via registered or certified mail, return receipt requested and received, at the respective address set forth above, shall be deemed for all purposes personal service upon such party under the New York Rules of Civil Procedure and the Federal Rules of Civil Procedure, respectively. |\n| :--: | :--: |\n| 14. MISCELLANEOUS: | (a) Nothing contained herein shall be deemed to obligate Company or Company's Designees to embody any of the Master(s) on any Record or any other medium recorded, exploited or released by Company or Company's Designees. <br> (b) No party will be deemed to be in breach of any of such party's obligations hereunder unless and until the other party will have given written notice setting forth the nature of such breach and the breaching party will have failed to cure such breach within thirty (30) days after the effective date of such notice (reduced to fifteen [15] days for failure to pay amounts due hereunder). In the event of any breach of this Agreement by Company, Producer's sole remedy shall be an action at law for |\n\n---\n\nPage 7\n\ndamages actually incurred, if any, and, except in the case of fraud, in no event shall Producer be entitled to seek equitable or other injunctive relief. It is expressly agreed that Producer is acting as an independent contractor and that nothing herein contained shall constitute a partnership, a joint venture, agency or employment relationship between Producer and Company.\n(c) Company shall have the right, at its election, to assign any of its rights hereunder, in whole or in part, to any person or entity, provided Company shall remain secondarily liable hereunder. Producer shall not have the right to assign any of Producer's or Producer's obligations or rights hereunder, absent the express consent of Company, except for the right to assign payment.\n(d) This Agreement supersedes all prior agreements between the parties pertaining to the subject matter hereof, whether verbal or written, and any further modification(s) to this Agreement shall not be binding unless in writing and signed by the parties hereto. This Agreement may be executed in two or more counterparts, each of which shall be deemed an original, but all of which together shall constitute one and the same instrument. The parties agree that this Agreement and its signature pages may be transmitted between them by fax, electronic mail, or other electronic transmission method, and that photocopied signatures or signatures created and/or transmitted by electronic means, including DocuSign (or any other signature complying with the federal ESIGN Act of 2000 or any applicable Uniform Electronic Transactions Act or Electronic Signatures and Records Act), PDF, or JPEG, shall constitute original signatures, shall be deemed to have been duly and validly created and delivered, and shall be valid and binding for all purposes.\n(e) All notices to be given by either party hereunder shall be in writing and shall be delivered by hand or by United States certified mail, postage prepaid, return receipt requested, to the address of each party as first set forth above until notice of a new address shall be duly given, except that royalty statements and any payments due hereunder, shall be sent to you at such address by regular mail. Copies of all notices sent to you shall be sent to c/o Mark Music \\& Media Law, P.C., 120 El Camino Drive, Suite 104, Beverly Hills, CA 90212, Attn: Joshua Hefner. Copies of all notices to us shall be sent to Jacobs Law Group, P.C., 79 Walker Street, 4th Floor, New York, NY 10013, Attention: David Jacobs, Esq. and via email to dj@jlgrp.com.\n(f) The parties acknowledge that they have participated jointly in the negotiation and drafting of this Agreement and, in the event an ambiguity or question of intent or interpretation arises, this Agreement shall be construed consistent with the joint drafting of this Agreement by the parties and no presumption or burden of proof shall arise favoring or disfavoring any party by virtue of the authorship of any of the provisions of this Agreement.\n(g) EACH PARTY ACKNOWLEDGES AND AGREES THAT IT HAS READ THIS AGREEMENT AND HAS BEEN ADVISED BY THE OTHER PARTY OF THE SIGNIFICANT IMPORTANCE OF RETAINING AN INDEPENDENT ATTORNEY OF SUCH PARTY'S CHOICE TO REVIEW THIS AGREEMENT ON BEHALF OF SUCH PARTY. EACH PARTY HEREBY ACKNOWLEDGES AND AGREES THAT IT HAS HAD THE UNRESTRICTED OPPORTUNITY TO BE REPRESENTED BY AN INDEPENDENT ATTORNEY. IN THE EVENT OF EITHER PARTY'S FAILURE TO OBTAIN AN INDEPENDENT ATTORNEY OR WAIVER THEREOF, EACH PARTY HEREBY WARRANTS AND REPRESENTS THAT IT WILL NOT ATTEMPT TO USE SUCH FAILURE AND/OR WAIVER TO OBTAIN AN ATTORNEY AGAINST THE OTHER PARTY, OR ANY OF THEIR RESPECTIVE SUCCESSORS.\n\n---\n\nPage 8\n\n## AGREED AND ACCEPTED:\n\n\"Company\"\n\nNASARATI, LLC\n$\\qquad$\n\n---\n\nPage 9\n\n# Schedule 1\n\nList of Master(s) and Composition(s), Ownership of Composition(s), and Credit(s)\n\n|  Master(s) / Composition(s) | Ownership of Composition(s) (with\nPublishing Designees) | Credit(s)  |\n| --- | --- | --- |\n|  \"BIG DUMMY\" | Daniel Klein - 25\\%\nMatthew Campfield - 25\\%\nAlex Goldblatt - 25\\%\nMontero Lamar Hill - 25\\% | \"Produced by Some Randoms,\nAlex Goldblatt and Lil Nas X\"  |\n\n---\n\nPage 10\n\n# Schedule 2 <br> Producer Royalty Provisions \n\n1. Producer's Royalty shall be paid retroactively from \"record one\" after Distributor recoups the Recording Costs (excluding the Advance and any in-pocket advances paid to Company/Artist) incurred in connection with the Masters from the \"net artist royalties\" (i.e. the gross \"all-in\" royalties payable to Artist in connection with all exploitations of the Master minus the royalty payable to Producer and all third-party producers and mixers rendering services with respect to the Masters) and further subject to Distributor's recoupment of the Advance from Producer's Royalty.\n2. Producer's Royalty for records that embody the Master(s) together with master recordings that are not the Master(s) shall be pro-rated by a fraction, the numerator of which is the number of times the Master is embodied thereon and the denominator of which is the number of royalty-bearing master recordings (including the Master(s)) embodied thereon.\n3. Notwithstanding anything to the contrary contained herein, with respect to the release of any physical single record embodying no more than two (2) master recordings (including, without limitation, twelve-inch singles) (a \"Single\"), in the event the \"A\" side of any such Single shall embody a Master and the \"B\" side of such Single shall embody master recordings other than said Master, we shall nevertheless pay Producer's Royalty in respect of such Single as if both sides had embodied such Master. In the event that the \"B\" side of any such Single shall embody a Master and the \"A\" side of such Single shall embody a master recording other than said Master, no royalty shall be payable to Producer in connection with such exploitation of such Master on a \"B\" side, provided that such \"A\" side producer is entitled to similar \"A\" side protection.\n4. On exploitations of a Master or Masters for which a percentage of net receipts, including without limitation so-called \"flat fee\" income, or the like, is payable (or creditable against an advance) pursuant to the Recording Agreement, Producer's Royalty will be equal to that portion of net receipts on such exploitations that is payable pursuant to the Recording Agreement multiplied by a fraction, the numerator of which is the Base Rate and the denominator of which is the un-escalated \"all-in\" base royalty rate pursuant to the Recording Agreement (the \"Fraction\"). On exploitations of audio-visual recordings embodying a Master or Masters, Producer's Royalty will be equal to fifty percent ( $50 \\%$ ) of the otherwise applicable royalty. Notwithstanding anything to the contrary in this Agreement, Producer's Royalty in connection with a Master or Masters embodied in \"MTV-style\" music videos, or the like, will be payable prospectively after the recoupable production costs of the applicable video have been recouped as set forth in the Recording Agreement.\n5. In the event Company or Artist receives or is credited with any so-called \"Direct Monies\" directly from thirdparties other than Distributor (e.g., monies from SoundExchange) solely and directly attributable to the Master(s), Company will pay, or shall instruct such third party to pay, Producer its pro-rata share of such Direct Monies determined by multiplying such Direct Monies, received by or credited to Company or Artist, by the Fraction. Company shall submit the irrevocable letter of direction in the form of Exhibit C attached hereto and incorporated herein by this reference as signed by Artist instructing SoundExchange to account directly to Producer its pro-rata share at the same time and subject to the same conditions pursuant to which SoundExchange accounts to Artist. In the event Company and/or Artist contract with a featured artist for the Master(s), Company and/or Artist shall obtain and submit a letter of direction in the form of Exhibit C in favor of the Producer. In the event that SoundExchange does not directly account to Producer for its share of Direct Monies, Company shall account for and pay Producer their share of SoundExchange Direct Monies pursuant to the terms of the \"Accounting\" paragraphs below, without regard to the recoupment status of Producer's royalty account hereunder.\n6. Producer's Royalty shall not be reduced by amounts payable to any third parties.\n7. As used herein, \"PPD\" shall mean the so-called \"royalty base price\" set forth in the Recording Agreement.\n8. For avoidance of doubt, these provisions, and the Recording Agreement Extracts, shall continue to govern the terms and conditions of Producer's Royalty in the event the Master(s) are no longer distributed by Distributor.\n\n---\n\nPage 11\n\n# Accounting: \n\n1. Company shall use reasonable efforts to cause Distributor to pay to Producer royalties, fees and/or advances directly via an irrevocable letter of direction in substantially the form attached hereto as Exhibit B (or such form as required by Distributor). In the event that Distributor refuses or fails to pay royalties, fees, or advances directly to Producer, and following Producer's written notice to Company of such failure, Company shall send Producer statements regarding royalties, fees or advances payable to Producer within thirty (30) days of Company's receipt thereof together with any payments due to Producer thereunder. Company shall have the right to deduct from any amounts payable to Producer hereunder solely such portion thereof as may be required to be deducted under the provisions of any applicable statute, regulation, treaty or other law, or under any applicable union or guild agreement, and Producer shall promptly execute and deliver to Company such forms and other documents as may be reasonably required by Company in connection therewith.\n2. Producer understands and agrees that Company will be relying on statements provided to Company by Distributor. Accordingly, Producer shall be deemed to have consented to all royalty statements and all other accountings rendered by Company hereunder and each such royalty statement or other accounting shall be conclusive, final, and binding, shall constitute an account stated, and shall not be subject to any objection for any reason whatsoever unless specific objection in writing, stating the basis thereof, is given by Producer to Company by the date that is three (3) months prior to the date Company has to inspect the books of Distributor (the \"Audit Period\"). At any time within the Audit Period, Producer may, on reasonable notice to Company, appoint a certified public accountant to audit, at Producer's own expense, our books and records solely as they relate to the sale and other exploitation of the Master(s) (and related expenditures) solely for the purpose of verifying the royalties or credits due to Producer under this Agreement. Producer shall furnish Company with a copy of the audit report within thirty (30) days after the completion of the applicable audit. No accounting statement shall be subject to audit more than once and no more than one (1) audit shall be conducted in any calendar year. No action, suit, or proceeding of any nature in respect of any royalty statement or other accounting rendered hereunder may be maintained against Company unless such action, suit, or proceeding is commenced against Company in a court of competent jurisdiction by the date that is three (3) months prior to the date Company has to commence action against Distributor. Producer shall not have the right to audit the books and records of Distributor. Company shall credit Producer's account with Producer's pro rata share of any monies recovered by Company with respect to the Master(s) pursuant to any audit Company may elect to conduct of Distributor or claim against Distributor in connection with the Masters, or any recoveries or settlements with Distributor or any third party, after deduction \"off-the-top\" of any actual, out-of-pocket, third party, reasonable costs actually incurred directly as a result of such audit, claim or settlement (solely to the extent such costs have not been reimbursed by Distributor or such other third party). At Producer's written request Company shall promptly provide Producer with relevant portions of the audit report submitted to Distributor.\n\n---\n\nPage 12\n\n# EXHIBIT A <br> Recording Agreement Extracts\n\n---\n\nPage 13\n\n# EXHIBIT B <br> Letter of Direction \n\nNasarati, LLC<br>c/o LL Business Management Inc.<br>3000 Marcus Avenue, Suite 1W5<br>Lake Success, New York 11402<br>Attention: Justin Kobay\n\nDated as of: March 5, 2025\nColumbia Records\na division of Sony Music Entertainment\n25 Madison Avenue\nNew York, New York 10010-8601\nRe: Producer Agreement\nTo Whom It May Concern:\n\n1. We have engaged \"Alex Goldblatt\" (\"Producer\") to produce the master recording embodying the composition entitled \"BIG DUMMY\" to be recorded by us and delivered to you for possible embodiment on the single, EP, or LP required to be delivered to you pursuant to the distribution agreement between you and us.\n2. We hereby request and irrevocably authorize you, solely as an accommodation to us, to account for and pay advances, fees, and royalties to Producer on our behalf, and to credit Producer pursuant to the applicable terms and conditions of the agreement attached hereto.\n3. Your compliance with this authorization will constitute an accommodation to us alone, and nothing herein shall constitute Producer as a beneficiary of or a party to this instrument or any other agreement between you and us. All payments hereunder will constitute payment to us and you will have no liability by reason of any erroneous payment you may make or failure to comply with this authorization. We will indemnify and hold you harmless against any claims asserted against you and any damages, losses or expenses incurred by you by reason of any such payment or otherwise in connection herewith.\n\nVery truly yours,\nNASARATI, LLC\nBy: $\\frac{\\text { Documented by: }}{\\text { An Authorized Signatory }}$\n\n---\n\nPage 14\n\n# EXHIBIT C <br> SoundExchange, Inc. <br> Letter of Direction \n\nSolely as a service and accommodation to those featured artists entitled to royalties under 17 U.S.C. § 114(g)(2)(D) who specifically authorize SoundExchange to collect and distribute royalties on their behalf, SoundExchange permits such featured artists to designate that a percentage of the royalties due them from SoundExchange relating to certain sound recordings be remitted to creative personnel (i.e., producers, mixers, or engineers) credited or recognized publicly for the commercially released sound recording on which the featured artist performs\n\nPlease note that a performer need not execute this Letter of Direction in order to be paid statutory royalties by SoundExchange.\n\nTo make such a designation, the performer submitting this Letter of Direction (\"LOD\") must be registered with SoundExchange.\n\nSections with asterisks are required.\n*Name of Solo Artist(s) or Group on recording(s):\nLil Nas X\n*Legal Name of Performer(s) for this LOD: $\\quad$ Montero Lamar Hill\n*Name of Producer, Mixer or Engineer (\"Payee\") - Only Include One Payment Name: Alex Goldblatt\n*Required if paying to a company: $\\square$ I certify that company listed above is owned solely by the producer mixer or engineer involved in the creative process for the recordings listed in the attached LOD Repertoire Chart\n\nPayee ID (If known)\n*Payee Address - include c/o's\nhere: c/o Alexander Goldblatt\n$\\mathbf{p / k / a}$ \"Alex Goldblatt\"\n11689 Margate St,\nNorth Hollywood, CA 91601\nPayee Telephone Number:\n*Payee E-Mail: alexgoldblatt99@gmail.com\n*An LOD Repertoire Chart is required to complete the LOD. Please submit a complete LOD Repertoire Chart along with all the pages in this Letter of Direction\n*Effective Date: (choose one)\n$\\square \\quad$ Check here if this LOD applies to payments as of $\\qquad$ [date]\n$\\boxtimes \\quad$ Check here if this LOD applies retroactively for all tracks listed on the LOD Repertoire Chart.\n$\\square \\quad$ Check here if the Effective Payment Date varies by track. Enter the Effective Dates on the LOD Repertoire Chart.\n\nPlease note that retroactive application of an LOD is limited to available SoundExchange royalties for the tracks listed\n\n---\n\nPage 15\n\non the LOD Repertoire Chart *Payment Percentage (\"Percentage\"): check applicable box\n$\\boxtimes \\quad 5.2 \\%$ of Performer royalties are applicable to all tracks listed on the LOD Repertoire Chart\n$\\square \\quad$ Percentage varies by each track covered by this LOD. Enter percentages on the LOD Repertoire Chart.\n\n---\n\nPage 16\n\n# TERMS AND CONDITIONS \n\nBy signing this Letter of Direction and submitting it to SoundExchange, Performer agrees as follows:\n\n1. Performer represents and warrants that Performer is the featured recording artist who performed on the sound recording(s) identified on the \"LOD Repertoire Chart\" attached hereto as Schedule 1 (the \"Recordings\").\n2. Performer represents and warrants that Payee is an individual credited or recognized publicly for the commercially released sound recording identified on the LOD Repertoire Chart (i.e., a producer, mixer, or engineer).\n3. Performer requests and authorizes SoundExchange to pay to and in the name of Payee an amount equal to Percentage of the royalties otherwise payable by SoundExchange to Performer in respect of the Recordings, thereby reducing the payments from SoundExchange to Performer. If a previous \"Royalty Distribution Information for Featured Artist\" or other letter of direction has been provided to SoundExchange that conflicts with this Letter of Direction, then any and all previous letters of direction or similar documents conflicting herewith are hereby revoked.\n4. All monies becoming payable under this Letter of Direction shall be remitted to Payee at the address identified above or as Payee otherwise directs SoundExchange in writing. If SoundExchange requires additional information (e.g., Payee tax information) to remit payments under this Letter of Direction, then Performer and Payee shall be responsible for providing SoundExchange with such information promptly. To the extent SoundExchange is not provided with sufficient or correct information to remit payment to Payee, or checks mailed to Payee's last known address are returned, SoundExchange may hold the monies pending receipt of such information or pay the royalties to Performer.\n5. SoundExchange will honor a written revocation by Performer of the designation made by this Letter of Direction. In the event of such a revocation, SoundExchange may, but need not, mail notice of the revocation to the last known address of Payee. The foregoing is without prejudice to any other contractual arrangements between Performer and Payee requiring payment of the Percentage by Performer. SoundExchange has no responsibility for Performer's performance or nonperformance of any such obligation.\n6. SoundExchange may discontinue making payments under this Letter of Direction at any time, including if checks mailed to Payee's last known address are returned, Performer ceases to be a registrant of SoundExchange, or SoundExchange modifies its policies concerning letters of direction. If it does so, then SoundExchange may, but need not, mail notice thereof to the last known address of Performer and Payee, and monies that otherwise would have been payable under this Letter of Direction will be paid to Performer.\n7. Performer acknowledges that SoundExchange is providing payments to Payee solely as an accommodation to Performer but that all royalties distributed by SoundExchange to Payee are taxable to Payee. Payee shall be solely responsible for providing SoundExchange with tax paperwork required by any governmental agency, including the Internal Revenue Service, to avoid tax withholding.\n8. SoundExchange may rely conclusively, and shall have no liability when acting, upon any written notice, instruction, other document or signature that is reasonably believed by SoundExchange to be genuine and to be authorized by Performer. SoundExchange shall not be responsible for failure to act as a result of causes beyond the reasonable control of SoundExchange. SoundExchange shall not be liable to Performer, Payee or to any third party for, and Performer agrees to defend (with counsel satisfactory to SoundExchange), indemnify and hold harmless SoundExchange from, any damages or loss (including reasonable attorney's fees) in any way related to this Letter of Direction, unless such loss is caused by SoundExchange's gross negligence or willful misconduct. The provisions of this Paragraph 8 shall survive the revocation or other termination of this Letter of Direction.\n9. In order to maintain flexibility in administering this Letter of Direction, SoundExchange may modify these Terms and Conditions from time to time, in its sole discretion. Such changes shall be effective immediately and Performer shall be deemed to have notice of such changes when they are made available on the SoundExchange website. Notwithstanding the foregoing, if Performer does not wish to accept any changes, Performer must provide SoundExchange written notice within thirty (30) days of notice of any changes to this Letter of Direction.\n\n---\n\nPage 17\n\n10. This Letter of Direction shall be governed by and construed in accordance with the substantive laws of the District of Columbia. Any dispute relating to or arising from this Letter of Direction shall be subject to the exclusive jurisdiction of courts sitting in the District of Columbia.\n\nACKNOWLEDGED AND ACCEPTED BY:\n(The signature of each Performer or Authorized Signatory for each Performer is required.)\n$\\frac{\\text { *DocuSigned by: }}{\\text { Montero Lamar Hill }}$\nPerformer Signature: $\\qquad$\n*Performer Printed Legal Name: $\\qquad$ Montero Lamar Hill\n\nOR, SoundExchange\nAuthorized LOD Signatory: $\\qquad$\nSoundExchange Authorized LOD\nSignatory Printed Name: $\\qquad$\nDate of Signature: $\\qquad$ $7 / 30 / 2025$\n\nReturn the original of this form to:\nSoundExchange, Inc.\n733 10th Street NW, 10th Floor\nWashington, DC 20001\nYou may also scan and email the completed forms to accounts@soundexchange.com\nOr fax to: 202.640 .5859\nIf you have questions, please call 1-800-961-2091 or email accounts@soundexchange.com\n\n---\n\nPage 18\n\nADDITIONAL SIGNATURES PAGE (use when applicable):\nACKNOWLEDGED AND ACCEPTED BY:\nPerformer Signature: $\\qquad$\n*Performer Printed Legal Name: $\\qquad$\n\nOR, SoundExchange Authorized LOD Signatory: $\\qquad$\nSoundExchange Authorized LOD Signatory Printed Name: $\\qquad$\nDate of Signature: $\\qquad$\n\nACKNOWLEDGED AND ACCEPTED BY:\nPerformer Signature: $\\qquad$\n*Performer Printed Legal Name: $\\qquad$\n\nOR, SoundExchange Authorized LOD Signatory: $\\qquad$\nSoundExchange Authorized LOD Signatory Printed Name: $\\qquad$\nDate of Signature: $\\qquad$\n\nACKNOWLEDGED AND ACCEPTED BY:\nPerformer Signature: $\\qquad$\n*Performer Printed Legal Name: $\\qquad$\n\nOR, SoundExchange Authorized LOD Signatory: $\\qquad$\nSoundExchange Authorized LOD Signatory Printed Name: $\\qquad$\nDate of Signature: $\\qquad$\n\n---\n\nPage 19\n\n# Schedule 1: Repertoire Chart for Featured Artist Letter of Direction\n\n*Name of Solo Artist or Group on Recording(s): Lil Nas X* Name of Producer, Mixer or Engineer (Payee): Alex Goldblatt\n\n|  * indicates a Required Field. Other fields are optional, but assist in identifying reported performances. |  |  |  |  |  |  |  |   |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|   | Sound\nRecording\nTrack\nName(s) | Percentage Share of artist royalties, for this track, to be assigned to the LOD recipient (as a % only, do not use \"points\" or fractions) | Effective Date of the LOD for this track (require d if tracks have different effective dates) | Track\nVersio\nn (e.g., studio, re-mix version , etc) | Sound\nRecordin\ng Track\nISRC | Album\nor\nReleas\ne\nName | Label | Releas\ne Date  |\n|  Trac\nk 1 | \"BIG\nDUMMY!\n\" | 5.2% |  | Studio |  |  | Columbi\na\nRecords |   |"
+          },
+          "user": {
+            "name": "Aidan Schechter",
+            "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+            "person_number": "beeb7d89-c123-4bf1-90a6-f4a279a0164a"
+          }
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-18T15:00:24.942Z",
+  "versionId": "90ca9a0f-995c-441e-9c74-9eceae91c062"
+}
