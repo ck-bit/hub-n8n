@@ -1,0 +1,598 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ParserSchema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PreparePayload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PreparePayload": {
+      "main": [
+        []
+      ]
+    },
+    "Label Search1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ArtistLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Distributer Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-03T04:23:58.984Z",
+  "id": "QFzzwur4AQh5POo8",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Record",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1420,
+        360
+      ],
+      "id": "be9ab275-9937-4b89-b757-f8f57e1cc497",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1340,
+        660
+      ],
+      "id": "3bbbac84-08eb-4b20-a8ac-c53f4834c48d",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Deal Document: {{ $json.document }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a specialized AI document extraction agent for record deals/contracts. Your task is to analyze record deal documents and extract structured data into a strict JSON schema.\n\n## CORE MISSION\n\nExtract ONLY the essential record deal terms from the provided document accurately and completely. \nReturn ONLY valid JSON matching the provided schema. No explanations, no code blocks, no preamble.\n\n---\n\n## EXTRACTION PRIORITIES\n\n1. **Accuracy**: Extract only information explicitly stated in the document\n2. **Completeness**: Capture all required and present fields where data exists\n3. **Speed**: Complete extraction efficiently\n\n---\n\n## CRITICAL EXTRACTION RULES\n\n### Rule 1: Extract ONLY What's in the Document\n- Extract ONLY values explicitly stated in the document\n- For missing values, use `null`\n- Do NOT infer or assume information\n- Exception: Use lookup tools ONLY for entity matching (artist/label/distributor names to get UUIDs)\n\n### Rule 2: Tool Usage (Entity Matching Only)\nWhen you identify an artist name, label name, or distributor name:\n1. Extract the exact name as written in document\n2. Call the appropriate lookup tool:\n   - `search_artist` if artist name found\n   - `search_labels` if label/company name found\n   - `search_distributer` if distributor name found\n3. Extract UUID from tool result if confidence > 70%\n4. If no match or confidence < 70%, set UUID to `null`\n\n### Rule 3: Date Handling (ISO 8601 Format)\nAll dates must be: `YYYY-MM-DD`\n\nConversion rules:\n- Exact date (e.g., \"January 15, 2024\") → `2024-01-15`\n- Month/year only (e.g., \"January 2024\") → `2024-01-01`\n- Relative date (e.g., \"90 days after\") → `null`\n- If undefined, use `null`\n\n### Rule 4: Numeric Values\n- Currency amounts as plain numbers: `50000` not `$50,000`\n- All percentages as decimals 0.0-1.0: `0.15` not `15%`\n- All counts as integers: `1` not `\"1\"`\n\n### Rule 5: Territory Codes (ISO 3166-1 alpha-2)\n- Single country: `[\"US\"]`\n- Multiple countries: `[\"US\", \"CA\", \"GB\", \"AU\"]`\n- Worldwide: `[\"WW\"]`\n\n### Rule 6: Currency (ISO 4217)\n- Extract currency code only if explicitly stated: `\"USD\"`, `\"EUR\"`, `\"GBP\"`\n- If no currency stated and document is US-based, assume `\"USD\"`\n- If unclear, use `null`\n\n### Rule 7: Deal Status Determination\nDetermine from signature evidence:\n\n- **\"Fully Executed\"** - Both parties have signed\n- **\"Counterparty Signature\"** - Only label/distributor signed, artist has not\n- **\"Client Signature\"** - Only artist signed, label/distributor has not\n- **\"Needs Review\"** - Signature status ambiguous or unclear\n- **\"Terminated\"** - Agreement explicitly terminated\n\n### Rule 8: Financial Terms\n**Advance Payment:**\n- Extract first/upfront payment only\n- If contingent or in installments, use `null` and note in `notes` field\n\n**Royalties:**\n- Capture rate as decimal: \"15% PPD\" → rate `0.15`, type `\"PPD\"`\n- If tiered or blended, use `null` and note in `notes`\n\n**Royalty Types (Authoritative):**\n- `\"None\"` - No royalty for this category\n- `\"PPD\"` - Pro Rata Per Disc\n- `\"Net Profit\"` - Percentage of net profits\n- `\"Net Receipts Equivalent\"` - Percentage of net receipts\n- `null` - If undefined\n\n**Funds:**\n- Extract each fund type separately (recording, marketing, tour support)\n- Use `null` if not specified\n\n### Rule 9: Delivery Requirements\n- `delivery_requirement_units`: Count of deliverables (e.g., \"1 album\" → `1`)\n- `delivery_requirement_basis`: What's counted (\"Albums\", \"Masters\", or `null`)\n- If conditional or multi-tiered, use `null` and note in `notes`\n\n### Rule 10: Reversion & License Terms\n- `reversion_type`: How rights revert to artist at term end\n- `reversion_period`: Years until reversion occurs\n- Use `null` if not specified or complex\n\n### Rule 11: Multiple Terms\nIf deal has Initial term + Option period:\n- Create separate term objects\n- index_number: 1, 2, 3, etc.\n- Each term with complete financial details\n\n---\n\n## MANDATORY FIELDS TO ALWAYS EXTRACT\n\nThese MUST be captured if present:\n- Artist name (legal name)\n- Label/Company name\n- Record deal type (Label vs Distributor)\n- Territory\n- At least one term with index_number = 1\n- Deal status (from signature evidence)\n\n---\n\n## FIELD-BY-FIELD GUIDANCE\n\n### Root Level\n\n**type**: Always `\"Record Deal\"`\n\n**status**: Determined from signature evidence\n- Check signature blocks for both parties' signatures\n- If blank signature line, party has not signed\n\n**active**: Boolean\n- `true` if deal is currently in effect\n- `false` if terminated or expired\n\n**title**: Format as \"Artist Name × Label Name Record Deal\"\n- Example: \"John Doe × Universal Music Group Record Deal\"\n\n**execution_date**: Date both parties signed (ISO 8601)\n- Set to `null` if not both signed yet\n\n**record_deal_type**: \n- `\"Label\"` - Label acquires rights\n- `\"Distributor\"` - Distributor distributes existing masters\n\n**territories**: Array of ISO 3166-1 alpha-2 codes\n- Example: `[\"US\", \"CA\", \"GB\", \"AU\"]`\n- Worldwide: `[\"WW\"]`\n\n**notes**: Free-text for:\n- Ambiguities in extraction\n- Missing information explanations\n- Deal-specific details\n\n**original_file_name**: Name of uploaded contract file\n\n### Party Objects\n\n**artist, label, distributor**:\n- `name`: Legal name as stated in document\n- `number`: UUID from lookup tool (if matched > 70% confidence)\n- `spotify_id`: For artist only (if available from lookup)\n\n### Financial Terms (Root Level - Legacy)\n\n**label_split**: Label's royalty as decimal 0.0-1.0\n**distribution_split**: Distributor's royalty as decimal 0.0-1.0\n**reversion_type**: How rights revert (\"Full Reversion\", \"Partial Reversion\", etc.)\n**reversion_period**: Years for reversion\n\n### Terms Array\n\nEach term object contains:\n\n**index_number**: Sequential (1, 2, 3, etc.) - REQUIRED\n\n**term_length**: Duration as integer\n**term_length_type**: \"Years\", \"Months\", or `null`\n**term_start_date**: When this term begins (ISO 8601)\n**term_status**: \"Pending\", \"In Progress\", \"Completed\", or `null`\n\n**currency**: ISO 4217 code (\"USD\", \"EUR\", etc.)\n**advance**: Upfront payment amount (plain number)\n\n**label_royalty**: Rate as decimal (e.g., 0.15 for 15%)\n**label_royalty_type**: \"PPD\", \"Net Profit\", \"Net Receipts Equivalent\", \"None\", or `null`\n\n**distributor_royalty**: Rate as decimal\n**distributor_royalty_type**: Same enum as label_royalty_type\n\n**fund_recording**: Recording fund amount\n**fund_marketing**: Marketing fund amount\n**fund_tour_support**: Tour support fund amount\n**fund_other**: Other funds amount\n**fund_other_title**: Name of other fund (e.g., \"Video Budget\")\n\n**delivery_requirement_units**: Number of deliverables to deliver\n**delivery_requirement_basis**: \"Albums\", \"Masters\", or `null`\n\n**payment_schedule**: Free-text description of when payments occur\n- Example: \"Advance upon execution, royalties quarterly\"\n\n---\n\n## OUTPUT FORMAT\n\nReturn ONLY valid JSON matching the schema provided. No other text.\n\nIf extraction cannot be completed:\n- Use `null` for missing values\n- Document reason in `notes` field\n\n---\n\n## EDGE CASES\n\n### When date is referenced but undefined\n- Set to `null`\n- Note in `notes` field if important\n\n### When deal has contradictory information\n- Extract most conservative interpretation\n- Note in `notes` field\n\n### When financial terms are ambiguous\n- Extract what's explicit\n- Set ambiguous values to `null`\n- Note full context in `notes`\n\n### When party information is incomplete\n- Extract name only\n- Set UUID to `null` if lookup fails\n- Continue with extraction\n\n---"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -1100,
+        360
+      ],
+      "id": "3718a1da-1015-4624-a68d-bbebb24c4593",
+      "name": "Agent"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"Record Deal Extraction Schema - Minimal (v1.1)\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"type\": {\n      \"type\": \"string\",\n      \"const\": \"Record\",\n      \"description\": \"Document type identifier\"\n    },\n    \"status\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Needs Review\",\n        \"Counterparty Signature\",\n        \"Client Signature\",\n        \"Fully Executed\",\n        \"Terminated\"\n      ],\n      \"description\": \"Deal execution status based on signature evidence\"\n    },\n    \"active\": {\n      \"type\": \"boolean\",\n      \"description\": \"Whether deal is currently active and not terminated\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"Human-readable title format: Artist Name × Label Name Record Deal\"\n    },\n    \"execution_date\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"date\",\n      \"pattern\": \"^\\\\d{4}-\\\\d{2}-\\\\d{2}$\",\n      \"description\": \"Date deal was signed (ISO 8601 format)\"\n    },\n    \"record_deal_type\": {\n      \"type\": \"string\",\n      \"enum\": [\"Label\", \"Distributor\"],\n      \"description\": \"Type of record deal\"\n    },\n    \"territories\": {\n      \"type\": [\"array\", \"null\"],\n      \"items\": {\n        \"type\": \"string\",\n        \"pattern\": \"^[A-Z]{2}$|^WW$\"\n      },\n      \"description\": \"ISO 3166-1 alpha-2 country codes, or ['WW'] for worldwide\"\n    },\n    \"notes\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"A short one sentence note about the deal. Not more than 50 characters.\"\n    },\n    \"original_file_name\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Name of uploaded contract file\"\n    },\n    \"artist\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\",\n          \"description\": \"Full name of recording artist or band\"\n        },\n        \"number\": {\n          \"type\": [\"string\", \"null\"],\n          \"format\": \"uuid\",\n          \"description\": \"UUID from artist lookup if matched\"\n        },\n        \"spotify_id\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Spotify artist ID if found\"\n        }\n      },\n      \"required\": [\"name\"],\n      \"additionalProperties\": false\n    },\n    \"label\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\",\n          \"description\": \"Label/company legal name\"\n        },\n        \"number\": {\n          \"type\": [\"string\", \"null\"],\n          \"format\": \"uuid\",\n          \"description\": \"UUID from label lookup if matched\"\n        }\n      },\n      \"required\": [\"name\"],\n      \"additionalProperties\": false\n    },\n    \"distributor\": {\n      \"type\": [\"object\", \"null\"],\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\",\n          \"description\": \"Distributor company name if deal involves third-party distributor\"\n        },\n        \"number\": {\n          \"type\": [\"string\", \"null\"],\n          \"format\": \"uuid\",\n          \"description\": \"UUID from distributor lookup if matched\"\n        }\n      },\n      \"required\": [\"name\"],\n      \"additionalProperties\": false\n    },\n    \"label_split\": {\n      \"type\": [\"number\", \"null\"],\n      \"minimum\": 0,\n      \"maximum\": 1,\n      \"description\": \"Label's royalty percentage (decimal 0.0-1.0)\"\n    },\n    \"distribution_split\": {\n      \"type\": [\"number\", \"null\"],\n      \"minimum\": 0,\n      \"maximum\": 1,\n      \"description\": \"Distributor's royalty percentage (decimal 0.0-1.0)\"\n    },\n    \"reversion_type\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\n        \"Life Of Copyright\",\n        \"Full Reversion\",\n        \"Partial Reversion\",\n        \"Reversion\",\n        null\n      ],\n      \"description\": \"Type of rights reversion\"\n    },\n    \"reversion_period\": {\n      \"type\": [\"number\", \"null\"],\n      \"description\": \"Number of years for reversion period\"\n    },\n    \"terms\": {\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"index_number\": {\n            \"type\": \"integer\",\n            \"minimum\": 1,\n            \"description\": \"Sequential term number (1, 2, 3, etc.)\"\n          },\n          \"term_length\": {\n            \"type\": [\"integer\", \"null\"],\n            \"description\": \"Duration as integer value\"\n          },\n          \"term_length_type\": {\n            \"type\": [\"string\", \"null\"],\n            \"enum\": [\"Years\", \"Months\", \"Date\", null],\n            \"description\": \"Duration unit\"\n          },\n          \"term_start_date\": {\n            \"type\": [\"string\", \"null\"],\n            \"format\": \"date\",\n            \"pattern\": \"^\\\\d{4}-\\\\d{2}-\\\\d{2}$\",\n            \"description\": \"When this term begins (ISO 8601)\"\n          },\n          \"term_status\": {\n            \"type\": [\"string\", \"null\"],\n            \"enum\": [\"Pending\", \"In Progress\", \"Completed\", null],\n            \"description\": \"Current status of term\"\n          },\n          \"currency\": {\n            \"type\": [\"string\", \"null\"],\n            \"pattern\": \"^[A-Z]{3}$\",\n            \"description\": \"ISO 4217 currency code (USD, EUR, GBP, etc.)\"\n          },\n          \"advance\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Upfront payment amount\"\n          },\n          \"label_royalty\": {\n            \"type\": [\"number\", \"null\"],\n            \"minimum\": 0,\n            \"description\": \"Label's royalty rate (decimal or percentage)\"\n          },\n          \"label_royalty_type\": {\n            \"type\": [\"string\", \"null\"],\n            \"enum\": [\"None\", \"PPD\", \"Net Profit\", \"Net Receipts Equivalent\", null],\n            \"description\": \"Royalty calculation basis\"\n          },\n          \"distributor_royalty\": {\n            \"type\": [\"number\", \"null\"],\n            \"minimum\": 0,\n            \"description\": \"Distributor's royalty rate\"\n          },\n          \"distributor_royalty_type\": {\n            \"type\": [\"string\", \"null\"],\n            \"enum\": [\"None\", \"PPD\", \"Net Profit\", \"Net Receipts Equivalent\", null],\n            \"description\": \"Distributor royalty calculation basis\"\n          },\n          \"fund_recording\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Recording fund amount\"\n          },\n          \"fund_marketing\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Marketing fund amount\"\n          },\n          \"fund_tour_support\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Tour support fund amount\"\n          },\n          \"fund_other\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Other fund amount\"\n          },\n          \"fund_other_title\": {\n            \"type\": [\"string\", \"null\"],\n            \"description\": \"Description of other fund\"\n          },\n          \"delivery_requirement_units\": {\n            \"type\": [\"integer\", \"null\"],\n            \"minimum\": 1,\n            \"description\": \"Number of units required\"\n          },\n          \"delivery_requirement_basis\": {\n            \"type\": [\"string\", \"null\"],\n            \"enum\": [\"Masters\", \"Albums\", null],\n            \"description\": \"What constitutes a delivery unit\"\n          },\n          \"payment_schedule\": {\n            \"type\": [\"string\", \"null\"],\n            \"description\": \"Free-text description of payment timing\"\n          }\n        },\n        \"required\": [\"index_number\"],\n        \"additionalProperties\": false\n      },\n      \"description\": \"Array of deal terms with financial and delivery details\"\n    }\n  },\n  \"required\": [\n    \"type\",\n    \"status\",\n    \"title\",\n    \"artist\",\n    \"label\",\n    \"record_deal_type\",\n    \"terms\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -540,
+        780
+      ],
+      "id": "2582f8a2-8411-4364-aef0-3de4441d58f0",
+      "name": "ParserSchema"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad142379-c41b-4b51-acb2-31ae1cebf66b",
+              "leftValue": "={{ typeof $json.output === 'string' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -420,
+        360
+      ],
+      "id": "cd299df4-a8ea-434c-a3c7-447e226b2035",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -220,
+        580
+      ],
+      "id": "f16ad0da-8cd2-4d4a-b5c9-6749fb7355d5",
+      "name": "IfFailed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e84ac3-4ec7-4210-b2f1-a6cd94acd695",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ce8bfc-bd10-40ee-b723-cfe88c028dbe",
+              "name": "output.book",
+              "value": "={{ $('Trigger').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "d577df6f-a52a-452b-9cd9-43984f3b367d",
+              "name": "type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -220,
+        380
+      ],
+      "id": "12002785-17b4-4ea3-a9f7-d65dc6f91f4c",
+      "name": "Update"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k29nXdKslVJNTozZ",
+          "mode": "list",
+          "cachedResultName": "New Fields Recommender"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        320,
+        0
+      ],
+      "id": "d00ee73c-56db-43af-a435-e309aaed873e",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5142cf48-42e6-4c07-9d0c-77086df272d8",
+              "name": "extracted_schema",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "9a6e5008-0913-4195-837f-3b019b01d042",
+              "name": "deal_document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "caf6f8c2-f645-47ab-a67f-912d120fa7a4",
+              "name": "deal_type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -220,
+        100
+      ],
+      "id": "dda037e3-62ab-412d-bf8c-6b7a14ebc6b1",
+      "name": "PreparePayload"
+    },
+    {
+      "parameters": {
+        "name": "search_labels",
+        "description": "=Trigger this tool to identify, validate and  the labe organization provided in the publishing deal document.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ \n{\norganization_name: $fromAI('organization_name', 'Legal name of the organization provided/mentioned in the Record deal document', 'string'),\norganization_role: 'Label',\n}\n}}",
+            "for": "organizations",
+            "threshold": 0.7
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -860,
+        660
+      ],
+      "id": "1de29148-274d-4077-b0b6-707d224fca31",
+      "name": "Label Search1"
+    },
+    {
+      "parameters": {
+        "name": "search_artist",
+        "description": "=If each artist identified in the \"Deal Document\", run this tool to artist data from the database. Input query to this tool is artist name. Must be an exact match of name. If no matches are found, set the field to null.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ \n{\n\"artist_name\": $fromAI('artist_name', `The exact name provided for the artist in the deal document.`, 'string') \n}\n}}",
+            "for": "artists",
+            "threshold": 0.3
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1180,
+        660
+      ],
+      "id": "8a82208b-5d06-4564-b907-b62d668367cc",
+      "name": "ArtistLookup"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -720,
+        540
+      ],
+      "id": "4c4ffeb8-1e71-4503-b9e2-824e7f80cf0c",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "name": "search_distributer",
+        "description": "=Trigger this tool to identify, validate and  the distributer organization provided in the publishing deal document.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ \n{\norganization_name: $fromAI('organization_name', 'Legal name of the organization provided/mentioned in the record deal document', 'string'),\norganization_role: \"Distributor\",\n}\n}}",
+            "for": "organizations",
+            "threshold": 0.7
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1020,
+        660
+      ],
+      "id": "9f295d74-69c2-464b-8aa5-db2507c669af",
+      "name": "Distributer Search"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "document": "---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 10:22 AM\nBody: Go ahead and create this deal with as much information as you have.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 10:09 AM\nBody: Compile new terms for creating new deal.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 10:09 AM\nBody: Compile new terms for creating new deal.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 9:57 AM\nBody: It is record deal. How much clarification do you need?\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 9:24 AM\nBody: This is not the deal. A new deal needs to be created.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 9:46 AM\nBody: The discussion is already about record deal. I want a new deal created.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 9:24 AM\nBody: This is not the deal. A new deal needs to be created.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Sat, Nov 1, 2025, 9:24 AM\nBody: This is not the deal. A new deal needs to be created.\n---------------\n\n_______________\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Saturday, November 1, 2025 at 9:19 AM\nSubject: Onyx Deal\n\nBody:\nAnother record deal thread\n________________________\n\n_______________\nFrom: Michael Ransom (michael@ferraraentlaw.com)\nTo: Harrison Remler (harrisonremler@gmail.com), Jordan Levy (jordan@1916mgmt.com)\nCC: Dwayne Hoover (dwayne@1916mgmt.com), Jamil Hunter (jamil@1916mgmt.com)\nDate: Wednesday, December 4, 2024 at 2:45 PM\nSubject: Re: onyx deal\n\nBody:\nHi Harrison,\n\nApologies for the delay getting this back to you. Apparently Covid is still a thing and it got me down for a good bit. Attached, please see our comments to this agreement. Happy to discuss as helpful or necessary.\n\nBest,\nMichael\n________________________\n\n_______________\nFrom: Harrison Remler (harrisonremler@gmail.com)\nTo: Jordan Levy (jordan@1916mgmt.com)\nCC: Michael Ransom (michael@ferraraentlaw.com), Dwayne Hoover (dwayne@1916mgmt.com), Jamil Hunter (jamil@1916mgmt.com)\nDate: Monday, November 25, 2024 at 1:59 PM\nSubject: Re: onyx deal\n\nBody:\nMichael, checking in here re your comments. Would love to get to work.\nHR\n________________________\n\n_______________\nFrom: Harrison Remler (harrisonremler@gmail.com)\nTo: Michael Ransom (michael@ferraraentlaw.com)\nDate: Thursday, November 21, 2024 at 9:40 AM\nSubject: Re: onyx deal\n\nBody:\nGood to chat with you this week Michael.\nLooking forward to seeing your redline/notes — let’s get to work!\n________________________\n\n_______________\nFrom: Jordan Levy (jordan@1916mgmt.com)\nTo: Harrison Remler (harrisonremler@gmail.com)\nDate: Thursday, November 14, 2024 at 8:01 PM\nSubject: Onyx deal\n\nBody:\nAll set - see link below:\n\nJordan Levy is inviting you to a scheduled Zoom meeting.\n\nTopic: Onyx deal\nTime: Nov 18, 2024 02:30 PM Eastern Time (US and Canada)\n\nJoin Zoom Meeting\nhttps://zoom.us/j/91937073206?pwd=1x9ZEarEbNwe4S9nSfaV5VJSCvchm4.1\n\nMeeting ID: 919 3707 3206\nPasscode: 1JfjSB\n\nThank you!\n________________________\n\n_______________\nFrom: Harrison Remler (harrisonremler@gmail.com)\nTo: Jordan Levy (jordan@1916mgmt.com)\nDate: Thursday, November 14, 2024 at 2:35 PM\nSubject: Onyx deal\n\nBody:\n2:30 PM EST works.\n\n@Jordan Levy can you send around a Zoom?\n________________________\n\n_______________\nFrom: Michael Ransom (michael@ferraraentlaw.com)\nTo: Harrison Remler (harrisonremler@gmail.com)\nDate: Thursday, November 14, 2024 at 10:32 AM\nSubject: Onyx deal\n\nBody:\nLet’s shoot for Monday. I could do morning or mid-afternoon.\n________________________\n\n_______________\nFrom: Jamil Hunter (jamil@1916mgmt.com)\nTo: Harrison Remler (harrisonremler@gmail.com)\nCC: Michael Ransom (michael@ferraraentlaw.com), Jordan Levy (jordan@1916mgmt.com), Dwayne Hoover (dwayne@1916mgmt.com), Jonathan Gordon (jonathan@1916mgmt.com)\nDate: Thursday, November 14, 2024 at 8:06 AM\nSubject: Re: onyx deal\n\nBody:\nMonday and this weekend is open for me also. I know Quincy Jones is ready to get everything going.\n________________________\n\n_______________\nFrom: Harrison Remler (harrisonremler@gmail.com)\nTo: Jamil Hunter (jamil@1916mgmt.com)\nDate: Wednesday, November 13, 2024 at 7:35 PM\nSubject: Re: onyx deal\n\nBody:\nI’ll be landing at JFK at 2:30 PM ET on Fri.\nIf Monday is best, let me know.\nThanks.\n________________________\n\n_______________\nFrom: Harrison Remler (harrisonremler@gmail.com)\nTo: Michael Ransom (michael@ferraraentlaw.com)\nDate: Wednesday, November 13, 2024 at 3:50 PM\nSubject: Re: onyx deal\n\nBody:\nFriday afternoon EST? 3:30?\n\nHarrison Remler\n516-384-3883\n________________________\n\n_______________\nFrom: Michael Ransom (michael@ferraraentlaw.com)\nTo: Harrison Remler (harrisonremler@gmail.com)\nDate: Wednesday, November 13, 2024 at 3:31 PM\nSubject: Re: onyx deal\n\nBody:\nFriday afternoon will work for me; however, I will be tied up starting at 3:30 EST so would need to do a little earlier. Any chance we could say 3?\n________________________\n\n_______________\nFrom: Jamil Hunter (jamil@1916mgmt.com)\nTo: Harrison Remler (harrisonremler@gmail.com)\nCC: Michael Ransom (michael@ferraraentlaw.com), Jordan Levy (jordan@1916mgmt.com), Dwayne Hoover (dwayne@1916mgmt.com), Jonathan Gordon (jonathan@1916mgmt.com)\nDate: Wednesday, November 13, 2024 at 2:51 PM\nSubject: Re: onyx deal\n\nBody:\nFriday will be good for me also.\n________________________\n\n_______________\nFrom: Harrison Remler (harrisonremler@gmail.com)\nTo: Michael Ransom (michael@ferraraentlaw.com)\nCC: Jordan Levy (jordan@1916mgmt.com), Dwayne Hoover (dwayne@1916mgmt.com), Jonathan Gordon (jonathan@1916mgmt.com), Jamil Hunter (jamil@1916mgmt.com)\nDate: Wednesday, November 13, 2024 at 1:59 PM\nSubject: onyx deal\n\nBody:\nMichael,\n\nAs per our texts, please find attached the contract for the partnership between Quincy Jones and Onyx.\n\nPlease let us know your thoughts!\n\nReserving all rights.\n\n--\nHarrison Remler\n516-384-3883\n________________________\n\n_______________\nFrom: Michael Ransom (michael@ferraraentlaw.com)\nTo: Harrison Remler (harrisonremler@gmail.com)\nDate: Wednesday, November 13, 2024 at 12:35 PM\nSubject: Re: onyx deal\n\nBody:\nThanks! What day and time are you guys free to hop on a call?\n________________________",
+          "number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+          "deal_type": "Record"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "OXd6Bgv6fGlRWzmQ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-02T07:15:59.066Z",
+  "versionId": "21f2b720-2956-4cf6-89c4-051cea3512c1"
+}
