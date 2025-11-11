@@ -1,0 +1,758 @@
+{
+  "active": false,
+  "connections": {
+    "WTrigger": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gmail2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authenticate": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unzip And Prepare": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Extraction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraction": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Authenticate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Gmail1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Gmail1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Compression",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unzip And Prepare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compression": {
+      "main": [
+        [
+          {
+            "node": "Unzip And Prepare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-05T11:58:03.851Z",
+  "id": "CdHgURIIFXW8hZSO",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "BD-Orchestrator",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1160,
+        -365
+      ],
+      "id": "19f11534-8e12-4428-8b2c-b57cee080f50",
+      "name": "WTrigger"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BhzIUYoMuxSE79jf",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.2"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "user_identification",
+            "data": "={{ [{\"address\": $json.from.value[0].address}] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -720,
+        -365
+      ],
+      "id": "faa507ed-2469-4e58-847d-6e3005637338",
+      "name": "Authenticate"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "42803625-1dfb-4d09-a553-f54a308f9657",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -500,
+        -365
+      ],
+      "id": "ce8074a2-3d8c-44be-87ed-292f0057dfd9",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fd1c810e-7b38-4c83-bda4-b0bcc9ed0d6a",
+              "name": "output",
+              "value": "=<!DOCTYPE html>\n<html>\n  <body style=\"margin:0; padding:0; font-family: Arial, Helvetica, sans-serif; font-size:14px; line-height:1.6; color:#222;\">\n    <table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse;\">\n      <tr>\n        <td align=\"left\" style=\"padding:0;\">\n          <table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse; max-width:640px;\">\n            \n            <!-- Greeting -->\n            <tr>\n              <td style=\"padding:0 0 16px 0;\">\n                Hello {{ $('WTrigger').first().json.from.value[0].name }},\n              </td>\n            </tr>\n\n            <!-- Message -->\n            <tr>\n              <td style=\"padding:0 0 16px 0;\">\n                We could not authenticate you as Patchbay User. Sorry for invoice.\n              </td>\n            </tr>\n\n            <!-- Closing -->\n            <tr>\n              <td style=\"padding:24px 0 4px 0;\">\n                Best regards,\n              </td>\n            </tr>\n            <tr>\n              <td style=\"padding:0;\">\n                Patchbay Assistant\n              </td>\n            </tr>\n\n          </table>\n        </td>\n      </tr>\n    </table>\n  </body>\n</html>\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -280,
+        -265
+      ],
+      "id": "57ad00d7-85d8-4b3d-b070-e0bca29ab47f",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "nm2fPZKUkGNm8xc8",
+          "mode": "list",
+          "cachedResultName": "ProcessZip"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        380,
+        -465
+      ],
+      "id": "b5fa7dc5-6f9f-44e0-b127-31bae0ad3c58",
+      "name": "Unzip And Prepare"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all items from the GTrigger node\nconst items = $('WTrigger').all();\n\nreturn items.map(item => {\n  const binaryKey = Object.keys(item.binary || {})[0]; // usually \"attachment_0\"\n  const binaryData = item.binary?.[binaryKey];\n\n  return {\n    json: {\n      ...item.json,   // copy json content\n    },\n    binary: binaryData \n      ? { data: binaryData } // rename to \"data\"\n      : {}\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1160,
+        195
+      ],
+      "id": "b26435ab-7e07-4c87-8fd9-a521c187b52a",
+      "name": "Data"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "documents",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        600,
+        -465
+      ],
+      "id": "8e409bf5-8e4d-4907-90f6-1b09d35cbeb9",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "FtbhlqgbWe0Cbe9c",
+          "mode": "list",
+          "cachedResultName": "BD-Extraction"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "file": "={{ $json }}",
+            "user": "={{\n{\nname: $('Authenticate').first().json.name,\nuser_id: $('Authenticate').item.json.user_id,\nperson_number: $('Authenticate').item.json.person_number\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "file",
+              "displayName": "file",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user",
+              "displayName": "user",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        820,
+        -465
+      ],
+      "id": "1dace9b9-78e0-4cbe-8684-9866533e9355",
+      "name": "Extraction"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "text",
+          "temperature": 0.5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1128,
+        -245
+      ],
+      "id": "1be7e3a2-d7d1-4f8f-b87b-189bd6d8a6cc",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "thread",
+        "operation": "reply",
+        "threadId": "={{ $('WTrigger').first().json.threadId }}",
+        "messageId": "={{ $('WTrigger').first().json.id }}",
+        "emailType": "html",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1416,
+        -465
+      ],
+      "id": "e76ee5dd-19dd-4f58-91af-2c0654fa89c4",
+      "name": "Gmail",
+      "webhookId": "3e89f59f-5f0e-4f8e-8aef-a8210772c34e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Process the below reports and craft a nice reply;\n\nBulk Deal Results:\n{{\n  $input.all().map((item, idx) =>\n    `### Report-${idx + 1}\\n${JSON.stringify(item.json.message, null, 2)}\\n`\n  ).join(\"\\n\\n---\\n\\n\")\n}}\n\nUser/Manager Name: {{ $('WTrigger').item.json.from.value[0].name }}",
+        "options": {
+          "systemMessage": "=You are **Patchbay AI Assistant**, helping music managers handle bulk deal reports via email collaboration.\n\n---\n\nOBJECTIVE\nTake the processed deal results (already structured into `message` fields) and compile them into a **professional, Gmail-ready HTML report**.\n\n---\n\nREQUIREMENTS:\n\n1. Greeting & Summary\n\n   - Greet the manager by first name with appropriate time of day.\n   - Brief intro sentence: “Here is your bulk deal processing report.”\n   - One-line **counts summary**:\n     **CREATED (X) • EXISTS (Y) • FAILED (Z)**\n     (omit counts if not available).\n\n2. Sections\n\n   - Render in this order: **CREATED**, **EXISTS**, **FAILED**.\n   - Only render a section if it has items.\n   - Group deals by a **Deal Title**:\n\n     - Format: “{Client/Contributor/Producer} x {Artist} – Master: {MasterName}”\n     * Include only informations which are available.\n\n3. Deal Item Format\n\n   - Each deal appears as a bullet block with the following fields (in this order):\n\n     - **Deal Type:** {deal_type or “Missing”}\n     -  **File Name:** {file_name}\n     - **<Role(Producer etc) if provided otherwise \"Client Name\">:** {producer/contributor/writer etc name if available, otherwise “Missing”}\n     - **Master:** {master_name or “Missing”}\n     - **Artist:** {artist_name or “Missing”}\n   - For **FAILED** deals, also include:\n\n     - **Reason:** short, human-readable explanation (workspace missing, unsupported file type, unrecognized deal type, etc.)\n   - For unsupported file types, say:\n     “This file type (.csv) is not supported. Only .pdf and .docx can be processed.”\n\n4. Language & Tone\n\n   - Use clear, professional phrasing.\n   - Rephrase technical errors into manager-friendly language.\n   - Avoid raw system text (e.g., “workspace missing”)—instead write:\n     “This client’s workspace is not yet set up in Patchbay, so the deal cannot be processed at this time.”\n\n5. Closing\n\n   - End with a polite note:\n     “Note: Follow-ups via this channel cannot be processed automatically.”\n   - Sign as **Patchbay Assistant**.\n\n---\n\nRENDERING RULES\n\n- Use **simple inline HTML** only (Gmail-safe).\n- Font: `Arial, Helvetica, sans-serif`, size 14px, line height \\~1.6.\n- Max width 720px.\n- Headings: `<h2>` for sections, `<h3>` for deal titles.\n- Bullets: `<ul><li>` with compact spacing.\n- No images, colors, or external CSS.\n\n---\n\nOUTPUT FORMAT\n\nReturn **only** the HTML block. Example skeleton:\n\n```\n<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#222;max-width:720px;margin:0;\">\n  <p style=\"margin:0 0 8px 0;\">Good {time_of_day} {manager_first_name},</p>\n  <p style=\"margin:0 0 16px 0;\">Here is your bulk deal processing report.</p>\n\n  <!-- Summary -->\n  <p style=\"margin:0 0 16px 0;\">\n    <strong>CREATED</strong> (<strong>{count}</strong>) •\n    <strong>EXISTS</strong> (<strong>{count}</strong>) •\n    <strong>FAILED</strong> (<strong>{count}</strong>)\n  </p>\n\n  <!-- Sections go here -->\n\n  <p style=\"margin:16px 0 0 0;\">Note: Follow-ups via this channel cannot be processed automatically.</p>\n  <p style=\"margin:6px 0 0 0;\">Best,<br>Patchbay Assistant</p>\n</div>\n```"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        1040,
+        -465
+      ],
+      "id": "147c0345-312a-4fa5-8642-a6e91643caa3",
+      "name": "AI Agent",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "913f1827-44c1-4cf1-a89b-d88f5a177f82",
+              "leftValue": "={{ !!Object.keys($input.item.binary || {}).length }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -940,
+        -265
+      ],
+      "id": "ef8250da-bd3f-4a06-8d51-823151e0720a",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fd1c810e-7b38-4c83-bda4-b0bcc9ed0d6a",
+              "name": "output",
+              "value": "=<!DOCTYPE html>\n<html>\n  <body style=\"margin:0; padding:0; font-family: Arial, Helvetica, sans-serif; font-size:14px; line-height:1.6; color:#222;\">\n    <table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse;\">\n      <tr>\n        <td align=\"left\" style=\"padding:0;\">\n          <table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse; max-width:640px;\">\n            <tr>\n              <td style=\"padding:0 0 16px 0;\">\n                Hello {{ $('WTrigger').first().json.from.value[0].name }},\n              </td>\n            </tr>\n            <tr>\n              <td style=\"padding:0 0 16px 0;\">\n                I could not find any attachment with this email. Could you please provide a valid ZIP file so we can continue processing?\n              </td>\n            </tr>\n            <tr>\n              <td style=\"padding:24px 0 4px 0;\">\n                Best regards,\n              </td>\n            </tr>\n            <tr>\n              <td style=\"padding:0;\">\n                Patchbay Assistant\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n  </body>\n</html>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -280,
+        -65
+      ],
+      "id": "a89d9829-903c-46fb-83d9-59cc7962cd9f",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "resource": "thread",
+        "operation": "reply",
+        "threadId": "={{ $('WTrigger').first().json.threadId }}",
+        "messageId": "={{ $('WTrigger').first().json.id }}",
+        "emailType": "html",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -60,
+        -165
+      ],
+      "id": "5ebc9558-b59f-48e2-8e7a-4935994b2650",
+      "name": "Gmail1",
+      "webhookId": "3e89f59f-5f0e-4f8e-8aef-a8210772c34e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('WTrigger').first().json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -940,
+        -465
+      ],
+      "id": "01d9fb63-37f7-4fe7-8c28-25f6d1089c83",
+      "name": "Gmail2",
+      "webhookId": "3e89f59f-5f0e-4f8e-8aef-a8210772c34e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all items from the WTrigger node\nconst items = $('WTrigger').all();\n\nreturn items.map(item => {\n  const binaries = item.binary || {};\n  const binaryKeys = Object.keys(binaries);\n\n  let resultBinary = {};\n  let zipStatus = false;\n\n  if (binaryKeys.length === 1 && binaries[binaryKeys[0]]?.fileName?.toLowerCase().endsWith('.zip')) {\n    // Case 1: Only one attachment and it is a zip\n    resultBinary = { data: binaries[binaryKeys[0]] };\n    zipStatus = true;\n  } else if (binaryKeys.length > 0) {\n    // Case 2: Multiple attachments (not zip) or single non-zip\n    // Keep them all under binary\n    resultBinary = {};\n    for (const [key, value] of Object.entries(binaries)) {\n      resultBinary[key] = value;\n    }\n    zipStatus = false;\n  }\n\n  return {\n    json: {\n      ...item.json,\n      zip_status: zipStatus,\n    },\n    binary: resultBinary,\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        -465
+      ],
+      "id": "504dddc0-3961-4c19-a5bf-aaab4b57d3f0",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "354aeec4-af94-40c2-a2d3-06a5362d6984",
+              "leftValue": "={{ $json.zip_status }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -60,
+        -465
+      ],
+      "id": "e7b1b823-3b4f-4036-aefa-665a9be90147",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "operation": "compress",
+        "binaryPropertyName": "={{ Object.keys($binary).join(',') }}",
+        "fileName": "data.zip"
+      },
+      "type": "n8n-nodes-base.compression",
+      "typeVersion": 1.1,
+      "position": [
+        160,
+        -540
+      ],
+      "id": "2984c362-1ce0-4dab-ae00-4f1a995731c6",
+      "name": "Compression"
+    }
+  ],
+  "pinData": {
+    "WTrigger": [
+      {
+        "json": {
+          "id": "199385f307e4afd9",
+          "threadId": "199385f307e4afd9",
+          "labelIds": [
+            "UNREAD",
+            "IMPORTANT",
+            "Label_8900561339644229618",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 2502817,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])\r\n        by mx.google.com with SMTPS id 2adb3069b0e04-56e6170cf2csor250713e87.16.2025.09.11.03.43.06\r\n        for <asst@patchbay.xyz>\r\n        (Google Transport Security);\r\n        Thu, 11 Sep 2025 03:43:06 -0700 (PDT)",
+            "x-received": "X-Received: by 2002:a05:651c:210a:b0:350:435d:983f with SMTP id\r\n 38308e7fff4ca-350435d9eb3mr829871fa.31.1757587384578; Thu, 11 Sep 2025\r\n 03:43:04 -0700 (PDT)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1757587386; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=HR5JDMwEYHUCxIckMd8uVc/Fl6oJ5mXvtQzq//9jfxlWozjBYQkC35bLXK2crrvmf+\r\n         HDO4p7Ognz3+w7pbArhXHQzXoEZuWVY5155+PUER8vGVfPkHl6B/rcnTtmwCd04MA4R6\r\n         6luHhLXxA1ZROm61MDEZy3nNG9KWrBQKMutFV2a2IQJTOGQkfqjAsTFZLVA7hhtW22NV\r\n         ZmT1b9OfxMlFyIOVwyizimuR7IHKUZnnZZ82e4TkdrrgAgAkys5GhDBS48sOJV59XRUS\r\n         IqaV+ZA/yQPR2EIFP9k2CTP/gTzn5ieLm9/W4bx4uYGUeqoiM9MoAi2tBdFN8RazNp9Q\r\n         y6VQ==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=to:subject:message-id:date:from:mime-version:dkim-signature;\r\n        bh=OY2seldjolK5gmEDiX3ttFCQBmuPniuMc5ZoLj0tRpA=;\r\n        fh=HkxZtZb3roTtnsTo/f2mqsfDvYgOE4kzeC2/njS6fJ8=;\r\n        b=I+zpPqsbpemqm64ss8WX3K/9hmq0IY6rpJasW8KhluvVyNxINvdeUld2P28LnPEgxG\r\n         ZsMDrXiy9igAPWlbnRp+vz+JeMsEs53LESPbLyyg5oTNnyUiSi+3+DFYXsbFTETTPwyW\r\n         JeR5hGFB5SLN4u+TbRIj6bDZUB49J4lMKeuNw5QlJ5OoGwqr/V9Ibr6NFezT8Ob0NfXu\r\n         ptYGX67zrfm/yPP7vvXMktnCfe9dCQMDxv02tSoklJoiB+s0Czyq9JvB67TCU9Rzy66f\r\n         SPMh2fiM2YEi+ObjjWFp7HdGjzXAzPmSRUC5pQ2T7GzSTb5N11wM4OWEvvl3rQ4PWB4u\r\n         plFQ==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=WpE556Yv;\r\n       spf=pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=pass header.i=@patchbay.xyz",
+            "return-path": "Return-Path: <dwayne@patchbay.xyz>",
+            "received-spf": "Received-SPF: pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=WpE556Yv;\r\n       spf=pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=pass header.i=@patchbay.xyz",
+            "dkim-signature": "DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=patchbay.xyz; s=google; t=1757587386; x=1758192186; darn=patchbay.xyz;\r\n        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject\r\n         :date:message-id:reply-to;\r\n        bh=OY2seldjolK5gmEDiX3ttFCQBmuPniuMc5ZoLj0tRpA=;\r\n        b=WpE556YvyqiFXU0EbJFRkQV+EFo1EXiWaCPluvt/e6ZTRZ8KNnm9b53mkzMlvmk/8I\r\n         lb1/JU5kUc586WhQWILCDBrTTZ4SIdsL4d+vls3zmaIosWgu3b8zbBAzMeKqhxO1btU5\r\n         er1VRapi/ktMWQNYy+L3fo1XHXO3xwca7HQZs=",
+            "x-google-dkim-signature": "X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20230601; t=1757587386; x=1758192186;\r\n        h=to:subject:message-id:date:from:mime-version:x-gm-message-state\r\n         :from:to:cc:subject:date:message-id:reply-to;\r\n        bh=OY2seldjolK5gmEDiX3ttFCQBmuPniuMc5ZoLj0tRpA=;\r\n        b=aoALFgyIF8svpGruPIJwK5a7sQrI91Q9C1//ThUjSbTPYN22xdlEdFnvE8uexb+8Z5\r\n         bbig0EpQ2E2lQX/jOT8rojub+VSxY+GBDQwN2iLVREvTvNkU+vtUpnNdF9ugcgKBmv0/\r\n         MYvUyTVq1wAp1nf/7ANbu3RjzUdX7Slqy6bD+5UGCRbkjOMRu8E2Jlqd3AcBVODAKNvj\r\n         lVxEzBdkzwuMCdHb+c/8mtSSwoOjzt0HjO0EfRPIO8XQxJFpRcvKPKhd4dfOOgtNwOSr\r\n         T488fCJfA4Me2/eX1rMaz6zGAxWiKFa4VeHQCKpzB6CsKPpDS59wjJxoRkMK1g1Wvbe1\r\n         dA7A==",
+            "x-gm-message-state": "X-Gm-Message-State: AOJu0YzG+A4ZPijTfUmpFU0o+uMYKsgJlHeh6wgxlpGQlpxnwBhFh6cV\r\n\too15TFNepwudCnxYbmwNNuUanMGXL+DIgBCUNsbVJQqMez8EhudRT9uknIKGjb3GSKcsSPvSOcY\r\n\td/ZejhjCMur8CiJOehS9b8a8Fv4/OVkJH87Rib7hV542wthBULHq1FJ4=",
+            "x-gm-gg": "X-Gm-Gg: ASbGncv+uyZ/CVqld1n/GIzuuRZ1anZiiWJxZ+BwLxHoUpoNvP26KMg93juIYsFV5s/\r\n\tbdUuQ7z2Ip+PqMgSlDsHp0R59CLZalrMvKbSOHabNorIg4thviRxFeuGgY2jjvpvDivAt44Z95G\r\n\te21gjTsHvyas4Ryymf6nF5N6DW1kVrucN9SRW/GgmySG9HXy1LMnJFvHFvhmUoexvBwrBoHYvUV\r\n\tfoc+uOzqDJDqAEnIc8SjdUnPwUviNr697T0C+3Ur55T1te1uRbhBGuvSpCOwChFrurAjFZTFYCp\r\n\tQz6Yyc6k",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IHy3ZVRWAelZfAzrwL21B3qPX76/2ISbYkQyaKp6ZiHZLc2t1LT0aV7618fd4Muhkz2byrgk/VZTc55UdNR6u8=",
+            "mime-version": "MIME-Version: 1.0",
+            "from": "From: Dwayne Hoover <dwayne@patchbay.xyz>",
+            "date": "Date: Thu, 11 Sep 2025 17:42:48 +0700",
+            "x-gm-features": "X-Gm-Features: Ac12FXxFKnQ1h4zdTsRB3RrfYuKaat26gpYZzfK2vNg_3RRYK68Zyn-5mPPOPv8",
+            "message-id": "Message-ID: <CAP=u+8C7Q58qh2_ndHD3=38wgbcDAvHODBeD=OiXWOwCgHiF8A@mail.gmail.com>",
+            "subject": "Subject: Bulk-Deal Test Aidan",
+            "to": "To: Patchbay Assistant <asst@patchbay.xyz>",
+            "content-type": "Content-Type: multipart/mixed; boundary=\"000000000000b88228063e8433e4\""
+          },
+          "html": "<div dir=\"ltr\">Can you create all the deals for the attached files?</div>\n",
+          "text": "Can you create all the deals for the attached files?\n",
+          "textAsHtml": "<p>Can you create all the deals for the attached files?</p>",
+          "subject": "Bulk-Deal Test Aidan",
+          "date": "2025-09-11T10:42:48.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "asst@patchbay.xyz",
+                "name": "Patchbay Assistant"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Patchbay Assistant</span> &lt;<a href=\"mailto:asst@patchbay.xyz\" class=\"mp_address_email\">asst@patchbay.xyz</a>&gt;</span>",
+            "text": "\"Patchbay Assistant\" <asst@patchbay.xyz>"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "dwayne@patchbay.xyz",
+                "name": "Dwayne Hoover"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Dwayne Hoover</span> &lt;<a href=\"mailto:dwayne@patchbay.xyz\" class=\"mp_address_email\">dwayne@patchbay.xyz</a>&gt;</span>",
+            "text": "\"Dwayne Hoover\" <dwayne@patchbay.xyz>"
+          },
+          "messageId": "<CAP=u+8C7Q58qh2_ndHD3=38wgbcDAvHODBeD=OiXWOwCgHiF8A@mail.gmail.com>"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    },
+    {
+      "createdAt": "2025-07-17T04:49:58.248Z",
+      "updatedAt": "2025-07-17T04:49:58.248Z",
+      "id": "lsVrWvDOcUhldARt",
+      "name": "in-devop"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-18T15:00:32.617Z",
+  "versionId": "0ef16287-38f2-4477-b752-b2897f35ff14"
+}
