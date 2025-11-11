@@ -1,0 +1,1134 @@
+{
+  "active": false,
+  "connections": {
+    "CallRecodDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallMasterDealsAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallSRDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallLPDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallSLDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare1": {
+      "main": [
+        [
+          {
+            "node": "CallRecodDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare2": {
+      "main": [
+        [
+          {
+            "node": "CallMasterDealsAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare3": {
+      "main": [
+        [
+          {
+            "node": "CallSRDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare4": {
+      "main": [
+        [
+          {
+            "node": "CallLPDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare5": {
+      "main": [
+        [
+          {
+            "node": "CallSLDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NoDealDetected": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SchemaParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DealsClassifier": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router-2": {
+      "main": [
+        [
+          {
+            "node": "Prepare1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDealDetected",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDealDetected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare6": {
+      "main": [
+        [
+          {
+            "node": "CallNBRDealAgent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallNBRDealAgent2": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Router-2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Not-Supported",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-15T04:54:12.975Z",
+  "id": "X0GhGf5U9mIlkowG",
+  "meta": null,
+  "name": "ExtractDeal-V-1.0.3",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "QFzzwur4AQh5POo8",
+          "mode": "list",
+          "cachedResultName": "Record"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        0
+      ],
+      "id": "3247fda5-a1c3-48b3-80a5-16b3bde446f0",
+      "name": "CallRecodDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "fxfgvzK5f1vHRgf3",
+          "mode": "list",
+          "cachedResultName": "Master"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        200
+      ],
+      "id": "84340165-7871-4fd8-b0a0-a24c530f2f0e",
+      "name": "CallMasterDealsAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PaCch2FBCVJudIft",
+          "mode": "list",
+          "cachedResultName": "Simple Royalty"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        400
+      ],
+      "id": "8c9bb313-3ce6-4301-9335-59c9ac72eca5",
+      "name": "CallSRDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "8AWruLSVbCPBZzWs",
+          "mode": "list",
+          "cachedResultName": "Live Performance"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        800
+      ],
+      "id": "5792571b-6430-4ed3-97b8-e216aaa582f8",
+      "name": "CallLPDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PaCch2FBCVJudIft",
+          "mode": "list",
+          "cachedResultName": "Simple Royalty"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        1000
+      ],
+      "id": "190e6217-e3b8-4ce0-9330-1e63e5aecb94",
+      "name": "CallSLDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Trigger').item.json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "db68d8cc-4950-45d0-873c-12b7ff8a0df3",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -484,
+        0
+      ],
+      "id": "63db6417-0f9a-489a-b51a-b649b4c9ccff",
+      "name": "Prepare1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Trigger').item.json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "d86379b7-8a63-4550-9a89-4905a0936e1d",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -484,
+        200
+      ],
+      "id": "1fdfacd2-3233-4110-af51-b7a90c8a802e",
+      "name": "Prepare2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "44301c7a-2d53-4583-8b42-ff609ac51bf1",
+              "name": "",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -484,
+        400
+      ],
+      "id": "5f576202-2def-4191-ae9c-df6717b69097",
+      "name": "Prepare3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "99850cbd-1f4c-4bf0-a47c-b8e8d9f316b1",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -484,
+        800
+      ],
+      "id": "21f16e3a-d74c-4853-8ff5-397418adb821",
+      "name": "Prepare4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "c29224ae-d49f-403d-8e67-4cf6a9d503c0",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -484,
+        1000
+      ],
+      "id": "e7c37892-9185-4c64-b5e8-34c4e7ed99e5",
+      "name": "Prepare5"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1300,
+        1120
+      ],
+      "id": "907b7447-f963-4c6f-8b28-b639dd5737d2",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -264,
+        600
+      ],
+      "id": "5bb0ecfa-1d2c-441d-9915-1a1580569f07",
+      "name": "NoDealDetected"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"title\": \"EntertainmentDealClassification\",\n  \"description\": \"This schema defines the structure of classification output for entertainment industry agreements. The output consists of field: `type`, which indicates the category of the deal.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"deal_type\": {\n      \"type\": \"string\",\n      \"description\": \"The primary classification of the deal type, based on document content.\",\n      \"enum\": [\n        \"Record\",\n        \"Master\",\n        \"Simple Royalty\",\n        \"Live Performance\",\n        \"Sync License\",\n        \"Publishing\",\n        \"Neighboring Rights\",\n        \"Unrecognised\"\n      ]\n    }\n  },\n  \"required\": [\"deal_type\"],\n  \"additionalProperties\": false\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1000,
+        1120
+      ],
+      "id": "d488641e-e2d4-4aff-81f4-e6ecf6c19c6d",
+      "name": "SchemaParser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.document.slice(0, 6000) }}\n",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an expert contract classifier specializing in entertainment industry agreements. Based on the content of a provided document(proper documet/email-thread), identify which **deal type** it represents, along with any applicable **enumeration or subtype** such as deal roles, categories, or royalty types.\n\nYour goal is to return a **structured JSON response** as specified:\n\n---\n\n### **Deal Types and Tags**\n\n#### **Record Deal** (`Record`)\n- Agreement between an **artist** and a **label**\n- Mentions **recording rights**, `label_split`, `distribution_split`\n- Often contains `reversion_type` or `reversion_period`\n- Language includes **record label**, **recording contract**, **royalty**, **ownership**\n\n---\n\n#### **Master Deal** (`Master`)\n- Related to **master recordings**\n- May mention **producer**, **mixer**, **musician**, or other roles\n- Often includes `work_for_hire`, `fee_schedule`, `payment_status`, `recoupable`\n\n---\n\n#### **Simple Royalty Deal** (`Simple Royalty`)\n- Agreement with a **manager**, **attorney**, or **agent**\n- Focused on **royalty percentages**, **representation**, or **commissions**\n\n---\n\n#### **Live Performance Deal** (`Live Performance`)\n- Related to **live shows**, **touring**, or **performances**\n- Mentions **fee**, **performance date**, **venue**, **payment**\n\n---\n\n#### **Sync License Deal** (`Sync License`)\n A Sync License Deal involves the licensing of a song or master recording for use in visual media (such as films, TV shows, commercials, video games, etc.).\n\nKey Indicators:\n\nMentions of licensing for media or audiovisual use.\n\nParties involved: typically an artist and a licensor or production company.\n\nTerms like “sync rights”, “synchronization license”, “use in film/TV/ad”, “visual media”.\n\nPayment in the form of a flat fee or sync fee for the usage rights.\n\n---\n\n#### **Publishing deal** (`Publishing`)\n- A Publishing deal broadly includes any agreement involving musical compositions, publishing rights, royalty splits for compositions, or roles such as Publisher, Administrator, Co-Publisher, Sub-Publisher, or Self-Publisher.\n\n---\n\n#### **Neighboring Rights Deal** (`Neighboring Rights`)\n- Agreement regarding **neighboring rights** (rights of performers and producers in sound recordings)\n- Involves **artists**, **organizations (CMOs/PROs)**, or **collecting societies**\n- Typically includes:\n  - `collection_mandates` such as \"Performer\" or \"Rights Owner\"\n  - `territories` indicating geographic coverage\n  - `client_share` / `counterparty_share` percentage splits\n  - Mentions of **exclusive mandates**, **repertoire eligibility**, or **territorial representation**\n\n---\n\n### **Instructions**\n1. Analyze the full content of the provided document.\n2. Classify it into the most relevant deal type using `deal_type`.\n3. If the deal type cannot be confidently determined, return `deal_unknown`.\n4. If the user uploads a Tour Deal **Memo**, return deal_unknown."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -1300,
+        752.5
+      ],
+      "id": "a646ab48-7c49-4849-ad40-89022e0eae0d",
+      "name": "DealsClassifier"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e3eb620f-46a3-4366-ba63-f680efcf502a",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Record",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Master",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c7a2b340-ac5a-4859-89b9-0b5c7f0b3d42"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "745f048e-7e40-490b-9d6b-a0045793ad5a",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Simple Royalty",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "526e34ba-adc1-419a-8644-1a66e18e1689",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Unrecognised",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b9999d9e-125e-4253-a3af-a9fce3656106",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Live Performance",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f8ae7023-d4e4-4c72-92b2-8072c6c77431",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Sync License",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "acf32fb5-e2bc-4b33-9b51-8abeb5a4d777",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Neighboring Rights",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "655d9e37-6901-43a6-a485-91aeb7700044",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Publishing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -704,
+        495
+      ],
+      "id": "80cc2641-1035-460c-b3c8-54387e896f0a",
+      "name": "Router-2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "76efb454-ad3c-4d95-b042-c1b639230fdc",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -484,
+        1200
+      ],
+      "id": "76562858-e8bb-4774-aeba-136d5da73504",
+      "name": "Prepare6"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "wYh9S1qUCu5fBMIL",
+          "mode": "list",
+          "cachedResultName": "Neighbouring Rights"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        1200
+      ],
+      "id": "102aa3a8-f75e-414a-a025-830285f76394",
+      "name": "CallNBRDealAgent2",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1dc24e90-260d-4180-9c62-29e44b403039",
+              "name": "job_id",
+              "value": "={{ $('Trigger').item.json.job_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f8f26781-837a-449f-b347-69488eb59e92",
+              "name": "book_number",
+              "value": "={{ $('Trigger').item.json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "b70e94c2-3e02-476a-8207-847256d0a53b",
+              "name": "status",
+              "value": "={{ $json.output == null ? 'failed' : 'completed' }}",
+              "type": "string"
+            },
+            {
+              "id": "7043de5c-0145-44fd-a2e4-0473823e599f",
+              "name": "contract_url",
+              "value": "={{ $('Trigger').item.json.contract_url }}",
+              "type": "string"
+            },
+            {
+              "id": "a9513d36-2a5b-4b1f-a68d-09c1efc3f4f8",
+              "name": "temp_deal_data",
+              "value": "={{$json.output}}",
+              "type": "object"
+            },
+            {
+              "id": "a3d4f760-0673-4222-a1c5-a1cc4879372b",
+              "name": "=deal_type",
+              "value": "={{ $('DealsClassifier').item.json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": false
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -44,
+        447.5
+      ],
+      "id": "8c7d31df-18c6-4efb-ac72-1079c1722470",
+      "name": "PrepareOutput"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "job_id"
+            },
+            {
+              "name": "book_number"
+            },
+            {
+              "name": "document",
+              "type": "any"
+            },
+            {
+              "name": "contract_url"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1520,
+        752.5
+      ],
+      "id": "7b2bfb4d-fe21-41da-8318-9cc77d571b6e",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b58635d6-2e3a-4467-a334-24acb4baa56a",
+              "leftValue": "={{ $json.output.deal_type.includes(\"Master\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -924,
+        752.5
+      ],
+      "id": "f7cbf82c-7fa7-44ff-ab76-bd66a84a88b6",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b7337f4e-d331-4890-90d6-e76ad5fd812c",
+              "name": "message",
+              "value": "={{ $json.output.deal_type === 'Unrecognised' ? 'Unrecognised deal type' : `${$json.output.deal_type} deals creation is not yet supported` }}",
+              "type": "string"
+            },
+            {
+              "id": "becd851b-4954-4da7-aaef-be434d43af7e",
+              "name": "status",
+              "value": "failed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -704,
+        905
+      ],
+      "id": "aea5bd4e-e49c-4220-9906-b0dff2913f6f",
+      "name": "Not-Supported"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1180,
+        940
+      ],
+      "id": "d235a41d-4f64-48cb-925f-1872b043ac36",
+      "name": "Auto-fixing Output Parser"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "job_id": null,
+          "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+          "document": "person_lega_name: Quincy  Jones\nArtist: Atif Aslam\nMaster: over the clouds\n\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Mon, Sep 22, 2025, 3:48 AM\nBody: I want to create new one for this thread.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Mon, Sep 22, 2025, 3:44 AM\nBody: None of these deals is related to this thread.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Mon, Sep 22, 2025, 2:32 AM\nBody: I want all the deals for my client Quincy Jones.\n\n---------------\n\n",
+          "contract_url": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-30T10:07:47.349Z",
+  "versionId": "a12b4aec-bf19-4037-8c06-4d8b57a9ea65"
+}
