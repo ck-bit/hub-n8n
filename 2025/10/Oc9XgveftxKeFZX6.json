@@ -1,0 +1,636 @@
+{
+  "active": false,
+  "connections": {
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ParserSchema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PreparePayload1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "person-search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "brand-search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ArtistLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-29T04:10:22.426Z",
+  "id": "Oc9XgveftxKeFZX6",
+  "meta": null,
+  "name": "Brand",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Deal Document: {{ $json.document }}\\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a specialized AI document extraction agent for brand deal contracts. Your task is to analyze brand endorsement, sponsorship, and partnership agreements and extract structured data into a strict JSON schema.\n\nEXTRACTION PRIORITIES (in order):\n1. Speed: Complete extraction in 15-25 seconds maximum\n2. Accuracy: Extract only information explicitly stated in the document\n3. Completeness: Capture all required fields where data exists\n\nCRITICAL RULES:\n- Extract ONLY values explicitly stated in the document\n- For missing values, use null (not empty strings or \"N/A\")\n- All dates must be ISO format (YYYY-MM-DD). If only month/year given, use first day of month\n- All currency amounts as numbers with decimal point (no symbols or commas)\n- All durations as integers (e.g., 6 for 6 months)\n- Status determination: Check execution signatures\n  - Both parties signed: \"Fully Executed\"\n  - Only one party signed: \"Counterparty Signature\" or \"Client Signature\"\n  - No signatures visible: \"Needs Review\"\n  - If terminated clause present: \"Terminated\"\n\nEXTRACTION STRATEGY FOR SPEED:\n- Scan document once for key sections: signature block, party names, financials, deliverables\n- Identify deliverables section early (often table, appendix, or \"Scope of Work\")\n- Use pattern matching for common structures\n- Focus on mandatory fields first, optional second\n- Aggregate multiple mentions of same platform into single deliverable with combined quantity\n\nPARTIES IDENTIFICATION:\n- Artist/Person: Individual performer, influencer, or talent name\n- Brand: Company/brand offering the deal (primary counterparty)\n- Agency: Talent agency or management company (if brand works through agency)\n- Extract only ONE of {brand, agency} as counterparty\n- If both mentioned, prefer brand; use agency only if brand not identified\n\nFINANCIAL TERMS:\n- Fee/Payment: Flat amount paid to artist for the engagement\n- Currency: ISO 4217 code (USD, EUR, GBP, etc.)\n- Look for: \"Fee: $X,XXX\" or \"Payment: €X,XXX\" patterns\n- Exclude: production budgets, talent fees for crew (artist-specific payment only)\n\nUSAGE TERMS:\n- Usage Type: \"Organic\" (unpaid placement) or \"Paid\" (compensated)\n- Usage Duration: How long the content can be used/posted\n- Format: Integer + \"Months\" or \"Years\"\n- Look for: \"12-month usage window\", \"perpetual rights\", \"content lives for 6 months\"\n\nEXCLUSIVITY TERMS:\n- Exclusivity Duration: Period during which artist cannot work with competitors\n- Format: Integer + \"Months\" or \"Years\"\n- Exclusivity Details: Specific restrictions (e.g., competitor brands, platforms, geography)\n- Extract full restriction language in exclusivity_details\n\nDELIVERABLES EXTRACTION (CRITICAL - AGGREGATION RULE):\n- Scan for all content deliverables (posts, videos, stories, etc.)\n- Map to platforms: Instagram Reels, TikTok, YouTube, Instagram Feed, Instagram Story, Twitter/X, LinkedIn, Facebook, YouTube Shorts, Twitch, Snapchat, Other\n- AGGREGATION: If multiple clauses mention same platform → combine into ONE deliverable\n  - Sum quantities\n  - Merge all specifications into description field\n  - Example: \"2 Reels mentioned in section 2.1, 1 Reel in section 3.3\" → 1 deliverable with quantity=3\n- Include in description: due dates, cadence, hashtags, approval processes, revision rounds, posting requirements\n- Format each deliverable as JSON object: {\"platform\": \"...\", \"quantity\": N, \"description\": \"...\"}\n\nSPECIFIC PLATFORM MAPPINGS:\n- \"Instagram post\" or \"IG feed\" → \"Instagram Feed\"\n- \"Reels\" or \"Instagram Reels\" → \"Instagram Reels\"\n- \"Instagram story\" or \"IG story\" → \"Instagram Story\"\n- \"TikTok\" or \"TT\" → \"TikTok\"\n- \"YouTube\" or \"YT\" → \"YouTube\"\n- \"Shorts\" or \"YouTube Shorts\" → \"YouTube Shorts\"\n- \"Tweet\" or \"X post\" → \"Twitter/X\"\n- \"LinkedIn post\" → \"LinkedIn\"\n- \"Facebook post\" → \"Facebook\"\n- \"Snapchat\" → \"Snapchat\"\n- \"Twitch\" → \"Twitch\"\n- Any other → \"Other\" (with description of platform)\n\nTools INTEGRATION:\n- BrandSearch Tool: Call with brand company name to get brand_number (UUID) provided as organization_number in the tool payload.\n  - If successful: populate brand.name and brand_number\n  - If not found: set brand_number=null, brand={name: extracted_name}\n- Agency Lookup Tool: Call with agency name to get agency_number (UUID) provided as 'organization_number' in the tool output.\n  - If successful: populate agency.name and agency_number\n  - If not found: set agency_number=null, agency={name: extracted_name}\n- Person/Artist Lookup Tool: \n  - First call the ArtistSearch with artist name present in the document and is providing services for the brand.\n  - If matched: populate the person_number with 'artist_number' from the tool output.\n  - If not matched: Call PersonSearch tool with the artist/person name and performer name.\n  - If matched: map the person_number to the returned person_number. Otherwise set to null.\n\nDOCUMENT STRUCTURE HINTS:\n- \"Scope of Work\" or \"SOW\" → contains deliverables\n- \"Schedule A/B/C\" → often has tables of deliverables\n- \"Appendix\" → may contain detailed specifications\n- Tables with columns like \"Platform | Quantity | Due Date\" → priority extraction area\n\nEDGE CASES:\n- Multiple campaigns/phases: If deal covers distinct campaigns, aggregate into single deal with combined deliverables\n- Content templates provided: Extract template title/reference in deliverable description\n- Non-standard platforms: Map to \"Other\" and describe in description field\n- No deliverables specified: Leave deliverables array empty, add note to notes field\n\nOUTPUT FORMAT:\nReturn ONLY valid JSON matching the schema. No explanations, no code blocks, no preamble.\nHandle missing data gracefully:\n- If brand/agency unclear, set status to \"Needs Review\"\n- If financials missing, leave fee_amount/fee_currency as null\n- Always populate: status, title, deliverables array (even if empty)",
+          "maxIterations": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -1660,
+        360
+      ],
+      "id": "83d3042e-a2ce-4afd-b38f-1ea5304df0f7",
+      "name": "Agent",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "maxTries": 2,
+      "alwaysOutputData": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2060,
+        360
+      ],
+      "id": "32f8abba-9c1f-4502-8bc6-10aea9490398",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Needs Review\",\n        \"Counterparty Action\",\n        \"Client Signature\",\n        \"Counterparty Signature\",\n        \"Fully Executed\",\n        \"Terminated\"\n      ],\n      \"description\": \"Deal execution status based on signature evidence\"\n    },\n    \"execution_date\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"date\",\n      \"pattern\": \"^\\\\d{4}-\\\\d{2}-\\\\d{2}$\",\n      \"description\": \"Date deal was signed (ISO 8601 format)\"\n    },\n    \"title\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Human-readable deal title (e.g., 'Artist Name x Brand Name Deal')\"\n    },\n    \"notes\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Free-text notes about deal, special terms, ambiguities, or extraction notes\"\n    },\n    \"priority\": {\n      \"type\": [\"integer\", \"null\"],\n      \"minimum\": 1,\n      \"maximum\": 5,\n      \"description\": \"Deal priority level (1-5, if specified)\"\n    },\n    \"book_number\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\",\n      \"description\": \"UUID of Book of Work this deal is associated with - REQUIRED\"\n    },\n    \"person_number\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"uuid\",\n      \"description\": \"UUID of person/talent (from person lookup tool)\"\n    },\n    \"artist_number\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"uuid\",\n      \"description\": \"UUID of artist entity if different from person\"\n    },\n    \"brand_number\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"uuid\",\n      \"description\": \"UUID of brand (from brand lookup tool) - null if not found\"\n    },\n    \"brand\": {\n      \"type\": [\"object\", \"null\"],\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\",\n          \"description\": \"Brand/company name\"\n        }\n      },\n      \"required\": [\"name\"],\n      \"additionalProperties\": false,\n      \"description\": \"Brand information - populate if brand identified in document\"\n    },\n    \"agency_number\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"uuid\",\n      \"description\": \"UUID of agency (from agency lookup tool) - null if not found\"\n    },\n    \"agency\": {\n      \"type\": [\"object\", \"null\"],\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\",\n          \"description\": \"Agency/management company name\"\n        }\n      },\n      \"required\": [\"name\"],\n      \"additionalProperties\": false,\n      \"description\": \"Agency information - populate only if no brand identified\"\n    },\n    \"fee_amount\": {\n      \"type\": [\"string\", \"null\"],\n      \"pattern\": \"^\\\\d+(\\\\.\\\\d{1,2})?$\",\n      \"description\": \"Fee amount as decimal string (e.g., '2500.00')\"\n    },\n    \"fee_currency\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\n        \"EUR\",\n        \"GBP\",\n        \"USD\",\n        \"CAD\",\n        \"AUD\",\n        \"NGN\",\n        \"MYR\",\n        \"INR\",\n        \"BRL\",\n        \"MXN\",\n        \"ZAR\",\n        \"KRW\",\n        \"JPY\",\n        \"CNY\",\n        \"SGD\",\n        \"HKD\",\n        \"SEK\",\n        \"NOK\",\n        \"CHF\",\n        \"DKK\",\n        null\n      ],\n      \"description\": \"ISO 4217 currency code\"\n    },\n    \"usage_type\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"Organic\", \"Paid\", null],\n      \"description\": \"Type of usage: Organic (unpaid) or Paid (compensated)\"\n    },\n    \"usage_term_duration\": {\n      \"type\": [\"integer\", \"null\"],\n      \"minimum\": 1,\n      \"description\": \"Duration value for how long content can be used\"\n    },\n    \"usage_term_duration_type\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"Months\", \"Years\", null],\n      \"description\": \"Unit of usage term duration\"\n    },\n    \"exclusivity_term_duration\": {\n      \"type\": [\"integer\", \"null\"],\n      \"minimum\": 1,\n      \"description\": \"Duration value for exclusivity period\"\n    },\n    \"exclusivity_term_duration_type\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"Months\", \"Years\", null],\n      \"description\": \"Unit of exclusivity term duration\"\n    },\n    \"exclusivity_details\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Detailed exclusivity restrictions (e.g., competitor categories, platforms, geography)\"\n    },\n    \"original_file_name\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Name of uploaded contract file\"\n    },\n    \"contract_file_key\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Reference to uploaded contract file (e.g., GCS path)\"\n    },\n    \"agreement_link\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"uri\",\n      \"description\": \"Optional URL to signed agreement\"\n    },\n    \"ai_extraction_job_id\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"uuid\",\n      \"description\": \"Unique identifier for this extraction job\"\n    },\n    \"deliverables\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"platform\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"YouTube\",\n              \"YouTube Shorts\",\n              \"TikTok\",\n              \"Instagram Feed\",\n              \"Instagram Reels\",\n              \"Instagram Story\",\n              \"Facebook\",\n              \"Twitter/X\",\n              \"LinkedIn\",\n              \"Snapchat\",\n              \"Twitch\",\n              \"Other\"\n            ],\n            \"description\": \"Social media or content platform\"\n          },\n          \"quantity\": {\n            \"type\": \"integer\",\n            \"minimum\": 1,\n            \"description\": \"Number of content pieces required (aggregated across all mentions)\"\n          },\n          \"description\": {\n            \"type\": [\"string\", \"null\"],\n            \"description\": \"Narrative details: due dates, cadence, hashtags, approvals, revision rounds, posting requirements, specs, etc. Aggregates all platform-specific details.\"\n          }\n        },\n        \"required\": [\"platform\", \"quantity\"],\n        \"additionalProperties\": false\n      },\n      \"default\": [],\n      \"description\": \"Array of deliverables - aggregated one per platform (sum quantities, merge descriptions)\"\n    }\n  },\n  \"required\": [\n    \"status\",\n    \"book_number\",\n    \"deliverables\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1080,
+        880
+      ],
+      "id": "fe294f04-c91f-4b5a-ac34-b82821e60a22",
+      "name": "ParserSchema"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2040,
+        580
+      ],
+      "id": "db228e9e-6a96-408d-bad7-bad291f2f7a6",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad142379-c41b-4b51-acb2-31ae1cebf66b",
+              "leftValue": "={{ typeof $json.output === 'string' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1140,
+        140
+      ],
+      "id": "07447e57-eb15-49f1-b832-00d9f7921ce1",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -900,
+        380
+      ],
+      "id": "cb3ae9db-9eab-48cd-9532-ab33e9c28414",
+      "name": "IfFailed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e84ac3-4ec7-4210-b2f1-a6cd94acd695",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ce8bfc-bd10-40ee-b723-cfe88c028dbe",
+              "name": "output.book",
+              "value": "={{ $('Trigger').item.json.number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -920,
+        20
+      ],
+      "id": "5ef2592a-003d-44be-9d0a-5a20a3eb7d01",
+      "name": "Update"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1180,
+        680
+      ],
+      "id": "80f45bef-f262-42f3-b056-e104d50b77e5",
+      "name": "Auto-fixing Output Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1220,
+        860
+      ],
+      "id": "05dec43c-df13-41fc-8400-7a802eb0f7f8",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k29nXdKslVJNTozZ",
+          "mode": "list",
+          "cachedResultName": "New Fields Recommender"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -500,
+        20
+      ],
+      "id": "2e78fb69-9880-46d1-98ff-d79f3600a944",
+      "name": "Execute Workflow1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5142cf48-42e6-4c07-9d0c-77086df272d8",
+              "name": "extracted_schema",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "9a6e5008-0913-4195-837f-3b019b01d042",
+              "name": "deal_document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "caf6f8c2-f645-47ab-a67f-912d120fa7a4",
+              "name": "deal_type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -720,
+        20
+      ],
+      "id": "5ae0efba-a4c9-46bf-bb8d-7ff76492ce0d",
+      "name": "PreparePayload1"
+    },
+    {
+      "parameters": {
+        "name": "search_person",
+        "description": "=Look up a person/talent entity by name within a specific Book of Work context. Call this tool only, if the person is not verified by the ArtistSearch.\n  \nUse this tool to:\n- Verify the artist/talent exists in the system\n- Retrieve their UUID (person_number)\n- Confirm they're associated with the correct Book of Work\n- Validate artist-talent mapping\n\nRequires person/talent name.\nReturns person UUID if found, null if not found or not associated with book.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ \n{\nperson_name: $fromAI('person_name', 'Legal name of the person/talent providing services to the brand', 'string'),\nperformer_name: $fromAI('performer_name', 'Performer name  of the person/talent providing services to the brand', 'string'),\nrole: \"\"\n}\n}}",
+            "for": "persons",
+            "threshold": 0.3
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1700,
+        600
+      ],
+      "id": "215a83cb-c102-4198-832d-37bbb654d4a6",
+      "name": "person-search"
+    },
+    {
+      "parameters": {
+        "name": "BrandSearch",
+        "description": "=Trigger this tool to identify, validate and  the brand provided in the brand deal document.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ \n{\norganization_name: $fromAI('organization_name', 'Legal name of the organization provided/mentioned in the pulishing deal document', 'string'),\norganization_role: $fromAI('organization_role', 'Assign the most suitable role to the organization from given enum list: [\"Agent\", \"Distributor\", \"Label\", \"Legal\", \"Management\", \"PRO\", \"Publisher\"]', 'string'),\n}\n}}",
+            "for": "organizations",
+            "threshold": 0.7
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1440,
+        600
+      ],
+      "id": "a898dc80-2710-466a-a8d3-28905daaf5bc",
+      "name": "brand-search"
+    },
+    {
+      "parameters": {
+        "name": "ArtistSearch",
+        "description": "=Look up a person/talent entity by name within a specific Book of Work context. Call this tool when the person is an Artist.\n  \nUse this tool to:\n- Verify the artist/talent exists in the system\n- Retrieve their UUID (artist_number)\n- Confirm they're associated with the correct Book of Work\n- Validate artist-talent mapping\n\nRequires person/talent name.\nReturns person UUID if found, null if not found or not associated with book.",
+        "workflowId": {
+          "__rl": true,
+          "value": "AqB0wfnRFGhbzpj3",
+          "mode": "list",
+          "cachedResultName": "DbTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', `Artist/person name extracted and passed from the document.`, 'string') }}",
+            "for": "artists",
+            "threshold": 0.3
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "for",
+              "displayName": "for",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "threshold",
+              "displayName": "threshold",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1580,
+        600
+      ],
+      "id": "8813c804-aa7c-4359-a50e-9396687ef28e",
+      "name": "ArtistLookup"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "document": "# BRAND SPONSORSHIP AGREEMENT \n\nThis Agreement is entered into as of January 15, 2025 (the \"Effective Date\"), between:\n\nBRAND: Acme Co, a corporation organized under the laws of Delaware, with principal offices at 123 Madison Avenue, New York, NY 10001\n(\"Brand\")\n\nTALENT: Jane Doe, an individual (\"Talent\")\n\nREPRESENTATION: Talent is represented by Creative Minds Agency, located at 456 Park Avenue, New York, NY 10022\n(\"Agency\")\n\n## RECITALS:\n\nWHEREAS, Brand desires to engage Talent to create and publish social media content featuring Brand's products and services; and\n\nWHEREAS, Talent agrees to provide such services on the terms and conditions set forth herein.\n\nNOW THEREFORE, in consideration of the mutual covenants and agreements herein, the parties agree as follows:\n\n## 1. ENGAGEMENT \\& FEE\n\nBrand agrees to pay Talent a flat fee of $\\$ 2,500.00$ USD for the services described in this Agreement. Payment shall be made within 14 days of Talent's first post.\n\n## 2. SCOPE OF WORK\n\nTalent shall deliver the following content:\n\n# 2.1 Instagram Reels \n\n- Two (2) Instagram Reels featuring Acme Co products\n- Duration: 15-30 seconds each\n- Delivery timeline: Within 30 days of execution\n- Requirements: Tag @acmeco, include hashtag \\#AcmeGlow\n- Revisions: Up to 2 rounds of revisions permitted\n- Approval: Brand has 5 business days for pre-post approval\n\n\n### 2.2 TikTok\n\n- One (1) TikTok video\n- Duration: Maximum 30 seconds\n- Delivery timeline: Within 20 days of execution\n- Link requirement: Link to Brand's website in Talent's bio for 7 days\n- Whitelisting: Brand may whitelist the content for up to 90 days\n- No revisions permitted\n\n\n### 2.3 Instagram Feed Post\n\n- One (1) feed post to Talent's main Instagram grid\n- Caption: Authentic and at least 100 words\n- Hashtags: \\#AcmeGlow \\#SponsoredContent \\#AcmePartner\n- Delivery: Within 45 days of execution\n- Revisions: 1 revision round\n\n\n## 3. USAGE RIGHTS\n\nAll content shall have a 12-month usage window from initial publication date.\nAfter 12 months, content may remain live but Brand loses exclusive promotional rights.\n\n## 4. EXCLUSIVITY\n\n4.1 Duration: Six (6) months from the Effective Date\n4.2 Restrictions: During the exclusivity period, Talent shall not endorse, promote, or partner with any competing skincare, cosmetics, or beauty brands.\n4.3 Permitted Platforms: Exclusivity applies to Instagram, TikTok, YouTube, and TikTok only. Talent may promote other brands on Facebook and LinkedIn. 4.4 Geographic Scope: United States only.\n\n# 5. REPRESENTATIONS \\& WARRANTIES \n\nEach party represents and warrants that it has the full right and authority to enter into this Agreement and to perform its obligations hereunder.\n\n## 6. SIGNATURES\n\n## AGREED AND ACCEPTED:\n\n## BRAND:\n\nAcme Co\nBy: [Signature]\nName: Sarah Mitchell\nTitle: Marketing Director\nDate: January 15, 2025\n\n## TALENT:\n\nJane Doe\nDate: January 15, 2025\n\nAGENCY (Acknowledged):\n\nCreative Minds Agency\n\nBy: [Signature]\nName: Robert Chen\nTitle: Talent Manager\nDate: January 15, 2025",
+          "number": null,
+          "deal_type": "Brand"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-29T05:49:01.084Z",
+  "versionId": "40273962-af2e-4ef3-99d1-88e3f94bbce3"
+}
