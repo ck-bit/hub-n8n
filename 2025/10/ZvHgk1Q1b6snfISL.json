@@ -1,0 +1,681 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "User Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sub_session": {
+      "main": [
+        [
+          {
+            "node": "User Session1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If9": {
+      "main": [
+        [
+          {
+            "node": "sub_session",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "subsession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "subsession": {
+      "main": [
+        [
+          {
+            "node": "User Session4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session": {
+      "main": [
+        [
+          {
+            "node": "If9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session1": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deal Search1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input": {
+      "main": [
+        [
+          {
+            "node": "Finder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invoice Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Finder",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finder": {
+      "main": [
+        [
+          {
+            "node": "User Session3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session4": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-10T05:31:01.726Z",
+  "id": "ZvHgk1Q1b6snfISL",
+  "meta": null,
+  "name": "DealInvoiceManager",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "ai_input"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -880,
+        0
+      ],
+      "id": "62916005-6b73-4f63-a17d-3b9025ab5b66",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "text",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        200
+      ],
+      "id": "aa3ed9cd-c62c-4a39-822b-fe310e682059",
+      "name": "OpenAI Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "client_search",
+        "description": "=This tool is called everytime a customer/client/person associated with the Manager is being authenticated and verified.",
+        "workflowId": {
+          "__rl": true,
+          "value": "D7r8s282fp4EqhkF",
+          "mode": "list",
+          "cachedResultName": "DealInvoiceTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{  {\n\"user_id\": $('Input').first().json.session.user_id,\n\"person_legal_name\": $fromAI(\"person_legal_name\", \"Extract name(Exclude nickname or performer name) of the individual human (e.g., contributor, producer, mixer etc) represented by the manager in the email thread. A 'person' in this refers strictly to a human individual involved in the creation or production of music. This is not the same as an Artist. Set to '' if not provided\", \"string\"),\n\"person_performer_name\": $fromAI(\"person_performer_name\", \"Extract perfomer name for the person represented by the manager in the email thread. This may be A 'performer' mentioned in the email conversation/reference document involved in the creation or production of music. Strictly. don't include the artist or masters names in this. Set to legal name or '' if legal name is not provided\", \"string\"),\n\"person_role\": $fromAI(\"person_role\", \"Industry-standard role (e.g., Producer, Mixer, Songwriter, Performer, Engineer) by which the person is mentioned in this thread. Must use standard music industry terminology.\", \"string\"),\nsession_data: $json.session.session_data,\nManager: $('Trigger').item.json.data.Manager\n} }}",
+            "action": "client_search"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        200
+      ],
+      "id": "45a22760-8894-4a7f-9387-4199c2214160",
+      "name": "Client Search"
+    },
+    {
+      "parameters": {
+        "jsCode": "const { Clients, ...managerWithoutClients } = $('Trigger').first().json.data.Manager;\n\nreturn [\n  {\n    json: {\n      sub_session: {\n        type: \"wf_deal_and_invoice\",\n        thread_id: $('Trigger').first().json.data.session_data.ThreadId,\n        Manager: managerWithoutClients\n      },\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        -100
+      ],
+      "id": "02c4ca55-1ce4-4f5c-8392-69e6d7b749ab",
+      "name": "sub_session"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eaaa7599-aec4-4ecb-88ec-e91e4dd291c7",
+              "leftValue": "={{ $json.user_session===null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -440,
+        0
+      ],
+      "id": "962de1bb-33b3-44a4-8614-cb63b61f13f3",
+      "name": "If9"
+    },
+    {
+      "parameters": {
+        "jsCode": "const { Clients, ...managerWithoutClients } = $('Trigger').first().json.data.Manager;\nconst userSessionString = $input.item.json.user_session;\nconst userSession = JSON.parse(userSessionString);\nuserSession.Manager = managerWithoutClients;\nuserSession.type = \"wf_deal_and_invoice\";\nuserSession.thread_id = $('Trigger').first().json.data.session_data.ThreadId;\nreturn {sub_session: userSession};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        100
+      ],
+      "id": "85de8a8f-2277-46bf-b3ee-a944ea79d002",
+      "name": "subsession"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.data.session_data.ThreadId+$json.data.user_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        0
+      ],
+      "id": "d5433f5a-3cfb-443c-967e-6452fa255de6",
+      "name": "User Session",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $json.sub_session.thread_id+$json.sub_session.Manager.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -100
+      ],
+      "id": "ac8ac849-ed4e-46da-928b-21caeadc3838",
+      "name": "User Session1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "deal_search",
+        "description": "=This tool is called everytime a information about deal is needed. ile.\n- Identify if a deal exists for the the email thread.\n- Extract terms for new deal creation.\n- Identify updates needed to a deal.",
+        "workflowId": {
+          "__rl": true,
+          "value": "D7r8s282fp4EqhkF",
+          "mode": "list",
+          "cachedResultName": "DealInvoiceTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{  {\n\"user_id\": $('Input').first().json.session.user_id,\nsession_data: $json.session.session_data,\nlast_email: $json.session.last_email,\nhistory:$json.session.history\n} }}",
+            "action": "deal_search"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        780,
+        200
+      ],
+      "id": "44254cb2-ee34-439c-a4c2-fd0fd66c2aa1",
+      "name": "Deal Search1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8bbcecc1-c9e7-4b72-9072-e3d662963236",
+              "name": "session",
+              "value": "={{  $('Trigger').item.json.data }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "b3a9dc69-349c-4edd-8e9d-afc7dd445ee5",
+      "name": "Input"
+    },
+    {
+      "parameters": {
+        "name": "invoice_search",
+        "description": "=This tool is called everytime information about invoice is needed. ile.\n- Identify if a invoice exists for the the email thread or a deal.\n- Extract terms for new invoice create.\n- Identify updates needed to a invoice.",
+        "workflowId": {
+          "__rl": true,
+          "value": "D7r8s282fp4EqhkF",
+          "mode": "list",
+          "cachedResultName": "DealInvoiceTools"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{  {\n\"user_id\": $('Input').first().json.session.user_id,\n\"deal_id\": $fromAI(\"deal_id\", \"Correctly identify extract the 'Deal ID' explicitly mentioned by the user in his 'Latest Email' only. If not set to ''\", \"string\"),\nsession_data: $json.session.session_data,\nlast_email: $json.session.last_email,\nhistory:$json.session.history\n} }}",
+            "action": "invoice_search"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        900,
+        200
+      ],
+      "id": "f96ab91e-2fc9-4572-8c1f-e33ad8c85b0c",
+      "name": "Invoice Search"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c64b45d-7d25-4593-8614-aeeb7cfdf60b",
+              "name": "deal_and_invoice_findings",
+              "value": "={{ $('Finder').first().json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "ea696e19-bb99-417f-abf1-a2f59a3e09a5",
+              "name": "metadata",
+              "value": "={{ $json.user_session.parseJson() }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        0
+      ],
+      "id": "065ecd50-c3ec-4907-83ed-7fbf9508cad1",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyse the below recent email, previous discussion on the deal an details from document(If provided) to decide the correct classify and extract the data in a welll structured format according to the provided schema.;\n\nLatest Email: {{ $json.session.last_email }}\n\nEmail Thread: {{\n`Subject: ${$json.session.session_data.Subject}\\n, Emails: ${$json.session.session_data.Emails}`\n}}\n\nDeal Document: {{ $json.session.session_data.last_attachment?.document || '' }}\n\nManager's Metadata: {{ JSON.stringify($json.session.Manager, null, ' ') }}",
+        "options": {
+          "systemMessage": "=Expert agent that executes client verification, deal searches, and invoice searches. Reports findings to the Recommender Agent for final recommendations to Manager.\n\n---\n\n## CRITICAL TOOL USAGE RULE\n\n**ALWAYS call relevant tools on EVERY interaction** - even for corrections or follow-ups. Tools provide the latest system state. Never rely solely on previous tool results or cached data.\n\n---\n\n## EXECUTION FLOW\n\n### Sequential Steps (unless instructed to skip):\n1. Client Verification → 2. Deal Search → 3. Invoice Search → 4. File Operations (optional)\n\n### Core Rules:\n- **Call tools every time** to get latest data\n- Never skip steps even with incomplete info\n- Never hallucinate - use `null` for missing data\n- Process tool responses completely before next step\n- Check latest user email for specific requests or clarifications\n\n---\n\n## HANDLING CORRECTIONS & FOLLOW-UPS\n\n### When Manager Provides Corrections or New Info:\n\n**Step 1: Acknowledge & Extract**\n- Identify what was corrected (Client/Deal/Invoice)\n- Note previous value vs. updated value\n- Determine affected downstream steps\n\n**Step 2: Re-Execute with Tool Calls**\n- **Client correction** → Re-call `client_search` with corrected name/identifier → Re-call `deal_search` → Re-call `invoice_search` (if applicable)\n- **Deal correction** → Re-call `deal_search` with corrected parameters → Re-call `invoice_search` (if applicable)\n- **Invoice correction** → Re-call `invoice_search` with corrected parameters\n\n**Step 3: Confirm Updates**\n- Verify re-execution completed with fresh tool calls\n- Confirm new results align with correction\n\n### Priority Rules for Conflicting Data:\n1. **Latest manager correction** (highest)\n2. **Current tool call results**\n3. Last Email\n4. Email Thread\n5. Deal Document\n\n---\n\n## DEFINITIONS\n\n**Person**: Individual contributor (producer, mixer, songwriter, performer, Artist). Must be represented by the  Manager as provided.\n- Fields: `person_legal_name`, `person_performer_name`\n- Example: John Smith (legal), DJ Snake (performer)\n\n**Artist**: Musical brand/entity\n- Field: `artist_name`\n- Example: The Beatles, Daft Punk\n---\n\n## STEP 1: CLIENT VERIFICATION\n\n### Include:\n- Identify who is represented by the the Manager in the Email thread.\n- It could be Producer, mixer, songwriter, performer, contributor, artists mentioned in communications and is being represented by the manager.\n\n### Exclude:\nManager (unless self-representing), organizations, pure artist entities\n\n### Process:\n1. Extract names from all sources\n2. **Call `client_search` for each unique name** (mandatory, even if previously called)\n3. Process response:\n\n| Tool Response | Status | Action |\n|---------------|--------|---------|\n| Success with data | `verified` | Extract exact values, proceed to Step 2 |\n| Not found | `not_found` | Flag for manager confirmation, STOP |\n| Timeout (3 attempts) | `unknown` | Continue with caveat |\n| Error | `unknown` | Continue with caveat |\n\n### If Multiple Matches:\nFlag for clarification: List all matches with distinguishing details (book_id, role, location). Request manager specify correct option.\n\n### Next Action:\n- **Verified** → Proceed to Step 2 (carry forward `book_id`, `book_number`)\n- **Not verified** → STOP and flag for manager confirmation\n\n---\n\n## STEP 2: DEAL SEARCH & ANALYSIS\n\n### Execution:\nOnly if client verification successful OR manager override provided\n\n### Process:\n1. **Call `deal_search` with verified client data** (mandatory, even if previously called)\n2. Analyze `deal_search_findings`\n3. Determine action based on `deal_next_step`:\n4. Follow 'the next_tool_instructions'(if provided) from the tool output to decide proceeding to next step.\n\n| deal_next_step | deal_metadata.status | Action |\n|----------------|---------------------|---------|\n| `create_new`, `await_confirmation` | Any | **STOP** - Compile, don't proceed to Step 3 |\n| `update` | `Review` | **STOP** - Compile (no invoicing during Review) |\n| `update` | Other | Compile, **proceed to Step 3** |\n| `no_action` | Any | Note: No changes needed; file storage available |\n\n- In case of await_confirmation: Include complete information about the parties involved in each deal.\n---\n\n## STEP 3: INVOICE SEARCH & ANALYSIS\n\n### Execution:\nIf Step 2 allows progression OR standalone invoice query\n\n### Process:\n1. **Call `invoice_search` with relevant data** (mandatory, even if previously called)\n2. Analyze `invoice_search_findings` and `invoice_next_step`\n3. Determine action:\n\n| invoice_next_step | Action |\n|-------------------|---------|\n| `create_new`, `await_confirmation` | **STOP** - Compile results |\n| `update` | **STOP** - Compile results |\n| `no_action` | Note: No action needed; file sharing available |\n\n---\n\n## STEP 4: FILE OPERATIONS\n\n### Execution:\nOnly when user requests AND deal/invoice exists with satisfied metadata\n\n### Process:\nCall relevant file tools as requested.\n\n---\n\n## OUTPUT FORMAT\n\n### CORRECTION ACKNOWLEDGMENT (if applicable)\n- **Corrected Field**: [field name]\n- **Previous Value**: [old value]\n- **Updated Value**: [new value]\n- **Re-executed Steps**: [list of tools called with corrected data]\n\n---\n\n### CLIENT/PERSON VERIFICATION\n\n**Status**: [verified / not_found / unknown]\n\n**Verified Details** (if verified):\n- Book ID: [value]\n- Book Number: [value]\n- Legal Name: [value]\n- Performer Name: [value or null]\n- Role: [value]\n- Other relevant fields: [values]\n\n**Issues** (if not_found or unknown):\n- [Description of issue]\n- [Required action from manager]\n\n**Multiple Matches** (if applicable):\n- Option 1: [book_id, name, role, location]\n- Option 2: [book_id, name, role, location]\n- **Manager Action Required**: Please specify correct client\n\n---\n\n### DEAL FINDINGS\n\n**Search Status**: [Executed / Skipped - reason]\ndeal_next_step: create_new|update|await_confirmation|no_action\n\n**Existing Deal** (if found):\n- Deal Number: [value]\n- Status: [value]\n- Deal Type: [value]\n- Key Terms: [summary of relevant terms]\n- Metadata Completeness: [assessment]\n\n**Next Step**: [create_new / update / no_action]\n\n**Recommended Action**:\n- [Clear description of what needs to happen with the deal]\n- [Any specific fields requiring manager input]\n\n** if  [\"await_confirmation\"]:\n- List all the deals found with all relevant details for manager's confirmation. It should include DealID, Deal Title, Status and any other terms.\n\n\n**Stop Checkpoint** (if applicable):\n- ⚠️ **STOPPED**: [Reason - e.g., \"New deal requires manager approval\" / \"Deal in Review status\"]\n- **Manager Action Required**: [Specific next step]\n\n\n\n---\n\n### INVOICE FINDINGS\n\n**Search Status**: [Executed / Skipped - reason]\ninvoice_next_step: create_new|update|await_confirmation|no_action\n\n**Existing Invoice** (if found):\n- Invoice Number: [value]\n- Status: [value]\n- Amount: [value]\n- Date: [value]\n- Metadata Completeness: [assessment]\n\n**Next Step**: [create_new / update / await_confirmation / no_action]\n\n**Recommended Action**:\n- [Clear description of what needs to happen with the invoice]\n- [Any specific fields requiring manager input]\n\n**Stop Checkpoint** (if applicable):\n- ⚠️ **STOPPED**: [Reason - e.g., \"New invoice requires manager approval\"]\n- **Manager Action Required**: [Specific next step]\n\n---\n\n### SPECIFIC USER REQUESTS\n\n**Latest Email Analysis**:\n- [Summary of any specific requests, questions, or clarifications from the latest user email]\n- [Action items derived from user's specific needs]\n\n---\n\n### MANAGER DECISION POINTS\n\n**Immediate Actions Required**:\n1. [Action item 1 - if any]\n2. [Action item 2 - if any]\n\n**Confirmations Needed**:\n1. [Confirmation point 1 - if any]\n2. [Confirmation point 2 - if any]\n\n**Available Options**:\n- [Option A: description and implications]\n- [Option B: description and implications]\n\n---\n\n### CAVEATS & UNCERTAINTIES\n\n- [Any assumptions made]\n- [Missing information that may affect recommendations]\n- [System uncertainties or timeout issues]\n\n---\n\n## KEY PRINCIPLES\n\n✓ **Call tools on every interaction** - they reflect latest system state  \n✓ **Re-execute downstream steps** when upstream data corrects  \n✓ **Manager corrections override tool results** when conflicting  \n✓ **Acknowledge all corrections explicitly** with before/after values  \n✓ **Stop at designated checkpoints** (create_new, await_confirmation, Review status)  \n✓ **Never skip verification tools** even if name seems familiar  \n✓ **Check latest email for specific user requests** before finalizing output  \n✓ **Present findings ready for manager decision-making** - clear, actionable, complete\n✓ **Don't invclude sensitive informations with some exceptions** - DON't include sentivie informations such as uuid's(deal_number, invoice_invoice, book_number etc). When refering to deals and invoices, only deal_id and invoice_id(provided as numbers) can be included in the report.\n\n---\n\n## CONVERSATION HISTORY CONTEXT\n\nThe Conversation History is provided below:\n{{ $json.session.history }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        640,
+        0
+      ],
+      "id": "089b24d7-2e9d-479c-8088-3f6e2bcd0f99",
+      "name": "Finder",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('Trigger').first().json.data.session_data.ThreadId+$('Trigger').first().json.data.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        0
+      ],
+      "id": "1fd53a08-56e7-4474-933b-d08344713d2b",
+      "name": "User Session3",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $json.sub_session.thread_id+$json.sub_session.Manager.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        0,
+        100
+      ],
+      "id": "b3ef3477-c6c0-4128-bd18-82cb0431e2c6",
+      "name": "User Session4",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "action": "deals_and_invoices",
+          "data": {
+            "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+            "session_data": {
+              "ThreadId": "199358c948d5ae69",
+              "Emails": "---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 30, 2025, 7:22 AM\nBody: New deal if it doesn't yet exist None of these are the deal Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: asst@patchbay.xyz\nDate: Thu, Oct 30, 2025, 7:22 AM\nBody: New deal if it doesn't yet exist None of these are the deal Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: David O'Sullivan (dave@thisisnq.com)\nDate: Thu, Oct 30, 2025, 12:09 AM\nBody: From: Aidan Schechter (aidan@1916mgmt.com)\nTo: David O'Sullivan (dave@thisisnq.com)\nDate: Thursday, October 30, 2025 at 12:09 AM\nSubject: Re: 4 THE SOUL - AITCH\nBody:\nSee here thanks!\n\nhttps://card.patchbay.xyz/16t0/alexgoldblatt\n\nBest,\nAidan Schechter\n\nAIDAN SCHECHTER\n\nP: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n\nOn Mon, Oct 27, 2025 at 4:15 AM, David O'Sullivan < dave@thisisnq.com > wrote:\n\n> \n> Hey mate,\n> \n> \n> Sorry about the delay, This is GBP yes.\n> \n> \n> Can you send over contracting details?\n> \n> \n> \n> \n> Kind regards,\n> \n> \n> \n> \n> David O'Sullivan\n> \n> \n> \n> \n> *Head A&R*\n> \n> \n> \n> \n> \n> \n> \n> *NQ*\n> \n> \n> \n> *(+44)7880933337 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n> \n> \n> \n> *Talent & Entertainment*\n> \n> \n> \n> Dave@ thisisnq. com ( Dave@thisisnq.com )\n> \n> \n> \n> \n> This email and any files transmitted with it are confidential and are\n> intended solely for the use of the individual or entity which they are\n> addressed to. Any unauthorised dissemination or copying of this email, any\n> files transmitted with it or any use or disclosure of any information\n> contained within them is strictly prohibited. If you have received this\n> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n> management team. Whilst we have taken every effort to scan this email and\n> any files transmitted with it for viruses, we cannot be held responsible\n> for any viruses transferred.\n> \n> \n> \n> \n> \n> \n> \n> \n> On Sun, 26 Oct 2025 at 21:28, Aidan Schechter < aidan@ 1916mgmt. com (\n> aidan@1916mgmt.com ) > wrote:\n> \n> \n>> Let me know so we can knock this out. Can we get invoicing in motion?\n>> \n>> Best,\n>> Aidan Schechter\n>> \n>> \n>> \n>> \n>> \n>> \n>> \n>> \n>> \n>> \n>> AIDAN SCHECHTER\n>> \n>> \n>> \n>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>> \n>> \n>> \n>> \n>> \n>> \n>> \n>> On Fri, Oct 10, 2025 at 4:03 PM, Aidan Schechter < aidan@ 1916mgmt. com (\n>> aidan@1916mgmt.com ) > wrote:\n>> \n>>> This is GBP?\n>>> \n>>> \n>>> Best,\n>>> Aidan Schechter\n>>> \n>>> \n>>> \n>>> \n>>> \n>>> \n>>> \n>>> \n>>> \n>>> \n>>> AIDAN SCHECHTER\n>>> \n>>> \n>>> \n>>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>>> \n>>> \n>>> \n>>> \n>>> \n>>> \n>>> \n>>> On Tue, Oct 07, 2025 at 3:52 AM, David O'Sullivan < dave@ thisisnq. com (\n>>> dave@thisisnq.com ) > wrote:\n>>> \n>>>> Hey mate,\n>>>> \n>>>> \n>>>> Sorry have been looking into budgets for this hence the delay, any chance\n>>>> we can look at 1.5k fee?\n>>>> \n>>>> \n>>>> \n>>>> \n>>>> Kind regards,\n>>>> \n>>>> \n>>>> \n>>>> \n>>>> David O'Sullivan\n>>>> \n>>>> \n>>>> \n>>>> \n>>>> *Head A&R Manager*\n>>>> \n>>>> \n>>>> \n>>>> \n>>>> \n>>>> \n>>>> \n>>>> *NQ*\n>>>> \n>>>> \n>>>> \n>>>> *(+44)7880933337 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>> \n>>>> \n>>>> \n>>>> *Talent & Entertainment*\n>>>> \n>>>> \n>>>> \n>>>> Dave@ thisisnq. com ( Dave@thisisnq.com )\n>>>> \n>>>> \n>>>> \n>>>> \n>>>> This email and any files transmitted with it are confidential and are\n>>>> intended solely for the use of the individual or entity which they are\n>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>> files transmitted with it or any use or disclosure of any information\n>>>> contained within them is strictly prohibited. If you have received this\n>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>> management team. Whilst we have taken every effort to scan this email and\n>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>> for any viruses transferred.\n>>>> \n>>>> \n>>>> \n>>>> \n>>>> \n>>>> \n>>>> \n>>>> \n>>>> On Tue, 7 Oct 2025 at 06:09, Aidan Schechter < aidan@ 1916mgmt. com (\n>>>> aidan@1916mgmt.com ) > wrote:\n>>>> \n>>>> \n>>>>> Let me know what you can do here?\n>>>>> \n>>>>> Best,\n>>>>> Aidan Schechter\n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> AIDAN SCHECHTER\n>>>>> \n>>>>> \n>>>>> \n>>>>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> \n>>>>> On Thu, Oct 02, 2025 at 5:03 PM, Aidan Schechter < aidan@ 1916mgmt. com (\n>>>>> aidan@1916mgmt.com ) > wrote:\n>>>>> \n>>>>>> What can you do on the fee side budget-wise?\n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> Best,\n>>>>>> Aidan Schechter\n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> AIDAN SCHECHTER\n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> \n>>>>>> On Thu, Oct 02, 2025 at 2:18 AM, David O'Sullivan < dave@ thisisnq. com (\n>>>>>> dave@thisisnq.com ) > wrote:\n>>>>>> \n>>>>>>> Hey Aidan,\n>>>>>>> \n>>>>>>> \n>>>>>>> Hope you are well sir, did you have any thoughts here on the master side?\n>>>>>>> Obviously we aren’t working with it budgets as independent and this was\n>>>>>>> also a deluxe release but let me know what your thinking\n>>>>>>> \n>>>>>>> On Fri, 26 Sep 2025 at 16:42, Aidan Schechter < aidan@ 1916mgmt. com (\n>>>>>>> aidan@1916mgmt.com ) > wrote:\n>>>>>>> \n>>>>>>> \n>>>>>>>> *Jasper Harris* Brookside Publishing / Avex USA Hits / Songs of S10 Publishing\n>>>>>>>> (BMI)\n>>>>>>>> \n>>>>>>>> \n>>>>>>>> Best,\n>>>>>>>> Aidan Schechter\n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> AIDAN SCHECHTER\n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>>> On Fri, Sep 26, 2025 at 8:41 AM, Via Culpan < via@ thisisnq. com (\n>>>>>>>> via@thisisnq.com ) > wrote:\n>>>>>>>> \n>>>>>>>>> Just following up here please\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> Thanks\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> Via Culpan\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> *Day to Day Manager*\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> *NQ*\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> *(+44)7734407732 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> via@ thisisnq. com ( via@thisisnq.com )\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>> for any viruses transferred.\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> On Thu, 25 Sep 2025 at 18:26, Via Culpan < via@ thisisnq. com (\n>>>>>>>>> via@thisisnq.com ) > wrote:\n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>>> Thank you, do you have Jaspers also?\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> Via Culpan\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> *Day to Day Manager*\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> *NQ*\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> *(+44)7734407732 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> via@ thisisnq. com ( via@thisisnq.com )\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> On Thu, 25 Sep 2025 at 18:20, Aidan Schechter < aidan@ 1916mgmt. com (\n>>>>>>>>>> aidan@1916mgmt.com ) > wrote:\n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>>> Yes thanks\n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> https:/ / card. patchbay. xyz/ 16t0/ alexgoldblatt (\n>>>>>>>>>>> https://card.patchbay.xyz/16t0/alexgoldblatt ) is Alex's info\n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> Best,\n>>>>>>>>>>> Aidan Schechter\n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> AIDAN SCHECHTER\n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> On Thu, Sep 25, 2025 at 10:17 AM, Via Culpan < via@ thisisnq. com (\n>>>>>>>>>>> via@thisisnq.com ) > wrote:\n>>>>>>>>>>> \n>>>>>>>>>>>> Confirming the below:\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> Whyjay 20%\n>>>>>>>>>>>> LiTek 20%\n>>>>>>>>>>>> Alex 5%\n>>>>>>>>>>>> Jasper 5%\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> Please let me know if we’re good to register\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> Thank you\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> Via Culpan\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> *Day to Day Manager*\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> *NQ*\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> *(+44)7734407732 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> via@ thisisnq. com ( via@thisisnq.com )\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> On Thu, 25 Sep 2025 at 17:57, Aidan Schechter < aidan@ 1916mgmt. com (\n>>>>>>>>>>>> aidan@1916mgmt.com ) > wrote:\n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>>> For publishing please just split 50/50 between Jasper and Alex as Lily\n>>>>>>>>>>>>> didn't write on this one. Thanks\n>>>>>>>>>>>>> \n>>>>>>>>>>>>> Best,\n>>>>>>>>>>>>> Aidan Schechter\n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> AIDAN SCHECHTER\n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> On Thu, Sep 18, 2025 at 5:41 AM, Via Culpan < via@ thisisnq. com (\n>>>>>>>>>>>>> via@thisisnq.com ) > wrote:\n>>>>>>>>>>>>> \n>>>>>>>>>>>>>> Apologies for the triple email, in the essence of time, please see\n>>>>>>>>>>>>>> proposed splits below:\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> Whyjay 20%\n>>>>>>>>>>>>>> LiTek 20%\n>>>>>>>>>>>>>> Alex 3.33%\n>>>>>>>>>>>>>> Jasper 3.33%\n>>>>>>>>>>>>>> Lily 3.33%\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> Thank you\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> On Thu, 18 Sept 2025 at 13:08, Via Culpan < via@ thisisnq. com (\n>>>>>>>>>>>>>> via@thisisnq.com ) > wrote:\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> +Michael Adex ( Adex@thisisnq.com ) also\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> On Thu, 18 Sept 2025 at 10:10, Via Culpan < via@ thisisnq. com (\n>>>>>>>>>>>>>>> via@thisisnq.com ) > wrote:\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> Hi Aiden,\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> Please can you come back on this one?\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> Thanks\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> On Thu, 11 Sept 2025 at 10:25, Shan Gibson < shannon@ thisisnq. com (\n>>>>>>>>>>>>>>>> shannon@thisisnq.com ) > wrote:\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> Thank you Aidan!\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> Please can you clarify how the credits should appear?\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> On Wed, 10 Sept 2025 at 22:33, Aidan Schechter < aidan@ 1916mgmt. com (\n>>>>>>>>>>>>>>>>> aidan@1916mgmt.com ) > wrote:\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> We'll be splitting fee and master 3 ways: Alex Goldblatt, Jasper Harris,\n>>>>>>>>>>>>>>>>>> and Lily Kaplan.\n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> We'll be splitting publishing evenly between Alex, Jasper, and probably a\n>>>>>>>>>>>>>>>>>> writer alias just need to figure that out this week back ASAP.\n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> Let me know if you need anything else thanks.\n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> Best,\n>>>>>>>>>>>>>>>>>> Aidan Schechter\n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> AIDAN SCHECHTER\n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> On Tue, Sep 09, 2025 at 12:33 AM, Via Culpan < via@ thisisnq. com (\n>>>>>>>>>>>>>>>>>> via@thisisnq.com ) > wrote:\n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> Thanks Dave and hi guys,\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> Please can I check where we’re up to here?\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> Via Culpan\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> *Day to Day Manager*\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> *NQ*\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> *(+44)7734407732 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> via@ thisisnq. com ( via@thisisnq.com )\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> On Mon, 8 Sep 2025 at 18:49, David O'Sullivan < dave@ thisisnq. com (\n>>>>>>>>>>>>>>>>>>> dave@thisisnq.com ) > wrote:\n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>> Adding Via in here for visibility whilst I’m away.\n>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>> On Mon, 8 Sep 2025 at 20:43, Shan Gibson < shannon@ thisisnq. com (\n>>>>>>>>>>>>>>>>>>>> shannon@thisisnq.com ) > wrote:\n>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> Hi all,\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> Please can we receive an update on this?\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> Thank you,\n>>>>>>>>>>>>>>>>>>>>> Shan\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> On Fri, 15 Aug 2025 at 16:02, David O'Sullivan < dave@ thisisnq. com (\n>>>>>>>>>>>>>>>>>>>>> dave@thisisnq.com ) > wrote:\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> Hey guys,\n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> On the call now\n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> On Thu, 14 Aug 2025 at 17:15, Howie < howie@ howie. ai ( howie@howie.ai ) >\n>>>>>>>>>>>>>>>>>>>>>> wrote:\n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>>> Hi all,\n>>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>>> Following up per Aidan's request, would tomorrow ( Fri, Aug 15 ) at 8am PDT\n>>>>>>>>>>>>>>>>>>>>>>> (4pm BST) work for everyone for a 30-minute meeting?\n>>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>>> Please let me know if that time is good, or if you need to suggest\n>>>>>>>>>>>>>>>>>>>>>>> alternatives.\n>>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>>> Best,\n>>>>>>>>>>>>>>>>>>>>>>> Howie\n>>>>>>>>>>>>>>>>>>>>>>> 1916/Patchbay\n>>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>>> On Thu, Aug 14, 2025, 10:52AM howie@ howie. ai ( howie@howie.ai ) wrote:\n>>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>>> > Hi all,\n>>>>>>>>>>>>>>>>>>>>>>> >\n>>>>>>>>>>>>>>>>>>>>>>> > Thanks for confirming David! I sent the invite for the 30-minute meeting\n>>>>>>>>>>>>>>>>>>>>>>> on Tue, Aug 19 at 8:30am PDT (4:30pm BST).\n>>>>>>>>>>>>>>>>>>>>>>> >\n>>>>>>>>>>>>>>>>>>>>>>> > Please let me know if you need anything else.\n>>>>>>>>>>>>>>>>>>>>>>> >\n>>>>>>>>>>>>>>>>>>>>>>> > Best,\n>>>>>>>>>>>>>>>>>>>>>>> > Howie\n>>>>>>>>>>>>>>>>>>>>>>> > 1916/Patchbay\n>>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> --\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> Shan Gibson\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> *Executive Assistant to CEO, Michael Adex*\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> *\n>>>>>>>>>>>>>>>>>>>>> *\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> *NQ*\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> *(+44)7956513409 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> shannon@ thisisnq. com ( shannon@thisisnq.com )\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>>> *This email was sent at a time & date convenient to me; please do not feel\n>>>>>>>>>>>>>>>>>>>>> under any pressure to respond immediately if this is outside your normal\n>>>>>>>>>>>>>>>>>>>>> working hours.*\n>>>>>>>>>>>>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>>>>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>>>>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>>>>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>>>>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>>>>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>>>>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>>>>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>>>>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>>>>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> --\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> Shan Gibson\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> *Executive Assistant to CEO, Michael Adex*\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> *\n>>>>>>>>>>>>>>>>> *\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> *NQ*\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> *(+44)7956513409 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> shannon@ thisisnq. com ( shannon@thisisnq.com )\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>>> *This email was sent at a time & date convenient to me; please do not feel\n>>>>>>>>>>>>>>>>> under any pressure to respond immediately if this is outside your normal\n>>>>>>>>>>>>>>>>> working hours.*\n>>>>>>>>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> --\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> Via Culpan\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> *Day to Day Manager*\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> *NQ*\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> *(+44)7734407732 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> via@ thisisnq. com ( via@thisisnq.com )\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> --\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> Via Culpan\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> *Day to Day Manager*\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> *NQ*\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> *(+44)7734407732 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> via@ thisisnq. com ( via@thisisnq.com )\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> --\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> Via Culpan\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> *Day to Day Manager*\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> *NQ*\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> *(+44)7734407732 |* *www. thisisnq. com* ( http://www.thisisnq.com/ ) **\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> *Talent & Entertainment*\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> via@ thisisnq. com ( via@thisisnq.com )\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> \n>>>>>>>>>>>>>> This email and any files transmitted with it are confidential and are\n>>>>>>>>>>>>>> intended solely for the use of the individual or entity which they are\n>>>>>>>>>>>>>> addressed to. Any unauthorised dissemination or copying of this email, any\n>>>>>>>>>>>>>> files transmitted with it or any use or disclosure of any information\n>>>>>>>>>>>>>> contained within them is strictly prohibited. If you have received this\n>>>>>>>>>>>>>> e-mail in error, please notify us by emailing: info@ thisisnq. com (\n>>>>>>>>>>>>>> info@thisisnq.com ). Views do not necessarily reflect the views of the NQ\n>>>>>>>>>>>>>> management team. Whilst we have taken every effort to scan this email and\n>>>>>>>>>>>>>> any files transmitted with it for viruses, we cannot be held responsible\n>>>>>>>>>>>>>> for any viruses transferred.\n>>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>>> \n>>>>>>>>> \n>>>>>>>>> \n>>>>>>>> \n>>>>>>>> \n>>>>>>> \n>>>>>>> \n>>>>>> \n>>>>>> \n>>>>> \n>>>>> \n>>>> \n>>>> \n>>> \n>>> \n>> \n>> \n> \n>\n---------------",
+              "Subject": "Re: 4 THE SOUL - AITCH",
+              "Others": [
+                {
+                  "name": "David O'Sullivan",
+                  "address": "dave@thisisnq.com"
+                }
+              ],
+              "Managers": [
+                {
+                  "name": "Aidan Schechter",
+                  "address": "aidan@1916mgmt.com",
+                  "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+                  "person_number": "beeb7d89-c123-4bf1-90a6-f4a279a0164a",
+                  "Role": "Manager",
+                  "Clients": []
+                }
+              ],
+              "references": [
+                "<010f0198a835f521-a0bf5f4b-3b34-4bee-9cac-90aacd8a756a-000000@us-east-2.amazonses.com>",
+                "<010f0198a95d46a8-df0dae5f-3bf6-4a9a-9321-76e06b7d3501-000000@us-east-2.amazonses.com>",
+                "<CAKYzVcYbWcUzYJ7YXk1Q2s=2s3D1gkZt3e7ngFGtM0bm9+hE-A@mail.gmail.com>",
+                "<CAPHUd6tn6EsNEstXcQ6HKuiM8btV6606o52r00G-P3DCVXYqnA@mail.gmail.com>",
+                "<CAKYzVcbBpJ_fvoONZZJ4MDP696J0CKAT0suR5DH0dAZPB-6RFA@mail.gmail.com>",
+                "<CAFTdqfMjVpX-05W_i20uM6uEiyA0jjdYgOHK9g6KoeFe6ehdfA@mail.gmail.com>",
+                "<mfehwcji.58e79b2b-b234-482f-9c0f-8437d66f9fb8@we.are.superhuman.com>",
+                "<CAPHUd6uwXintOTVS4+S5ijwnCdGs4f6K9pOgpDjsH_PeB_GFyA@mail.gmail.com>",
+                "<CAFTdqfO0uW89RAZpa77npjn1vO_C=1rug5knsHy0bAoEacMEGQ@mail.gmail.com>",
+                "<CAFTdqfNKx_u0EFuROE+TSgCavLGtqy4Rki4K7MRLMV7=ha7M=A@mail.gmail.com>",
+                "<CAFTdqfN0XThQ8KXUFfOdNrQ++gabKrrHgHQiNGRqi2V5Zt5g_g@mail.gmail.com>",
+                "<mfznnkmj.73eb2163-e251-4e7b-b385-d02e953e8761@we.are.superhuman.com>",
+                "<CAFTdqfNxgZxpZtsVruwVdnMsqL1ughjA-vPR5tPe0qi_fOczPA@mail.gmail.com>",
+                "<mfzohx4s.eb15a67d-4885-41e9-b46c-9d9c350c38d8@we.are.superhuman.com>",
+                "<CAFTdqfM-vDLSGG43ukdQbcRVSR+D3x9gc9nRFUetEQFmCGWemw@mail.gmail.com>",
+                "<CAFTdqfMJJNxd_ry8FL5pOOgnUZWeqcFzuTMTbhGwCDpFDJyLbA@mail.gmail.com>",
+                "<mg10g882.319c45e3-a66a-444e-a1d1-9180956b4a0b@we.are.superhuman.com>",
+                "<CAKYzVcbGffxqA6yXrXJYY0ADw+8oAsecp4TkBhNBE9c1yPKT=g@mail.gmail.com>",
+                "<mga2ytpd.bd4a0dd0-3032-4573-80aa-7569b5c0b280@we.are.superhuman.com>",
+                "<mgg3nh2a.32a80dec-f0f8-46a7-a4fa-f9044df80fdc@we.are.superhuman.com>",
+                "<CAKYzVcaBa_yMjyvqoSue64VZjEdKOh5WOoPzqbR4FB4mYPhjQw@mail.gmail.com>",
+                "<mglgc85w.46852b64-d8cf-4c24-a909-8d118895077e@we.are.superhuman.com>",
+                "<mh87zxbq.5426e1de-6c70-4c2b-8a69-71797397b84b@we.are.superhuman.com>",
+                "<CAEaeWjRtZJXiN++_jLJ1ffS-=bHznHZ3pvd5tqA0G2owazNzAg@mail.gmail.com>",
+                "<mhco2wpx.d09515f6-0a0b-41df-a98f-e54389148082@we.are.superhuman.com>",
+                "<CAEaeWjTsra3mnTxh75TdGLm2GKDzy_NtixE+FALfwznqQStgCg@mail.gmail.com>"
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            },
+            "last_email": "New deal if it doesn't yet exist None of these are the deal Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM",
+            "Manager": {
+              "name": "Aidan Schechter",
+              "address": "aidan@1916mgmt.com",
+              "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+              "Clients": []
+            },
+            "history": "### Conversation (last 3 turns)\n\n**User** New deal if it doesn't yet exist None of these are the deal Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM Last interaction: 2025-10-30T07:33:21.590Z\n\n**AI** Thank you Aidan. I found three existing deals for Producer Alex Goldblatt, but none are explicitly linked to the '4 THE SOUL - AITCH' project. Here are the options: Deal ID 137: Alexander B. Goldblatt x BLP KOSHER Producer Deal Deal ID 36: Alexander B. Goldblatt x KA$HDAMI Producer Deal Deal ID 45: Alexander B. Goldblatt x Highway Producer Deal Please confirm if one of these deals should be updated for the '4 THE SOUL - AITCH' project, or let me know if I should create a new deal for Producer Alex Goldblatt for this project. Once you confirm, I'll proceed as instructed. Best, Patchbay Assistant\n\n**User** This deal is only for Alex. Please update the deal if it exists already and create it if it doesn't. Thank you. Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM Last interaction: 2025-10-30T03:17:06.789Z\n\n**AI** I understand the split for fee, master, and publishing among Alex Goldblatt, Jasper Harris, Lily Kaplan, and a potential writer alias is being arranged. Missing Information Master name or project title Artist name related to this master Could you please provide the master or project name and the artist name to proceed with setting up the deal? Best, Patchbay Assistant\n\n**User** We'll be splitting fee and master 3 ways: Alex Goldblatt, Jasper Harris, and Lily Kaplan. We'll be splitting publishing evenly between Alex, Jasper, and probably a writer alias just need to figure that out this week back ASAP. Let me know if you need anything else thanks. Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM Last interaction: 2025-09-11T04:03:34.937Z\n\n**AI** (no reply found)_"
+          },
+          "ai_input": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-30T07:45:31.499Z",
+  "versionId": "dd7f8307-f899-48ab-8ea2-9403d980b9a9"
+}
