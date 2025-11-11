@@ -1,0 +1,958 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NoDealDetected": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SchemaParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DealsClassifier": {
+      "main": [
+        [
+          {
+            "node": "Prepare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router-2": {
+      "main": [
+        [
+          {
+            "node": "Record",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Master",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Simple Royalty",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDealDetected",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Live Performance",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sync License",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Neighbouring Rights",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Publishing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Brand",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare": {
+      "main": [
+        [
+          {
+            "node": "Router-2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publishing": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Neighbouring Rights": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Live Performance": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Master": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sync License": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Royalty": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-10T09:03:06.935Z",
+  "id": "kpvXkjvQYZeekDFi",
+  "meta": null,
+  "name": "Extraction",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1676,
+        2375
+      ],
+      "id": "289b7748-92c0-40e3-9427-c3ee876f89d1",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n  {\n\"output\": null,\n\"type\": $json.deal_type }\n}}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -800,
+        1760
+      ],
+      "id": "03533aaa-acfb-418a-895f-81575c446113",
+      "name": "NoDealDetected"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"title\": \"EntertainmentDealClassification\",\n  \"description\": \"This schema defines the structure of classification output for entertainment industry agreements. The output consists of field: `type`, which indicates the category of the deal.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"deal_type\": {\n      \"type\": \"string\",\n      \"description\": \"The primary classification of the deal type, based on document content.\",\n      \"enum\": [\n        \"Record\",\n        \"Master\",\n        \"Simple Royalty\",\n        \"Live Performance\",\n        \"Sync License\",\n        \"Publishing\",\n        \"Neighboring Rights\",\n        \"Brand\",\n        \"Unrecognised\"\n      ]\n    }\n  },\n  \"required\": [\"deal_type\"],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1508,
+        2375
+      ],
+      "id": "8ce74516-fc29-4bbd-8312-12245fb8d21d",
+      "name": "SchemaParser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.document.slice(0, 5000) }}\n",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an expert entertainment contract classifier. Your task is to analyze documents and identify which type of deal they represent.\n\n# TASK\nRead the provided document and classify it into ONE of these deal types:\n- Record\n- Master\n- Simple Royalty\n- Live Performance\n- Sync License\n- Publishing\n- Neighboring Rights\n- Unrecognised\n\nReturn your answer as JSON: {\"deal_type\": \"TYPE\"}\n\n---\n\n# CRITICAL RULE: WHAT IS NOT A CONTRACT\n\nBefore classifying, verify the document type:\n\n❌ Deal memos or term sheets (preliminary/non-binding) → Unrecognised\n❌ Invoices or bills → Unrecognised\n❌ Receipts or payment confirmations → Unrecognised\n❌ Royalty statements or accounting reports → Unrecognised\n❌ Schedules, riders, or technical specs without main agreement → Unrecognised\n❌ Marketing materials or press releases → Unrecognised\n❌ Internal documents (budgets, notes, spreadsheets) → Unrecognised\n\n✅ Valid contracts MUST have:\n- Named parties with legal identities\n- Binding language (\"agrees\", \"shall\", \"hereby grants\")\n- Terms and conditions\n- Consideration (payment/value exchange)\n- Signatures OR clear execution language\n\n---\n\n# ANALYZING EMAIL CORRESPONDENCE\n\n📧 **Email threads ARE analyzable** - extract and classify the deal being discussed\n\nWhen document is email correspondence:\n- Identify email format: From/To/Subject headers, timestamps, conversational tone\n- **Extract the deal content**: What type of agreement is being discussed/negotiated?\n- **Classify based on substance**: Analyze the deal terms mentioned in the email thread\n- Apply the same classification rules as formal contracts\n\n## Email Thread Indicators:\n- Contains email headers: \"From:\", \"To:\", \"Subject:\", \"Date:\", \"Cc:\", \"Reply:\", \"Forwarded:\"\n- Multiple messages in thread format\n- Conversational tone (\"Hi\", \"Thanks\", \"Please review\", \"Attached is...\")\n- Time stamps for each message\n- Email signatures with contact information\n- May include attached/embedded contract text\n\n## How to Classify Emails:\n✓ Email discussing publishing split → Analyze terms → {\"deal_type\": \"Publishing\"}\n✓ Email negotiating tour guarantee → Analyze terms → {\"deal_type\": \"Live Performance\"}\n✓ Email about recording budget → Analyze terms → {\"deal_type\": \"Record\"}\n✓ Email with sync license fees → Analyze terms → {\"deal_type\": \"Sync License\"}\n\n## NOT Classifiable (even if emails):\n✗ Spam or unrelated correspondence → Unrecognised\n✗ Single automated notification with no deal discussion → Unrecognised\n✗ Email with no substantive deal terms → Unrecognised\n\n---\n\n# DEAL TYPE INDICATORS\n\n## 1. RECORD DEAL\nLook for:\n- Parties: Artist/Band + Record Label\n- Keywords: \"recording contract\", \"recording rights\", \"master recordings ownership\", \"recording fund\", \"album cycle\", \"option period\", \"label split\", \"distribution split\"\n- Contains: Recording budgets, advance recoupment, master delivery requirements, reversion periods\n- May be titled: \"Recording Agreement\", \"Artist Agreement\", \"Short-term License\"\n\n## 2. MASTER DEAL\nLook for:\n- Parties: Producer/Mixer/Musician/Engineer + Artist/Label\n- Keywords: \"master recording\", \"work-for-hire\", \"producer points\", \"mixing services\", \"session work\"\n- Contains: Fee schedules, backend royalties, producer credits, delivery specs, payment milestones\n- Focus: Creating specific recordings\n\n## 3. SIMPLE ROYALTY\nLook for:\n- Parties: Manager/Attorney/Agent + Artist/Client\n- Keywords: \"commission\", \"representation\", \"gross income\", \"personal management\", \"agency agreement\"\n- Contains: Percentage commissions (typically 10-20%), sunset provisions\n- Focus: Ongoing representation, NOT production\n\n## 4. LIVE PERFORMANCE\nLook for:\n- Parties: Artist/Band + Promoter/Venue/Booking Agent\n- Keywords: \"live performance\", \"concert\", \"tour\", \"show date\", \"venue\", \"ticket sales\", \"guarantee\", \"door deal\", \"kill fee\"\n- Contains: Performance rider, technical requirements, hospitality specs\n- MUST have: Signatures, execution date, binding terms\n- NOTE: Unsigned tour memos = Unrecognised\n\n## 5. SYNC LICENSE\nLook for:\n- Parties: Rights holder (Publisher/Artist) + Production Company/Ad Agency/Game Studio\n- Keywords: \"synchronization rights\", \"audiovisual use\", \"media license\", \"film/TV/commercial\", \"in perpetuity\", \"limited term\"\n- Contains: One-time sync fee, specific project/episode, territory restrictions, exclusivity\n- Focus: Licensing existing music for visual media\n\n## 6. PUBLISHING\nTwo subtypes with common elements:\n\n**Co-Publishing variant:**\n- Keywords: \"co-publishing\", \"grants to Publisher\", \"50/50 split\", \"Owner retains approval\"\n- Financial: 75% mechanical to writer, 70-75% sync to writer\n- Control: Multiple approval rights, strong reversion clauses\n\n**Exclusive Songwriter variant:**\n- Keywords: \"exclusive songwriter\", \"assigns/sells/transfers\", \"100% administration\", \"Minimum Delivery Commitment\"\n- Contains: Schedule A (existing works), demo budgets, milestone advances\n- Financial: Recoupable advances ($25k-$50k+)\n- Control: Limited approvals with dollar thresholds, life-of-copyright retention\n\n**All Publishing deals include:**\n- Parties: Publisher + Writer/Songwriter/Owner\n- Keywords: \"composition\", \"mechanical royalties\", \"synchronization income\", \"PRO\" (ASCAP/BMI/SESAC), \"publishing rights\"\n- Sections: Grant of Rights, Royalties, Administration, Term, Reversion\n- Focus: Songwriting copyrights (NOT master recordings)\n\n## 7. NEIGHBORING RIGHTS\nLook for:\n- Parties: Artist/Performer/Producer + Collecting Society (SoundExchange, PPL, GVL, CMO, PRO)\n- Keywords: \"neighboring rights\", \"performer rights\", \"digital performance royalties\", \"sound recording copyright\", \"collection mandate\"\n- Contains: Territory-specific collection, performer vs rights owner splits\n- Focus: Secondary royalties from broadcasts/streaming/public performance\n\n8. BRAND DEAL\nLook for:\n\nParties: Artist/Influencer + Brand or Talent Agency\nKeywords: \"brand ambassador\", \"endorsement\", \"sponsorship\", \"influencer agreement\", \"content creation\", \"social media campaign\"\n- Contains: Content deliverables (posts, videos, stories with - platform names), flat fee payment, exclusivity restrictions\n- Financial: One-time fee (NOT royalty-based)\n- Focus: Creating brand-promoted content across social platforms\n\nKey Indicators:\n✓ Specific platforms named (Instagram, TikTok, YouTube, etc.)\n✓ Quantity of posts/videos specified\n✓ Brand approval/revision processes mentioned\n✓ Usage/exclusivity terms for talent's other work\n✓ Flat fee structure\n\n---\n# CLASSIFICATION STEPS\n\nFollow this exact process:\n\nSTEP 1: Determine document format\n- Is this an email thread/correspondence?\n- Is this a formal contract document?\n- Is this something else (invoice, statement, memo)?\n\nSTEP 2: Extract deal content\n- **If email**: Read through the thread and identify what deal type is being discussed\n- **If formal contract**: Proceed with standard analysis\n- **If other format**: Determine if it contains binding contract terms\n\nSTEP 3: Verify it's an actual binding agreement (or discussion of one)\n- Check for parties, binding language, terms, consideration\n- For emails: Check if deal terms are substantively discussed\n- If NO substantive deal content → return {\"deal_type\": \"Unrecognised\"}\n- If YES → continue to Step 4\n\nSTEP 4: Identify the parties involved\n- Who are the main parties? (Artist, Label, Publisher, Manager, Venue, etc.)\n- In emails: Who would be the parties to the deal being discussed?\n\nSTEP 5: Find dominant keywords\n- Scan for the keywords listed under each deal type above\n- Which category has the most matching terms?\n- For emails: Focus on the deal terms being negotiated/discussed\n\nSTEP 6: Analyze financial structure\n- What type of payment: Advance? Commission? Sync fee? Split? Guarantee?\n- This reveals deal intent\n- In emails: What payment terms are being discussed?\n\nSTEP 7: Determine focus\n- Recordings (Record/Master)?\n- Compositions (Publishing)?\n- Performance (Live/Neighboring)?\n- Media licensing (Sync)?\n- Representation (Simple Royalty)?\n\nSTEP 8: Make classification\n- Choose the deal type with strongest indicators\n- If unclear or conflicting → return {\"deal_type\": \"Unrecognised\"}\n\n---\n\n# EDGE CASES\n\n**Email discussing multiple deal types:**\nClassify based on the PRIMARY deal being negotiated. If equally mixed → Unrecognised\n\n**Hybrid Publishing + Recording:**\nIf both compositions AND master recordings mentioned equally, classify by which dominates. Usually Publishing if songwriter/composition language is primary.\n\n**Unsigned documents:**\nNo signatures or execution dates → Unrecognised (unless it's an email discussing the deal)\n\n**Invoice referencing a contract:**\nEven if invoice says \"per recording agreement\" → Unrecognised (not the contract itself)\n\n**Email with attached contract:**\nAnalyze the deal being discussed in the email content (not just the attachment reference)\n\n**Ambiguous or insufficient info:**\nWhen uncertain → Unrecognised\n\n---\n\n# OUTPUT RULES\n\n1. Return ONLY valid JSON in this exact format:\n{\"deal_type\": \"TYPE\"}\n\n2. TYPE must be one of: Record, Master, Simple Royalty, Live Performance, Sync License, Publishing, Neighboring Rights, Unrecognised\n\n3. Base decision ONLY on document content (not filename or assumptions)\n\n4. When in doubt, choose Unrecognised\n\n5. For emails: Classify based on the deal type being discussed, NOT the format\n\n---\n\n# EXAMPLES\n\nExample 1 - Publishing Deal (Formal Contract):\nDocument contains: \"co-publishing agreement\", \"50/50 split\", \"mechanical royalties\", \"ASCAP\", \"compositions\", \"grants to Publisher\"\n→ {\"deal_type\": \"Publishing\"}\n\nExample 2 - Invoice:\nDocument contains: \"Amount Due: $5,000\", \"Invoice #12345\", \"Payment for services per agreement dated...\"\n→ {\"deal_type\": \"Unrecognised\"}\n\nExample 3 - Record Deal (Formal Contract):\nDocument contains: \"recording agreement\", parties \"Artist and Label\", \"recording fund $100,000\", \"album cycle\", \"master recordings ownership\", \"reversion after 7 years\"\n→ {\"deal_type\": \"Record\"}\n\nExample 4 - Unsigned Tour Memo:\nDocument contains: \"proposed terms\", \"show guarantee $10,000\", no signatures, \"subject to final agreement\"\n→ {\"deal_type\": \"Unrecognised\"}\n\nExample 5 - Email About Recording Contract:\nDocument contains: \"From: manager@email.com\", \"To: label@music.com\", \"Subject: Re: Recording Contract Review\", \"Hi Sarah, I've reviewed the attached recording agreement and have some questions about the recoupment terms. The $100k recording fund seems low, and the 7-year reversion clause needs adjustment...\"\n→ Analyze content: discussing recording fund, recoupment, reversion = Record Deal terms\n→ {\"deal_type\": \"Record\"}\n\nExample 6 - Email About Publishing Terms:\nDocument contains: \"Subject: Co-Publishing Terms\", multiple messages negotiating: \"Let's do 50/50 split on the publishing\", \"mechanical royalties at 75%\", \"ASCAP registration\", \"composition rights\"\n→ Analyze content: co-publishing split, mechanical royalties, compositions = Publishing Deal terms\n→ {\"deal_type\": \"Publishing\"}\n\nExample 7 - Email About Tour:\nDocument contains: \"From: agent@booking.com\", \"Subject: Summer Tour Dates\", \"The venue is offering $15k guarantee plus 85% of door after $20k. Show date July 15th. Technical rider attached.\"\n→ Analyze content: guarantee, door deal, venue, show date = Live Performance terms\n→ {\"deal_type\": \"Live Performance\"}\n\nExample 8 - Email With No Deal Discussion:\nDocument contains: \"Hi, hope you're well! Let's catch up next week about general strategy.\"\n→ No substantive deal terms discussed\n→ {\"deal_type\": \"Unrecognised\"}\n\nExample 9 - Brand Deal:\nDocument: \"Influencer Agreement\" with parties \"Jane Doe and Acme Co\", \"2 Instagram Reels + 1 TikTok\", \"Fee: $2,500\", \"6-month skincare exclusivity\"\n→ {\"deal_type\": \"Brand\"}\nExample 10 - Email About Brand Deal:\nEmail discussing: \"3 Instagram posts/month + 2 TikToks/quarter, $5k/month, 6-month term, no competing brands\"\n→ {\"deal_type\": \"Brand\"}\n\n---\n\nNow classify the provided document."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -1700,
+        1960
+      ],
+      "id": "a4de89c7-5c3f-434f-9432-54a0d700e4ed",
+      "name": "DealsClassifier"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e3eb620f-46a3-4366-ba63-f680efcf502a",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Record",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Master",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c7a2b340-ac5a-4859-89b9-0b5c7f0b3d42"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "745f048e-7e40-490b-9d6b-a0045793ad5a",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Simple Royalty",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "526e34ba-adc1-419a-8644-1a66e18e1689",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Unrecognised",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b9999d9e-125e-4253-a3af-a9fce3656106",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Live Performance",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f8ae7023-d4e4-4c72-92b2-8072c6c77431",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Sync License",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "acf32fb5-e2bc-4b33-9b51-8abeb5a4d777",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Neighboring Rights",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "655d9e37-6901-43a6-a485-91aeb7700044",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Publishing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "679c4b1c-43d9-41a9-bee7-dde57af35a50",
+                    "leftValue": "={{ $json.deal_type }}",
+                    "rightValue": "Brand",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1020,
+        1834
+      ],
+      "id": "83eb9509-3e21-406b-a38b-61c9eea0ac92",
+      "name": "Router-2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1dc24e90-260d-4180-9c62-29e44b403039",
+              "name": "job_id",
+              "value": "={{ $('Trigger').first().json.job_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f8f26781-837a-449f-b347-69488eb59e92",
+              "name": "book_number",
+              "value": "={{ $('Trigger').first().json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "b70e94c2-3e02-476a-8207-847256d0a53b",
+              "name": "status",
+              "value": "={{ $json.output == null ? 'failed' : 'completed' }}",
+              "type": "string"
+            },
+            {
+              "id": "7043de5c-0145-44fd-a2e4-0473823e599f",
+              "name": "contract_signed_url",
+              "value": "={{ $('Trigger').first().json.contract_signed_url }}",
+              "type": "string"
+            },
+            {
+              "id": "a9513d36-2a5b-4b1f-a68d-09c1efc3f4f8",
+              "name": "temp_deal_data",
+              "value": "={{$json.output}}",
+              "type": "object"
+            },
+            {
+              "id": "a3d4f760-0673-4222-a1c5-a1cc4879372b",
+              "name": "=deal_type",
+              "value": "={{ $json?.output?.type ||  $json?.type }}",
+              "type": "string"
+            },
+            {
+              "id": "2a308d82-8dac-4121-b305-5c7c3a6e0c22",
+              "name": "contract_file_key",
+              "value": "={{ $('Trigger').first().json.contract_file_key }}",
+              "type": "string"
+            },
+            {
+              "id": "329fe87f-8c8f-40cb-8a9f-8396b306b663",
+              "name": "initiated_by_user_number",
+              "value": "={{ $('Trigger').first().json.initiated_by_user_number }}",
+              "type": "string"
+            },
+            {
+              "id": "083ac6ba-9dfa-44fa-b5da-b57594a5e157",
+              "name": "temp_deal_data.book_number",
+              "value": "={{ $('Trigger').item.json.book_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": false
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -580,
+        1960
+      ],
+      "id": "6f04c29d-a71a-4aad-b923-92206e7d2d78",
+      "name": "PrepareOutput"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "job_id"
+            },
+            {
+              "name": "book_number"
+            },
+            {
+              "name": "document",
+              "type": "any"
+            },
+            {
+              "name": "contract_signed_url"
+            },
+            {
+              "name": "contract_file_key"
+            },
+            {
+              "name": "initiated_by_user_number"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1920,
+        1960
+      ],
+      "id": "8c334137-c0d0-4307-ad22-9e6de82d93df",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Trigger').first().json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "db68d8cc-4950-45d0-873c-12b7ff8a0df3",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1240,
+        1960
+      ],
+      "id": "275defcf-6ceb-4527-90d4-ae73400c7f2e",
+      "name": "Prepare"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "5TzYZ9XHrg1cJ1Ch",
+          "mode": "list",
+          "cachedResultName": "Publishing"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        2560
+      ],
+      "id": "ff685dfd-8a61-47fa-9f11-2f54fc9e61fa",
+      "name": "Publishing",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "6dtbyr3DmFR25m4P",
+          "mode": "list",
+          "cachedResultName": "Neighbouring Rights"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        2360
+      ],
+      "id": "d78efe61-d158-4ed2-9e9d-f55fb77ee121",
+      "name": "Neighbouring Rights",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Lj03k3lpcO7wb2FV",
+          "mode": "list",
+          "cachedResultName": "Live_Performance"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        1960
+      ],
+      "id": "2b2ff01c-a0f8-47d8-b804-7806b3bdd431",
+      "name": "Live Performance",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "QFzzwur4AQh5POo8",
+          "mode": "list",
+          "cachedResultName": "Record"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        1160
+      ],
+      "id": "d000de54-96ce-45ae-91ed-a29c824417d0",
+      "name": "Record",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "fxfgvzK5f1vHRgf3",
+          "mode": "list",
+          "cachedResultName": "Master"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        1360
+      ],
+      "id": "cc462212-313c-4ced-87e5-d7b8b32e6ea3",
+      "name": "Master",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "edvVZIyd7pzBUOAB",
+          "mode": "list",
+          "cachedResultName": "Sync License"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        2160
+      ],
+      "id": "c8c52542-e619-478f-98d6-2a04623eeee4",
+      "name": "Sync License",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Zxz086xrfb4sPaqv",
+          "mode": "list",
+          "cachedResultName": "Simple Royalty"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        1560
+      ],
+      "id": "0e6ea2ef-9743-4636-acd0-95b7d1926688",
+      "name": "Simple Royalty",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "g4ggxs2PtJWPrcUb",
+          "mode": "list",
+          "cachedResultName": "Brand-For Local Branch"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -800,
+        2760
+      ],
+      "id": "10bde4a6-01aa-468a-a674-adb3fbf801d0",
+      "name": "Brand",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1616,
+        2180
+      ],
+      "id": "974ab76b-b9c2-4b49-a539-c9e9cd01b898",
+      "name": "Auto-fixing Output Parser"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "job_id": null,
+          "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+          "document": "Document Metadata:\n{\"deal_type\":\"Master\",\"deal_discussion\":true,\"deal_id\":null,\"thread_last_updated\":\"2024-10-24T09:15:00Z\",\"deal_next_step\":null,\"artist_name\":\"Drake Bennett\",\"masters\":[\"Neon Dreams\",\"Urban Shadows\",\"City Lights\",\"Echoes of Tomorrow\"]}\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Mon, Nov 3, 2025, 6:58 AM\nBody: Approved Go ahead and create this new deal\n---------------\n\n_______________\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Monday, November 3, 2025 at 6:51 AM\nSubject: Producer Agreement - \"Midnight City\"\n\nBody:\n[This email contains the full prior thread and is a cover message forwarding the previous correspondence for record-keeping and reference.]\n________________________\n\n_______________\nFrom: Dwayne Hoover (dwayne.hoover@hovertalent.com)\nTo: Aria Studios (Aria_Studios@ariastudios.net)\nDate: Thursday, October 24, 2024 at 9:15 AM\nSubject: RE: Producer Proposal - Drake Bennett Album Project\n\nBody:\nPerfect, Marcus. The payment schedule of $60k/$55k/$60k works fine.\n\nWe're ready for contract drafting. Send it over and we'll have our legal team review by end of week.\n\nQuincy is excited to start November 5th. Looking forward to creating something special.\n\nDwayne\n________________________\n\n_______________\nFrom: Aria Studios (Aria_Studios@ariastudios.net)\nTo: Dwayne Hoover (dwayne.hoover@hovertalent.com)\nDate: Wednesday, October 23, 2024 at 11:20 AM\nSubject: RE: Producer Proposal - Drake Bennett Album Project\n\nBody:\nDwayne,\n\nWe can accommodate most of these:\n\n1. Revision Rounds: Agreed. 2 revision rounds included; additional revisions $5,000 each.\n\n2. Payment Schedule: We need to adjust slightly. How about: $60,000 upfront, $55,000 at first delivery, $60,000 at final delivery? This matches our accounting cycles.\n\n3. Backup Rights: Agreed. Quincy can retain archival copies for portfolio use only.\n\n4. Insurance: We'll provide proof by October 30th.\n\n5. Term: Agreed. Additional work = separate contract.\n\nThis looks good. Shall we draft a formal contract for legal review?\n\nMarcus\n________________________\n\n_______________\nFrom: Dwayne Hoover (dwayne.hoover@hovertalent.com)\nTo: Aria Studios (Aria_Studios@ariastudios.net)\nCC: Quincy Jones (quincy.jones.producer@gmail.com), Legal (legal@ariastudios.net)\nDate: Monday, October 21, 2024 at 3:45 PM\nSubject: RE: Producer Proposal - Drake Bennett Album Project\n\nBody:\nMarcus,\n\nThis looks much better. Quincy is enthusiastic about the bonus structure. A couple final items:\n\n1. Revision Rounds: Can we document that revisions beyond 2 rounds per track incur a $5,000 additional fee? We want to protect against unlimited revision requests.\n\n2. Payment Schedule Adjustment: We'd prefer 33% upfront ($58,333), 33% at first delivery ($58,333), and 34% at final delivery ($58,334) rather than the current split. This better aligns with Quincy's cash flow needs.\n\n3. Backup/Archive Rights: Can Quincy retain non-commercial copies of the production masters for archival purposes and future reference (not for release or licensing)?\n\n4. Insurance: We'll need proof that the studio has liability insurance covering Quincy as a third-party contractor.\n\n5. Term: Once all deliverables are complete and payments finalized, the engagement ends. Any future remix or re-recording work would be a separate agreement.\n\nWe're ready to move forward pending these clarifications. Quincy's schedule is holding these dates.\n\nBest,  \nDwayne\n________________________\n\n_______________\nFrom: Aria Studios (Aria_Studios@ariastudios.net)\nTo: Dwayne Hoover (dwayne.hoover@hovertalent.com)\nCC: Legal (legal@ariastudios.net), Drake Bennett (Drake.Bennett.Music@outlook.com)\nDate: Friday, October 18, 2024 at 10:30 AM\nSubject: RE: Producer Proposal - Drake Bennett Album Project\n\nBody:\nDwayne, Quincy,\n\nGreat questions. Let me address each:\n\n1. Backend Royalty: The 4 points cover streaming AND digital sales. Net receipts include Spotify, Apple Music, YouTube Music, Bandcamp, and iTunes. Returns are calculated using standard industry practice (typically 15% holdback).\n\n2. Recoupment: The 4 points are recouped ONLY against production costs (studio rental, equipment, mixing/mastering). Marketing and distribution expenses are separate and not recouped against Quincy's points.\n\n3. Bonus Structure: Yes, we can add this. We propose:\n   - $25,000 if any track reaches 50M streams within 12 months\n   - $50,000 if the album achieves 500M cumulative streams\n   - Additional $15,000 per platinum certification (US)\n\n4. Kill Fee: We can offer a kill fee structure:\n   - If project cancelled after 1 master delivered: Quincy retains $50,000 (first delivery payment) + 50% of second payment ($25,000) = $75,000 total\n   - If cancelled after 2 masters: Retains all payments received + $25,000\n\n5. Credit & Metadata: Absolutely. We'll include producer credit in all streaming metadata and physical media (if applicable).\n\n6. Approval Process: Drake will have final approval on all production work. Quincy's creative direction is respected, but Drake has approval authority. We anticipate 1-2 revision rounds per track.\n\nStudio sessions can begin November 5th. We've booked Studio A at Westside Sound for the entire month.\n\nDoes this address your concerns?\n\nMarcus Coleman  \nAria Studios\n________________________\n\n_______________\nFrom: Dwayne Hoover (dwayne.hoover@hovertalent.com)\nTo: Aria Studios (Aria_Studios@ariastudios.net)\nCC: Quincy Jones (quincy.jones.producer@gmail.com)\nDate: Wednesday, October 16, 2024 at 2:15 PM\nSubject: RE: Producer Proposal - Drake Bennett Album Project\n\nBody:\nHi Marcus,\n\nThanks for the detailed proposal. Quincy is very interested in this project and loves Drake's direction with \"Midnight City.\" We do have a few questions and points to discuss:\n\n1. Backend Royalty Clarification: You mention \"4 producer points on net receipts.\" Does this include streaming revenue from all platforms (Spotify, Apple Music, YouTube Music), or is it limited to digital sales? Also, how are returns handled in the net receipts calculation?\n\n2. Recoupment: The advance payments are substantial, but we need clarity on what expenses Quincy's 4 points are recouped against. Is this only the cost of production, or does it include marketing, distribution, etc.?\n\n3. Bonus Structure: Is there any performance bonus if the album hits certain milestones? For example, if tracks reach 50M+ streams or achieve platinum certification?\n\n4. Kill Fee: What happens if Drake Bennett or Aria Studios decides to cancel the project after Quincy has delivered 1-2 masters?\n\n5. Credit & Metadata: We want to ensure Quincy is properly credited in all metadata (Spotify, Apple Music, Shazam, etc.). Can you confirm this is included?\n\n6. Approval Process: Do Quincy's production choices require approval from Drake or Aria Studios before finalizing each master?\n\nQuincy's calendar is relatively clear for this timeline. We're looking at scheduling in-studio sessions starting November 5th if that works.\n\nBest,  \nDwayne Hoover  \nManager, Quincy Jones\n________________________\n\n_______________\nFrom: Aria Studios (Aria_Studios@ariastudios.net)\nTo: Dwayne Hoover (dwayne.hoover@hovertalent.com)\nDate: Tuesday, October 15, 2024 at 9:47 AM\nSubject: Producer Proposal - Drake Bennett Album Project\n\nBody:\nDear Dwayne,\n\nI hope this finds you well. Aria Studios is thrilled to work with Quincy Jones on Drake Bennett's upcoming album \"Midnight City.\" We've heard exceptional things about Quincy's work on the recent chart-toppers and believe his production expertise would be invaluable.\n\nHere's what we're proposing:\n\nScope: Quincy to serve as Producer on 4 master recordings from the album (tracks: \"Neon Dreams,\" \"Urban Shadows,\" \"City Lights,\" and \"Echoes of Tomorrow\")\n\nFee Structure:\n- $75,000 upfront advance (upon contract signing)\n- $50,000 on first master delivery (with full production notes)\n- $50,000 on final delivery of all 4 masters\n- Total: $175,000 in advance payments\n\nBackend Royalties:\n- 4 producer points (0.04) on net receipts from all sales channels\n- Calculated after label deductions\n- Paid quarterly with detailed accounting\n\nTimeline:\n- Contract signing by November 1, 2024\n- First master delivery by December 15, 2024\n- Final delivery by February 28, 2025\n- Album release target: Q2 2025\n\nCredits & Ownership:\n- Quincy to be credited as Producer on all 4 tracks\n- All masters are work-for-hire; Drake Bennett retains ownership\n- Aria Studios retains distribution and licensing rights\n\nCould you review and let us know if Quincy is interested? We'd love to schedule a call to discuss any modifications.\n\nBest regards,\nMarcus Coleman\nA&R Director, Aria Studios\n________________________",
+          "contract_signed_url": null,
+          "contract_file_key": null,
+          "initiated_by_user_number": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-03T07:10:25.840Z",
+  "versionId": "2333cbdf-d0f0-45b9-9f7f-b679e90ad7e0"
+}
