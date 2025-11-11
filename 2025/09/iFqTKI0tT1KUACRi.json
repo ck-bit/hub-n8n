@@ -1,0 +1,3371 @@
+{
+  "active": false,
+  "connections": {
+    "IdentifyUsers": {
+      "main": [
+        [
+          {
+            "node": "Route1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion": {
+      "main": [
+        [
+          {
+            "node": "LocateUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckUser": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply6": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession1": {
+      "main": [
+        [
+          {
+            "node": "Alter_subsession1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetMessageId2": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply7": {
+      "main": [
+        [
+          {
+            "node": "MarkRead5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MarkRead5": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "IdentifyRoute",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alter_subsession1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply8": {
+      "main": [
+        [
+          {
+            "node": "GetMessageId",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EmailPath": {
+      "main": [
+        [
+          {
+            "node": "UpdateSession",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MarkRead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSession": {
+      "main": [
+        [
+          {
+            "node": "CheckUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "Route1": {
+      "main": [
+        [
+          {
+            "node": "UpdateUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateUsers": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LocateUser": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage": {
+      "main": [
+        [
+          {
+            "node": "GetUserSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetUserSession": {
+      "main": [
+        [
+          {
+            "node": "FormatUserSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route2": {
+      "main": [
+        [
+          {
+            "node": "Memory",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Recommender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IdentifyRoute": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CrudSupervisor": {
+      "main": [
+        [
+          {
+            "node": "Route3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route3": {
+      "main": [
+        [
+          {
+            "node": "Reply7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetLatestSession2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession": {
+      "main": [
+        [
+          {
+            "node": "Alter_subsession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetMessageId": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alter_subsession": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "CrudSupervisor",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Recommender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Reply9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply9": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession3": {
+      "main": [
+        [
+          {
+            "node": "MarkRead8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "GetMessageId2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MarkRead9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MarkRead9": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "IdentifyRoute",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WTrigger": {
+      "main": [
+        [
+          {
+            "node": "EmailPath",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatHistory": {
+      "main": [
+        [
+          {
+            "node": "IdentifyRoute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "main": [
+        [
+          {
+            "node": "FormatHistory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatUserSession": {
+      "main": [
+        [
+          {
+            "node": "Route2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession2": {
+      "main": [
+        [
+          {
+            "node": "Parse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse": {
+      "main": [
+        [
+          {
+            "node": "Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply": {
+      "main": [
+        [
+          {
+            "node": "GetMessageId1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alter_subsession2": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetMessageId1": {
+      "main": [
+        [
+          {
+            "node": "Alter_subsession2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply10": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatResponse": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage1": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender1": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "MessagePayload1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MessagePayload1": {
+      "main": [
+        [
+          {
+            "node": "SendEmail1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "CrudSupervisor1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CrudSupervisor1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "UpdateSesssion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Reply6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetLatestSession10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession10": {
+      "main": [
+        [
+          {
+            "node": "Parse1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse1": {
+      "main": [
+        [
+          {
+            "node": "Reply1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply1": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession9": {
+      "main": [
+        [
+          {
+            "node": "Recommender1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CrudSupervisor1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SendEmail1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatResponse1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetMessageId3": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SendEmail": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MessagePayload": {
+      "main": [
+        [
+          {
+            "node": "SendEmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession6": {
+      "main": [
+        [
+          {
+            "node": "Alter_subsession3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MarkRead": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "GetMessageId3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MarkRead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alter_subsession3": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-25T07:27:23.704Z",
+  "id": "iFqTKI0tT1KUACRi",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ChatOrchestrator-V1.0.4",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ [{\"address\": $json.address}] }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -4160,
+        1608.75
+      ],
+      "id": "16c413f6-15c1-4bd3-a91e-4d2053d14661",
+      "name": "IdentifyUsers",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3500,
+        1485
+      ],
+      "id": "94079c2a-b6ae-4b78-a30d-229a459591ca",
+      "name": "UpdateSesssion",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json?.from?.value?.[0]?.address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\" + senderAddress\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4600,
+        1708.75
+      ],
+      "id": "1136dea7-d03d-454e-bb6f-f106cd01ee6f",
+      "name": "CheckUser"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -620,
+        1260
+      ],
+      "id": "bc94a916-6f9b-4040-9d4f-f6ccd5a46276",
+      "name": "Reply6",
+      "webhookId": "5ef9dca7-7796-4988-9384-f3d6dbc77ea7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1060
+      ],
+      "id": "7b442a75-a427-40cb-b126-ed6260c0e6d7",
+      "name": "GetLatestSession1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.id }}",
+        "simple": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -180,
+        1060
+      ],
+      "id": "086d192c-02de-46ba-9d23-e2baa8d70786",
+      "name": "GetMessageId2",
+      "webhookId": "47f46ff7-f541-4ee3-b2c2-c811a460658d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "value": "={{ $json.user_session.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        700,
+        1060
+      ],
+      "id": "5d562a0d-b6a8-491d-af77-68cd1614a9c5",
+      "name": "UpdateSesssion4",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -620,
+        260
+      ],
+      "id": "354c9a38-b0c7-4394-9d46-ff7b50531c94",
+      "name": "Reply7",
+      "webhookId": "d6ed5d63-8e5f-4880-9df1-2b0adf60f24a",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('EmailPath').first().json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -400,
+        260
+      ],
+      "id": "1f5020ac-b38e-494d-8c08-ca053706ca07",
+      "name": "MarkRead5",
+      "webhookId": "7fb83602-b0a0-47a5-85eb-074bbffbac5a",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1716,
+        1475
+      ],
+      "id": "e72e6846-5a07-45b6-a467-5608781d7009",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n      \"next_step\": {\n\t\t\"type\": \"string\",\n        \"enum\": [\"wrong_info\", \"correct_and_proceed\", \"no_action\", \"partial_execution\",\"corrected_or_added_info\", \"partial_execution_with_changes\", \"reroute\"],\n        \"description\": \"The next step wether the information is correct or need changes\"\n      }\n\t}\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1548,
+        1475
+      ],
+      "id": "ed909a94-45c9-4fbb-a505-b82ed0b3427d",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Step 1: Input values\nconst item = $json;\n\nconst messageId = $('GetMessageId2').first()?.json?.messageId ?? '';\nconst lastResponse = $('Recommender').first()?.json?.output?.response ?? '';\n\n// Step 2: Handle null user_session\nif (item.user_session === null) {\n  return [\n    {\n      json: {\n        ...item,\n        user_session: null\n      }\n    }\n  ];\n}\n\n// Step 3: Parse the user_session JSON safely\nlet userSessionObj;\ntry {\n  if (typeof item.user_session !== 'string') {\n    throw new Error(\"Expected 'user_session' to be a string.\");\n  }\n  userSessionObj = JSON.parse(item.user_session);\n} catch (err) {\n  throw new Error(\"Invalid JSON in 'user_session' field.\");\n}\n\n// Step 4: Update the user_session (no sub_sessions map here)\nuserSessionObj = {\n  ...userSessionObj,\n  routing_id: messageId,\n  last_bot_response: lastResponse\n};\n\n// Step 5: Return the updated user_session\nreturn [\n  {\n    json: {\n      ...item,\n      user_session: userSessionObj\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        1060
+      ],
+      "id": "6f4dfd19-c83c-4571-a56c-bf69aab35d94",
+      "name": "Alter_subsession1"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -620,
+        460
+      ],
+      "id": "073d592f-cd47-4f62-9d5d-de2b521b133e",
+      "name": "Reply8",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const assistantEmail = 'asst@patchbay.xyz';\n\nreturn items.map(item => {\n  const data = item.json;\n\n  const from = data.from?.value?.[0]?.address || '';\n  const toList = data.to?.value?.map(e => e.address.toLowerCase()) || [];\n  const ccList = data.cc?.value?.map(e => e.address.toLowerCase()) || [];\n  const bccList = data.bcc?.value?.map(e => e.address.toLowerCase()) || [];\n\n  const toIncludesAssistant = toList.includes(assistantEmail);\n  const ccIncludesAssistant = ccList.includes(assistantEmail);\n  const bccIncludesAssistant = bccList.includes(assistantEmail);\n  const totalToRecipients = toList.length;\n\n  let routing = 'unclassified';\n\n  if (from === assistantEmail) {\n    routing = 'self';\n  } else if (toIncludesAssistant && totalToRecipients > 1) {\n    routing = 'bot_and_others';\n  } else if (toIncludesAssistant && totalToRecipients === 1) {\n    routing = 'bot_only';\n  } else if (ccIncludesAssistant || bccIncludesAssistant) {\n    routing = 'bot_ccd_bccd';\n  }\n\n  return {\n    json: {\n      ...data,\n      routing,\n    },\n    binary: item.binary || {}\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5060,
+        1600
+      ],
+      "id": "2e134776-d7b4-43d4-91d0-8efed932b700",
+      "name": "EmailPath",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "1qiftJdGy4sT3cbC",
+          "mode": "list",
+          "cachedResultName": "ProcessData-V-1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -4840,
+        1700
+      ],
+      "id": "846f402a-1098-4c22-ae96-f4ed2d6babbe",
+      "name": "UpdateSession",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "dee0551f-e006-47ab-abc5-b35168de4ff3",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -5260,
+        0
+      ],
+      "id": "4b430c77-866d-4d94-b7ac-204878047b40",
+      "name": "Route"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a75d3ba0-14c6-49ff-bb4c-9846c7b8c281",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3940,
+        1608.75
+      ],
+      "id": "b7bd54cc-c49e-4b17-bf98-ff0f2eb68ed3",
+      "name": "Route1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "={{ $('CheckUser').item.json}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3720,
+        1760
+      ],
+      "id": "5d04dfa8-e3ef-41df-90a3-708390295c2f",
+      "name": "FormatResponse"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const thread = $(\"UpdateSession\").item.json;\nlet newManagers = $input.item.json;\n\n// Ensure Managers key exists\nif (!Array.isArray(thread.Managers)) {\n  thread.Managers = [];\n}\n\n// Normalize to array\nif (!Array.isArray(newManagers)) {\n  newManagers = [newManagers];\n}\n\n// Collect existing user_ids\nconst existingIds = new Set(thread.Managers.map(m => m.address));\n\n// Append only if user_id not already present\nnewManagers.forEach(manager => {\n  if (!existingIds.has(manager.address)) {\n    thread.Managers.push(manager);\n  }\n});\n\nreturn { json: thread };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3720,
+        1485
+      ],
+      "id": "0f4576a4-aac5-437b-be29-982f2ae1b49d",
+      "name": "UpdateUsers"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json.from.value[0].address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Clients, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\"\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3280,
+        1485
+      ],
+      "id": "7b603143-f84f-4c07-a6c0-62140d6b7deb",
+      "name": "LocateUser"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n\n  let newest = cutAtFirst(t, cutoffPatterns);\n\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// ---------- Build result ----------\nlet raw = pickBody(lastEmail);\nlet emailText = firstBodyOnly(raw);\n\n// Final normalization to a single-line-ish text (optional; keep line breaks by removing the next line)\nemailText = emailText.replace(/\\n/g, \" \").replace(/\\s+/g, \" \").trim();\n\nreturn [\n  {\n    json: {\n      ThreadId: lastEmail.threadId || null,\n      email_text: emailText,\n      from: extractAddresses(\"from\"),\n      to: extractAddresses(\"to\"),\n      cc: extractAddresses(\"cc\"),\n      bcc: extractAddresses(\"bcc\"),\n      manager: $input.first().json.manager\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3060,
+        1260
+      ],
+      "id": "ba86d6a8-af80-43ae-ba6f-2f97c88ba389",
+      "name": "PrepareMessage"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.ThreadId+$('PrepareMessage').item.json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -2840,
+        1260
+      ],
+      "id": "c469f8d0-b65c-4c76-9800-3a6c6a26eadb",
+      "name": "GetUserSession",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a2ac7f65-04e4-4c57-b9fa-e87da6c25803",
+              "leftValue": "={{ $json.output!==null &&  $('PrepareMessage').first().json.to.includes(\"asst@patchbay.xyz\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2400,
+        1260
+      ],
+      "id": "c237f4df-8162-4c75-80f3-a14926b84990",
+      "name": "Route2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{$('PrepareMessage').first().json.email_text}}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Here's an improved version of your prompt with better structure, clarity, and performance:\n\n---\n\n**System Prompt:**\n\nYou are an intelligent assistant that analyzes user messages in the context of previous recommendations. Your task is to classify the user's intent into exactly ONE of the following categories:\n\n**Classification Categories:**\n\n1. **wrong_info**: User indicates that previously provided information or recommendations are incorrect and require correction.\n   - Examples: \"That's not right\", \"Actually, the price should be...\", \"No, that's incorrect\"\n\n2. **correct_and_proceed**: User approves all recommendations and wants to execute all proposed actions.\n   - Examples: \"Perfect, go ahead\", \"Yes, do it all\", \"Approved, proceed with everything\"\n\n3. **partial_execution**: User wants to execute only some of the proposed actions without modifications.\n   - Examples: \"Just update the invoice, skip the deal\", \"Only send the file, nothing else\"\n\n4. **partial_execution_with_changes**: User approves some actions but requests modifications before execution.\n   - Examples: \"Update the invoice but change the amount to $500 first\", \"Create the deal but use a different contact name\"\n\n5. **no_action**: User declines to proceed with any recommendations at this time.\n   - Examples: \"Not now\", \"Let me think about it\", \"I'll decide later\"\n\n6. **corrected_or_added_info**: User provides corrections or additional information related to previous recommendations without explicitly requesting execution.\n   - Examples: \"The correct email is...\", \"Also include this detail...\", \"One more thing...\"\n\n7. **reroute**: User wants different information or to explore other options instead of executing recommended actions.\n   - Examples: \"Can you show me other options?\", \"What about checking...\", \"I'd rather look into...\"\n\n**Instructions:**\n- Analyze the user's message carefully in context of the conversation history\n- Consider tone, explicit statements, and implied intent\n- Return your classification with a brief justification\n- If ambiguous, choose the category that best represents the primary intent\n\n**Conversation History:**\n{{ $json.history }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        -1740,
+        1060
+      ],
+      "id": "03bf9b96-c6eb-4259-a843-9ce65c640b53",
+      "name": "IdentifyRoute"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DHHZX8U6YrTfBLiO",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').first().json,\nlast_email: $('PrepareMessage').first().json.email_text,\nManager: $('PrepareMessage').first().json.manager,\nprompt_routing: $('EmailPath').first().json.routing\n}\n\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1100,
+        1300
+      ],
+      "id": "1b9a3ad4-6ed3-4674-a1a4-4f53fdc6c4cd",
+      "name": "Recommender",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "ZcMIQ2bn52WbzqlN",
+          "mode": "list",
+          "cachedResultName": "ActionsExecuter-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{\n{\n\"user_id\": $('PrepareMessage').first().json.manager.user_id,\n\"thread\": $('UpdateSession').first().json,\n\"last_email\": $('PrepareMessage').first().json, \n\"Manager\": $('CheckUser').first().json.manager,\n\"metadata\": $('FormatUserSession').first().json.output\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1060,
+        560
+      ],
+      "id": "0d216675-d4ae-491a-a09e-572192169338",
+      "name": "CrudSupervisor",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.next_task }}",
+                    "rightValue": "no_action",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "6ec77b99-0f5e-4d11-b21e-bfb8e9d2b2dd"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "25db4670-700d-4c29-9983-000c9ef2ff9f",
+                    "leftValue": "={{ $json.output.next_task ==='create_invoice' || $json.output.next_task ==='retry' }}",
+                    "rightValue": "create_invoice",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "bee968a1-b9d0-412f-ba3f-2aba65c16f61",
+                    "leftValue": "={{ $json.output.next_task }}",
+                    "rightValue": "send_file_to_user",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a8361bc7-13dd-457f-b9b3-08f8c2599b41",
+                    "leftValue": "={{ $json.output.next_task || $json.output.next_task }}",
+                    "rightValue": "send_file_on_cc",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -840,
+        539
+      ],
+      "id": "4ca9c26f-d516-4b40-95c8-bcc85ca66ea9",
+      "name": "Route3"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        460
+      ],
+      "id": "d3e3c855-f8d5-43d0-879b-e493c6c566b9",
+      "name": "GetLatestSession",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.id }}",
+        "simple": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -400,
+        460
+      ],
+      "id": "ba0e6d69-58f7-4c6c-b0b9-615769a83757",
+      "name": "GetMessageId",
+      "webhookId": "46e14f47-ebb4-415e-a73c-0a8fb33a3ace",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "value": "={{ $json.user_session.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        260,
+        460
+      ],
+      "id": "7c32e1f4-6eca-48ae-8ebe-5f054a340f91",
+      "name": "UpdateSesssion5",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Step 1: Input values\nconst item = $json;\n\nconst messageId = $('GetMessageId').first()?.json?.messageId ?? '';\nconst lastResponse = $('CrudSupervisor').first()?.json?.output.response ?? '';\n\n// Step 2: Parse the user_session JSON safely\nlet userSessionObj;\ntry {\n  if (typeof item.user_session !== 'string') {\n    throw new Error(\"Expected 'user_session' to be a string.\");\n  }\n  userSessionObj = JSON.parse(item.user_session);\n} catch (err) {\n  throw new Error(\"Invalid JSON in 'user_session' field.\");\n}\n\n// Step 3: Update the user_session (no sub_sessions map here)\nuserSessionObj = {\n  ...userSessionObj,\n  routing_id: messageId,\n  last_bot_response: lastResponse\n};\n\n// Step 4: Return the updated user_session (stringified)\nreturn [\n  {\n    json: {\n      ...item,\n      user_session: userSessionObj\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        460
+      ],
+      "id": "a26f53da-c8cb-43b4-8924-3c2dcc621bd0",
+      "name": "Alter_subsession"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{    $json.output.next_step?.trim() === 'correct_and_proceed' ||    $json.output.next_step?.trim() === 'partial_execution' || $json.output.next_step?.trim() === 'partial_execution_with_changes' }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "7e302ebe-6ad3-4453-95fa-854812ecd8aa"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "286fed1e-d8f1-4f4c-9bb2-e79d3e7bd278",
+                    "leftValue": "={{ $json.output.next_step.trim()===\"no_action\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "042818a6-da8a-4dea-a45a-bfab9d1dd9b5",
+                    "leftValue": "={{ $json.output.next_step.trim()===\"wrong_info\" || $json.output.next_step.trim()===\"reroute\" || $json.output.next_step.trim()===\"corrected_or_added_info\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1280,
+        1060
+      ],
+      "id": "855227ea-de30-45f7-a727-8a6a8d3dde30",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "939817b5-566b-494e-b576-d103f32e2c2d",
+              "name": "output",
+              "value": "=<p>Thank you {{ $('CheckUser').first().json.manager.name }} for being with us. If you need any further help with deals and invoice operations, please let me know.</p>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1100,
+        1060
+      ],
+      "id": "87976a52-cf60-4a06-ada6-4a4475124719",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -940,
+        1060
+      ],
+      "id": "012e7b56-49e9-48f5-ba1a-51f86fed93a6",
+      "name": "Reply9",
+      "webhookId": "848a235d-2159-4489-ba41-a522d5c9a78d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        1060
+      ],
+      "id": "fcabb5dc-5996-4c2c-ad55-2fd500a6c482",
+      "name": "GetLatestSession3",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('EmailPath').first().json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -600,
+        1060
+      ],
+      "id": "46f18594-bff3-4ca7-87c4-5d1fc475458b",
+      "name": "MarkRead8",
+      "webhookId": "95c375be-507a-4ecc-9024-54c93f79c368",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        260
+      ],
+      "id": "60c5768f-143c-4045-a3b1-d4070ea5c7df",
+      "name": "GetLatestSession4",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4ed928ce-3a91-4e3f-bcd5-f4e4ec03dcc9",
+              "leftValue": "={{ $('Recommender').item.json.output.tool_executed }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -400,
+        1260
+      ],
+      "id": "c875faf7-684e-465d-bd93-84f35e8c00a0",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('EmailPath').first().json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -180,
+        1360
+      ],
+      "id": "47ee9325-493f-4886-86a1-f34828428d60",
+      "name": "MarkRead9",
+      "webhookId": "6b424962-9766-4ad3-8ccc-c02d74d3685e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1360
+      ],
+      "id": "c71a9bba-772e-4f1e-8c30-1feb2cd50fa8",
+      "name": "GetLatestSession5",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "33f7ee6e-1a95-4197-a98e-852030fb9d5e",
+              "leftValue": "={{ $json.user_session!==null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        1060
+      ],
+      "id": "ade92b15-6479-4b85-907e-e8d81edfa831",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1656,
+        1280
+      ],
+      "id": "40284123-30d0-442c-a498-e0ad0247419e",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -4840,
+        1500
+      ],
+      "id": "a4f5dad6-e00f-47fe-9134-f893240f2e83",
+      "name": "MarkRead1",
+      "webhookId": "65f2b319-adb6-4e7b-be07-373aedbe7dd7",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -5280,
+        1600
+      ],
+      "id": "fb952cfb-7c3e-4abb-a3a0-fd0aa5e8ade2",
+      "name": "WTrigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Function node\n// Input: last 10 message objects, newest at index 0\n// Output: { json: { markdown: \"<markdown string>\" } }\n\nconst WINDOW_SIZE = 10;\n\n// ---- Helpers ----\nconst toStr = (v) => (v === null || v === undefined) ? \"\" : String(v);\n\nconst stripHtml = (s) => {\n  const str = toStr(s);\n  return str\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, \" \")\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, \" \")\n    .replace(/<[^>]*>/g, \" \")\n    .replace(/\\s+/g, \" \")\n    .trim();\n};\n\nconst decodeHtml = (s) => {\n  const map = {\n    \"&nbsp;\": \" \",\n    \"&lt;\": \"<\",\n    \"&gt;\": \">\",\n    \"&amp;\": \"&\",\n    \"&quot;\": \"\\\"\",\n    \"&#39;\": \"'\",\n  };\n  return toStr(s).replace(/(&nbsp;|&lt;|&gt;|&amp;|&quot;|&#39;)/g, (m) => map[m] || m);\n};\n\nconst htmlToText = (html) => stripHtml(decodeHtml(html));\n\nconst safeJsonParse = (val) => {\n  if (typeof val !== \"string\") return null;\n  const t = val.trim();\n  if (!(t.startsWith(\"{\") || t.startsWith(\"[\"))) return null;\n  try { return JSON.parse(t); } catch { return null; }\n};\n\nconst formatTime = (raw) => {\n  if (!raw) return \"unknown\";\n  // If it's already a readable string (e.g., \"2025-09-05 10:23:44\"), keep it.\n  // Otherwise try to parse and convert to ISO.\n  const d = new Date(raw);\n  if (isNaN(d.getTime())) return toStr(raw).trim();\n  // Use local-like ISO without milliseconds for readability\n  const iso = d.toISOString().replace(\"T\", \" \").replace(\".000Z\", \"Z\");\n  return iso;\n};\n\n// ---- Collect messages (use order as provided; newest first) ----\nlet messages = [];\nif (items.length === 1) {\n  const j = items[0].json ?? {};\n  if (Array.isArray(j)) messages = j;\n  else if (Array.isArray(j.data)) messages = j.data;\n  else if (Array.isArray(j.messages)) messages = j.messages;\n  else if (j.id && j.message) messages = [j];\n} else {\n  for (const it of items) {\n    const j = it.json ?? {};\n    if (j.id && j.message) messages.push(j);\n  }\n}\n\nif (!messages.length) {\n  return [{ json: { history: \"Missing\" } }];\n}\n\n// ---- Keep window of 10 (already newest-first), then switch to chronological for pairing ----\nconst windowMsgs = messages.slice(0, WINDOW_SIZE);\nconst chronological = windowMsgs.slice(); // oldest -> newest\n\n// ---- Build user→AI turns (with timestamps) ----\nconst turns = [];\nfor (let i = 0; i < chronological.length; i++) {\n  const msg = chronological[i];\n  if (msg?.message?.type === \"human\") {\n    const userRaw = msg.message.content ?? \"\";\n    const userText = stripHtml(userRaw);\n    \n    let aiText = null;\n\n    // Look ahead for next AI reply within the window\n    for (let j = i + 1; j < chronological.length; j++) {\n      const next = chronological[j];\n      const type = next?.message?.type;\n      if (type === \"ai\") {\n        const raw = next.message.content ?? \"\";\n        const parsed = safeJsonParse(raw);\n        const responseHtml = parsed?.output?.response_html ?? null;\n        aiText = responseHtml ? htmlToText(responseHtml) : stripHtml(raw);\n        break;\n      }\n      if (type === \"human\") break; // next human starts a new turn\n    }\n\n    turns.push({\n      userText,\n      aiText,\n    });\n  }\n}\n\n// ---- Build Markdown string ----\nlet md = `### Conversation (last ${Math.min(WINDOW_SIZE, turns.length)} turns)\\n\\n`;\nturns.forEach((t) => {\n  md += `**User** ${t.userText}\\n\\n`;\n  if (t.aiText) {\n    md += `**AI** ${t.aiText}\\n\\n`;\n  } else {\n    md += `**AI** (no reply found)_\\n\\n`;\n  }\n});\n\nreturn [{\n  json: {\n    history: md.trim()\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1960,
+        1060
+      ],
+      "id": "1d49a3f7-b97d-4aeb-af9d-6a54fe489e19",
+      "name": "FormatHistory"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_chat_histories",
+          "mode": "name"
+        },
+        "limit": 5,
+        "where": {
+          "values": [
+            {
+              "column": "session_id",
+              "value": "={{ $('PrepareMessage').item.json.ThreadId+$('PrepareMessage').item.json.manager.user_id }}"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2180,
+        1060
+      ],
+      "id": "6af800f4-6a04-46f3-a74f-7e58ce95918c",
+      "name": "Memory",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the reply ID to match\nconst inReplyTo = $('EmailPath').first()?.json?.inReplyTo;\n\n// Scan all incoming items\nconst items = $input.all();\n\nlet matched = null;\n\nfor (const it of items) {\n  const sessionStr = it.json?.user_session;\n  if (typeof sessionStr !== 'string') continue;\n\n  try {\n    const sessionObj = JSON.parse(sessionStr);\n    if (sessionObj?.routing_id && sessionObj.routing_id === inReplyTo) {\n      matched = sessionObj;\n      break;\n    }\n  } catch (e) {\n    // skip invalid JSON\n  }\n}\n\nreturn [\n  {\n    json: {\n      output: matched\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2620,
+        1260
+      ],
+      "id": "26d84005-47d5-4403-bf78-a5d98deff82d",
+      "name": "FormatUserSession"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        660
+      ],
+      "id": "c9c566e3-a8a5-4de3-8b32-dc707ee1ad5b",
+      "name": "GetLatestSession2",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse, extract base64 PDF, attach as binary\n// Works with multiple incoming items.\n\nconst items = $input.all();\n\nfunction safeParseSession(value) {\n  if (value && typeof value === 'object') return value;\n  if (typeof value === 'string') {\n    try {\n      return JSON.parse(value);\n    } catch (err) {\n      return { __parse_error: err.message, __raw: value };\n    }\n  }\n  return { __parse_error: 'Unsupported user_session type', __raw: value };\n}\n\nconst outputs = [];\nfor (const item of items) {\n  const parsedSession = safeParseSession(item.json.user_session);\n\n  const out = {\n    json: {\n      ...item.json,\n      user_session: parsedSession,\n    },\n  };\n\n  // Try to pull base64 from user_session.invoice_metadata.pdf_invoice_content\n  const pdfB64 = parsedSession?.invoice_metadata?.pdf_invoice_content;\n\n  if (typeof pdfB64 === 'string' && pdfB64.trim().length > 0) {\n    try {\n      const buf = Buffer.from(pdfB64.trim(), 'base64');\n\n      // Name the file using invoice_id if available\n      const invoiceId = parsedSession?.invoice_metadata?.invoice_id ?? 'invoice';\n      const fileName = `invoice_${invoiceId}.pdf`;\n\n      // Prepare binary for n8n\n      const binary = await this.helpers.prepareBinaryData(\n        buf,\n        fileName,\n        'application/pdf'\n      );\n\n      out.binary = { pdf_invoice: binary };\n\n      // Optional: remove the large base64 string from JSON to keep items light\n      try {\n        if (out.json.user_session?.invoice_metadata) {\n          delete out.json.user_session.invoice_metadata.pdf_invoice_content;\n        }\n      } catch (_) {}\n    } catch (err) {\n      out.json.__binary_error = `Failed to decode PDF: ${err.message}`;\n    }\n  } else {\n    out.json.__binary_error = 'pdf_invoice_content not found or not a string';\n  }\n\n  outputs.push(out);\n}\n\nreturn outputs;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        660
+      ],
+      "id": "7e47a53f-ab54-4a9b-969b-8c0acf6719dc",
+      "name": "Parse"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('CrudSupervisor').item.json.output.response }}",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "pdf_invoice"
+              }
+            ]
+          },
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -180,
+        660
+      ],
+      "id": "b0cc38c1-0c1a-4c47-a57c-5023450fad49",
+      "name": "Reply",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Step 1: Input values\nconst item = $('GetLatestSession2').first().json\n\nconst messageId = $('GetMessageId1').first()?.json?.messageId ?? '';\nconst lastResponse = $('CrudSupervisor').first()?.json?.output.response ?? '';\n\n// Step 2: Parse the user_session JSON safely\nlet userSessionObj;\ntry {\n  if (typeof item.user_session !== 'string') {\n    throw new Error(\"Expected 'user_session' to be a string.\");\n  }\n  userSessionObj = JSON.parse(item.user_session);\n} catch (err) {\n  throw new Error(\"Invalid JSON in 'user_session' field.\");\n}\n\n// Step 3: Update the user_session (no sub_sessions map here)\nuserSessionObj = {\n  ...userSessionObj,\n  routing_id: messageId,\n  last_bot_response: lastResponse\n};\n\n// Step 4: Return the updated user_session (stringified)\nreturn [\n  {\n    json: {\n      ...item,\n      user_session: userSessionObj\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        660
+      ],
+      "id": "d8ebb582-cb4e-4067-a4c3-a7548204e606",
+      "name": "Alter_subsession2"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.id }}",
+        "simple": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        40,
+        660
+      ],
+      "id": "b3825c09-5672-493d-b551-30de03362491",
+      "name": "GetMessageId1",
+      "webhookId": "46e14f47-ebb4-415e-a73c-0a8fb33a3ace",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "value": "={{ $json.user_session.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        480,
+        660
+      ],
+      "id": "d581b9c9-b22e-40e5-877e-6a02af5f327a",
+      "name": "UpdateSesssion6",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -620,
+        860
+      ],
+      "id": "4cd6333c-3816-44ee-b30c-6f8345ea87ee",
+      "name": "Reply10",
+      "webhookId": "d6ed5d63-8e5f-4880-9df1-2b0adf60f24a",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        860
+      ],
+      "id": "b2d933c8-314d-4f0f-9791-6d98fc412ff2",
+      "name": "GetLatestSession7",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// Get the managers list from the Managers node and filter out asst@patchbay.xyz\nconst managersList = ($('UpdateSession').first().json.Managers || [])\n  .filter(manager => manager.address !== 'asst@patchbay.xyz');\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n  let newest = cutAtFirst(t, cutoffPatterns);\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// Helper to format email with full headers\nconst formatEmailText = (email) => {\n  // Format From\n  const fromArray = email?.from?.value || [];\n  const fromFormatted = fromArray.length > 0\n    ? `${fromArray[0].name} (${fromArray[0].address})`\n    : '';\n  \n  // Format To\n  const toArray = email?.to?.value || [];\n  const toFormatted = toArray\n    .map(t => `${t.name} (${t.address})`)\n    .join(', ');\n  \n  // Format CC (filtered)\n  const ccArray = email?.cc?.value || [];\n  const filteredCC = ccArray.filter(cc => cc.address !== 'asst@patchbay.xyz');\n  const ccFormatted = filteredCC\n    .map(c => `${c.name} (${c.address})`)\n    .join(', ');\n  \n  // Format Date\n  const dateFormatted = email.date \n    ? new Date(email.date).toLocaleString('en-US', {\n        weekday: 'long',\n        year: 'numeric',\n        month: 'long',\n        day: 'numeric',\n        hour: 'numeric',\n        minute: '2-digit',\n        hour12: true\n      })\n    : '';\n  \n  // Get the email body\n  let raw = pickBody(email);\n  let emailBody = firstBodyOnly(raw);\n  \n  // Build formatted email text\n  let formattedEmail = `From: ${fromFormatted}\\n`;\n  formattedEmail += `To: ${toFormatted}\\n`;\n  if (ccFormatted) {\n    formattedEmail += `CC: ${ccFormatted}\\n`;\n  }\n  formattedEmail += `Date: ${dateFormatted}\\n`;\n  formattedEmail += `Subject: ${email.subject || ''}\\n`;\n  formattedEmail += `Body:\\n${emailBody}`;\n  \n  return formattedEmail;\n};\n\n// ---------- Build result ----------\nconst emailText = formatEmailText(lastEmail);\n\n// Create the base email object structure\nconst baseEmailObject = {\n  ThreadId: lastEmail.threadId || null,\n  email_text: emailText,\n  from: extractAddresses(\"from\"),\n  to: extractAddresses(\"to\"),\n  cc: extractAddresses(\"cc\"),\n  bcc: extractAddresses(\"bcc\")\n};\n\n// If managers list is empty or not provided, return the original behavior\nif (!Array.isArray(managersList) || managersList.length === 0) {\n  return [\n    {\n      json: {\n        ...baseEmailObject,\n        manager: $input.first().json.manager\n      }\n    }\n  ];\n}\n\n// Create structured object for each manager in the list\nreturn managersList.map(manager => ({\n  json: {\n    ...baseEmailObject,\n    manager: manager\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3500,
+        2000
+      ],
+      "id": "3dd9fa25-61c0-433d-ac6f-b2fca80a79e9",
+      "name": "PrepareMessage1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DHHZX8U6YrTfBLiO",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').first().json,\nlast_email: $('PrepareMessage1').first().json.email_text,\nManager: $('PrepareMessage1').first().json.manager,\nprompt_routing: $('EmailPath').item.json.routing\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -3060,
+        1883.75
+      ],
+      "id": "5fdcf7e6-7908-420b-963d-c20a41f588b6",
+      "name": "Recommender1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status===true && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "df9dfabf-eb51-443e-b267-28085d36d2c1"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3a5d1230-4212-475d-8552-662b69cd2b68",
+                    "leftValue": "={{ $json.status===false && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9c08ad0b-ac17-4b81-bee7-d1c5532fc8fb",
+                    "leftValue": "={{ $json.status===false && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "977406f0-aa5b-4392-bf73-638834764d54",
+                    "leftValue": "={{ $json.status===true && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -4380,
+        1687.75
+      ],
+      "id": "61bcb17c-cccf-4b5e-a26b-88dd5b40fbcb",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "87060941-c082-43e9-9bae-55e9a25e8b30",
+              "leftValue": "={{ $json.nudge }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2460,
+        2020
+      ],
+      "id": "ee746137-d39f-4675-a989-e50493262724",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "=Nudging the manager is not needed at this stage.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2020,
+        2040
+      ],
+      "id": "4a530f7b-3062-42c9-bf6e-c5c4b049b296",
+      "name": "FormatResponse1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "ZcMIQ2bn52WbzqlN",
+          "mode": "list",
+          "cachedResultName": "ActionsExecuter-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{\n{\n\"user_id\": $json.Manager.user_id,\n\"thread\": $('UpdateSession').first().json,\n\"last_email\": {email_text: $('Recommender1').item.json.message}, \n\"Manager\": $json.Manager,\n\"metadata\": $('Recommender1').first().json.metadata\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2020,
+        1640
+      ],
+      "id": "68fdd8f7-fe94-4c5d-9188-2c8391c496d3",
+      "name": "CrudSupervisor1",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.ThreadId+$json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3280,
+        1883.75
+      ],
+      "id": "4b9e10e1-c3c1-488c-b7e7-4fc14e92fec2",
+      "name": "GetLatestSession9",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n{\n  \"recipients\": [$json.nudge_data.to.address],\n  \"message\": $json.nudge_data.message,\n  \"cc\": [$json.nudge_data.from.address],\n  \"subject\": $('UpdateSession').item.json.Subject,\n  \"MessageId\": $('WTrigger').item.json.messageId,\n  \"References\": (() => {\n    const refs = $('UpdateSession').item.json.references;\n    if (!refs) return [];\n    if (typeof refs === 'string') return [refs];\n    if (Array.isArray(refs)) return refs;\n    return [];\n  })(),\n  \"ThreadId\": $('PrepareMessage1').item.json.ThreadId\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2240,
+        1840
+      ],
+      "id": "5d4d5302-6245-414c-ad04-56a1b79d3ccf",
+      "name": "MessagePayload1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2020,
+        1840
+      ],
+      "id": "c06edd41-2267-4412-83e6-e8a31b37f88d",
+      "name": "SendEmail1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.nudge===true &&  $json.should_process_changes===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "2deffe09-b334-4c58-b9d7-563137c16ee9"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f773b437-3505-4564-9e65-c723aea21ac8",
+                    "leftValue": "={{ $json.nudge===false &&  $json.should_process_changes===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2b32a7f8-013c-4578-b1a2-59ba8c0e3fa2",
+                    "leftValue": "={{ $json.nudge===true &&  $json.should_process_changes===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "69af329f-98dd-4c84-88f1-27c955959a40",
+                    "leftValue": "={{ $json.nudge===false &&  $json.should_process_changes===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2840,
+        1862.75
+      ],
+      "id": "f99fdda5-ba18-42e9-936c-57691c64494f",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8b131df7-3143-4f66-84ec-2c01ed7952b7",
+              "leftValue": "={{ $json.output.invoice_status }}",
+              "rightValue": "send_file_to_user",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -840,
+        1433.75
+      ],
+      "id": "a6691ddd-e269-482a-ac00-2ab5ca127289",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        1560
+      ],
+      "id": "ce98f6c2-7b6c-47e0-8f79-30c6d8182b36",
+      "name": "GetLatestSession10",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse, extract base64 PDF, attach as binary\n// Works with multiple incoming items.\n\nconst items = $input.all();\n\nfunction safeParseSession(value) {\n  if (value && typeof value === 'object') return value;\n  if (typeof value === 'string') {\n    try {\n      return JSON.parse(value);\n    } catch (err) {\n      return { __parse_error: err.message, __raw: value };\n    }\n  }\n  return { __parse_error: 'Unsupported user_session type', __raw: value };\n}\n\nconst outputs = [];\nfor (const item of items) {\n  const parsedSession = safeParseSession(item.json.user_session);\n\n  const out = {\n    json: {\n      ...item.json,\n      user_session: parsedSession,\n    },\n  };\n\n  // Try to pull base64 from user_session.invoice_metadata.pdf_invoice_content\n  const pdfB64 = parsedSession?.invoice_metadata?.pdf_invoice_content;\n\n  if (typeof pdfB64 === 'string' && pdfB64.trim().length > 0) {\n    try {\n      const buf = Buffer.from(pdfB64.trim(), 'base64');\n\n      // Name the file using invoice_id if available\n      const invoiceId = parsedSession?.invoice_metadata?.invoice_id ?? 'invoice';\n      const fileName = `invoice_${invoiceId}.pdf`;\n\n      // Prepare binary for n8n\n      const binary = await this.helpers.prepareBinaryData(\n        buf,\n        fileName,\n        'application/pdf'\n      );\n\n      out.binary = { pdf_invoice: binary };\n\n      // Optional: remove the large base64 string from JSON to keep items light\n      try {\n        if (out.json.user_session?.invoice_metadata) {\n          delete out.json.user_session.invoice_metadata.pdf_invoice_content;\n        }\n      } catch (_) {}\n    } catch (err) {\n      out.json.__binary_error = `Failed to decode PDF: ${err.message}`;\n    }\n  } else {\n    out.json.__binary_error = 'pdf_invoice_content not found or not a string';\n  }\n\n  outputs.push(out);\n}\n\nreturn outputs;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        1560
+      ],
+      "id": "795393db-f727-4500-ac0d-b36e976d045d",
+      "name": "Parse1"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "pdf_invoice"
+              }
+            ]
+          },
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -180,
+        1560
+      ],
+      "id": "6ef81f6f-be37-4ded-92a9-e28a1edadc9f",
+      "name": "Reply1",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1560
+      ],
+      "id": "00d04e99-9990-4655-911e-f07a6518016b",
+      "name": "GetLatestSession11",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('PrepareMessage1').first().json.ThreadId+$('PrepareMessage1').first().json.manager.user_id }}",
+        "value": "={{ $('GetLatestSession9').item.json.user_session }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1700,
+        1980
+      ],
+      "id": "ce7a5a34-482d-4d15-af5e-b64e5550edd2",
+      "name": "UpdateSesssion1",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage1').first().json.ThreadId+$('Recommender1').first().json.Manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -4380,
+        2503.75
+      ],
+      "id": "23b1b85b-0be3-412f-a0cb-0489efaaec76",
+      "name": "GetLatestSession6",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.id }}",
+        "simple": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -4600,
+        2503.75
+      ],
+      "id": "ce65bfbf-9432-4b81-a809-488eb2c39e72",
+      "name": "GetMessageId3",
+      "webhookId": "47f46ff7-f541-4ee3-b2c2-c811a460658d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -5260,
+        2243.75
+      ],
+      "id": "0db1ccae-ebac-4960-b4cc-e662d16ae11d",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "thread",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -5040,
+        2243.75
+      ],
+      "id": "5af1ab7e-b47d-423b-b514-68eebf1ded9b",
+      "name": "Gmail",
+      "webhookId": "a86479e3-ad49-4f4d-a68f-d2b7dda4b4a8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5040,
+        2603.75
+      ],
+      "id": "55f7018c-0db8-4d06-b90b-ea86f77b1653",
+      "name": "SendEmail",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n{\n  \"recipients\": [$('PrepareMessage1').item.json.manager.address],\n  \"message\": $json.output.response,\n  \"cc\": [],\n  \"subject\": $('UpdateSession').item.json.Subject,\n  \"MessageId\": $('WTrigger').item.json.messageId,\n  \"References\": (() => {\n    const refs = $('UpdateSession').item.json.references;\n    if (!refs) return [];\n    if (typeof refs === 'string') return [refs];\n    if (Array.isArray(refs)) return refs;\n    return [];\n  })(),\n  \"ThreadId\": $('PrepareMessage1').item.json.ThreadId\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5260,
+        2603.75
+      ],
+      "id": "1e79a18f-a2f0-40e1-a7cd-895b1004a229",
+      "name": "MessagePayload"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "33f7ee6e-1a95-4197-a98e-852030fb9d5e",
+              "leftValue": "={{ $json.user_session!==null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3940,
+        2503.75
+      ],
+      "id": "6e84d04c-1ae6-4cbc-83e3-d51c0dfe9fbf",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('PrepareMessage1').first().json.ThreadId+$('Recommender1').first().json.Manager.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -4380,
+        2703.75
+      ],
+      "id": "2dc48d43-34e4-48a8-b50c-116cd99bcda2",
+      "name": "GetLatestSession8",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('EmailPath').first().json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -4600,
+        2703.75
+      ],
+      "id": "772cb261-ccbf-4c78-b6cf-75d29cce2794",
+      "name": "MarkRead",
+      "webhookId": "6b424962-9766-4ad3-8ccc-c02d74d3685e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4ed928ce-3a91-4e3f-bcd5-f4e4ec03dcc9",
+              "leftValue": "={{ $('Recommender1').item.json.output.tool_executed }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -4820,
+        2603.75
+      ],
+      "id": "f1dbb3d3-b21a-404c-992f-40f6b4ca238f",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Step 1: Input values\nconst item = $json;\n\nconst messageId = $('GetMessageId3').first()?.json?.messageId ?? '';\nconst lastResponse = $('Recommender1').first()?.json?.output?.response ?? '';\n\n// Step 2: Handle null user_session\nif (item.user_session === null) {\n  return [\n    {\n      json: {\n        ...item,\n        user_session: null\n      }\n    }\n  ];\n}\n\n// Step 3: Parse the user_session JSON safely\nlet userSessionObj;\ntry {\n  if (typeof item.user_session !== 'string') {\n    throw new Error(\"Expected 'user_session' to be a string.\");\n  }\n  userSessionObj = JSON.parse(item.user_session);\n} catch (err) {\n  throw new Error(\"Invalid JSON in 'user_session' field.\");\n}\n\n// Step 4: Update the user_session (no sub_sessions map here)\nuserSessionObj = {\n  ...userSessionObj,\n  routing_id: messageId,\n  last_bot_response: lastResponse\n};\n\n// Step 5: Return the updated user_session\nreturn [\n  {\n    json: {\n      ...item,\n      user_session: userSessionObj\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4160,
+        2503.75
+      ],
+      "id": "c11025fc-ab76-46da-badd-1488616aaba2",
+      "name": "Alter_subsession3"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('PrepareMessage1').first().json.ThreadId+$('Recommender1').first().json.Manager.user_id }}",
+        "value": "={{ $json.user_session.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3720,
+        2503.75
+      ],
+      "id": "12b44ed3-3305-4507-bdf9-026805d082d4",
+      "name": "UpdateSesssion7",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "WTrigger": [
+      {
+        "json": {
+          "id": "199bf44ff95458d6",
+          "threadId": "199bdfcecd48cf82",
+          "labelIds": [
+            "UNREAD",
+            "IMPORTANT",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 8387,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])\r\n        by mx.google.com with SMTPS id d9443c01a7336-28e8d1a909dsor94616675ad.7.2025.10.07.08.23.13\r\n        for <asst@patchbay.xyz>\r\n        (Google Transport Security);\r\n        Tue, 07 Oct 2025 08:23:13 -0700 (PDT)",
+            "x-received": "X-Received: by 2002:a17:902:fc8e:b0:267:9601:dca0 with SMTP id\r\n d9443c01a7336-28ec9c8f194mr42127775ad.27.1759850592767; Tue, 07 Oct 2025\r\n 08:23:12 -0700 (PDT)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1759850593; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=ekyqcfdLh7yHL0T9wgwX7AndMUFj+kVhYtXt3j7gWgc3erjRLH3SkMTCYca9UJlQKy\r\n         Xc0GT7bNrFfotC7By7uxyThH2m6kdAe+N9O/dniWdUUU5sEMwG/SBanzQJ5gLNJSqthY\r\n         UL6WFw6VIM3cs7sUDdiGkT900Ukk4J//+NOpAH/OfTnYrCWtt9P20Vgp186WpjeUgYiM\r\n         RUscTccjwYmGJa5zqtS37y1mKQPubqcmk2W4Ld4Jf3WWOGT20KA15u59nmP+vNTBNTeM\r\n         NnH8KmqQIrEKHX4ull3l103DLwnVMjYMfQpuTrwkFJ6ty15SkUuCvpTe2xKNkwNDw1LL\r\n         7ejw==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=to:subject:message-id:date:from:in-reply-to:references:mime-version\r\n         :dkim-signature;\r\n        bh=cKPzqomWNgN3VN0O2iNs2P/LmPQR7my2vUlPrsXdRYE=;\r\n        fh=DqyXXDm0oua/8Er2fzZbU3da1ixmJE4TTaZqqb4kAoo=;\r\n        b=G1lm7ngOrQw07RjCkjD7cNAJlIJjQQXFmscliLE8SLjzq0cJqAxZ/72xLnzs4urUbO\r\n         cDnNUVLuseT1eGojKXi/kPQ0EYmSfUygUQsSlPS5XAbT6gpUFA8Jn51c/EjpVB0Eq/IT\r\n         PPjhEWFsBgAb9HE8q48DoqHPeq+TC4tSWXq0Hs7dtajh+RQeakELEL1QGgb/scTaMYMq\r\n         coNZ2TqeZGW9evGroPn4V6oF4ThpfsRVkToJtqSVtY6gD9r//NbqMxJI4wBXksaS0rx8\r\n         jsmUE7iAQm5CDZZALyQOXGTqU8yehNyGCbgIuv3PnpkUAAvPn5nnA+YlnTbuv9oA0IeK\r\n         DZhA==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=daUSL7S5;\r\n       spf=pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "return-path": "Return-Path: <dwayne@patchbay.xyz>",
+            "received-spf": "Received-SPF: pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=daUSL7S5;\r\n       spf=pass (google.com: domain of dwayne@patchbay.xyz designates 209.85.220.41 as permitted sender) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "dkim-signature": "DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=patchbay.xyz; s=google; t=1759850593; x=1760455393; darn=patchbay.xyz;\r\n        h=to:subject:message-id:date:from:in-reply-to:references:mime-version\r\n         :from:to:cc:subject:date:message-id:reply-to;\r\n        bh=cKPzqomWNgN3VN0O2iNs2P/LmPQR7my2vUlPrsXdRYE=;\r\n        b=daUSL7S5QLIPCqCdoNrrhGEQJZl8BRoiSHi7dEkVYTBWCKGrxcSPTK/hF4/eeTuEtE\r\n         uaYSgh0AfllkunAYjK9thMYwELoVJiBo5lL88Xwahp6lJ3jwXSd77LM01F3ziyqCAgXu\r\n         c5cCvmy7et/Q2Ru77Q422C+v+IfYfPrGaK9gI=",
+            "x-google-dkim-signature": "X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20230601; t=1759850593; x=1760455393;\r\n        h=to:subject:message-id:date:from:in-reply-to:references:mime-version\r\n         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;\r\n        bh=cKPzqomWNgN3VN0O2iNs2P/LmPQR7my2vUlPrsXdRYE=;\r\n        b=KGO6L10mMFSIlNFZcbR4USnxCjc9iUPkgO5orrbfuP/FE8Y3YHvJXXMU5QZhSiBRqy\r\n         MxouKNV5Gj9myV8gVwIFUxtpUmrQiY8JgbkM2cv/hg21Qz8+l0bw1Km6Gpls5q0aJLQQ\r\n         bpaT9Vr4JQQOBnQ6mMbPOYSUzYIzC+E+NgT5oXgWUYt3IIVk/8ctCZVowEB3TaLZDhM0\r\n         i+vDf+vn6T4paeVItwSFlM0q2YcZphvzcYILMSJ0jWUicLpWF+qsw3A/5942ZaXg2r7s\r\n         jbqeMl4JH0jd0AlIQRZvDkYE+jq/UepbPDF89yAxS414FdNcNYvZnb/aBBFx0qGnRuwL\r\n         /eWA==",
+            "x-gm-message-state": "X-Gm-Message-State: AOJu0YwxkorOESdLO1redXha79/iF7zcm43PjFI3genA44wKHnp8Xosk\r\n\tNtyLWayrW4dc1GDfoDSf1psUqVWj9AF2KvEYwVtUrY+9SkViwLlGKjULKUxr1sJaM7/zedQ9rfn\r\n\t+wYJhgKwURXpk8UYSWbRfeukKP7zCM0av07JQyu3184cwjPgvQPVItAA=",
+            "x-gm-gg": "X-Gm-Gg: ASbGnct8ELj/1xxpCvXCnC4qY4hlFCQEPAt6tmHYDN+g1N3cs9ebkgrW4EMQkw4GrH0\r\n\tg37qvr2txhu1/W1HZyuUj8FMWNdGjvrzG3ySzWEdxEEUEtcGuLDvC9KA0mzgA3yIqhHm/h1S0r6\r\n\tzeXNdZRaQlt+4J8t6AuwqKoo7VGd2qxva7DSxi8mKJsoALZS3KRuCIY8+B0Nfb8Nm/JBrIjiujV\r\n\tB7hQ9G+reR4oT79XiX5dYIZkaeiKq90IOFwnay2Kzl2n+7N4Ew4kPtSi0H9YTmiz7MjBScYNtQZ\r\n\tdRO7HduTUdGQG2cpEWJ2JQ==",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IEeQPHcM8NCq0v53Ct8PfkW4ah9he1gHfdBrbC+HdKC+qvbfJ+k3J3iBJQg+6r4/YVyp+yD/6uAndUxqFiAOlI=",
+            "mime-version": "MIME-Version: 1.0",
+            "references": "References: <CAP=u+8Ct5nghGq7YrO3V5hvhwhi_9PKD0ss86v=MC4vVUNOE5Q@mail.gmail.com>\r\n <CAEaeWjS1pZe6OQGXS6Ev_7iFBfe_-8B7=ytapF1Tn_0EYZP01A@mail.gmail.com>",
+            "in-reply-to": "In-Reply-To: <CAEaeWjS1pZe6OQGXS6Ev_7iFBfe_-8B7=ytapF1Tn_0EYZP01A@mail.gmail.com>",
+            "from": "From: Dwayne Hoover <dwayne@patchbay.xyz>",
+            "date": "Date: Tue, 7 Oct 2025 22:23:00 +0700",
+            "x-gm-features": "X-Gm-Features: AS18NWAtcKzoC3Bmsid5cGTb0EQ0QgNzgHY1pL8v5OVSbJnMhwt00K79MmY_3kI",
+            "message-id": "Message-ID: <CAP=u+8D2TAPh6szuq=-h6b2wZ1boh-7x3=ugo5xC124G+_ZfRg@mail.gmail.com>",
+            "subject": "Subject: Re: Deal Search",
+            "to": "To: asst@patchbay.xyz",
+            "content-type": "Content-Type: multipart/alternative; boundary=\"00000000000070a1af06409325c0\""
+          },
+          "html": "<div dir=\"ltr\">Update me on this thread please.</div><br><div class=\"gmail_quote gmail_quote_container\"><div dir=\"ltr\" class=\"gmail_attr\">On Tue, Oct 7, 2025 at 10:08 PM &lt;<a href=\"mailto:asst@patchbay.xyz\">asst@patchbay.xyz</a>&gt; wrote:<br></div><blockquote class=\"gmail_quote\" style=\"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex\"><div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:rgb(17,17,17);max-width:680px\">\n  <p>Dwayne, I’ve checked your workspace and there are currently <b>no existing deals associated with Producer Quincy Jones</b>. If you believe a deal should already exist, it may not have been finalized or saved previously.</p>\n  <p>To move forward with creating a new deal for Producer Quincy Jones, I’ll need your confirmation on a few details:</p>\n  <ul>\n    <li>Should Alex Goldblatt be included as a contributor?</li>\n    <li>Are there any payment, royalty, or fee terms you’d like to include?</li>\n    <li>Can you confirm that the artist (Ed Shereen) and master (“Amazing Fellas”) details are correct?</li>\n  </ul>\n  <p>Once you confirm these details, I can proceed with the deal creation.</p>\n  <p>Please reply with your confirmation or any corrections.</p>\n  <hr style=\"margin-top:20px;border-right:none;border-bottom:none;border-left:none;border-top:1px solid rgb(221,221,221)\">\n  <p style=\"margin-top:12px\">Best,<br>Patchbay Assistant</p>\n</div>\n</blockquote></div>\n",
+          "text": "Update me on this thread please.\n\nOn Tue, Oct 7, 2025 at 10:08 PM <asst@patchbay.xyz> wrote:\n\n> Dwayne, I’ve checked your workspace and there are currently *no existing\n> deals associated with Producer Quincy Jones*. If you believe a deal\n> should already exist, it may not have been finalized or saved previously.\n>\n> To move forward with creating a new deal for Producer Quincy Jones, I’ll\n> need your confirmation on a few details:\n>\n>    - Should Alex Goldblatt be included as a contributor?\n>    - Are there any payment, royalty, or fee terms you’d like to include?\n>    - Can you confirm that the artist (Ed Shereen) and master (“Amazing\n>    Fellas”) details are correct?\n>\n> Once you confirm these details, I can proceed with the deal creation.\n>\n> Please reply with your confirmation or any corrections.\n> ------------------------------\n>\n> Best,\n> Patchbay Assistant\n>\n",
+          "textAsHtml": "<p>Update me on this thread please.</p><p>On Tue, Oct 7, 2025 at 10:08&#x202F;PM &lt;<a href=\"mailto:asst@patchbay.xyz\">asst@patchbay.xyz</a>&gt; wrote:</p><p>&gt; Dwayne, I&rsquo;ve checked your workspace and there are currently *no existing<br/>&gt; deals associated with Producer Quincy Jones*. If you believe a deal<br/>&gt; should already exist, it may not have been finalized or saved previously.<br/>&gt;<br/>&gt; To move forward with creating a new deal for Producer Quincy Jones, I&rsquo;ll<br/>&gt; need your confirmation on a few details:<br/>&gt;<br/>&gt;    - Should Alex Goldblatt be included as a contributor?<br/>&gt;    - Are there any payment, royalty, or fee terms you&rsquo;d like to include?<br/>&gt;    - Can you confirm that the artist (Ed Shereen) and master (&ldquo;Amazing<br/>&gt;    Fellas&rdquo;) details are correct?<br/>&gt;<br/>&gt; Once you confirm these details, I can proceed with the deal creation.<br/>&gt;<br/>&gt; Please reply with your confirmation or any corrections.<br/>&gt; ------------------------------<br/>&gt;<br/>&gt; Best,<br/>&gt; Patchbay Assistant<br/>&gt;</p>",
+          "subject": "Re: Deal Search",
+          "references": [
+            "<CAP=u+8Ct5nghGq7YrO3V5hvhwhi_9PKD0ss86v=MC4vVUNOE5Q@mail.gmail.com>",
+            "<CAEaeWjS1pZe6OQGXS6Ev_7iFBfe_-8B7=ytapF1Tn_0EYZP01A@mail.gmail.com>"
+          ],
+          "date": "2025-10-07T15:23:00.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "asst@patchbay.xyz",
+                "name": ""
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><a href=\"mailto:asst@patchbay.xyz\" class=\"mp_address_email\">asst@patchbay.xyz</a></span>",
+            "text": "asst@patchbay.xyz"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "dwayne@patchbay.xyz",
+                "name": "Dwayne Hoover"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Dwayne Hoover</span> &lt;<a href=\"mailto:dwayne@patchbay.xyz\" class=\"mp_address_email\">dwayne@patchbay.xyz</a>&gt;</span>",
+            "text": "\"Dwayne Hoover\" <dwayne@patchbay.xyz>"
+          },
+          "messageId": "<CAP=u+8D2TAPh6szuq=-h6b2wZ1boh-7x3=ugo5xC124G+_ZfRg@mail.gmail.com>",
+          "inReplyTo": "<CAEaeWjS1pZe6OQGXS6Ev_7iFBfe_-8B7=ytapF1Tn_0EYZP01A@mail.gmail.com>"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-07T15:37:12.777Z",
+  "versionId": "59eb245d-2c76-4169-a944-491908977cb8"
+}
