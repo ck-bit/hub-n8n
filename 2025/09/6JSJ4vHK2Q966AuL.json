@@ -1,0 +1,1105 @@
+{
+  "active": false,
+  "connections": {
+    "CallRecodDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallMasterDealsAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallSRDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallLPDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallSLDealAgent": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare1": {
+      "main": [
+        [
+          {
+            "node": "CallRecodDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare2": {
+      "main": [
+        [
+          {
+            "node": "CallMasterDealsAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare3": {
+      "main": [
+        [
+          {
+            "node": "CallSRDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare4": {
+      "main": [
+        [
+          {
+            "node": "CallLPDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare5": {
+      "main": [
+        [
+          {
+            "node": "CallSLDealAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NoDealDetected": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SchemaParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DealsClassifier": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router-2": {
+      "main": [
+        [
+          {
+            "node": "Prepare1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDealDetected",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDealDetected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare6": {
+      "main": [
+        [
+          {
+            "node": "CallNBRDealAgent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CallNBRDealAgent2": {
+      "main": [
+        [
+          {
+            "node": "PrepareOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "DealsClassifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Router-2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Not-Supported",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-25T07:32:24.105Z",
+  "id": "6JSJ4vHK2Q966AuL",
+  "meta": null,
+  "name": "ExtractDeal-V-1.0.4",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "QFzzwur4AQh5POo8",
+          "mode": "list",
+          "cachedResultName": "Record"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        0
+      ],
+      "id": "527f871c-98db-4e22-a406-aeb95c93dc8a",
+      "name": "CallRecodDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "fxfgvzK5f1vHRgf3",
+          "mode": "list",
+          "cachedResultName": "Master"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        200
+      ],
+      "id": "816dee1f-4ca5-4a7e-9b0b-d24334d71beb",
+      "name": "CallMasterDealsAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PaCch2FBCVJudIft",
+          "mode": "list",
+          "cachedResultName": "Simple Royalty"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        400
+      ],
+      "id": "272314a1-4b81-4a0b-a0bf-cf3ace08a3e7",
+      "name": "CallSRDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "8AWruLSVbCPBZzWs",
+          "mode": "list",
+          "cachedResultName": "Live Performance"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        800
+      ],
+      "id": "612d52fb-ab9b-4a89-9c68-04151c208d52",
+      "name": "CallLPDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PaCch2FBCVJudIft",
+          "mode": "list",
+          "cachedResultName": "Simple Royalty"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        1000
+      ],
+      "id": "1baa493d-80f7-4f42-807c-fc4fe5cc9098",
+      "name": "CallSLDealAgent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Trigger').item.json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "db68d8cc-4950-45d0-873c-12b7ff8a0df3",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        0
+      ],
+      "id": "3cdb5abc-9aa1-4afb-b8bc-49a38ec9d3e4",
+      "name": "Prepare1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Trigger').item.json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "d86379b7-8a63-4550-9a89-4905a0936e1d",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        200
+      ],
+      "id": "5c6275aa-eb04-4d80-b460-f164cf395205",
+      "name": "Prepare2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "44301c7a-2d53-4583-8b42-ff609ac51bf1",
+              "name": "",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        400
+      ],
+      "id": "fcbb2a7b-0b2e-47b8-aba2-07fd692c2427",
+      "name": "Prepare3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "99850cbd-1f4c-4bf0-a47c-b8e8d9f316b1",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        800
+      ],
+      "id": "4fb13ff1-f8b2-4075-962c-33629c32e455",
+      "name": "Prepare4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "c29224ae-d49f-403d-8e67-4cf6a9d503c0",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        1000
+      ],
+      "id": "ed4e6d13-7182-430e-a56b-8b26bf169d39",
+      "name": "Prepare5"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1040,
+        980
+      ],
+      "id": "f09bdc87-8015-486c-9b98-27c27c0dc188",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -40,
+        600
+      ],
+      "id": "0228e927-7c07-4e3d-997f-c8ace66b576f",
+      "name": "NoDealDetected"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"title\": \"EntertainmentDealClassification\",\n  \"description\": \"This schema defines the structure of classification output for entertainment industry agreements. The output consists of field: `type`, which indicates the category of the deal.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"deal_type\": {\n      \"type\": \"string\",\n      \"description\": \"The primary classification of the deal type, based on document content.\",\n      \"enum\": [\n        \"Record\",\n        \"Master\",\n        \"Simple Royalty\",\n        \"Live Performance\",\n        \"Sync License\",\n        \"Publishing\",\n        \"Neighboring Rights\",\n        \"Unrecognised\"\n      ]\n    }\n  },\n  \"required\": [\"deal_type\"],\n  \"additionalProperties\": false\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -920,
+        980
+      ],
+      "id": "b92efa55-ac65-44ab-b924-f4e52d766f9e",
+      "name": "SchemaParser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.document.slice(0, 6000) }}\n",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an expert contract classifier specializing in entertainment industry agreements. Based on the content of a provided document(proper documet/email-thread), identify which **deal type** it represents, along with any applicable **enumeration or subtype** such as deal roles, categories, or royalty types.\n\nYour goal is to return a **structured JSON response** as specified:\n\n---\n\n### **Deal Types and Tags**\n\n#### **Record Deal** (`Record`)\n- Agreement between an **artist** and a **label**\n- Mentions **recording rights**, `label_split`, `distribution_split`\n- Often contains `reversion_type` or `reversion_period`\n- Language includes **record label**, **recording contract**, **royalty**, **ownership**\n\n---\n\n#### **Master Deal** (`Master`)\n- Related to **master recordings**\n- May mention **producer**, **mixer**, **musician**, or other roles\n- Often includes `work_for_hire`, `fee_schedule`, `payment_status`, `recoupable`\n\n---\n\n#### **Simple Royalty Deal** (`Simple Royalty`)\n- Agreement with a **manager**, **attorney**, or **agent**\n- Focused on **royalty percentages**, **representation**, or **commissions**\n\n---\n\n#### **Live Performance Deal** (`Live Performance`)\n- Related to **live shows**, **touring**, or **performances**\n- Mentions **fee**, **performance date**, **venue**, **payment**\n\n---\n\n#### **Sync License Deal** (`Sync License`)\n A Sync License Deal involves the licensing of a song or master recording for use in visual media (such as films, TV shows, commercials, video games, etc.).\n\nKey Indicators:\n\nMentions of licensing for media or audiovisual use.\n\nParties involved: typically an artist and a licensor or production company.\n\nTerms like “sync rights”, “synchronization license”, “use in film/TV/ad”, “visual media”.\n\nPayment in the form of a flat fee or sync fee for the usage rights.\n\n---\n\n#### **Publishing deal** (`Publishing`)\n- A Publishing deal broadly includes any agreement involving musical compositions, publishing rights, royalty splits for compositions, or roles such as Publisher, Administrator, Co-Publisher, Sub-Publisher, or Self-Publisher.\n\n---\n\n#### **Neighboring Rights Deal** (`Neighboring Rights`)\n- Agreement regarding **neighboring rights** (rights of performers and producers in sound recordings)\n- Involves **artists**, **organizations (CMOs/PROs)**, or **collecting societies**\n- Typically includes:\n  - `collection_mandates` such as \"Performer\" or \"Rights Owner\"\n  - `territories` indicating geographic coverage\n  - `client_share` / `counterparty_share` percentage splits\n  - Mentions of **exclusive mandates**, **repertoire eligibility**, or **territorial representation**\n\n---\n\n### **Instructions**\n1. Analyze the full content of the provided document.\n2. Classify it into the most relevant deal type using `deal_type`.\n3. If the deal type cannot be confidently determined, return `deal_unknown`.\n4. If the user uploads a Tour Deal **Memo**, return deal_unknown."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -1080,
+        760
+      ],
+      "id": "f0037bc6-cbe2-4e64-9062-0b9353080cd5",
+      "name": "DealsClassifier"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e3eb620f-46a3-4366-ba63-f680efcf502a",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Record",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Master",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c7a2b340-ac5a-4859-89b9-0b5c7f0b3d42"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "745f048e-7e40-490b-9d6b-a0045793ad5a",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Simple Royalty",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "526e34ba-adc1-419a-8644-1a66e18e1689",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Unrecognised",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b9999d9e-125e-4253-a3af-a9fce3656106",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Live Performance",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f8ae7023-d4e4-4c72-92b2-8072c6c77431",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Sync License",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "acf32fb5-e2bc-4b33-9b51-8abeb5a4d777",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Neighboring Rights",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "655d9e37-6901-43a6-a485-91aeb7700044",
+                    "leftValue": "={{ $json.output.deal_type }}",
+                    "rightValue": "Publishing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -480,
+        500
+      ],
+      "id": "21c7ee78-c75a-445e-8684-742187fbb591",
+      "name": "Router-2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38ec35c4-4729-4c0e-9133-0ae0ad7be630",
+              "name": "document",
+              "value": "={{ $('OCR').item.json.pages.map(item => item.markdown).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "98bc25a7-970b-45a5-9c9a-7db7a0524665",
+              "name": "number",
+              "value": "={{ $('Request').item.json.body.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "76efb454-ad3c-4d95-b042-c1b639230fdc",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        1200
+      ],
+      "id": "8a497f7b-18a8-4f87-a804-6e4b4862ec12",
+      "name": "Prepare6"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "wYh9S1qUCu5fBMIL",
+          "mode": "list",
+          "cachedResultName": "Neighbouring Rights"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        1200
+      ],
+      "id": "07c34d0d-1627-4443-94af-287a5284fbc5",
+      "name": "CallNBRDealAgent2",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1dc24e90-260d-4180-9c62-29e44b403039",
+              "name": "job_id",
+              "value": "={{ $('Trigger').item.json.job_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f8f26781-837a-449f-b347-69488eb59e92",
+              "name": "book_number",
+              "value": "={{ $('Trigger').item.json.book_number }}",
+              "type": "string"
+            },
+            {
+              "id": "b70e94c2-3e02-476a-8207-847256d0a53b",
+              "name": "status",
+              "value": "={{ $json.output == null ? 'failed' : 'completed' }}",
+              "type": "string"
+            },
+            {
+              "id": "7043de5c-0145-44fd-a2e4-0473823e599f",
+              "name": "contract_url",
+              "value": "={{ $('Trigger').item.json.contract_url }}",
+              "type": "string"
+            },
+            {
+              "id": "a9513d36-2a5b-4b1f-a68d-09c1efc3f4f8",
+              "name": "temp_deal_data",
+              "value": "={{$json.output}}",
+              "type": "object"
+            },
+            {
+              "id": "a3d4f760-0673-4222-a1c5-a1cc4879372b",
+              "name": "=deal_type",
+              "value": "={{ $('DealsClassifier').item.json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": false
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        180,
+        460
+      ],
+      "id": "f89e3f6a-63c3-4f19-bff8-150c7c3f15b2",
+      "name": "PrepareOutput"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "job_id"
+            },
+            {
+              "name": "book_number"
+            },
+            {
+              "name": "document",
+              "type": "any"
+            },
+            {
+              "name": "contract_url"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1300,
+        760
+      ],
+      "id": "e8b4c3ea-fba3-4f73-8a59-62a3cc88ad59",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b58635d6-2e3a-4467-a334-24acb4baa56a",
+              "leftValue": "={{ $json.output.deal_type.includes(\"Master\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -700,
+        760
+      ],
+      "id": "dbf1a122-a6c6-41b5-9e29-d5c58cd739d9",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b7337f4e-d331-4890-90d6-e76ad5fd812c",
+              "name": "message",
+              "value": "={{ $json.output.deal_type === 'Unrecognised' ? 'Unrecognised deal type' : `${$json.output.deal_type} deals creation is not yet supported` }}",
+              "type": "string"
+            },
+            {
+              "id": "becd851b-4954-4da7-aaef-be434d43af7e",
+              "name": "status",
+              "value": "failed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        920
+      ],
+      "id": "fe233b36-8b90-438d-ae00-12891244c430",
+      "name": "Not-Supported"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "job_id": null,
+          "book_number": "f9fe49b9-7b34-4926-bd85-32a66377e5ba",
+          "document": "Deal Summary (Dummy – For Testing Purposes Only)\n\nAgreement Type: Contributor Agreement\nDate: November 1, 2024\n\nParties Involved:\n- Artist: Nova Rae\n- Contributor: Alex Goldblatt (represented by Lender: Vega Creative LLP)\n- Company: EchoWave Entertainment LLC\n- Distributor: HyperTrack Music Group, Inc.\n- Recording Agreement: Exclusive between Artist and Distributor\n\nContact Information:\n- Company’s Legal Contact:\n  Name: David Porter\n  Firm: Orion & Fields LLP\n  Address: 1234 Harmony Blvd, Suite 500, Los Angeles, CA 90028\n  Email: dporter@orionfields.com\n  Phone: (310) 555-5678\n- Lender’s Legal Contact:\n  Name: Rachel Lin\n  Firm: Atlas Law Partners LLP\n  Address: 99 Soundscape Ave, New York, NY 10003\n  Email: rlin@atlaslaw.com\n  Phone: (212) 555-9987\n\nMaster / Composition:\n- Title: \"Velvet Eclipse (Acoustic Version)\"\n- Quantity: One (1) Master Recording\n- Composition: As listed in attached Schedule 1\n\nServices:\n- Alex Goldblatt shall perform non-exclusive production-related services customary in the recording industry (e.g., engineering, mixing, etc.).\n- Alex may be asked to appear in one (1) music video at a mutually designated time/location.\n- All services are to be commercially and technically satisfactory to Company and Distributor.\n\nCompensation:\n- Total Fee: $500 (all-in, inclusive of any and all contributions)\n- Payment Schedule:\n  - 50% upon execution of the agreement and start of services\n  - 50% upon acceptance of Master and completion of services\n\nRights & Ownership:\n- The Master and Video are work-for-hire for the Company.\n- All rights (excluding composition) are assigned to the Company.\n- Alex grants perpetual, universal rights to use his name and likeness in connection with the Master, Video, and promotion.\n- Alex waives all \"moral rights\" and agrees not to assert authorship or ownership of the Composition or Original Master.\n\nSampling:\n- Alex is prohibited from including any sampled or proprietary material unless explicitly approved in writing.\n- Any undisclosed samples are the full responsibility of the Contributor and may result in deductions or liabilities.\n\nRepresentations & Warranties:\n- Lender and Alex guarantee full rights to provide services and grant rights under this agreement.\n- Alex shall not reuse the Composition in other projects for 3 years after release.\n- Both parties warrant that no third-party rights are infringed by their contributions.\n\nIndemnity & Legal:\n- Each party indemnifies the other against third-party claims tied to breaches of representations or unauthorized materials.\n- New York law governs the agreement. Venue: New York County.\n- Notices to be sent as specified in the contract via certified or express mail.\n\nMiscellaneous:\n- Company is not obligated to release or exploit the Master.\n- Breaches must be notified in writing with time to cure.\n- This is an independent contractor relationship.\n- Agreement may be signed in counterparts and delivered electronically.\n\nAttached:\n- Schedule 1: \"Velvet Eclipse (Acoustic Version)\" – Master/Composition Title\n\nManager: Dwayne Hoover (dwayne@patchbay.xyz)",
+          "contract_url": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-25T07:32:24.105Z",
+  "versionId": "6a4e666c-5b28-4bad-b7bc-ed241fe87f7f"
+}
