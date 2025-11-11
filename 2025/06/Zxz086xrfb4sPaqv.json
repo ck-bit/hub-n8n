@@ -1,0 +1,377 @@
+{
+  "active": false,
+  "connections": {
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "CounterPartyLookup",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CounterPartyLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ParserSchema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AddFields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PreparePayload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PreparePayload": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-03T04:23:30.534Z",
+  "id": "Zxz086xrfb4sPaqv",
+  "meta": null,
+  "name": "Simple Royalty",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -480,
+        660
+      ],
+      "id": "7c215a98-1dac-4f83-88cb-96785ba917e3",
+      "name": "Embeddings OpenAI"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -800,
+        240
+      ],
+      "id": "bde51b2f-626b-4be9-ada9-76e114cf8b54",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Deal Document: {{ $json.document }}\\n\ntype: {{ $json.subtype }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Your job is to analyse the given \"Deal Document\" and extract the required filds specified in the JSON Schema.\n\nYou must get the relevant data by executing the tools based on \"as needed\"\n\nYour output must be in JSON format."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -580,
+        240
+      ],
+      "id": "d2e4c0da-34e9-4f76-ab71-b086e6278801",
+      "name": "Agent"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "CounterPartyRetriever",
+        "toolDescription": "Trigger this tool to retrieve the counterparty as specified in the output schema.",
+        "tableName": "patchbay_embeddings",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "for",
+                "value": "organizations"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        460
+      ],
+      "id": "42cd2f50-d984-49ca-9e56-036b9d3bda13",
+      "name": "CounterPartyLookup"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n    \"type\": \"object\",\n    \"properties\": {\n      \"type\": {\n        \"type\": \"string\",\n        \"description\": \"Type of royalty deal (e.g., Management, Attorney, Agent) as identified in the Deal Document\",\n        \"enum\": [\"Management\", \"Attorney\", \"Agent\"]\n      },\n      \"book_id\": {\n        \"type\": \"string\",\n        \"description\": \"Identifier of the associated Book of Work. Provided as input/Extracted(Need clarification)\"\n      },\n      \"counterparty\": {\n        \"type\": \"string\",\n        \"description\": \"Name of the counterparty extracted from tool:CounterPartyRetriever using counterparty name as query\"\n      },\n      \"counterparty_id\": {\n        \"type\": \"string\",\n        \"description\": \"Number extracted from from tool:CounterPartyRetriever payload.\"\n      },\n      \"active\": {\n        \"type\": [\"boolean\", \"null\"],\n        \"description\": \"Indicates whether the deal is currently active, as identified in the Deal Document\"\n      },\n      \"status\": {\n        \"type\": \"string\",\n        \"description\": \"Status of the deal as identified in the Deal Document\",\n        \"enum\": [\n          \"Needs Review\",\n          \"Counterparty Action\",\n          \"Client Signature\",\n          \"Counterparty Signature\",\n          \"Fully Executed\",\n          \"Terminated\"\n        ]\n      },\n      \"status_updated_at\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"Timestamp of the most recent status update from the Deal Document\"\n      },\n      \"royalty_percentage\": {\n        \"type\": \"number\",\n        \"description\": \"Royalty percentage specified in the agreement\",\n        \"minimum\": 0,\n        \"maximum\": 100\n      },\n      \"agreement_link\": {\n        \"type\": \"string\",\n        \"description\": \"Link to the agreement document\"\n      },\n      \"execution_date\": {\n        \"type\": \"string\",\n        \"format\": \"date\",\n        \"description\": \"Date the agreement was executed\"\n      },\n      \"notes\": {\n        \"type\": [\"string\", \"null\"],\n        \"description\": \"Optional notes associated with the royalty deal\"\n      },\n      \"original_file_name\": {\n        \"type\": \"string\",\n        \"description\": \"Original file name of the uploaded agreement document\"\n      },\n      \"start_date\": {\n        \"type\": \"string\",\n        \"format\": \"date\",\n        \"description\": \"Start date of the royalty agreement\"\n      },\n      \"priority\": {\n        \"type\": \"integer\",\n        \"description\": \"Priority of the deal for processing or tracking\",\n        \"default\": 1\n      }\n    }\n  }"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -280,
+        460
+      ],
+      "id": "7b828c8d-a5d6-405b-883e-f761a6024977",
+      "name": "ParserSchema"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -700,
+        460
+      ],
+      "id": "0b6ba778-ccd6-4c2a-b448-8996c5cbc214",
+      "name": "OpenAI Model"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad142379-c41b-4b51-acb2-31ae1cebf66b",
+              "leftValue": "={{ typeof $json.output === 'string' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -220,
+        240
+      ],
+      "id": "4c48a539-9e54-496d-9611-7689278dfaff",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        340
+      ],
+      "id": "c66b154e-725c-473a-8cc2-9190d2ad792d",
+      "name": "IfFailed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e84ac3-4ec7-4210-b2f1-a6cd94acd695",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ce8bfc-bd10-40ee-b723-cfe88c028dbe",
+              "name": "output.book",
+              "value": "={{ $('Trigger').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "56b42026-bce6-4242-a290-7f410aabe544",
+              "name": "type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        180
+      ],
+      "id": "3c23ba7e-dfb5-475b-98ae-cc30d33d71e9",
+      "name": "AddFields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k29nXdKslVJNTozZ",
+          "mode": "list",
+          "cachedResultName": "New Fields Recommender"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        180,
+        0
+      ],
+      "id": "7a98475b-7f1a-472c-a6b7-3278466235dd",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5142cf48-42e6-4c07-9d0c-77086df272d8",
+              "name": "extracted_schema",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "9a6e5008-0913-4195-837f-3b019b01d042",
+              "name": "deal_document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "caf6f8c2-f645-47ab-a67f-912d120fa7a4",
+              "name": "deal_type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "093cc5ea-a1a4-42b9-806f-8738ffaf64ae",
+      "name": "PreparePayload"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "none",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "OXd6Bgv6fGlRWzmQ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-22T10:46:01.054Z",
+  "versionId": "429f1d60-4112-4bc8-8509-ff31331c8749"
+}
