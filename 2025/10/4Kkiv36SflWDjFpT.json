@@ -1,0 +1,1733 @@
+{
+  "active": false,
+  "connections": {
+    "IdentifyUsers": {
+      "main": [
+        [
+          {
+            "node": "Route1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion": {
+      "main": [
+        [
+          {
+            "node": "LocateUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckUser": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EmailPath": {
+      "main": [
+        [
+          {
+            "node": "UpdateSession",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MarkRead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSession": {
+      "main": [
+        [
+          {
+            "node": "CheckUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route1": {
+      "main": [
+        [
+          {
+            "node": "UpdateUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatResponse": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateUsers": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LocateUser": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage": {
+      "main": [
+        [
+          {
+            "node": "Recommender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WTrigger": {
+      "main": [
+        [
+          {
+            "node": "EmailPath",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage1": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender1": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession9": {
+      "main": [
+        [
+          {
+            "node": "Recommender1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Reply6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetLatestSession10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession10": {
+      "main": [
+        [
+          {
+            "node": "Parse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse1": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "Reply1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "SendEmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "SendEmail1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse": {
+      "main": [
+        [
+          {
+            "node": "If7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If7": {
+      "main": [
+        [
+          {
+            "node": "Reply3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-20T06:53:23.206Z",
+  "id": "4Kkiv36SflWDjFpT",
+  "meta": null,
+  "name": "Chat-Orchestrator-1.0.6",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NUuedRX9L2N9VMEY",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.6"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ [{\"address\": $json.address}] }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2420,
+        580
+      ],
+      "id": "6499f583-06c5-49d3-9233-91953c216d4c",
+      "name": "IdentifyUsers",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1840,
+        460
+      ],
+      "id": "36b132a8-63e4-46c1-ad9a-828a61add05e",
+      "name": "UpdateSesssion",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json?.from?.value?.[0]?.address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\" + senderAddress\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2920,
+        580
+      ],
+      "id": "27758136-7c75-454f-81c6-75cc8443ee56",
+      "name": "CheckUser"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -640,
+        -20
+      ],
+      "id": "9ed4b583-dafa-4900-8b60-7605595ca105",
+      "name": "Reply6",
+      "webhookId": "5ef9dca7-7796-4988-9384-f3d6dbc77ea7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const assistantEmail = 'asst@patchbay.xyz';\n\nreturn items.map(item => {\n  const data = item.json;\n\n  const from = data.from?.value?.[0]?.address || '';\n  const toList = data.to?.value?.map(e => e.address.toLowerCase()) || [];\n  const ccList = data.cc?.value?.map(e => e.address.toLowerCase()) || [];\n  const bccList = data.bcc?.value?.map(e => e.address.toLowerCase()) || [];\n\n  const toIncludesAssistant = toList.includes(assistantEmail);\n  const ccIncludesAssistant = ccList.includes(assistantEmail);\n  const bccIncludesAssistant = bccList.includes(assistantEmail);\n  const totalToRecipients = toList.length;\n\n  let routing = 'unclassified';\n\n  if (from === assistantEmail) {\n    routing = 'self';\n  } else if (toIncludesAssistant && totalToRecipients > 1) {\n    routing = 'bot_and_others';\n  } else if (toIncludesAssistant && totalToRecipients === 1) {\n    routing = 'bot_only';\n  } else if (ccIncludesAssistant || bccIncludesAssistant) {\n    routing = 'bot_ccd_bccd';\n  }\n\n  return {\n    json: {\n      ...data,\n      routing,\n    },\n    binary: item.binary || {}\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3360,
+        480
+      ],
+      "id": "313c537e-84de-474c-95cb-0ead2db293f2",
+      "name": "EmailPath",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "VGoYmWDzXZYNcs35",
+          "mode": "list",
+          "cachedResultName": "ProcessData-V-1.0.6"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -3140,
+        580
+      ],
+      "id": "f738743c-d65f-425a-8586-fb9460028a10",
+      "name": "UpdateSession",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a75d3ba0-14c6-49ff-bb4c-9846c7b8c281",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2260,
+        580
+      ],
+      "id": "75310a79-680b-4817-89ef-fd1495dea2b6",
+      "name": "Route1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "={{ $('CheckUser').item.json}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2040,
+        680
+      ],
+      "id": "871b8c59-e650-494c-9986-8dc799a83b3b",
+      "name": "FormatResponse"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const thread = $(\"UpdateSession\").item.json;\nlet newManagers = $input.item.json;\n\n// Ensure Managers key exists\nif (!Array.isArray(thread.Managers)) {\n  thread.Managers = [];\n}\n\n// Normalize to array\nif (!Array.isArray(newManagers)) {\n  newManagers = [newManagers];\n}\n\n// Collect existing user_ids\nconst existingIds = new Set(thread.Managers.map(m => m.address));\n\n// Append only if user_id not already present\nnewManagers.forEach(manager => {\n  if (!existingIds.has(manager.address)) {\n    thread.Managers.push(manager);\n  }\n});\n\nreturn { json: thread };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2060,
+        460
+      ],
+      "id": "e4f59a6e-1859-4a50-b4cf-f4356dae22d8",
+      "name": "UpdateUsers"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json.from.value[0].address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Clients, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\"\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1620,
+        460
+      ],
+      "id": "0536470e-3b50-4bd3-a53e-0db816254b66",
+      "name": "LocateUser"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n\n  let newest = cutAtFirst(t, cutoffPatterns);\n\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// ---------- Build result ----------\nlet raw = pickBody(lastEmail);\nlet emailText = firstBodyOnly(raw);\n\n// Final normalization to a single-line-ish text (optional; keep line breaks by removing the next line)\nemailText = emailText.replace(/\\n/g, \" \").replace(/\\s+/g, \" \").trim();\n\nreturn [\n  {\n    json: {\n      ThreadId: lastEmail.threadId || null,\n      email_text: emailText,\n      from: extractAddresses(\"from\"),\n      to: extractAddresses(\"to\"),\n      cc: extractAddresses(\"cc\"),\n      bcc: extractAddresses(\"bcc\"),\n      manager: $input.first().json.manager\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1380,
+        240
+      ],
+      "id": "efce78b4-510e-4085-9df3-e7ad92cbdcb2",
+      "name": "PrepareMessage"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DkAhE1snz0gSb0a1",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.6"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').first().json,\nlast_email: $('PrepareMessage').first().json.email_text,\nManager: $('PrepareMessage').first().json.manager,\nprompt_routing: $('EmailPath').first().json.routing\n}\n\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1120,
+        240
+      ],
+      "id": "5bb02af7-1376-4b54-b085-58c6fc26e41e",
+      "name": "Recommender",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -3140,
+        380
+      ],
+      "id": "3c8a3a8a-30a9-482e-9974-18a0e9774718",
+      "name": "MarkRead1",
+      "webhookId": "65f2b319-adb6-4e7b-be07-373aedbe7dd7",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -3580,
+        480
+      ],
+      "id": "19e79a2c-26b8-4948-a22b-a8939271a10a",
+      "name": "WTrigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// Get the managers list from the Managers node and filter out asst@patchbay.xyz\nconst managersList = ($('UpdateSession').first().json.Managers || [])\n  .filter(manager => manager.address !== 'asst@patchbay.xyz');\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n  let newest = cutAtFirst(t, cutoffPatterns);\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// Helper to format email with full headers\nconst formatEmailText = (email) => {\n  // Format From\n  const fromArray = email?.from?.value || [];\n  const fromFormatted = fromArray.length > 0\n    ? `${fromArray[0].name} (${fromArray[0].address})`\n    : '';\n  \n  // Format To\n  const toArray = email?.to?.value || [];\n  const toFormatted = toArray\n    .map(t => `${t.name} (${t.address})`)\n    .join(', ');\n  \n  // Format CC (filtered)\n  const ccArray = email?.cc?.value || [];\n  const filteredCC = ccArray.filter(cc => cc.address !== 'asst@patchbay.xyz');\n  const ccFormatted = filteredCC\n    .map(c => `${c.name} (${c.address})`)\n    .join(', ');\n  \n  // Format Date\n  const dateFormatted = email.date \n    ? new Date(email.date).toLocaleString('en-US', {\n        weekday: 'long',\n        year: 'numeric',\n        month: 'long',\n        day: 'numeric',\n        hour: 'numeric',\n        minute: '2-digit',\n        hour12: true\n      })\n    : '';\n  \n  // Get the email body\n  let raw = pickBody(email);\n  let emailBody = firstBodyOnly(raw);\n  \n  // Build formatted email text\n  let formattedEmail = `From: ${fromFormatted}\\n`;\n  formattedEmail += `To: ${toFormatted}\\n`;\n  if (ccFormatted) {\n    formattedEmail += `CC: ${ccFormatted}\\n`;\n  }\n  formattedEmail += `Date: ${dateFormatted}\\n`;\n  formattedEmail += `Subject: ${email.subject || ''}\\n`;\n  formattedEmail += `Body:\\n${emailBody}`;\n  \n  return formattedEmail;\n};\n\n// ---------- Build result ----------\nconst emailText = formatEmailText(lastEmail);\n\n// Create the base email object structure\nconst baseEmailObject = {\n  ThreadId: lastEmail.threadId || null,\n  email_text: emailText,\n  from: extractAddresses(\"from\"),\n  to: extractAddresses(\"to\"),\n  cc: extractAddresses(\"cc\"),\n  bcc: extractAddresses(\"bcc\")\n};\n\n// If managers list is empty or not provided, return the original behavior\nif (!Array.isArray(managersList) || managersList.length === 0) {\n  return [\n    {\n      json: {\n        ...baseEmailObject,\n        manager: $input.first().json.manager\n      }\n    }\n  ];\n}\n\n// Create structured object for each manager in the list\nreturn managersList.map(manager => ({\n  json: {\n    ...baseEmailObject,\n    manager: manager\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1860,
+        820
+      ],
+      "id": "716791a2-4209-4b7f-8757-a3c063caeead",
+      "name": "PrepareMessage1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DkAhE1snz0gSb0a1",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.6"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').item.json,\nlast_email: $('PrepareMessage1').item.json.email_text,\nManager: $('PrepareMessage1').item.json.manager,\nprompt_routing: $('EmailPath').item.json.routing\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1420,
+        820
+      ],
+      "id": "6fe265b9-487e-4bd2-bb6c-7052318203db",
+      "name": "Recommender1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status===true && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "df9dfabf-eb51-443e-b267-28085d36d2c1"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3a5d1230-4212-475d-8552-662b69cd2b68",
+                    "leftValue": "={{ $json.status===false && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9c08ad0b-ac17-4b81-bee7-d1c5532fc8fb",
+                    "leftValue": "={{ $json.status===false && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "977406f0-aa5b-4392-bf73-638834764d54",
+                    "leftValue": "={{ $json.status===true && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2680,
+        560
+      ],
+      "id": "d6685152-3420-4d3c-bf3f-787fa9304318",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.ThreadId+$json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1620,
+        820
+      ],
+      "id": "fcbe3316-88b6-413c-97fd-3cb0f5bc2d7b",
+      "name": "GetLatestSession9",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2b32a7f8-013c-4578-b1a2-59ba8c0e3fa2",
+                    "leftValue": "={{ $json.output.nudge===true && $json.output.skip_manager_update===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_other_user"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.nudge===false &&  $json.output.skip_manager_update===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "2deffe09-b334-4c58-b9d7-563137c16ee9"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_manager"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f773b437-3505-4564-9e65-c723aea21ac8",
+                    "leftValue": "={{ $json.output.nudge===true &&  $json.output.skip_manager_update===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_both"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "69af329f-98dd-4c84-88f1-27c955959a40",
+                    "leftValue": "={{ $json.output.nudge===false &&  $json.output.skip_manager_update===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_none"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1220,
+        800
+      ],
+      "id": "d93fb4fc-b4fb-4227-b089-2a70227f995a",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8b131df7-3143-4f66-84ec-2c01ed7952b7",
+              "leftValue": "={{ $json.output.invoice_next_step }}",
+              "rightValue": "send_file_to_user",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -880,
+        240
+      ],
+      "id": "ee9fc738-969c-4f34-9db4-3e05bf1a77e1",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -280,
+        340
+      ],
+      "id": "b7741e20-07c8-4d15-913c-cf57548f3327",
+      "name": "GetLatestSession10",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse, extract base64 PDF, attach as binary\n// Works with multiple incoming items.\n\nconst items = $input.all();\n\nfunction safeParseSession(value) {\n  if (value && typeof value === 'object') return value;\n  if (typeof value === 'string') {\n    try {\n      return JSON.parse(value);\n    } catch (err) {\n      return { __parse_error: err.message, __raw: value };\n    }\n  }\n  return { __parse_error: 'Unsupported user_session type', __raw: value };\n}\n\nconst outputs = [];\nfor (const item of items) {\n  const parsedSession = safeParseSession(item.json.user_session);\n\n  const out = {\n    json: {\n      ...item.json,\n      user_session: parsedSession,\n    },\n  };\n\n  // Try to pull base64 from user_session.invoice_metadata.pdf_invoice_content\n  const pdfB64 = parsedSession?.invoice_metadata?.pdf_invoice_content;\n\n  if (typeof pdfB64 === 'string' && pdfB64.trim().length > 0) {\n    try {\n      const buf = Buffer.from(pdfB64.trim(), 'base64');\n\n      // Name the file using invoice_id if available\n      const invoiceId = parsedSession?.invoice_metadata?.invoice_id ?? 'invoice';\n      const fileName = `invoice_${invoiceId}.pdf`;\n\n      // Prepare binary for n8n\n      const binary = await this.helpers.prepareBinaryData(\n        buf,\n        fileName,\n        'application/pdf'\n      );\n\n      out.binary = { pdf_invoice: binary };\n\n      // Optional: remove the large base64 string from JSON to keep items light\n      try {\n        if (out.json.user_session?.invoice_metadata) {\n          delete out.json.user_session.invoice_metadata.pdf_invoice_content;\n        }\n      } catch (_) {}\n    } catch (err) {\n      out.json.__binary_error = `Failed to decode PDF: ${err.message}`;\n    }\n  } else {\n    out.json.__binary_error = 'pdf_invoice_content not found or not a string';\n  }\n\n  outputs.push(out);\n}\n\nreturn outputs;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        640
+      ],
+      "id": "fb0c2926-4d07-4026-9cf9-ab7378ba1a7b",
+      "name": "Parse1"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "pdf_invoice"
+              }
+            ]
+          },
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        540
+      ],
+      "id": "e95086ac-1023-44e8-b15d-7a95626d2662",
+      "name": "Reply1",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "513760a2-4f86-48fa-a637-c4507607291e",
+              "leftValue": "={{ !!$json.pdf_invoice }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        940,
+        640
+      ],
+      "id": "085f4422-e34f-4d6c-8200-62b2c362ee3b",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        740
+      ],
+      "id": "428382db-009e-4e93-9fea-97167afac6bd",
+      "name": "Reply2",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "=No nudge or manager update needed.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -460,
+        1320
+      ],
+      "id": "2e77663b-1865-46e2-ba22-2d42e244530e",
+      "name": "FormatResponse3"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -200,
+        600
+      ],
+      "id": "47f06819-2553-49a7-b42b-2c79cfc54ce8",
+      "name": "SendEmail2",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7d83d4cb-fc89-4bec-a428-48b9e66e753e",
+              "leftValue": "={{ $json.output.nudge_data.days_pending<3 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -880,
+        620
+      ],
+      "id": "1fb00d9c-22b0-4d27-9220-23846e3c9a14",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "=No nudge or manager update needed.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -660,
+        740
+      ],
+      "id": "b255ace6-e4b6-4a5e-ab1b-2354f61026a7",
+      "name": "FormatResponse4"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=thread_19a49d2f2b07c761"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3560,
+        1000
+      ],
+      "id": "b04d85b7-68a0-4af1-ada9-7e286d2eddd5",
+      "name": "GetUserSession1",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.message_for_manager }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -160,
+        960
+      ],
+      "id": "50b6db3f-f402-4c49-a67f-cfe7b4e8d4ba",
+      "name": "Reply",
+      "webhookId": "5ef9dca7-7796-4988-9384-f3d6dbc77ea7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NUuedRX9L2N9VMEY",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.6"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -660,
+        920
+      ],
+      "id": "1a44df91-e294-4d53-a5da-2c8225a4cd12",
+      "name": "SendEmail",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n{\n  \"recipients\": [$json.output.Manager.address],\n  \"cc\": [],               \n  \"MessageId\": $('WTrigger').first().json.messageId,\n  \"References\": (() => {\n    const refs = $('WTrigger').first().json?.references;\n    if (!refs) return [];\n    if (Array.isArray(refs)) return refs;\n    if (typeof refs === 'string') return [refs];    \n    return [];\n  })(),\n  \"subject\": $('WTrigger').first().json.subject,\n  \"ThreadId\": $('PrepareMessage1').first().json.ThreadId,\n  \"message\": $json.output.message_for_manager\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -800,
+        920
+      ],
+      "id": "1e508106-56c6-45fb-8520-3025320ee4ca",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -520,
+        540
+      ],
+      "id": "bf16d1af-484b-4d5e-a091-c806e5075c78",
+      "name": "SendEmail1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n{\n  \"recipients\": [$json.output.Manager.address],\n  \"cc\": [],               \n  \"MessageId\": $('WTrigger').first().json.messageId,\n  \"References\": (() => {\n    const refs = $('WTrigger').first().json?.references;\n    if (!refs) return [];\n    if (Array.isArray(refs)) return refs;\n    if (typeof refs === 'string') return [refs];    \n    return [];\n  })(),\n  \"subject\": $('WTrigger').first().json.subject,\n  \"ThreadId\": $('PrepareMessage1').first().json.ThreadId,\n  \"message\": $json.output.message_for_manager\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -660,
+        540
+      ],
+      "id": "b95c2e49-ce81-4efc-b999-78612ccddc42",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse, extract base64 PDF, attach as binary\n// Works with multiple incoming items.\n\nconst items = $input.all();\n\nfunction safeParseSession(value) {\n  if (value && typeof value === 'object') return value;\n  if (typeof value === 'string') {\n    try {\n      return JSON.parse(value);\n    } catch (err) {\n      return { __parse_error: err.message, __raw: value };\n    }\n  }\n  return { __parse_error: 'Unsupported user_session type', __raw: value };\n}\n\nconst outputs = [];\nfor (const item of items) {\n  const parsedSession = safeParseSession(item.json.user_session);\n\n  const out = {\n    json: {\n      ...item.json,\n      user_session: parsedSession,\n    },\n  };\n\n  // Try to pull base64 from user_session.invoice_metadata.pdf_invoice_content\n  const pdfB64 = parsedSession?.invoice_metadata?.invoice_file?.pdf_invoice_content;\n  const file_name = parsedSession?.invoice_metadata?.invoice_file?.file_name;\n  \n\n  if (typeof pdfB64 === 'string' && pdfB64.trim().length > 0) {\n    try {\n      const buf = Buffer.from(pdfB64.trim(), 'base64');\n\n      // Name the file using invoice_id if available\n      const invoiceId = parsedSession?.invoice_metadata?.invoice_id ?? 'invoice';\n      const fileName = file_name;\n\n      // Prepare binary for n8n\n      const binary = await this.helpers.prepareBinaryData(\n        buf,\n        fileName,\n        'application/pdf'\n      );\n\n      out.binary = { pdf_invoice: binary };\n\n      // Optional: remove the large base64 string from JSON to keep items light\n      try {\n        if (out.json.user_session?.invoice_metadata) {\n          delete out.json.user_session.invoice_metadata.pdf_invoice_content;\n        }\n      } catch (_) {}\n    } catch (err) {\n      out.json.__binary_error = `Failed to decode PDF: ${err.message}`;\n    }\n  } else {\n    out.json.__binary_error = 'pdf_invoice_content not found or not a string';\n  }\n\n  outputs.push(out);\n}\n\nreturn outputs;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -60,
+        340
+      ],
+      "id": "f0f2a960-6958-4f25-b9f3-f3cfec988654",
+      "name": "Parse"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "pdf_invoice"
+              }
+            ]
+          },
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        440,
+        240
+      ],
+      "id": "a3794779-3def-4dba-b68b-611733b8c679",
+      "name": "Reply3",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "513760a2-4f86-48fa-a637-c4507607291e",
+              "leftValue": "={{ Object.keys($('Parse').first().binary || {}).length > 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        140,
+        340
+      ],
+      "id": "9c64992f-add9-4286-9cff-086dd534af9c",
+      "name": "If7"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        440,
+        440
+      ],
+      "id": "be7b3946-d433-4843-ab37-94296375c3e5",
+      "name": "Reply4",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "WTrigger": [
+      {
+        "json": {
+          "id": "19a71ebcb5cc8003",
+          "threadId": "19a71e0eddc75ef9",
+          "labelIds": [
+            "UNREAD",
+            "IMPORTANT",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 8244,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])\r\n        by mx.google.com with SMTPS id d9443c01a7336-297e69e4439sor54210125ad.9.2025.11.10.23.57.49\r\n        for <asst@patchbay.xyz>\r\n        (Google Transport Security);\r\n        Mon, 10 Nov 2025 23:57:49 -0800 (PST)",
+            "x-received": "X-Received: by 2002:a17:903:a90:b0:295:7f1f:a808 with SMTP id\r\n d9443c01a7336-297e56b8c0cmr136748055ad.38.1762847868519; Mon, 10 Nov 2025\r\n 23:57:48 -0800 (PST)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1762847869; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=iOlTbAWaFyDXfaRVtjAhEjpnV9OLvGPB7K8Y9L8oW0ZlEMkuvVuni60NcGQaiV0xKy\r\n         Yhn/DvvAMw4+N0aBBRu4rsn34na4RIqqSW0Nyz4cqs92KVgXjcFy1CseuudP+0VgLCC6\r\n         UHCCCiDgUmoOZwAB8AWiIOcZ/KAQA7TJWvcxxpEyFbKURQU+1XjSEE52Uo9wE0GH19r0\r\n         t71nyYu3FJoRArkdm0iNRQQj8tZp3rochxKtIrTBdATb62bs/xXH1NkN/vFEOVWq8p6P\r\n         J+arzP2EtipEZcgc/XVhrczE6vGsbuC3bbdbgY7eL3CgxsNPQA+JkscDLWBWbOS7TH1X\r\n         JRqw==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=to:subject:message-id:date:from:in-reply-to:references:mime-version\r\n         :dkim-signature;\r\n        bh=JmZh/+0D93ZmvpI9m0+c3tk5/ISzSXCmD3av23hU17I=;\r\n        fh=DqyXXDm0oua/8Er2fzZbU3da1ixmJE4TTaZqqb4kAoo=;\r\n        b=YoqtW8Zdz44B8/ClDUfa7TWk4T78WiP5Hxn6NVJNdvtil/QloI/7n9P+r9qOoX7FgR\r\n         8216pIYPDvVQHPUbBjZNwy7GxdtxcgkOYrYY67E7FA6rgf7JTmRWwt0o4d4tjRa1k914\r\n         W63Xo01MtjzoheGOSjLfRA6y+0vBC8ZunDTFSUlYjKgFvh8Y4jm4ej6VNzJKse+iXEkg\r\n         OTLnwOkse0Ub/kKg6c+ugFvbJVow8NiX+pDbPilWoq+LzutmTU9GmCWmjXGVYMZbMoqa\r\n         q3e0tfJFb4OLQmn2NXNxRROwcGbGC/NCozC1Bmf0hpYnucDAZuabv0dUirarOCwIEDh2\r\n         1ClQ==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=fF+Yb6T3;\r\n       spf=none (google.com: dwayne@patchbay.xyz does not designate permitted sender hosts) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "return-path": "Return-Path: <dwayne@patchbay.xyz>",
+            "received-spf": "Received-SPF: none (google.com: dwayne@patchbay.xyz does not designate permitted sender hosts) client-ip=209.85.220.41;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@patchbay.xyz header.s=google header.b=fF+Yb6T3;\r\n       spf=none (google.com: dwayne@patchbay.xyz does not designate permitted sender hosts) smtp.mailfrom=dwayne@patchbay.xyz;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=patchbay.xyz;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "dkim-signature": "DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=patchbay.xyz; s=google; t=1762847868; x=1763452668; darn=patchbay.xyz;\r\n        h=to:subject:message-id:date:from:in-reply-to:references:mime-version\r\n         :from:to:cc:subject:date:message-id:reply-to;\r\n        bh=JmZh/+0D93ZmvpI9m0+c3tk5/ISzSXCmD3av23hU17I=;\r\n        b=fF+Yb6T3KchedOvhgXR86NDHTjsIT67ssJj77FNL7vifOFqxgcHlhnPYlytHlnvNnA\r\n         iwf2Ix0SIDfa8fMCwtcrBZOZ55PLQOO/T4hBjuxRXzvRJorKwl/3jySOUcH9NMvwMhLS\r\n         jN0D2heF1z2Yfmk2IswzKYw2B+Ixc6xnz1JME=",
+            "x-google-dkim-signature": "X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20230601; t=1762847868; x=1763452668;\r\n        h=to:subject:message-id:date:from:in-reply-to:references:mime-version\r\n         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id\r\n         :reply-to;\r\n        bh=JmZh/+0D93ZmvpI9m0+c3tk5/ISzSXCmD3av23hU17I=;\r\n        b=mlezaih5QLViZeMbB3ttqAXFtZyVBEItMk66YhaouhZvihRWYAFrnoyV3ZSzyIE1mV\r\n         UxwcqN048AlXh+9REYT9U3J6XznEY2tYlZOctmB+W9C6vZ54TTlKqIKw4HTvnfonswuC\r\n         iETIkcPPVy2TsMc62Htmh6de7OXUmodl9AQ3c1uhV5fFcNmYB+Htz5senb2GR+Wer9jj\r\n         1SjRCpIEPJ9wv6c3YGo66wYZOazLGsfOz6rjUkObvl+C7R9BijLYN2zjNd7bfzRG1G9N\r\n         EYWcteI+2nyZGkQ6lS0kPdhety2CBMM/KD8/q1a6Q74TXpCp3JiVZvFepankBTdXbS5q\r\n         xZYw==",
+            "x-gm-message-state": "X-Gm-Message-State: AOJu0Yy6IpebcvTkwra/Em846PBXpqSNrOKdAaiGiQ3i8QmRLZaUcjSE\r\n\t1JW2tMsY5sllpKiQlDR84WqB8WZBcV8IM8Imo9maz8VhD2G8BrhZJnLi94940jMmaPW/eGyOpfQ\r\n\tEiKFm81ga90Ryp/1LtJ1rUllOoIC7Oqb5Qv8lIheSv9vcZuSc9Pkoqn8=",
+            "x-gm-gg": "X-Gm-Gg: ASbGncvKFA0Tiy41YXvswqQmQYcYZSLaiMhKBU6nFVcenhu3guA/3JFX2noNFczL8jQ\r\n\twed1+4ssE6zbrjf9Yhc38qRcZ31/3MXnSSgynwkjLJyWpHEnIdxJf4ma+997PNIRhpWdqO3WH3S\r\n\trh6NcHu9kDUE7ompiWLx/TmyTwXEDfnv/Vh0hVxxSMWGA0Up+SeH49KDTiYcApFyyd2h8dkoSa8\r\n\te9UBY5Az7cUW0EktitOjObIrW757IhismgWdf08Qonnk+N02JtLLPkDBwXFI5r9yWJ4eP3qBVRj\r\n\tgFW+4HpHPgp6nkACZjcAan6Rp0utLI/lUasdqeRpizrJxRGe/oib7nbmVNCHbA==",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IH5f0YGMP+jPspuJ9NYXmzh4RYWPE7fh28iLkU5P7kDw7FzoFmrqKKeXyfoNKp7r169/5TRtX3rSSCNtcGmy8I=",
+            "mime-version": "MIME-Version: 1.0",
+            "references": "References: <CAP=u+8Dq4SNqvx+5CWsqKw5jSPWEyc4iws3REV3jVivg-D2xPQ@mail.gmail.com>\r\n <CAEaeWjSF_KZCuOcQbEnEkqR=MwvxUbPcitcpD07_jjbULwTz2g@mail.gmail.com>",
+            "in-reply-to": "In-Reply-To: <CAEaeWjSF_KZCuOcQbEnEkqR=MwvxUbPcitcpD07_jjbULwTz2g@mail.gmail.com>",
+            "from": "From: Dwayne Hoover <dwayne@patchbay.xyz>",
+            "date": "Date: Tue, 11 Nov 2025 14:57:37 +0700",
+            "x-gm-features": "X-Gm-Features: AWmQ_blhissb79yDW6rv007AKiGQv2go1HTONlTRg-8E_swm6JjYh3-7R69WF_0",
+            "message-id": "Message-ID: <CAP=u+8C2V5zR5cUUW2UUJWBXQfsTJRY-2m1_6wdGCaW_cD_ObA@mail.gmail.com>",
+            "subject": "Subject: Re: Deal Alex Goldblatt / Quincy Jones",
+            "to": "To: asst@patchbay.xyz",
+            "content-type": "Content-Type: multipart/alternative; boundary=\"000000000000ff146406434d00ba\""
+          },
+          "html": "<div dir=\"ltr\">Retry to send me the invoice file.</div><br><div class=\"gmail_quote gmail_quote_container\"><div dir=\"ltr\" class=\"gmail_attr\">On Tue, Nov 11, 2025 at 2:55 PM &lt;<a href=\"mailto:asst@patchbay.xyz\">asst@patchbay.xyz</a>&gt; wrote:<br></div><blockquote class=\"gmail_quote\" style=\"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex\"><div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:rgb(17,17,17);max-width:680px\">\n  <p>The invoice for the Alex Goldblatt x Bella Poarch Producer Deal (Producer Quincy Jones) has been created with the payment marked as received on the 25th of last month. The deal file has also been securely stored in Patchbay.</p>\n  <p><b>✓ Action Completed</b></p>\n  <ul>\n    <li>Invoice created for Producer Quincy Jones, reflecting payment on the 25th of last month.</li>\n    <li>Deal file for the Producer Quincy Jones deal has been stored in Patchbay.</li>\n    <li>There was a technical issue retrieving and sending the invoice file as an attachment. Please let me know if you&#39;d like me to retry sending the invoice file.</li>\n  </ul>\n  <p>Is there anything else I can help you with?</p>\n  <hr style=\"margin-top:20px;border-right:none;border-bottom:none;border-left:none;border-top:1px solid rgb(221,221,221)\">\n  <p style=\"margin-top:12px\">Best,<br>Patchbay Assistant</p>\n</div>\n</blockquote></div>\n",
+          "text": "Retry to send me the invoice file.\n\nOn Tue, Nov 11, 2025 at 2:55 PM <asst@patchbay.xyz> wrote:\n\n> The invoice for the Alex Goldblatt x Bella Poarch Producer Deal (Producer\n> Quincy Jones) has been created with the payment marked as received on the\n> 25th of last month. The deal file has also been securely stored in Patchbay.\n>\n> *✓ Action Completed*\n>\n>    - Invoice created for Producer Quincy Jones, reflecting payment on the\n>    25th of last month.\n>    - Deal file for the Producer Quincy Jones deal has been stored in\n>    Patchbay.\n>    - There was a technical issue retrieving and sending the invoice file\n>    as an attachment. Please let me know if you'd like me to retry sending the\n>    invoice file.\n>\n> Is there anything else I can help you with?\n> ------------------------------\n>\n> Best,\n> Patchbay Assistant\n>\n",
+          "textAsHtml": "<p>Retry to send me the invoice file.</p><p>On Tue, Nov 11, 2025 at 2:55&#x202F;PM &lt;<a href=\"mailto:asst@patchbay.xyz\">asst@patchbay.xyz</a>&gt; wrote:</p><p>&gt; The invoice for the Alex Goldblatt x Bella Poarch Producer Deal (Producer<br/>&gt; Quincy Jones) has been created with the payment marked as received on the<br/>&gt; 25th of last month. The deal file has also been securely stored in Patchbay.<br/>&gt;<br/>&gt; *&check; Action Completed*<br/>&gt;<br/>&gt;    - Invoice created for Producer Quincy Jones, reflecting payment on the<br/>&gt;    25th of last month.<br/>&gt;    - Deal file for the Producer Quincy Jones deal has been stored in<br/>&gt;    Patchbay.<br/>&gt;    - There was a technical issue retrieving and sending the invoice file<br/>&gt;    as an attachment. Please let me know if you&apos;d like me to retry sending the<br/>&gt;    invoice file.<br/>&gt;<br/>&gt; Is there anything else I can help you with?<br/>&gt; ------------------------------<br/>&gt;<br/>&gt; Best,<br/>&gt; Patchbay Assistant<br/>&gt;</p>",
+          "subject": "Re: Deal Alex Goldblatt / Quincy Jones",
+          "references": [
+            "<CAP=u+8Dq4SNqvx+5CWsqKw5jSPWEyc4iws3REV3jVivg-D2xPQ@mail.gmail.com>",
+            "<CAEaeWjSF_KZCuOcQbEnEkqR=MwvxUbPcitcpD07_jjbULwTz2g@mail.gmail.com>"
+          ],
+          "date": "2025-11-11T07:57:37.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "asst@patchbay.xyz",
+                "name": ""
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><a href=\"mailto:asst@patchbay.xyz\" class=\"mp_address_email\">asst@patchbay.xyz</a></span>",
+            "text": "asst@patchbay.xyz"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "dwayne@patchbay.xyz",
+                "name": "Dwayne Hoover"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Dwayne Hoover</span> &lt;<a href=\"mailto:dwayne@patchbay.xyz\" class=\"mp_address_email\">dwayne@patchbay.xyz</a>&gt;</span>",
+            "text": "\"Dwayne Hoover\" <dwayne@patchbay.xyz>"
+          },
+          "messageId": "<CAP=u+8C2V5zR5cUUW2UUJWBXQfsTJRY-2m1_6wdGCaW_cD_ObA@mail.gmail.com>",
+          "inReplyTo": "<CAEaeWjSF_KZCuOcQbEnEkqR=MwvxUbPcitcpD07_jjbULwTz2g@mail.gmail.com>"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 3600
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    },
+    {
+      "createdAt": "2025-10-10T18:41:25.635Z",
+      "updatedAt": "2025-10-10T18:41:25.635Z",
+      "id": "AlGcOoQu5NWKEayQ",
+      "name": "development"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-11T08:36:36.980Z",
+  "versionId": "a779a970-ee5c-4a82-bab1-4d18c52aaf5a"
+}
