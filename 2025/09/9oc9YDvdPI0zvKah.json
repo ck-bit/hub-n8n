@@ -1,0 +1,1643 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add/Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetSignedURL": {
+      "main": [
+        [
+          {
+            "node": "OCR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UploadFile": {
+      "main": [
+        [
+          {
+            "node": "GetSignedURL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OCR": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Code6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields11": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyze Person",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail1": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "UploadFile",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "Gmail1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Verified",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Analyze Person",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Not-Verified",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Person": {
+      "main": [
+        [
+          {
+            "node": "Verified",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Not-Verified",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verified": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Not-Verified": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add/Update": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-15T04:51:26.625Z",
+  "id": "9oc9YDvdPI0zvKah",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "agent_helpers-V1.0.3",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "binary",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2700,
+        1925
+      ],
+      "id": "71c51753-e5ee-4956-a92b-c9fd3cb91d6f",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "53d10812-ad66-4782-a774-6bf02ea013ad",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "user_identification",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9ac6abc6-7eb1-47f9-bf16-ed1ea6e82614",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "verify_client",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "check_attachement",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "ada614fc-3dc2-46c1-a467-bc053a62fc08"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e65aa068-779c-40f3-be13-356343deb8c2",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "add_client",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1a7ef53e-14c0-46d3-929c-ae1ebfe85b53",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "deliver_email",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2480,
+        1883
+      ],
+      "id": "afd6bd1e-8258-422a-9d41-d546392e1b81",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/user/email",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json.address }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2040,
+        875
+      ],
+      "id": "1e39b7c8-d731-4920-aa22-6b485d1ef53b",
+      "name": "HTTP Request1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "ArpRdu67NL4IaCm0",
+          "name": "Unnamed credential 2"
+        },
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={   \"name\": {{ $json.user_person_name.toJsonString() }},   \"address\": {{ $('Split Out').item.json.address.toJsonString() }},   \"user_id\": {{ $json.number.toJsonString() }},   \"person_number\": {{ $json.person_number.toJsonString() }},   \"Role\": \"Manager\",   \"Clients\": [] }  ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1444,
+        700
+      ],
+      "id": "ff39fb0c-ed23-47fb-a68f-e352894113e6",
+      "name": "Edit Fields",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "858f6cf1-f34c-4490-8fed-a34d59c36f0f",
+              "leftValue": "={{ $('Trigger').item.json.binary && Object.keys($('Trigger').item.json.binary).length > 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2260,
+        1400
+      ],
+      "id": "b3e8889d-2c58-4c1c-9898-7a771645fc3d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.mistral.ai/v1/files/{{ $json.id }}/url",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1224,
+        1300
+      ],
+      "id": "6375953b-7ab4-4eec-aeed-d8b3c2ef5716",
+      "name": "GetSignedURL",
+      "retryOnFail": true,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "purpose",
+              "value": "ocr"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "=target_file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1444,
+        1300
+      ],
+      "id": "1a4d9867-daf9-4ae2-95d9-87feb9a3d639",
+      "name": "UploadFile",
+      "retryOnFail": true,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/ocr",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"mistral-ocr-latest\",\n  \"document\": {\n    \"type\": \"document_url\",\n    \"document_url\": \"{{ $json.url }}\"\n  },\n  \"include_image_base64\": true\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1004,
+        1300
+      ],
+      "id": "bd488b6a-d07a-4574-afb8-25ec2682ce1d",
+      "name": "OCR",
+      "retryOnFail": true,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9c2ec74e-187f-4a78-a533-26775d9be5b1",
+              "name": "deal_document",
+              "value": "={{ $('OCR').item.json.pages }}",
+              "type": "array"
+            },
+            {
+              "id": "6885747d-fa94-419d-9880-9017132c6b96",
+              "name": "filename",
+              "value": "={{ $('UploadFile').item.json.filename }}",
+              "type": "string"
+            },
+            {
+              "id": "db2c4a5b-41aa-4b3c-aee2-929cd69c372a",
+              "name": "deal_type",
+              "value": "={{ $json.output.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -408,
+        1300
+      ],
+      "id": "5b1ed7f6-9da5-4534-9d3f-485b264cbe2f",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9c2ec74e-187f-4a78-a533-26775d9be5b1",
+              "name": "deal_document",
+              "value": "=null",
+              "type": "string"
+            },
+            {
+              "id": "29131c45-26bd-450a-827c-7f8de71f7af3",
+              "name": "status",
+              "value": "=false",
+              "type": "boolean"
+            },
+            {
+              "id": "3428d3be-b3c8-40af-9514-4aa9ced231ef",
+              "name": "response",
+              "value": "I could not locate the document for the deal in the attachments. Can you please attach the required document?",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1444,
+        1500
+      ],
+      "id": "cb24cedd-e750-44ef-9b42-3f9b4b64e7a4",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2260,
+        875
+      ],
+      "id": "2d2b2d57-bf60-428c-aa8d-39e22fe71356",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  bw.number AS book_number,\n  bw.id AS book_id,\n  pp.name AS person_legal_name,\n  pp.performer_name AS person_performer_name,\n  ROUND(\n    (GREATEST(similarity(pp.name, $2), similarity(pp.performer_name, $2)) * 100.0)::numeric, \n    2\n  ) AS confidence_score\nFROM \n  hub_user_hubuser hu\nJOIN hub_user_manager hm \n  ON hm.user_id = hu.id AND hm.deleted_at IS NULL\nJOIN books_bookofwork bw \n  ON bw.id = hm.book_id AND bw.deleted_at IS NULL\nJOIN person_person p \n  ON p.id = bw.person_id AND p.deleted_at IS NULL\nJOIN person_personproperties pp \n  ON pp.id = p.current_properties_id AND pp.deleted_at IS NULL\nWHERE \n  hu.number = $1\nORDER BY \n  GREATEST(similarity(pp.name, $2), similarity(pp.performer_name, $3)) DESC\nLIMIT 1;",
+        "options": {
+          "queryReplacement": "={{ $json.data.user_id }}, {{ ($json.data.person_legal_name && $json.data.person_legal_name.trim() !== '') ? $json.data.person_legal_name : $json.data.person_performer_name }}\n, {{ ($json.data.person_performer_name && $json.data.person_performer_name.trim() !== '') ? $json.data.person_performer_name : $json.data.person_legal_name }} "
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2260,
+        1925
+      ],
+      "id": "26b02e7f-fafc-4294-b0d4-30f5bc190091",
+      "name": "Postgres",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "executeOnce": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1444,
+        1100
+      ],
+      "id": "aafe031a-04bb-4fb7-b032-c488f54d42ea",
+      "name": "Edit Fields11",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        -1224,
+        875
+      ],
+      "id": "2b694ea6-e8bd-465a-a899-4071dff6219f",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1732,
+        2145
+      ],
+      "id": "ce97fd29-b57c-4d1d-9066-ab0755d6d6a3",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2260,
+        2450
+      ],
+      "id": "26c581b8-922e-4e75-af8e-0e97fe31ac58",
+      "name": "Split Out1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const action = $input.item.json.data || {};\n\n// Only process if status is 'pending'\nif (action.status === 'pending') {\n  const toEmails = (action.to || []).join(', ');\n  const manager = (action.managers && action.managers[0]) || {};\n  const referenceId = manager.MessageId || '<no-message-id>';\n  const references = (manager.References || []).join(' ');\n  const subject = action.Subject || 'No Subject';\n  const threadId = action.ThreadId;\n  const body = action.ask_manager || '';\n\n  // Compose MIME message\n  const mime = `To: ${toEmails}\nSubject: ${subject}\nIn-Reply-To: ${referenceId}\nReferences: ${references}\nContent-Type: text/plain; charset=UTF-8\n\n${body}`;\n\n  // Encode to base64url\n  const raw = Buffer.from(mime)\n    .toString('base64')\n    .replace(/\\+/g, '-')\n    .replace(/\\//g, '_')\n    .replace(/=+$/, '');\n\n  // Attach email payload to the action\n  action.email_payload = {\n    raw,\n    mime,\n    threadId,\n    subject,\n    to: toEmails\n  };\n}\n\n// ✅ Return the modified single item\nreturn { json: action };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2040,
+        2450
+      ],
+      "id": "b2dd1495-d34e-44f7-890f-a90c282d02be",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://gmail.googleapis.com/gmail/v1/users/me/messages/send",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "gmailOAuth2",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"raw\": \"{{ $json.email_payload.raw }}\",\n  \"threadId\": \"{{ $json.email_payload.threadId }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1444,
+        2350
+      ],
+      "id": "92753605-4cdb-410c-ada6-f1e3feb179a3",
+      "name": "HTTP Request",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all actions from previous node (e.g., \"Code1\")\nconst actions = $('If6').all().map(item => item.json);\n\n// Get reply messageIds from current input (email messages)\nconst replyIds = $input.all().map(item => item.json.messageId);\n\n// Check if lengths match\nif (actions.length !== replyIds.length) {\n  throw new Error(`Actions (${actions.length}) and replyIds (${replyIds.length}) length mismatch.`);\n}\n\n// Merge by index\nconst updatedActions = actions.map((action, index) => {\n  const updated = { ...action };\n\n  // Apply modifications\n  delete updated.email_payload;\n  updated.replyId = replyIds[index];\n  updated.status = 'await_response';\n\n  return { json: updated };\n});\n\n// Return final array\nreturn updatedActions;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -706,
+        2350
+      ],
+      "id": "08d80274-a805-487a-97fc-89b512ec37b6",
+      "name": "Code2",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "50a36916-69d4-4dd2-bc68-4c7739328233",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1742,
+        775
+      ],
+      "id": "3bf46555-f2c6-4eba-96e4-a2aae2685bc0",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n\n}  ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1444,
+        900
+      ],
+      "id": "a506abf2-0ec4-4425-9da0-4f907ebc9d0f",
+      "name": "Edit Fields1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.id }}",
+        "simple": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -1004,
+        2350
+      ],
+      "id": "3926a2b9-268d-49e3-9d9c-01b512af6f08",
+      "name": "Gmail1",
+      "webhookId": "7c1a5d60-a505-496c-8644-088c4c1f3d6d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "54ad1145-8e35-42b6-b23b-7157ce64e37f",
+              "leftValue": "={{ $json.status.includes(\"pending\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1742,
+        2450
+      ],
+      "id": "41b5f53a-f0b7-4da2-8433-d37d10621af4",
+      "name": "If6"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        -408,
+        2450
+      ],
+      "id": "8796b3f3-1ab6-4e4b-8722-0c947c0f786e",
+      "name": "Merge1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const binaryData = $(\"Trigger\").item.json.binary;\nconst allowedTypes = ['pdf', 'doc', 'docx'];\n\nconst entries = Object.entries(binaryData || {}).reverse();\nconst results = [];\n\nfor (const [filename, fileData] of entries) {\n  if (allowedTypes.includes(fileData.fileExtension)) {\n    results.push({\n      json: {\n        filename: filename,\n        status: true, // ✅ Success status\n        orgFilename: fileData.fileName\n      },\n      binary: {\n        target_file: {\n          ...fileData,\n          fileName: filename\n        }\n      }\n    });\n  }\n}\n\n// Return matching files, or fallback if none found\nif (results.length > 0) {\n  return results;\n} else {\n  return [\n    {\n      json: {\n        message: \"No valid attachment found\",\n        status: false\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2040,
+        1325
+      ],
+      "id": "dce7698a-098e-4baf-ab9a-5e616cf3ade9",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "651d1f12-a465-4811-a11d-754e072bc9da",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1742,
+        1325
+      ],
+      "id": "57861991-f4f7-451b-b212-aaa9d307a331",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Get the number of items from the previous node\nconst previousLength = $('If6').item.json;\n\n// All available message objects\nconst allMessages = [\n  {\n    id: \"197e83861fa32051\",\n    threadId: \"197315d92b06e191\",\n    labelIds: [\"SENT\"]\n  },\n  {\n    id: \"197e83860b9d076a\",\n    threadId: \"197315d92b06e191\",\n    labelIds: [\"SENT\"]\n  },\n  {\n    id: \"197e83861c1faa7e\",\n    threadId: \"197315d92b06e191\",\n    labelIds: [\"SENT\"]\n  },\n  {\n    id: \"197e83860747bf69\",\n    threadId: \"197315d92b06e191\",\n    labelIds: [\"SENT\"]\n  }\n];\n\nconst shuffled = allMessages.sort(() => 0.5 - Math.random());\nreturn { json: shuffled[0] };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1224,
+        2350
+      ],
+      "id": "e22fa459-2edf-4924-8cab-2e2981a49513",
+      "name": "Code4",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.pages.slice(0, 2).map(item => item.markdown).join('\\n') }}",
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"title\": \"Deals Classification\",\n  \"description\": \"This schema defines the structure of classification output for music industry agreements. The output consists of field: `type`, which indicates the category of the deal.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"deal_type\": {\n      \"type\": \"string\",\n      \"description\": \"The primary classification of the deal type, based on document content.\",\n      \"enum\": [\n        \"Record\",\n        \"Master\",\n        \"Simple Royalty\",\n        \"Live Performance\",\n        \"Sync License\",\n        \"Publishing\",\n        \"Neighboring Rights\",\n        \"Unrecognised\"\n      ]\n    }\n  },\n  \"required\": [\"is_deal\", \"deal_type\"],\n  \"additionalProperties\": false\n}\n",
+        "options": {
+          "systemPromptTemplate": "=You are an expert contract classifier specializing in entertainment industry agreements. Based on the content of a provided document, identify which **recording-related deal type** it represents, along with any applicable **enumeration or subtype** such as deal roles, categories, or royalty types.\n\nYour goal is to return a **structured JSON response** as specified:\n\n---\n\n### **Deal Types and Tags**\n\n#### **Record Deal** (`Record`)\n- Agreement between an **artist** and a **label**\n- Mentions **recording rights**, `label_split`, `distribution_split`\n- Often contains `reversion_type` or `reversion_period`\n- Language includes **record label**, **recording contract**, **royalty**, **ownership**\n\n---\n\n#### **Master Deal** (`Master`)\n- Related to **master recordings**\n- May mention **producer**, **mixer**, **musician**, or other roles\n- Often includes `work_for_hire`, `fee_schedule`, `payment_status`, `recoupable`\n\n---\n\n#### **Simple Royalty Deal** (`Simple Royalty`)\n- Agreement with a **manager**, **attorney**, or **agent**\n- Focused on **royalty percentages**, **representation**, or **commissions**\n\n---\n\n#### **Live Performance Deal** (`Live Performance`)\n- Related to **live shows**, **touring**, or **performances**\n- Mentions **fee**, **performance date**, **venue**, **payment**\n\n---\n\n#### **Sync License Deal** (`Sync License`)\n A Sync License Deal involves the licensing of a song or master recording for use in visual media (such as films, TV shows, commercials, video games, etc.).\n\nKey Indicators:\n\nMentions of licensing for media or audiovisual use.\n\nParties involved: typically an artist and a licensor or production company.\n\nTerms like “sync rights”, “synchronization license”, “use in film/TV/ad”, “visual media”.\n\nPayment in the form of a flat fee or sync fee for the usage rights.\n\n---\n\n#### **Publishing deal** (`Publishing`)\n- A Publishing deal broadly includes any agreement involving musical compositions, publishing rights, royalty splits for compositions, or roles such as Publisher, Administrator, Co-Publisher, Sub-Publisher, or Self-Publisher.\n\n---\n\n#### **Neighboring Rights Deal** (`Neighboring Rights`)\n- Agreement regarding **neighboring rights** (rights of performers and producers in sound recordings)\n- Involves **artists**, **organizations (CMOs/PROs)**, or **collecting societies**\n- Typically includes:\n  - `collection_mandates` such as \"Performer\" or \"Rights Owner\"\n  - `territories` indicating geographic coverage\n  - `client_share` / `counterparty_share` percentage splits\n  - Mentions of **exclusive mandates**, **repertoire eligibility**, or **territorial representation**\n\n---\n\n### **Instructions**\n1. Analyze the full content of the provided document.\n2. Classify it into the most relevant deal type using `deal_type`.\n3. If the deal type cannot be confidently determined, return `unrecognised`"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        -784,
+        1300
+      ],
+      "id": "cea0a147-6371-47b3-a948-d5455bff275a",
+      "name": "Information Extractor"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -696,
+        1520
+      ],
+      "id": "9783c76d-7574-4c1f-8171-0c5b404855f0",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const inputList = $input.all().map(item => item.json);\n\n// Find the first deal_type that is not 'Unrecognised'\nconst validDeal = inputList.find(obj => obj.deal_type && obj.deal_type !== 'Unrecognised');\n\nif (validDeal) {\n  return [\n    {\n      json: {\n        ...validDeal,\n        status: true\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        message: \"No deal was found\",\n        status: false\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -188,
+        1300
+      ],
+      "id": "ab5acffc-8841-49dd-9021-633867468531",
+      "name": "Code6"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\nconst input = $input.first()?.json ?? [];\n// Handle both single object and array\nconst data = Array.isArray(input) ? input : [input];\nconst responses = data.map(item => {\n  const {\n    person_legal_name,\n    person_performer_name,\n    book_number,\n    book_id,\n    verification_status\n  } = item;\n  // Helper function to check if value exists and is not empty\n  const hasValue = (value) => value && value !== null && value.toString().trim() !== '';\n  // Start building the response\n  let response = '';\n  \n  if (verification_status === true) {\n    // Verified case\n    if (hasValue(person_legal_name)) {\n      response = `The ${person_legal_name}`;\n      \n      // Add performer name if it exists and is different from legal name\n      if (hasValue(person_performer_name) && person_performer_name !== person_legal_name) {\n        response += ` also referred to as ${person_performer_name}`;\n      }\n      \n      response += ' is verified in the Manager\\'s workspace.';\n      \n      // Add verification details\n      let details = [];\n      details.push(`Legal Name: ${person_legal_name}`);\n      \n      if (hasValue(person_performer_name)) {\n        details.push(`Performer Name: ${person_performer_name}`);\n      }\n      \n      if (hasValue(book_number)) {\n        details.push(`book_number: ${book_number}`);\n      }\n      \n      if (hasValue(book_id)) {\n        details.push(`book_id: ${book_id}`);\n      }\n      \n      details.push(`Verification Status: verified`);\n      \n      response += '\\n\\nDetails:\\n' + details.join('\\n');\n    } else {\n      response = 'Person is verified in the Manager\\'s workspace but no legal name provided.';\n    }\n  } else {\n    // Not verified case\n    if (hasValue(person_legal_name)) {\n      response = `The ${person_legal_name}`;\n      \n      if (hasValue(person_performer_name) && person_performer_name !== person_legal_name) {\n        response += ` also referred to as ${person_performer_name}`;\n      }\n      \n      response += ' is not verified in the Manager\\'s workspace.';\n      \n      // Add basic details (excluding book_number and book_id for unverified)\n      let details = [];\n      details.push(`Legal Name: ${person_legal_name}`);\n      \n      if (hasValue(person_performer_name)) {\n        details.push(`Performer Name: ${person_performer_name}`);\n      }\n      \n      details.push(`Verification Status: not_verified`);\n      \n      response += '\\n\\nDetails:\\n' + details.join('\\n');\n    } else {\n      response = 'Person is not verified and no legal name provided.';\n    }\n  }\n  \n  return response;\n});\n// Return the formatted responses\nreturn responses.map(response => ({ json: { message: response } }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1224,
+        1925
+      ],
+      "id": "53065c2f-e4e7-4b92-a23e-fd173fb180bc",
+      "name": "Response"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.isNotEmpty() && $json.confidence_score.toNumber()>=90 }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "04d860ea-9c1f-4346-86cf-128b2f90128e"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1903d193-626b-44b2-b3d9-ee5ce0a7d1ca",
+                    "leftValue": "={{ $json.isNotEmpty() && ($json.confidence_score.toNumber() >= 25 && $json.confidence_score.toNumber() < 90) }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ca5f3fee-aac7-44c0-9907-adb4a93ae4f7",
+                    "leftValue": "={{ $json.isEmpty() || $json.confidence_score.toNumber()<25 }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2040,
+        1925
+      ],
+      "id": "eee9b7c8-24d2-42ca-a233-4266c692ad64",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "inputText": "=input-1: {{ \n  (() => {\n    let result = [];\n    \n    if ($json.person_legal_name && $json.person_legal_name !== null && $json.person_legal_name.trim() !== '') {\n      result.push(`Legal Name: ${$json.person_legal_name}`);\n    }\n    \n    if ($json.person_performer_name && $json.person_performer_name !== null && $json.person_performer_name.trim() !== '') {\n      result.push(`Performer Name: ${$json.person_performer_name}`);\n    }\n    \n    return result.join(', ');\n  })()\n}}\n\nInput: {{ \n  (() => {\n    let result = [];\n    \n    if ($('Trigger').first().json.data.person_legal_name && $json.person_legal_name !== null && $json.person_legal_name.trim() !== '') {\n      result.push(`Legal Name: ${$json.person_legal_name}`);\n    }\n    \n    if ($json.person_performer_name && $json.person_performer_name !== null && $json.person_performer_name.trim() !== '') {\n      result.push(`Performer Name: ${$json.person_performer_name}`);\n    }\n    \n    return result.join(', ');\n  })()\n}}",
+        "categories": {
+          "categories": [
+            {
+              "category": "verified",
+              "description": "=When comparing Input-1 and Input-2, if the Legal Name and/or Performer Name are the same (even if not exactly identical, e.g., due to spelling variations, abbreviations, or common aliases) and you reasonably determine they refer to the same individual, then classify the result as Verified."
+            },
+            {
+              "category": "Not Verified",
+              "description": "=When comparing Input-1 and Input-2, if the Legal Name and Performer Name do not sufficiently match, or there is not enough evidence to reasonably conclude that they refer to the same individual, then classify the result as Not Verified. This includes cases where the names are distinctly different, unrelated, or ambiguous enough that verification cannot be confidently made."
+            }
+          ]
+        },
+        "options": {
+          "enableAutoFixing": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        -1820,
+        1925
+      ],
+      "id": "2dd7a64a-1f5d-4489-963b-bf2b79b83d22",
+      "name": "Analyze Person"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3db57f33-586e-4ec5-9fc8-af302a21d8c9",
+              "name": "verification_status",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1444,
+        1725
+      ],
+      "id": "bf828221-fe4f-47ad-9f36-65df32f98a7d",
+      "name": "Verified"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3db57f33-586e-4ec5-9fc8-af302a21d8c9",
+              "name": "verification_status",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1444,
+        2125
+      ],
+      "id": "dc4d2c55-585e-456a-a77a-08ee9839b9ad",
+      "name": "Not-Verified"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Node.js Code for Client Management\n// This code should be used in an n8n \"Code\" node\n\n// Get input data from previous node\nconst inputData = $input.all();\nconst data = inputData[0].json.data;\n\n// Extract the required components\nconst sessionManager = data.session_manager;\nconst sessionData = data.sessioin_data; // Note: keeping original typo from input\nconst clientInfo = data.client;\n\n// Function to add client to manager's client list\nfunction addClientToManager(sessionData, sessionManager, clientInfo) {\n  // Make a deep copy to avoid modifying original data\n  const updatedSessionData = JSON.parse(JSON.stringify(sessionData));\n  \n  // Find the manager in the managers list\n  const managerIndex = updatedSessionData.Managers.findIndex(\n    manager => manager.user_id === sessionManager.user_id\n  );\n  \n  if (managerIndex === -1) {\n    throw new Error(`Manager with user_id ${sessionManager.user_id} not found in managers list`);\n  }\n  \n  // Get the manager's current clients list\n  const manager = updatedSessionData.Managers[managerIndex];\n  \n  // Initialize Clients array if it doesn't exist\n  if (!manager.Clients) {\n    manager.Clients = [];\n  }\n  \n  // Check if client already exists in the manager's client list\n  const clientExists = manager.Clients.some(client => {\n    // Check by book_number (primary identifier) or person_name as fallback\n    return (clientInfo.book_number && client.book_number === clientInfo.book_number) ||\n           (client.person_name === clientInfo.person_name);\n  });\n  \n  // If client doesn't exist, add them to the list\n  if (!clientExists) {\n    // Create client object with all provided information\n    const newClient = {\n      person_name: clientInfo.person_name,\n      performer_name: clientInfo.performer_name,\n      status: clientInfo.status,\n      book_number: clientInfo.book_number,\n      book_id: clientInfo.book_id,\n      role: clientInfo.role,\n      message: clientInfo.message,\n      verification_status: clientInfo.verification_status\n    };\n    \n    // Add the new client to the manager's clients list\n    updatedSessionData.Managers[managerIndex].Clients.push(newClient);\n    \n    console.log(`Client ${clientInfo.person_name} added to manager ${sessionManager.name}'s client list`);\n  } else {\n    console.log(`Client ${clientInfo.person_name} already exists in manager ${sessionManager.name}'s client list`);\n  }\n  \n  return updatedSessionData;\n}\n\n// Execute the function\ntry {\n  const updatedSessionData = addClientToManager(sessionData, sessionManager, clientInfo);\n  \n  // Return session data with success status\n  return [{ \n    json: {\n      sessionData: updatedSessionData,\n      status: true\n    }\n  }];\n  \n} catch (error) {\n  // Handle errors gracefully\n  console.error('Error processing client management:', error.message);\n  \n  // Return original session data with failure status\n  return [{ \n    json: {\n      sessionData: sessionData,\n      status: false\n    }\n  }];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2260,
+        2175
+      ],
+      "id": "9d02b85b-55fc-4148-9b14-3798ebf8403b",
+      "name": "Add/Update"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=session_{{ $json.sessionData.ThreadId }}",
+        "value": "={{ $json.sessionData.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -2040,
+        2175
+      ],
+      "id": "a1bfbad2-423c-491a-bc58-b0b0fbb3145d",
+      "name": "UpdateSesssion",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "action": "add_client",
+          "data": {
+            "session_manager": {
+              "name": "Dwayne Hoover",
+              "address": "dwayne@patchbay.xyz",
+              "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+              "Clients": [
+                {
+                  "person_name": "Quincy  Jones",
+                  "performer_name": "Quincy Jones",
+                  "status": "verified",
+                  "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                  "book_id": "620",
+                  "role": "Producer",
+                  "message": "Producer Quincy  Jones is verified in the Manager's workspace. Inform the manager."
+                }
+              ]
+            },
+            "client": {
+              "person_name": "Quincy  Jones",
+              "performer_name": "Quincy Jones",
+              "status": "verified",
+              "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+              "book_id": "620",
+              "role": "Producer",
+              "message": "Producer Quincy  Jones is verified in the Manager's workspace. Inform the manager."
+            },
+            "sessioin_data": {
+              "ThreadId": "199621c77270aa61",
+              "Emails": [
+                {
+                  "ThreadId": "199621c77270aa61",
+                  "EmailId": "199622a376d9617b",
+                  "MessageId": "<CAP=u+8DeHK61JTuAJAy-bPFk0DJGOWMBmSYxpZNWXcvHvUF=zQ@mail.gmail.com>",
+                  "References": [
+                    "<CAP=u+8AZuvT=+skEpufek9HZbVAv5YiEVcqUyHd1LC3ih0GaSg@mail.gmail.com>",
+                    "<CAEaeWjR8fO-CB-9gZiS+Bay86fG6Gpv=ZC8eMd-AJHJD8zbqrg@mail.gmail.com>"
+                  ],
+                  "Subject": "Re: Sa Hello by Rahat Fateh Ali Khan",
+                  "From": [
+                    {
+                      "address": "dwayne@patchbay.xyz",
+                      "name": "Dwayne Hoover"
+                    }
+                  ],
+                  "to": [
+                    {
+                      "address": "asst@patchbay.xyz",
+                      "name": ""
+                    }
+                  ],
+                  "cc": [],
+                  "date": "2025-09-19T13:29:05.000Z",
+                  "emailText": "Create a new deal please."
+                },
+                {
+                  "ThreadId": "199621c77270aa61",
+                  "EmailId": "19962250eb2cfdf1",
+                  "MessageId": "<CAP=u+8AZuvT=+skEpufek9HZbVAv5YiEVcqUyHd1LC3ih0GaSg@mail.gmail.com>",
+                  "References": [
+                    "<CAP=u+8Bn+0rrrou_aH6N78ssAMg42AFQCOwqYLCUfU7Ge0kAwg@mail.gmail.com>",
+                    "<CAEaeWjSgkGU70LLbudHwkK1eLJi9YqNB9LpWV5gj3gR7+m+BMg@mail.gmail.com>"
+                  ],
+                  "Subject": "Re: Sa Hello by Rahat Fateh Ali Khan",
+                  "From": [
+                    {
+                      "address": "dwayne@patchbay.xyz",
+                      "name": "Dwayne Hoover"
+                    }
+                  ],
+                  "to": [
+                    {
+                      "address": "asst@patchbay.xyz",
+                      "name": ""
+                    }
+                  ],
+                  "cc": [],
+                  "date": "2025-09-19T13:23:25.000Z",
+                  "emailText": "Create a new deal for this track."
+                },
+                {
+                  "ThreadId": "199621c77270aa61",
+                  "EmailId": "19962224c42631a8",
+                  "MessageId": "<CAP=u+8Bn+0rrrou_aH6N78ssAMg42AFQCOwqYLCUfU7Ge0kAwg@mail.gmail.com>",
+                  "References": [
+                    "<CAP=u+8Dyo9R6cBpjpohFN-3S5Ge+S0+e6au8pU16N1ikEDOQ5w@mail.gmail.com>",
+                    "<CAEaeWjS=Vjc4V8wztg93hjA6f=p2deE9Ye=ptqDfg4UGOPd-sQ@mail.gmail.com>"
+                  ],
+                  "Subject": "Re: Sa Hello by Rahat Fateh Ali Khan",
+                  "From": [
+                    {
+                      "address": "dwayne@patchbay.xyz",
+                      "name": "Dwayne Hoover"
+                    }
+                  ],
+                  "to": [
+                    {
+                      "address": "asst@patchbay.xyz",
+                      "name": ""
+                    }
+                  ],
+                  "cc": [],
+                  "date": "2025-09-19T13:20:26.000Z",
+                  "emailText": "None of these deals is the one I am interested in. I think there is no deal created yet for this track."
+                },
+                {
+                  "EmailId": "199621c77270aa61",
+                  "MessageId": "<CAP=u+8Dyo9R6cBpjpohFN-3S5Ge+S0+e6au8pU16N1ikEDOQ5w@mail.gmail.com>",
+                  "Subject": "Sa Hello by Rahat Fateh Ali Khan",
+                  "From": [
+                    {
+                      "address": "dwayne@patchbay.xyz",
+                      "name": "Dwayne Hoover"
+                    }
+                  ],
+                  "to": [
+                    {
+                      "address": "asst@patchbay.xyz",
+                      "name": "Patchbay Assistant"
+                    }
+                  ],
+                  "cc": [],
+                  "date": "2025-09-19T13:14:04.000Z",
+                  "emailText": "Can you find the deal for this track produced by Quincy Jones.\n"
+                }
+              ],
+              "Others": [],
+              "Managers": [
+                {
+                  "name": "Dwayne Hoover",
+                  "address": "dwayne@patchbay.xyz",
+                  "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+                  "person_number": "2752c92b-b570-4f0f-a082-611fe1770ec4",
+                  "Role": "Manager",
+                  "Clients": [
+                    {
+                      "person_name": "Quincy  Jones",
+                      "performer_name": "Quincy Jones",
+                      "status": "verified",
+                      "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                      "book_id": "620",
+                      "role": "Producer",
+                      "message": "Producer Quincy  Jones is verified in the Manager's workspace. Inform the manager."
+                    }
+                  ]
+                },
+                {
+                  "name": "Agent",
+                  "address": "asst@patchbay.xyz",
+                  "user_id": "9cd5749c-7e7d-4a92-98cd-c1356b626258",
+                  "person_number": "03014402-449b-48bb-8973-212449e99e2f",
+                  "Role": "Manager",
+                  "Clients": []
+                }
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            }
+          },
+          "binary": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-19T13:36:23.629Z",
+  "versionId": "619190e5-5e8d-48a3-a797-fb02e454e057"
+}
