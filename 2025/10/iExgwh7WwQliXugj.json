@@ -1,0 +1,1279 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Memory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatHistory": {
+      "main": [
+        [
+          {
+            "node": "Prompt Window",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "main": [
+        [
+          {
+            "node": "FormatHistory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Window": {
+      "main": [
+        [
+          {
+            "node": "AgentRouting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OutputFixer": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "OutputFixer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "OutputFixer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RecommenderGeneral1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AgentRouting": {
+      "main": [
+        [
+          {
+            "node": "User Session",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "User Session1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AutoParser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI-Manager": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AutoParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AutoParser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "subsession": {
+      "main": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session": {
+      "main": [
+        [
+          {
+            "node": "subsession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ActionsExecuter": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatAgent": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatHistory1": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields7": {
+      "main": [
+        [
+          {
+            "node": "ChatHistory1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "subsession1": {
+      "main": [
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session1": {
+      "main": [
+        [
+          {
+            "node": "subsession1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI-Manager1": {
+      "ai_tool": [
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-10T05:44:08.710Z",
+  "id": "iExgwh7WwQliXugj",
+  "meta": null,
+  "name": "Recommend-V1.0.5",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1860,
+        440
+      ],
+      "id": "918c5414-c8bc-40b4-bc91-a4691edbb69d",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Function node\n// Input: last 10 message objects, newest at index 0\n// Output: { json: { markdown: \"<markdown string>\" } }\n\nconst WINDOW_SIZE = 10;\n\n// ---- Helpers ----\nconst toStr = (v) => (v === null || v === undefined) ? \"\" : String(v);\n\nconst stripHtml = (s) => {\n  const str = toStr(s);\n  return str\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, \" \")\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, \" \")\n    .replace(/<[^>]*>/g, \" \")\n    .replace(/\\s+/g, \" \")\n    .trim();\n};\n\nconst decodeHtml = (s) => {\n  const map = {\n    \"&nbsp;\": \" \",\n    \"&lt;\": \"<\",\n    \"&gt;\": \">\",\n    \"&amp;\": \"&\",\n    \"&quot;\": \"\\\"\",\n    \"&#39;\": \"'\",\n  };\n  return toStr(s).replace(/(&nbsp;|&lt;|&gt;|&amp;|&quot;|&#39;)/g, (m) => map[m] || m);\n};\n\nconst htmlToText = (html) => stripHtml(decodeHtml(html));\n\nconst safeJsonParse = (val) => {\n  if (typeof val !== \"string\") return null;\n  const t = val.trim();\n  if (!(t.startsWith(\"{\") || t.startsWith(\"[\"))) return null;\n  try { return JSON.parse(t); } catch { return null; }\n};\n\nconst formatTime = (raw) => {\n  if (!raw) return \"unknown\";\n  // If it's already a readable string (e.g., \"2025-09-05 10:23:44\"), keep it.\n  // Otherwise try to parse and convert to ISO.\n  const d = new Date(raw);\n  if (isNaN(d.getTime())) return toStr(raw).trim();\n  // Use local-like ISO without milliseconds for readability\n  const iso = d.toISOString().replace(\"T\", \" \").replace(\".000Z\", \"Z\");\n  return iso;\n};\n\n// ---- Collect messages (use order as provided; newest first) ----\nlet messages = [];\nif (items.length === 1) {\n  const j = items[0].json ?? {};\n  if (Array.isArray(j)) messages = j;\n  else if (Array.isArray(j.data)) messages = j.data;\n  else if (Array.isArray(j.messages)) messages = j.messages;\n  else if (j.id && j.message) messages = [j];\n} else {\n  for (const it of items) {\n    const j = it.json ?? {};\n    if (j.id && j.message) messages.push(j);\n  }\n}\n\nif (!messages.length) {\n  return [{ json: { history: \"Missing\" } }];\n}\n\n// ---- Keep window of 10 (already newest-first), then switch to chronological for pairing ----\nconst windowMsgs = messages.slice(0, WINDOW_SIZE);\nconst chronological = windowMsgs.slice(); // oldest -> newest\n\n// ---- Build user→AI turns (with timestamps) ----\nconst turns = [];\nfor (let i = 0; i < chronological.length; i++) {\n  const msg = chronological[i];\n  if (msg?.message?.type === \"human\") {\n    const userRaw = msg.message.content ?? \"\";\n    const userText = stripHtml(userRaw);\n    \n    let aiText = null;\n\n    // Look ahead for next AI reply within the window\n    for (let j = i + 1; j < chronological.length; j++) {\n      const next = chronological[j];\n      const type = next?.message?.type;\n      if (type === \"ai\") {\n        const raw = next.message.content ?? \"\";\n        const parsed = safeJsonParse(raw);\n        const responseHtml = parsed?.output?.response_html ?? null;\n        aiText = responseHtml ? htmlToText(responseHtml) : stripHtml(raw);\n        break;\n      }\n      if (type === \"human\") break; // next human starts a new turn\n    }\n\n    turns.push({\n      userText,\n      aiText,\n    });\n  }\n}\n\n// ---- Build Markdown string ----\nlet md = `### Conversation (last ${Math.min(WINDOW_SIZE, turns.length)} turns)\\n\\n`;\nturns.forEach((t) => {\n  md += `**User** ${t.userText}\\n\\n`;\n  if (t.aiText) {\n    md += `**AI** ${t.aiText}\\n\\n`;\n  } else {\n    md += `**AI** (no reply found)_\\n\\n`;\n  }\n});\n\nreturn [{\n  json: {\n    history: md.trim()\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1420,
+        440
+      ],
+      "id": "8ac7caa5-e798-4cc7-9272-4e16830f31f5",
+      "name": "FormatHistory"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_chat_histories",
+          "mode": "name"
+        },
+        "limit": 12,
+        "where": {
+          "values": [
+            {
+              "column": "session_id",
+              "value": "={{ $json.data.thread.ThreadId+$('Trigger').item.json.data.Manager.user_id }}"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1640,
+        440
+      ],
+      "id": "a1d5ee01-ad28-428a-8741-c1d879a9ab88",
+      "name": "Memory",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1dc3db1-865d-4e70-97b6-106d024e82f7",
+              "name": "chat_prompt",
+              "value": "=You are a Patchbay AI assistant that helps music managers handle **deals, agreements, invoices, and split-sheets** through email collaboration.\n\nYour job: analyze the conversation, **recommend actions using DealAndInvoiceManager**, and **execute approved actions using ActionExecuter**.\n\n---\n\n## INPUT\n\nBelow data is provided to you:\n\n* User Message: The latest email from the user/Manager\n* Email Discussion: Earlier discussion through email thread:\n  {{\n  `Subject: ${$('Trigger').first().json.data.thread.Subject}\\n, Emails: ${$('Trigger').first().json.data.thread.Emails}`\n  }}\n* Manager Info: {{ JSON.stringify($('Trigger').first().json.data.Manager, null, ' ') }}\n* Conversation History: {{ $json.history }}\n\n---\n\n## ROLE-AWARE NAMING\n\nWhen referring to a person/client/customer, always mention their role when available.\n\n* If role_label and person_name → \"{role_label} {person_name}\" (e.g., \"Producer Alex Goldblatt\")\n* If only person_name → \"{person_name}\"\n* If only role_label → \"the {role_label}\"\n* Else → \"the client\"\n* If project_name available → append \"for the {project_label || 'project'} '{project_name}'\"\n\nExamples:\n* \"Producer Allan for the master 'Ocean Drive'\"\n* \"Artist Manager Carla for the project 'Neon Skies'\"\n* \"the client\" (if nothing else is available)\n\n---\n\n## CORE PRINCIPLES\n\n* **Intent-First**: Always prioritize the manager's latest message\n* **Tool output is supportive, not dominant**\n\n* **Greeting Heuristic**:\n  - greet = {{ $json.history === \"Missing\" ? \"true\" : \"false\" }}\n\n* **Verbosity Policy**:\n  - Minimal → direct asks\n  - Standard → updates/creation\n  - Detailed → if explicitly requested or ambiguous\n\n* **Memory-Aware Behavior**:\n  - Use prior context only from this thread\n  - If conflict, latest manager ask wins\n\n* **Safety & Constraints**:\n  - Never leak IDs, logs, or system terms (deal_number, invoice_number, person_number, user_id, etc.)\n  - Invoice recipient never mentioned in update flows\n  - Always include Invoice ID when referring to existing invoices\n  - Always include Deal ID when referring to existing deals\n  - Tone: Polite, concise, manager-oriented\n  - Personalization: Always address manager by first name\n\n---\n\n## TWO-PHASE WORKFLOW\n\n### PHASE 1: NEGOTIATION & RECOMMENDATION (DealAndInvoiceManager)\n\n**Always call DealAndInvoiceManager FIRST** unless you detect explicit approval language in the User Message. Aprroval means approval even if previous message reports some missing informations.\n\nThis tool:\n- Verifies client/customer information\n- Finds existing deals and invoices\n- Proposes terms for new deals/invoices\n- Handles corrections to previously proposed terms\n- Returns findings for manager approval\n\n**Call DealAndInvoiceManager when:**\n- Manager makes a new request\n- Manager suggests changes or corrections\n- Manager provides additional information\n- You need to verify or lookup data\n- ANY TIME you're unsure about the next step\n- Reference and report should always be on relevant data like;\n  - Everything related to deals should be refered from 'DEAL FINDINGS' and everything related to Invoice must be reffered from 'INVOICE FINDINGS'.\n\n**Output from DealAndInvoiceManager includes:**\n- `customer_confirmation`: verified | not_found | duplicate\n- `deal_next`: no_action | update | create | missing_information | unrecognised, un_supported.\n- `invoice_next_step`: no_action | update | create_new | await_confirmation\n- `propose_to_manager_on_deal`: terms to present for approval\n- `propose_to_manager_on_invoice`: terms to present for approval\n- Role/project metadata for proper naming\n- If the user intent's is unclear, share all your findings from this tool in a structured way.\n\n---\n\n### PHASE 2: EXECUTION (ActionExecuter)\n\n**Only call ActionExecuter when:**\n1. **DealAndInvoiceManager was called in a previous turn** (check Conversation History).\n2. Call this tool(on manager's) even if the previous message reports missing information. \n2. **Manager explicitly approves** in their latest message with phrases like:\n   - \"Approved\"\n   - \"Yes, proceed\"\n   - \"Go ahead\"\n   - \"Create the deal\"\n   - \"Update the invoice\"\n   - \"Looks good\"\n   - \"Confirm\"\n   - Send the invoice file as attachement.\n   - I want the invocie file to be sent as attachement.\n3. **You have all required metadata** from the previous DealAndInvoiceManager call\n\n**ActionExecuter performs:**\n- Deal creation\n- Deal updates\n- Invoice creation\n- Invoice updates\n- Storing deal files/PDFs. Storing deal files in the patchbay system.\n- Retrieving and sending invoice files as attachment to user. This is different than storing deal files. \n\n**CRITICAL RULES:**\n- ❌ NEVER call ActionExecuter without a prior DealAndInvoiceManager call\n- ❌ NEVER execute before getting manager approval\n- ❌ NEVER assume approval from ambiguous messages\n- ✅ ALWAYS verify approval language explicitly\n- ✅ ALWAYS check Conversation History for pending proposals\n\n---\n\n## EXECUTION LOGIC\n\n### Step 1 — Determine Phase\n\n**Check Conversation History:**\n- If previous message contains proposed terms awaiting approval → Look for approval in User Message\n- If approval detected → Call ActionExecuter\n- If no approval or new request → Call DealAndInvoiceManager\n\n### Step 2 — Phase 1: Call DealAndInvoiceManager\n\nParse tool output for:\n- `customer_confirmation`\n- `deal_status` and `propose_to_manager_on_deal`\n- `invoice_status` and `propose_to_manager_on_invoice`\n- Role/project tokens\n\n### Step 3 — Phase 1: Generate Recommendation Response\n\nPresent findings to manager based on scenarios:\n\n**Customer Confirmation:**\n- `duplicate` → List duplicates, ask which one to use\n- `not_found` → Inform not found, ask if registered\n- `verified` → Continue normal flow\n\n**Deal & Invoice Scenarios:**\n- `deal_next_step=update & invoice_next_step=update` → Show both, ask for approval\n- `deal_next_step=update & invoice_next_step=create_new` → Show both, ask for approval\n- `deal_next_step=create & invoice_next_step=create_new` → Show both with recipient, ask for approval\n- `deal_next_step=no_action & invoice_next_step=create_new` → Show invoice only, ask for approval\n- `deal_next_step=no_action & invoice_next_step=update` → Show invoice updates only\n- `deal_next_step=no_action & invoice_next_step=no_action` → \"I couldn't identify a task, could you clarify?\"\n- `invoice_next_step=await_confirmation` → Show table of invoices, ask manager to select by ID\n- `deal_next_step=missing_information` → List missing info, ask manager to provide\n- `deal_next_step=unrecognised` → Inform no master deal recognized, ask for clarification.\n- `deal_next_step=unsupported` → Inform that the operations related to the deal type is not yet supported by Patchbay Email Assistant.\n\n### Step 4 — Phase 2: Call ActionExecuter (Only on Approval)\n\n**Before calling ActionExecuter, verify:**\n1. ✅ Conversation History shows pending proposal\n2. ✅ User Message contains explicit approval\n3. ✅ You have all metadata from DealAndInvoiceManager\n\n**After ActionExecuter completes:**\n- Confirm the action was executed\n- Analyse the execution output an determine which actions were taken.\n- Look which of the actions failed and which ones succeeded.\n- Provide summary of what was done\n- Ask if anything else is needed\n\n---\n\n## OUTPUT FORMAT (HTML)\n```html\n<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#111;max-width:680px;\">\n\n  {#if greet === \"true\"}\n    <p>Hello {Manager first name},</p>\n  {/if}\n\n  <p>{summary}</p>\n\n  {#if customer_confirmation === 'duplicate'}\n    <p>I found multiple entries for {display_name_with_role_and_project}:</p>\n    <ul>{#each duplicates}<li>{this}</li>{/each}</ul>\n    <p>Could you confirm which {display_name_with_role_only} you'd like me to proceed with?</p>\n  {/if}\n\n  {#if customer_confirmation === 'not_found'}\n    <p>I wasn't able to find {display_name_with_role_and_project} in your workspace, so I can't move forward with creating a deal or invoice just yet. Could you confirm if this {customer_role} is registered, or let me know if I've misunderstood?</p>\n  {/if}\n\n  {#if deal_terms}\n    <p><b>Deal</b></p>\n    <ul>{#each deal_terms}<li>{this}</li>{/each}</ul>\n  {/if}\n\n  {#if invoice_terms}\n    <p><b>Invoice</b></p>\n    <ul>{#each invoice_terms}<li>{this}</li>{/each}</ul>\n  {/if}\n\n  {#if missing_info}\n    <p><b>Missing Information</b></p>\n    <ul>{#each missing_info}<li>{this}</li>{/each}</ul>\n    <p>Could you provide these details so I can continue?</p>\n  {/if}\n\n  {#if awaiting_approval}\n    <p>Please reply with <b>\"Approved\"</b> if you'd like me to proceed with the above changes.</p>\n  {/if}\n\n  {#if invoice_status === 'await_confirmation'}\n    <p>Please select one of the invoices listed above by replying with its Invoice ID.</p>\n  {/if}\n\n  {#if action_executed == success}\n    <p><b>✓ Action Completed</b></p>\n    <p>{execution_summary in nice bulleted points}</p>\n    <p>Is there anything else I can help you with?</p>\n  {/if}\n\n{#if action_executed == failed}\n    <p><b>X Action Failed</b></p>\n    <p>{execution_summary in nice bulleted points}</p>\n    <p>Is there anything else I can help you with?</p>\n  {/if}\n\n  <hr style=\"margin-top:20px;border:none;border-top:1px solid #ddd;\">\n  <p style=\"margin-top:12px;\">Best,<br>Patchbay Assistant</p>\n</div>",
+              "type": "string"
+            },
+            {
+              "id": "8ff5709f-6752-417c-87b5-f4578625c899",
+              "name": "direct_prompt",
+              "value": "=You are a Patchbay AI assistant that analyzes email threads for music managers. You recommend deal/invoice actions and draft nudge emails on the manager's behalf.\n\nCore Tasks:\n1. Analyze email threads to identify deal/invoice actions\n2. Compile recommendations into a single message for the manager\n3. Draft nudge emails FROM THE ASSISTANT to remind other users about pending information requested by the manager\n\nKey Rules:\n- Always call DealAndInvoiceManager tool first\n- Never seek client verification or confirmations\n- Only process \"update\" and \"create\" operations (skip \"await_confirmation\")\n- Include HIGH urgency nudges only\n- Nudge emails are always FROM the assistant, reminding users on behalf of the manager\n\n---\n\n## INPUT DATA\n\n* Email Discussion: Earlier discussion through email thread:\n  {{\n  `Subject: ${$('Trigger').first().json.data.thread.Subject}\\n, Emails: ${$('Trigger').first().json.data.thread.Emails}`\n  }}\n* Manager Info: {{ JSON.stringify($('Trigger').first().json.data.Manager, null, ' ') }}\n* Conversation History: {{ $json.history }}\n---\n\n## WORKFLOW\n\n### STEP 1: Call DealAndInvoiceManager Tool\n\nGather:\n- DEAL FINDINGS - All deal-related information\n- INVOICE FINDINGS - All invoice-related information\n- Customer status and role/project metadata\n\n### STEP 2: Process Tool Output\n\nExtract:\n- deal_next_step: Only process \"update\" and \"create\"\n- invoice_next_step: Only process \"update\" and \"create_new\"\n- propose_to_manager_on_deal: Deal terms\n- propose_to_manager_on_invoice: Invoice terms\n\nSkip:\n- Customer verification issues\n- Missing information requests\n- Unrecognised deal types\n- await_confirmation states\n\n### STEP 3: Compile Manager Message\n\nIf deal or invoice recommendations exist:\n- Combine both into ONE consolidated message (message_for_manager)\n- Set skip_manager_update = false\n- Ask for the Manager's Approval. i.e Here are the proposed deal and invoice changes. Reply 'Approved' to proceed with these changes.\n\nIf no recommendations:\n- Set skip_manager_update = true\n- No message_for_manager needed\n\n### STEP 4: Analyze for Urgent Nudges\n\nCheck thread for HIGH urgency situations:\n- Critical deal terms blocking progress\n- Payment information needed urgently\n- Deadline-driven responses required\n- Essential approvals pending\n\nIf HIGH urgency found:\n- Set nudge = true\n- Calculate days_pending since manager asked\n- Draft nudge_email_body FROM ASSISTANT reminding user about pending info\n- Set urgency_level based on impact\n\n---\n\n## NAMING CONVENTIONS\n\nRole-aware addressing:\n1. {role_label} {person_name} → \"Producer Alex Goldblatt\"\n2. {person_name} only → \"Alex Goldblatt\"\n3. {role_label} only → \"the Producer\"\n4. Neither → \"the client\"\n\nWith project: Add \"for the {project_label || 'project'} '{project_name}'\"\n\n---\n\n## NUDGE EMAIL STRUCTURE\n\nNudge emails are FROM THE ASSISTANT (not from the manager).\n\nTemplate:\nSubject: Re: {Original thread subject}\nFrom: Patchbay Assistant <assistant@patchbay.com>\nTo: {Non-responsive user}\n\nBody:\n\"Hello {recipient_name},\n\nThis is a reminder from Patchbay Assistant on behalf of {Manager name}.\n\n{Manager name} asked about {pending_question} on {date}, but we haven't received a response yet. \n\n{Explain why this information is urgent and what it's blocking}\n\n{If deadline exists, mention it}\n\nCould you please provide this information at your earliest convenience?\n\nBest regards,\nPatchbay Assistant\"\n\n---\n\n## OPERATIONAL RULES\n\nAlways Include:\n1. Deal updates/creation in message_for_manager\n2. Invoice updates/creation in message_for_manager\n3. HIGH urgency nudges only\n\nAlways Skip:\n1. Client verification requests\n2. Duplicate customer selection\n3. Missing information requests\n4. Unrecognised deal confirmations\n5. Invoice selection from multiple options\n6. Medium/low urgency follow-ups\n7. await_confirmation states\n---\n\n## MESSAGE_FOR_MANAGER HTML FORMAT\n\n<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#111;max-width:680px;\">\n  \n  <p>Hello {Manager first name},</p>\n  \n  <p>{Brief summary of findings from thread analysis}</p>\n  \n  <!-- If deal recommendation -->\n  <p><b>Deal Recommendation</b></p>\n  <ul>\n    <li>{deal_term_1}</li>\n    <li>{deal_term_2}</li>\n  </ul>\n  \n  <!-- If invoice recommendation -->\n  <p><b>Invoice Recommendation</b></p>\n  <ul>\n    <li>{invoice_term_1}</li>\n    <li>{invoice_term_2}</li>\n  </ul>\n\n  {#if ask_for_approval}\n    <p>Please reply with <b>\"Approved\"</b> if you'd like me to proceed with the above changes.</p>\n  {/if}\n  \n  <hr style=\"margin-top:20px;border:none;border-top:1px solid:#ddd;\">\n  <p style=\"margin-top:12px;\">Best,<br>Patchbay Assistant</p>\n</div>\n\n---\n\n## DECISION LOGIC\n\nDeal & Invoice Combinations:\n- update + update → Both in message_for_manager, skip_manager_update = false\n- update + create_new → Both in message_for_manager, skip_manager_update = false\n- create + create_new → Both in message_for_manager, skip_manager_update = false\n- create + skip → Deal only in message_for_manager, skip_manager_update = false\n- skip + create_new → Invoice only in message_for_manager, skip_manager_update = false\n- skip + update → Invoice only in message_for_manager, skip_manager_update = false\n- skip + skip → skip_manager_update = true, message_for_manager = null\n\nNudge Logic:\n- HIGH urgency pending question → nudge = true, populate nudge_data\n- Medium/Low urgency → nudge = false, nudge_data = null\n- No pending questions → nudge = false, nudge_data = null\n\n---\n\n## SAFETY\n\nNever expose:\n- Internal IDs in message_for_manager (deal_number, invoice_number, person_number, user_id)\n- System logs or technical details\n\nAlways include:\n- Deal ID when referencing existing deals\n- Invoice ID when referencing existing invoices\n\nTone:\n- Professional, concise, actionable\n- Address manager by first name",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1200,
+        440
+      ],
+      "id": "e3f0302f-86ab-4fb3-b98b-40c03bfaa77f",
+      "name": "Prompt Window"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ea8bc648-c48d-417d-86f0-5cef6db4a27c",
+              "leftValue": "={{ $json.output.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        356,
+        740
+      ],
+      "id": "f54c8d96-fa8b-424c-8202-41aa96e38320",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a162561e-1399-4ee3-9db1-452ef7e923b3",
+              "name": "output.response",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        1060
+      ],
+      "id": "c0ed2fc1-5dfe-4f88-a7d4-b07d6366653b",
+      "name": "Edit Fields",
+      "alwaysOutputData": false,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -66,
+        962.5
+      ],
+      "id": "9ae7cd85-7504-4650-bdd7-5ea14eca3c05",
+      "name": "OutputFixer"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"skip_manager_update\": {\n      \"type\": \"boolean\",\n      \"description\": \"true if no deal/invoice recommendations, false if message_for_manager exists\"\n    },\n    \"message_for_manager\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"HTML formatted message combining deal and invoice recommendations. Null if skip_manager_update is true\"\n    },\n    \"operation_type\": {\n      \"type\": \"string\",\n      \"enum\": [\"deal_update\", \"invoice_update\", \"deal_create\", \"invoice_create\", \"deal_and_invoice_update\", \"nudge\", \"no_action\"],\n      \"description\": \"Primary recommended operation\"\n    },\n    \"deal_operation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"action\": {\n          \"type\": \"string\",\n          \"enum\": [\"update\", \"create\", \"skip\"]\n        },\n        \"deal_id\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Required when action is 'update'\"\n        },\n        \"changes\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Summary of recommended changes\"\n        }\n      },\n      \"required\": [\"action\"]\n    },\n    \"invoice_operation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"action\": {\n          \"type\": \"string\",\n          \"enum\": [\"update\", \"create\", \"skip\"]\n        },\n        \"invoice_id\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Required when action is 'update'\"\n        },\n        \"changes\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Summary of recommended changes\"\n        }\n      },\n      \"required\": [\"action\"]\n    },\n    \"nudge\": {\n      \"type\": \"boolean\",\n      \"description\": \"true if HIGH urgency nudge is needed\"\n    },\n    \"nudge_data\": {\n      \"type\": [\"object\", \"null\"],\n      \"properties\": {\n        \"nudge_from\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"name\": {\n              \"type\": \"string\",\n              \"description\": \"Manager's full name\"\n            },\n            \"address\": {\n              \"type\": \"string\",\n              \"description\": \"Manager's email address\"\n            }\n          },\n          \"required\": [\"name\", \"address\"]\n        },\n        \"nudge_to\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"name\": {\n              \"type\": \"string\",\n              \"description\": \"Non-responsive user's name\"\n            },\n            \"address\": {\n              \"type\": \"string\",\n              \"description\": \"Non-responsive user's email\"\n            }\n          },\n          \"required\": [\"name\", \"address\"]\n        },\n        \"pending_question\": {\n          \"type\": \"string\",\n          \"description\": \"Specific unanswered question from manager\"\n        },\n        \"days_pending\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"description\": \"Days since manager asked the question (1, 2, 3, 4, 5...)\"\n        },\n        \"urgency_level\": {\n          \"type\": \"string\",\n          \"enum\": [\"high\", \"medium\", \"low\"],\n          \"description\": \"Always 'high' since only HIGH urgency nudges are included\"\n        },\n        \"nudge_email_body\": {\n          \"type\": \"string\",\n          \"description\": \"Complete email body FROM ASSISTANT reminding user about pending info for the manager\"\n        }\n      },\n      \"required\": [\"nudge_from\", \"nudge_to\", \"pending_question\", \"days_pending\", \"urgency_level\", \"nudge_email_body\"],\n      \"description\": \"Required when nudge is true, null when nudge is false\"\n    }\n  },\n  \"required\": [\"skip_manager_update\", \"message_for_manager\", \"operation_type\", \"deal_operation\", \"invoice_operation\", \"nudge\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        42,
+        1160
+      ],
+      "id": "ebafde32-d775-484b-8afd-96271dce3bfb",
+      "name": "Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -246,
+        1160
+      ],
+      "id": "3df2ec4c-ee67-4a29-9d60-7f922265180c",
+      "name": "Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyse the given thread/deal document, extract the results on deals and invoices discussed relevant to the manager and recommend the next best action.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $('Prompt Window').first().json.direct_prompt}}",
+          "maxIterations": 20,
+          "returnIntermediateSteps": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -280,
+        740
+      ],
+      "id": "0b1fe2b5-0259-405d-940d-bd164aec3051",
+      "name": "RecommenderGeneral1",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Trigger').first().json.data.prompt_routing === \"bot_only\" || $('Trigger').first().json.data.prompt_routing === \"bot_and_others\"}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "a6247a0e-43bb-4651-8221-135b69cc2399"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a0fc53a6-c94c-4213-9cdb-d89fe81b01f9",
+                    "leftValue": "={{ $('Trigger').first().json.data.prompt_routing === \"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -980,
+        440
+      ],
+      "id": "6a21beaf-788d-483c-b376-ff7c69b5b85e",
+      "name": "AgentRouting"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"response_html\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\": \"Gmail-ready HTML response to be sent to the manager.\"\n\t\t},\n        \"deal_next_step\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Set the right deal_status based on the tool:DealAndInvoiceManager output. Strictly set to null if not provided/missing\",\n          \"enum\": [\"update\", \"not_update\", \"create_new\", \"no_action\", \"await_confirmation\", \"unsupported_deal\"]\n        },\n        \"invoice_next_step\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Set the right invoice_status based on the tool:DealAndInvoiceManager output. Strictly set to null if not provided/missing\",\n          \"enum\": [\"update\", \"not_update\", \"create_new\", \"no_action\", \"await_confirmation\", \"send_file_to_user\"]\n        }\n\t}\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        88,
+        360
+      ],
+      "id": "abdabc1d-0a69-4800-a3bc-4621d38a08fd",
+      "name": "Parser2"
+    },
+    {
+      "parameters": {
+        "name": "DealAndInvoiceManager",
+        "description": "Call this tool to;\n- Identify the client in manager workspace\n- Locate previous deals and invoices related to a client/customer.\n- Locate invoice clients for a customer.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "ZvHgk1Q1b6snfISL",
+          "mode": "list",
+          "cachedResultName": "DealInvoiceManager"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deals_and_invoices",
+            "data": "={{ { \n\"user_id\": $('Trigger').first().json.data.Manager.user_id,\nsession_data: $('Trigger').first().json.data.thread, last_email: $('Trigger').first().json.data.last_email,\nManager: $('Trigger').first().json.data.Manager,\nhistory: $('FormatHistory').first().json.history\n} }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_input",
+              "displayName": "ai_input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        160
+      ],
+      "id": "8797badb-6f32-47c7-86b8-eb90d13f50c9",
+      "name": "DI-Manager"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        162.5
+      ],
+      "id": "8fa698db-735a-4faa-a9de-1acc032a5ab3",
+      "name": "AutoParser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -320,
+        360
+      ],
+      "id": "ebd971aa-9179-4d59-bd4a-b31ff1717435",
+      "name": "Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse user_session for the current item\nconst userSessionString = $input.first().json.user_session;\nconst userSession = JSON.parse(userSessionString);\n\nreturn {sub_session: userSession};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -540,
+        140
+      ],
+      "id": "9a8cf661-cd7f-414b-93ef-767a30eeee23",
+      "name": "subsession"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('Trigger').first().json.data.thread.ThreadId+$('Trigger').first().json.data.Manager.user_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -760,
+        140
+      ],
+      "id": "4f66c4f5-7a43-4e95-8617-ea13091a1c3d",
+      "name": "User Session",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "ActionExecuter",
+        "description": "This tool is called only for actions approved by the Manager. This tool execute the following on Manager's approval;\n- Executing deal creation, deal updating, invoice creation, invoice updating, storing the deal file in system, sending invoice file back to user.",
+        "workflowId": {
+          "__rl": true,
+          "value": "pDFKewaroTBhnwBc",
+          "mode": "list",
+          "cachedResultName": "ActionExecuter-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{\n{\n\"user_id\": $('Trigger').first().json.data.Manager.user_id,\n\"thread\": $('Trigger').first().json.data.thread,\n\"last_email\": $('Trigger').first().json.data.last_email, \n\"Manager\": $('Trigger').first().json.data.Manager,\n\"metadata\": $json.sub_session,\n  execution_instructions: $fromAI(\"execution_instructions\", \"Based on the User Message and the conversation history, compile all the the changes Manager wants to execute compared to the previous recommended steps by 'AI'. Make sure the instructions are compiled and clearly mentioned what action to take from the provided actions. You should be able to capture all intents and instructions of the user.\", \"string\")\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -120,
+        160
+      ],
+      "id": "ff7e1686-deb2-491f-86a0-00ea74fddfa3",
+      "name": "ActionsExecuter"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{\n$('Trigger').first().json.data.last_email;\n}}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $('Prompt Window').first().json.chat_prompt}}",
+          "maxIterations": 10,
+          "returnIntermediateSteps": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -280,
+        -40
+      ],
+      "id": "3ec19eae-e55d-464f-a759-d12247ffe26f",
+      "name": "ChatAgent",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ea8bc648-c48d-417d-86f0-5cef6db4a27c",
+              "leftValue": "={{ $('ChatAgent').first().json.output.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1016,
+        140
+      ],
+      "id": "b117dcd2-5048-43d5-96ec-e7e5c26f8b67",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a162561e-1399-4ee3-9db1-452ef7e923b3",
+              "name": "output.response",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1236,
+        240
+      ],
+      "id": "ff8d2187-6b3c-414e-95ca-744dc096220a",
+      "name": "Edit Fields6",
+      "alwaysOutputData": false,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// Creates two DB-ready objects (human, then ai) with cleaned content\n// Adds \"Last interaction: <date time>\" to the human message content\n// Hardened for Postgres: escapes backslashes and invalid \\u escapes, removes null bytes, fixes unpaired surrogates.\n\n// ---------------- Helpers ----------------\nconst toStr = (v) => (v === null || v === undefined) ? \"\" : String(v);\n\n/** Strip HTML to plain text and tidy whitespace */\nfunction stripHtml(html) {\n  const s = toStr(html);\n  const withoutTags = s.replace(/<[^>]*>/g, \" \");\n  const decoded = withoutTags\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&quot;/gi, '\"');\n  return decoded.replace(/\\s+/g, \" \").trim();\n}\n\n/** Try to parse JSON safely */\nfunction tryParseJson(s) {\n  if (typeof s !== \"string\") return null;\n  const trimmed = s.trim();\n  if (!(trimmed.startsWith(\"{\") || trimmed.startsWith(\"[\"))) return null;\n  try { return JSON.parse(trimmed); } catch { return null; }\n}\n\n/** Remove null bytes and fix unpaired surrogate code units */\nfunction sanitizeUnicode(s) {\n  let out = s.replace(/\\u0000/g, \"\"); // remove NULs\n  // remove unpaired surrogates\n  out = out.replace(/[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?<![\\uD800-\\uDBFF])[\\uDC00-\\uDFFF]/g, \"�\");\n  return out;\n}\n\n/** Escape content so Postgres won't treat \\u... as a Unicode escape */\nfunction escapeForPostgresText(s) {\n  // First, double all backslashes\n  let out = s.replace(/\\\\/g, \"\\\\\\\\\");\n  // If any sequence looks like \\u but not \\uXXXX, re-escape it (turn \\\\u into \\\\\\\\u in the final string)\n  out = out.replace(/\\\\u(?![0-9a-fA-F]{4})/g, \"\\\\\\\\u\");\n  return out;\n}\n\n/** Normalize AI/Human content */\nfunction normalizeContent(raw) {\n  const asString = typeof raw === \"string\" ? raw : JSON.stringify(raw ?? \"\");\n  const maybeJson = tryParseJson(asString);\n\n  if (maybeJson && typeof maybeJson === \"object\") {\n    const respHtml =\n      maybeJson?.output?.response_html ??\n      maybeJson?.response_html ??\n      maybeJson?.html ??\n      null;\n\n    if (respHtml) return stripHtml(respHtml);\n\n    if (typeof maybeJson.content === \"string\") {\n      const c = maybeJson.content.trim();\n      return /<[^>]+>/.test(c) ? stripHtml(c) : c;\n    }\n    return JSON.stringify(maybeJson);\n  }\n\n  return /<[^>]+>/.test(asString) ? stripHtml(asString) : asString.trim();\n}\n\n/** Build one DB record */\nfunction buildRecord({ tag, content, session_id, id = null }) {\n  const type = (toStr(tag).toLowerCase() === \"human\") ? \"human\" : \"ai\";\n  let cleaned = normalizeContent(content);\n\n  // Add last interaction timestamp only for human\n  if (type === \"human\") {\n    const ts = new Date().toISOString(); // ISO 8601 (UTC)\n    cleaned += `\\n\\nLast interaction: ${ts}`;\n  }\n\n  // Unicode + Postgres safety\n  cleaned = sanitizeUnicode(cleaned);\n  cleaned = escapeForPostgresText(cleaned);\n\n  return {\n    json: {\n      session_id: toStr(session_id),\n      message: {\n        type,\n        content: cleaned,\n        tool_calls: [],\n        additional_kwargs: {},\n        response_metadata: {},\n        invalid_tool_calls: []\n      }\n    }\n  };\n}\n\n// ---------------- Input Normalization ----------------\nconst inJson = $json ?? {};\nlet humanRec = null;\nlet aiRec = null;\n\n// Case 1: records array\nif (Array.isArray(inJson.records)) {\n  for (const r of inJson.records) {\n    const tag = toStr(r?.tag).toLowerCase();\n    if (tag === \"human\") humanRec = { ...r };\n    if (tag === \"ai\") aiRec = { ...r };\n  }\n}\n\n// Case 2: explicit human/ai objects\nif (!humanRec && inJson.human) {\n  humanRec = {\n    tag: \"human\",\n    content: inJson.human.content,\n    session_id: inJson.human.session_id ?? inJson.session_id\n  };\n}\nif (!aiRec && inJson.ai) {\n  aiRec = {\n    tag: \"ai\",\n    content: inJson.ai.content,\n    session_id: inJson.ai.session_id ?? inJson.session_id\n  };\n}\n\n// Case 3: separate fields\nif (!humanRec && (inJson.human_content || inJson.human_text)) {\n  humanRec = {\n    tag: \"human\",\n    content: inJson.human_content ?? inJson.human_text,\n    session_id: inJson.session_id\n  };\n}\nif (!aiRec && (inJson.ai_content || inJson.ai_text)) {\n  aiRec = {\n    tag: \"ai\",\n    content: inJson.ai_content ?? inJson.ai_text,\n    session_id: inJson.session_id\n  };\n}\n\n// Case 4: fallback\nif (!humanRec && !aiRec && inJson.tag && inJson.content) {\n  const tag = toStr(inJson.tag).toLowerCase();\n  if (tag === \"human\") humanRec = { tag: \"human\", content: inJson.content, session_id: inJson.session_id };\n  if (tag === \"ai\") aiRec = { tag: \"ai\", content: inJson.content, session_id: inJson.session_id };\n}\n\n// Session fallback\nconst sessionFallback = humanRec?.session_id ?? aiRec?.session_id ?? inJson.session_id ?? \"\";\nif (humanRec && !humanRec.session_id) humanRec.session_id = sessionFallback;\nif (aiRec && !aiRec.session_id) aiRec.session_id = sessionFallback;\n\n// ---------------- Build Output ----------------\nconst out = [];\nif (humanRec) out.push(buildRecord(humanRec));\nif (aiRec) out.push(buildRecord(aiRec));\n\nif (out.length === 0) {\n  throw new Error(\"No valid inputs found. Provide `records`, or human/ai objects, or content fields.\");\n}\n\nreturn out;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        576,
+        140
+      ],
+      "id": "8f0563c5-952f-4287-b009-0d2e51c1c731",
+      "name": "ChatHistory1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n  {\n  records: [\n    { tag: \"human\", content: $('Trigger').first().json.data.last_email, session_id: $('Trigger').first().json.data.thread.ThreadId + $('Trigger').first().json.data.Manager.user_id},\n    { tag: \"ai\", content: $json.output.response_html, session_id: $('Trigger').first().json.data.thread.ThreadId + $('Trigger').first().json.data.Manager.user_id},\n  ]\n  }\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        356,
+        140
+      ],
+      "id": "e0a7e9e1-13dc-4933-b6de-763f45bbcb9d",
+      "name": "Edit Fields7"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_chat_histories",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "session_id",
+              "displayName": "session_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        796,
+        140
+      ],
+      "id": "507b5966-32d7-4678-bc9a-1129ebb027ac",
+      "name": "Postgres",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// Get outputs from RecommendActions node\nconst out = $('ChatAgent').item.json.output || {};\n\n// Get Manager object from Trigger node\nconst manager = ($('Trigger').first().json.data || {}).Manager || {\n  name: \"\",\n  address: \"\",\n  user_id: \"\",\n  person_number: \"\",\n  Role: \"Manager\",\n  Clients: [],\n};\n\n// Allowed statuses\nconst allowedDeal = [\"create_new\", \"await_confirmation\", \"update\", \"unsupported_deal\"];\nconst allowedInvoice = [\"create_new\", \"await_confirmation\", \"update\", \"send_file_to_user\"];\n\n// Extract values\nconst deal = out.deal_next_step ?? null;\nconst invoice = out.invoice_next_step ?? null;\n\n// Function to normalize into array\nconst toArray = (val) => Array.isArray(val) ? val : (val !== null ? [val] : []);\n\n// Convey_to_user logic\nlet conveyToUser = false;\nif (deal === null || invoice === null) {\n  conveyToUser = true;\n} else {\n  const dealStatuses = toArray(deal);\n  const invoiceStatuses = toArray(invoice);\n  conveyToUser =\n    dealStatuses.some(s => allowedDeal.includes(s)) ||\n    invoiceStatuses.some(s => allowedInvoice.includes(s));\n}\n\n// Build response HTML (fallback if none provided)\nconst responseHtml = out.response_html ?? `\n<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#111;max-width:680px;\">\n  <p>Hi,</p>\n  <p>No response content was generated.</p>\n  <hr>\n  <p>Best,<br>Patchbay Assistant</p>\n</div>\n`;\n\n// tool_executed flag\nconst toolExecuted = Boolean(out.tool_executed);\n\n// Final output\nreturn [\n  {\n    output: {\n      response: responseHtml,\n      tool_executed: toolExecuted,\n      deal_next_step: deal,\n      invoice_next_step: invoice\n    },\n    convey_to_user: conveyToUser,\n    Manager: manager,\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1236,
+        40
+      ],
+      "id": "985583d5-855b-4e46-8a58-5e0c47e5404c",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse user_session for the current item\nconst userSessionString = $input.first().json.user_session;\nconst userSession = JSON.parse(userSessionString);\n\nreturn {sub_session: userSession};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -540,
+        740
+      ],
+      "id": "bf63ac52-d49a-4cd7-87f5-bbbf15e3629b",
+      "name": "subsession1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('Trigger').first().json.data.thread.ThreadId+$('Trigger').first().json.data.Manager.user_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -760,
+        740
+      ],
+      "id": "d54e78c4-4174-408f-ab83-28d1bedb0c2b",
+      "name": "User Session1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "DealAndInvoiceManager",
+        "description": "Call this tool to;\n- Identify the client in manager workspace\n- Locate previous deals and invoices related to a client/customer.\n- Locate invoice clients for a customer.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "ZvHgk1Q1b6snfISL",
+          "mode": "list",
+          "cachedResultName": "DealInvoiceManager"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deals_and_invoices",
+            "data": "={{ { \n\"user_id\": $('Trigger').first().json.data.Manager.user_id,\nsession_data: $('Trigger').first().json.data.thread, last_email: $('Trigger').first().json.data.last_email,\nManager: $('Trigger').first().json.data.Manager,\nhistory: $('FormatHistory').first().json.history\n} }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_input",
+              "displayName": "ai_input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -186,
+        960
+      ],
+      "id": "d7186a5b-a4b9-430e-8c22-a3d171b8fc87",
+      "name": "DI-Manager1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a162561e-1399-4ee3-9db1-452ef7e923b3",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "df896648-81d4-460b-9937-2703dd5b62bf",
+              "name": "output.Manager",
+              "value": "={{ $('Trigger').first().json.data.Manager }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        500
+      ],
+      "id": "e8c701a5-85d3-4183-9231-4aaaf742f35a",
+      "name": "Edit Fields2",
+      "alwaysOutputData": false,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_chat_histories",
+          "mode": "name"
+        },
+        "deleteCommand": "delete",
+        "where": {
+          "values": [
+            {
+              "column": "session_id",
+              "value": "19934ec38f3bf143b07af3f8-c51e-42df-b5c7-6b5248a5ee5e"
+            },
+            {
+              "column": "id",
+              "value": "2556"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1640,
+        900
+      ],
+      "id": "453c45ea-e7b6-4d9d-b29c-f168a017bfad",
+      "name": "Memory1",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "data": {
+            "thread": {
+              "ThreadId": "19934ec38f3bf143",
+              "Subject": "Re: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke",
+              "Emails": "---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: asst@patchbay.xyz\nDate: Mon, Nov 3, 2025, 9:59 PM\nBody: Approved. Please draft the invoice and issue it to Epic Records. Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nCC: Seamus Blair (seamus@markmml.com)\nDate: Monday, November 3, 2025 at 2:37 PM\nSubject: Re: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nYeah, let's do that. Are you in touch with A&R admin?\n________________________\n\n_______________\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nCC: Seamus Blair (seamus@markmml.com)\nDate: Sunday, November 2, 2025 at 7:13 PM\nSubject: Re: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nGot it. Should we just try to push through an invoice for the fee? This has been out a few weeks and i feel like Kamen will take forever.\n\nBest,\nAidan Schechter\n________________________\n\n_______________\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nCC: Seamus Blair (seamus@markmml.com), Assistant Assistant (asst@patchbay.xyz)\nDate: Sunday, November 2, 2025 at 1:13 PM\nSubject: Re: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nGot it. Should we just try to push through an invoice for the fee? This has been out a few weeks and I feel like Kamen will take forever.\n\nBest,\nAidan Schechter\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nCC: Seamus Blair (seamus@markmml.com)\nDate: Friday, October 31, 2025 at 2:53 PM\nSubject: Re: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nWe are still chasing Kamen for a draft. He's not the quickest around.\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nDate: Friday, October 31, 2025 at 7:53 AM\nSubject: Re: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nWe are still chasing Kamen for a draft. He's not the quickest around.\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nCC: Seamus Blair (seamus@markmml.com)\nDate: Friday, October 31, 2025 at 7:53 AM\n\nBody:\nWe are still chasing Kamen for a draft. He's not the quickest around.\n________________________\n\n_______________\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nCC: Seamus Blair (seamus@markmml.com)\nDate: Friday, October 31, 2025 at 3:18 AM\nSubject: Fwd: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nIs this one done?\n\nBest,\nAidan Schechter\n________________________\n\n_______________\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nCC: Seamus Blair (seamus@markmml.com), Assistant Assistant (asst@patchbay.xyz)\nDate: Thursday, October 30, 2025 at 10:18 PM\nSubject: Fwd: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nIs this one done?\n\nBest,\nAidan Schechter\n________________________\n\n_______________\nFrom: Sam French (sam@mixedmanagement.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nCC: Josh Hefner (jh@markmml.com), Seamus Blair (seamus@markmml.com)\nDate: Monday, September 29, 2025 at 2:22 PM\nSubject: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nCool to proceed  \nAnnoying but whatever\n________________________\n\n_______________\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Sam French (sam@mixedmanagement.com)\nDate: Wednesday, September 24, 2025 at 1:53 PM\nSubject: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nI defer to what Sam wants us to do here, given that this is already a tricky situation that he was running point on. Thanks!\n\nBest,  \nAidan Schechter\n________________________\n\n_______________\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Sam French (sam@mixedmanagement.com)\nDate: Wednesday, September 24, 2025 at 1:53 PM\n\nBody:\nI defer to what Sam wants us to do here, given that this is already a tricky situation that he was running point on. Thanks!\n\nBest,\nAidan Schechter\n________________________\n\n_______________\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nDate: Wednesday, September 24, 2025 at 1:53 PM\nSubject: [No Subject]\n\nBody:\nI defer to what Sam wants us to do here, given that this is already a tricky situation that he was running point on. Thanks!\n\nBest,  \nAidan Schechter\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nDate: Monday, September 22, 2025 at 4:00 AM\nSubject: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nOkay to move this one forward at 100% recoupable or want me to push back again for 50%?\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nDate: Monday, September 22, 2025 at 4:00 AM\n\nBody:\nOkay to move this one forward at 100% recoupable or want me to push back again for 50%?\n\nJoshua Hefner\nPartner\nMark Music & Media Law, P.C.\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nDate: Monday, September 22, 2025 at 4:00 AM\nSubject: [No Subject]\n\nBody:\nOkay to move this one forward at 100% recoupable or want me to push back again for 50%?\n________________________\n\n_______________\nFrom: Joshua Kamen (josh@kamenlawfirm.com)\nTo: Josh Hefner (jh@markmml.com), Sam French (sam@mixedmanagement.com), Nia Rasool (nia@kamenlawfirm.com)\nDate: Thursday, September 11, 2025 at 12:45 PM\nSubject: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nHey Josh -\n\nI can't do 50% recoupable on this one. Can we please proceed with a fully recoupable advance?\n\nRights reserved.\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Joshua Kamen (josh@kamenlawfirm.com)\nCC: Sam French (sam@mixedmanagement.com), Nia Rasool (nia@kamenlawfirm.com)\nDate: Wednesday, September 11, 2025 at 10:30 AM EDT\nSubject: Re: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nHi Josh – thanks for this. All good provided the fee is 50% recoupable. Thanks.\n\nReserving rights.\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Joshua Kamen (josh@kamenlawfirm.com)\nDate: Wednesday, September 11, 2025 at 10:30 AM\n\nBody:\nHi Josh – thanks for this. All good provided the fee is 50% recoupable.\nThanks.\n\nReserving rights.\n\nJoshua Hefner\nPartner\nMark Music & Media Law, P.C.\n________________________\n\n_______________\nFrom: Joshua Kamen (josh@kamenlawfirm.com)\nTo: Josh Hefner (jh@markmml.com), Sam French (sam@mixedmanagement.com), Nia Rasool (nia@kamenlawfirm.com)\nDate: Wednesday, September 10, 2025 at 1:12 PM\nSubject: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nJosh/Sam -\n\nI hope all is well. As you may know Hidde and Alex co-produced the above-referenced song for Giveon. I understand that they have agreed to receive an $8K advance, a 0.5% PPD royalty and 10% pub share each.\n\nPlease let me know if this is confirmed ASAP and we will send stepped-up drafts.\n\nPlease also confirm contracting info and that there are no samples/third-party contributions (other than Cashmere Cat and Jasper Harris).\n\nRights reserved.\n\nThanks,\n\nJosh\n________________________\n\n_______________\nFrom: Josh Hefner (jh@markmml.com)\nTo: Joshua Kamen (josh@kamenlawfirm.com), Sam French (sam@mixedmanagement.com), Nia Rasool (nia@kamenlawfirm.com)\nDate: Wednesday, September 10, 2025 at 1:12 PM\nSubject: Giveon -w- Hidde Ament & Alex Goldblatt // Dancing in the Smoke\n\nBody:\nHi Josh – thanks for this. All good provided the fee is 50% recoupable. Thanks.\n\nReserving rights.\n________________________",
+              "Others": [
+                {
+                  "name": "Josh Hefner",
+                  "address": "jh@markmml.com"
+                },
+                {
+                  "name": "Joshua Kamen",
+                  "address": "josh@kamenlawfirm.com"
+                },
+                {
+                  "name": "Nia Rasool",
+                  "address": "nia@kamenlawfirm.com"
+                },
+                {
+                  "name": "Sam French",
+                  "address": "sam@mixedmanagement.com"
+                },
+                {
+                  "name": "Seamus Blair",
+                  "address": "seamus@markmml.com"
+                }
+              ],
+              "Managers": [
+                {
+                  "name": "Aidan Schechter",
+                  "address": "aidan@1916mgmt.com",
+                  "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+                  "person_number": "beeb7d89-c123-4bf1-90a6-f4a279a0164a",
+                  "Role": "Manager",
+                  "Clients": [
+                    {
+                      "book_number": "f9fe49b9-7b34-4926-bd85-32a66377e5ba",
+                      "book_id": 7,
+                      "message": "Producer Alexander B. Goldblatt is verified in Aidan Schechter's workspace",
+                      "verification_status": true
+                    }
+                  ]
+                }
+              ],
+              "references": [
+                "<2104855023.435524.1757527946344@mailbusiness.ionos.com>",
+                "<IA1PR17MB61947DE1111E2F65E4C31DD6CE09A@IA1PR17MB6194.namprd17.prod.outlook.com>",
+                "<2047445179.567311.1757612702955@mailbusiness.ionos.com>",
+                "<IA1PR17MB6194EF422B1C3E8FAC55A247CE10A@IA1PR17MB6194.namprd17.prod.outlook.com>",
+                "<mfya85vw.b3450f33-caf8-420e-b21e-9ef582fb62eb@we.are.superhuman.com>",
+                "<CAKTgqYFWTqF_cXH371SCdp-zcOrV51t_21Ksh4gge81go+n5ww@mail.gmail.com>",
+                "<mhea9nb9.aff2cd3e-936b-431c-8191-667330645581@we.are.superhuman.com>",
+                "<IA1PR17MB6194A820AF475E971CEE891DCEF8A@IA1PR17MB6194.namprd17.prod.outlook.com>",
+                "<mhi394ke.4908a71c-bea8-4366-857e-05a0036b3052@we.are.superhuman.com>",
+                "<CAEaeWjSVXTZL9TH+9rAMwu9QyY=704S9oXFFXxzA9cjCC9t=tw@mail.gmail.com>"
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            },
+            "last_email": "Approved. Please draft the invoice and issue it to Epic Records. Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM",
+            "Manager": {
+              "name": "Aidan Schechter",
+              "address": "aidan@1916mgmt.com",
+              "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+              "Clients": [
+                {
+                  "book_number": "f9fe49b9-7b34-4926-bd85-32a66377e5ba",
+                  "book_id": 7,
+                  "message": "Producer Alexander B. Goldblatt is verified in Aidan Schechter's workspace",
+                  "verification_status": true
+                }
+              ]
+            },
+            "prompt_routing": "bot_only"
+          }
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 600
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-05T03:37:33.241Z",
+  "versionId": "a8f199c8-41e6-4342-806f-7c05ae58402a"
+}
