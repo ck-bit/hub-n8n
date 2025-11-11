@@ -1,0 +1,2156 @@
+{
+  "active": false,
+  "connections": {
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Reformat1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetSession1": {
+      "main": [
+        [
+          {
+            "node": "SessionData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route": {
+      "main": [
+        [
+          {
+            "node": "Route2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ExtractData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractData1": {
+      "main": [
+        [
+          {
+            "node": "UpdateEmails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateEmails": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "GetSession1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SessionData": {
+      "main": [
+        [
+          {
+            "node": "CheckForwarded2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements1": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "AddReference2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route2": {
+      "main": [
+        [
+          {
+            "node": "ExtractData1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ExtractData1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code6": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "AddReference1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements2": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Combine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Chunking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chunking": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractEmails": {
+      "main": [
+        [
+          {
+            "node": "IdentifyUsers1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IdentifyUsers1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update1": {
+      "main": [
+        [
+          {
+            "node": "Binary1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Update1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements3": {
+      "main": [
+        [
+          {
+            "node": "Code8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code8": {
+      "main": [
+        [
+          {
+            "node": "AddReference3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion": {
+      "main": [
+        []
+      ]
+    },
+    "GetSession": {
+      "main": [
+        [
+          {
+            "node": "SessionData1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "GetSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckForwarded1": {
+      "main": [
+        [
+          {
+            "node": "ExtractData2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SessionData1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code9": {
+      "main": [
+        []
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "AddReference",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoManagers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reformat1": {
+      "main": [
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update": {
+      "main": [
+        [
+          {
+            "node": "Binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IdentifyUsers": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Binary1": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Binary": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code7": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements5": {
+      "main": [
+        [
+          {
+            "node": "Code10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code10": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckForwarded2": {
+      "main": [
+        [
+          {
+            "node": "Route",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractData": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Combine": {
+      "main": [
+        [
+          {
+            "node": "ExtractEmails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-25T07:29:54.323Z",
+  "id": "1qiftJdGy4sT3cbC",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ProcessData-V-1.0.4",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "47e0a37d-8a79-41c4-b1a7-33b8f9662052",
+              "leftValue": "={{ $('CheckForwarded2').first().json.isForwarded }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -280,
+        750
+      ],
+      "id": "f68d6c6c-9b10-472e-89bc-9479d4eafd84",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "thread",
+        "key": "=thread_{{ $json.threadId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1380,
+        550
+      ],
+      "id": "47fc81e5-e3f7-4dfc-8b31-de04955370df",
+      "name": "GetSession1",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b541275c-053b-422f-820a-bb310978adc5",
+              "leftValue": "=  {{ $('SessionData').first().json.sessionStatus === true && $json.isForwarded === false }}\n",
+              "rightValue": "=true",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -720,
+        550
+      ],
+      "id": "d8154754-32f0-4750-a9ac-96231bb32efb",
+      "name": "Route"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node - JavaScript\n// Processes emails with cleaning, formatting, and Others generation\n\n// ---------- Helpers (same cleaning technique) ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,\n    /\\nSent from my (iPhone|Android).*$/i,\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,\n    /\\n>+/m,\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n  let newest = cutAtFirst(t, cutoffPatterns);\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\n// Helper function to format contact array for display\nfunction formatContacts(contacts) {\n  if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {\n    return '';\n  }\n  \n  return contacts.map(contact => {\n    if (contact.name && contact.address) {\n      return `${contact.name} (${contact.address})`;\n    } else if (contact.address) {\n      return contact.address;\n    }\n    return '';\n  }).filter(c => c).join(', ');\n}\n\n// Helper function to format date\nfunction formatDate(dateString) {\n  if (!dateString) return '';\n  \n  try {\n    const date = new Date(dateString);\n    return date.toLocaleString('en-US', {\n      weekday: 'short',\n      month: 'short',\n      day: 'numeric',\n      year: 'numeric',\n      hour: 'numeric',\n      minute: '2-digit',\n      hour12: true\n    });\n  } catch (error) {\n    return dateString; // Return original if parsing fails\n  }\n}\n\n// ---------- Main processing with formatting ----------\nconst results = [];\n\nfor (const item of $('Trigger').all()) {\n  const data = item.json;\n\n  // Get all CCs except 'asst@patchbay.xyz'\n  const allCC = (data.cc?.value) || [];\n  const filteredCC = allCC.filter(cc => cc.address !== \"asst@patchbay.xyz\");\n\n  // Cleaned latest email body (prefer text, fallback to html)\n  let raw = pickBody(data);\n  let cleaned = firstBodyOnly(raw);\n  // Make single-line (keep if you want compact output)\n  const emailText = cleaned.replace(/\\n/g, \" \").replace(/\\s+/g, \" \").trim();\n\n  // Create the email object\n  const emailObject = {\n    ThreadId: data.threadId,\n    Label: data.Label,\n    EmailId: data.id,\n    MessageId: data.messageId,\n    References: data.references,\n    Subject: data.subject,\n    From: data.from?.value || [],\n    to: data.to?.value || [],\n    cc: filteredCC,\n    date: data.date,\n    emailText: emailText || '',\n  };\n\n  // Format the email as structured text\n  let emailsString = '';\n  \n  emailsString += '---------------\\n';\n  \n  // From field\n  const fromFormatted = formatContacts(emailObject.From);\n  emailsString += `From: ${fromFormatted}\\n`;\n  \n  // To field\n  const toFormatted = formatContacts(emailObject.to);\n  emailsString += `To: ${toFormatted}\\n`;\n  \n  // Cc field (only add if not empty)\n  const ccFormatted = formatContacts(emailObject.cc);\n  if (ccFormatted) {\n    emailsString += `Cc: ${ccFormatted}\\n`;\n  }\n  \n  // Date field\n  const dateFormatted = formatDate(emailObject.date);\n  emailsString += `Date: ${dateFormatted}\\n`;\n  \n  // Body field\n  emailsString += `Body: ${emailObject.emailText || ''}\\n`;\n  \n  emailsString += '---------------';\n\n  const output = {\n    ThreadId: data.threadId,\n    Subject: data.subject,\n    Emails: emailsString\n  };\n\n  results.push({ json: output });\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        300
+      ],
+      "id": "281c95cb-67d8-4e93-b06a-a4bf75f094b5",
+      "name": "ExtractData1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get input data\nconst node1 = $('SessionData').item.json; // Main input with existing emails\nconst node2 = $input.item.json; // New emails to merge\n\n// Combine emails (Node-2 on top, then Node-1)\nlet combinedEmails = '';\n\n// Add Node-2 emails first (on top)\nif (node2.Emails && node2.Emails.trim()) {\n  combinedEmails += node2.Emails;\n}\n\n// Add separator if both have content\nif (node2.Emails && node2.Emails.trim() && node1.Emails && node1.Emails.trim()) {\n  combinedEmails += '\\n\\n';\n}\n\n// Add Node-1 emails after\nif (node1.Emails && node1.Emails.trim()) {\n  combinedEmails += node1.Emails;\n}\n\n// Update Node-1 structure with merged emails\nnode1.Emails = combinedEmails;\n\nreturn [{ json: node1 }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -60,
+        300
+      ],
+      "id": "962ce1a3-886b-46da-b349-c618ff52535d",
+      "name": "UpdateEmails"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1416,
+        300
+      ],
+      "id": "b0466f7a-d204-4cd0-bffd-5b33afe6a8e4",
+      "name": "UpdateSesssion4",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1600,
+        550
+      ],
+      "id": "a6599281-f7ec-4089-a736-2b0fbe7f22c4",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const sessionData = $input.first().json.thread;\n\nif (typeof sessionData === \"string\") {\n  try {\n    const parsed = JSON.parse(sessionData);\n    parsed.sessionStatus = true;\n    return parsed;\n  } catch {\n    return { sessionStatus: false }; // Invalid JSON\n  }\n} else {\n  return { sessionStatus: false }; // No session data\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1160,
+        550
+      ],
+      "id": "ee796da4-8cf8-471c-a7fb-f2d8c0fb02ef",
+      "name": "SessionData"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check_attachement",
+            "data": "={{ $json.lastEmail }}",
+            "binary": "={{ $json.binary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        458,
+        300
+      ],
+      "id": "2c264fa0-b240-4691-8780-a2f7952d7429",
+      "name": "GetAttachements1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.item.json;\nconst node2 = $(\"UpdateEmails\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file;\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n\n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n  };\n\n  return { json: node2 };\n} else {\n  // Return node2 input as is\n  return { json: node2 };\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        756,
+        300
+      ],
+      "id": "df3fc8f3-b54c-4fc2-915f-d68e689a763c",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input JSON (assuming input is from previous node)\nconst input = $input.first().json\nconst attachements = $(\"Trigger\").first().binary\n\n// Extract the Emails array\nconst emails = input.Emails || [];\n\n// Get the last email object (if available)\nconst lastEmail = emails.length > 0 ? emails[emails.length - 1] : null;\n\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        160,
+        300
+      ],
+      "id": "e4a47b8a-fbe2-4007-a6aa-8283ad9788ff",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2603e6ff-7726-4ff2-b203-be61210c4d6b",
+              "leftValue": "={{ $('Trigger').first().json.routing===\"bot_only\"}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -500,
+        200
+      ],
+      "id": "a685b8f3-5fa3-4064-bf19-fbfdb1d1c15b",
+      "name": "Route2"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        976,
+        100
+      ],
+      "id": "383dc70c-a33a-4fef-ba6b-8daf077c0080",
+      "name": "UpdateSesssion5",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const attachements = $(\"Trigger\").first().binary\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        100
+      ],
+      "id": "327b8fe1-2da1-4470-9d04-d7442159e9a5",
+      "name": "Code6"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.item.json;\nconst node2 = $(\"SessionData\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file;\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n\n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n  };\n\n  return { json: node2 };\n} else {\n  // Return node2 input as is\n  return { json: node2 };\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        160,
+        100
+      ],
+      "id": "b5c1b47f-73b4-4fca-b1da-89451dc39056",
+      "name": "Code5"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "binary": "={{ $json.binary }}",
+            "action": "check_attachement"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -60,
+        100
+      ],
+      "id": "c3cf0817-5f07-4e39-b705-0f258a27fa84",
+      "name": "GetAttachements2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "48efb2d8-b04d-4932-899b-d06f98a0b7d2",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1196,
+        300
+      ],
+      "id": "a36ef936-aacd-413b-b78c-0ef3d442da9d",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "ce22242b-3046-4149-abf7-09e9ddb5c278",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        756,
+        100
+      ],
+      "id": "1cc808d5-d90b-4b76-b838-7c9393b8e93b",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=# Email Thread Extraction Prompt\n\nYou are an email parsing specialist. Your task is to extract and format all emails from the provided email thread.\n\n## Input\nThe user will provide an email thread that may contain:\n- Multiple nested/forwarded emails\n- Various email header formats (From, To, CC, Date, Subject)\n- Quoted text and replies\n\n## Your Task\nExtract EVERY individual email from the thread with complete accuracy. Each email should include:\n- **From**: Full name and email address\n- **To**: All recipients with full names and email addresses\n- **CC**: All CC'd recipients (if present)\n- **Date**: The date/time the email was sent\n- **Subject**: Email subject line (if present)\n- **Body**: The complete email body text written by that sender\n\n## Output Format\nFormat each email exactly as shown below. Use this format for EVERY email:\n\n```\n_______________\nFrom: John Doe (john.doe@example.com)\nTo: Jane Smith (jane.smith@example.com), Bob Johnson (bob@company.com)\nCC: Mike Wilson (mike@company.com)\nDate: Monday, September 29, 2025 at 2:46 AM\nSubject: Re: Project Update\n\nBody:\n[Complete email body content here, preserving paragraphs and formatting]\n________________________\n\n```\n\n## Critical Rules\n1. **NO numbering** - Do not add \"Email #1\", \"Email #2\", etc.\n2. **Extract ALL emails** - Every single email in the thread must be extracted\n3. **Complete bodies** - Include the full text of each email body, not summaries\n4. **Preserve formatting** - Keep line breaks and paragraph structure\n5. **Skip signatures** - Omit email signatures, legal disclaimers, and footer boilerplate\n6. **Skip quoted replies** - Don't duplicate content that's quoted from previous emails\n7. **Clean format** - Remove technical artifacts like \"EXTERNAL SENDER\", \">\" quote markers, excessive whitespace\n8. **Handle missing fields** - If CC, Subject, or other fields are absent, simply omit that line\n9. **Consistent name format** - Always use: Full Name (email@address.com)\n10. **No commentary** - Output only the formatted emails, no explanations or notes\n\n## Order\nPresent emails in **chronological order** (new to old by date), so the conversation flows naturally.\n\n## Example\nIf the thread contains 3 emails, output exactly 3 formatted email blocks following the structure above, separated by the delimiter lines.\n\nNow, extract all emails from the following thread:"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        380,
+        940
+      ],
+      "id": "6988e9e9-f1f6-47b4-98ab-a0ebaea5e761",
+      "name": "Basic LLM Chain",
+      "retryOnFail": false,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini-2025-04-14"
+        },
+        "options": {
+          "temperature": 0.3,
+          "timeout": 1000000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        468,
+        1170
+      ],
+      "id": "21e8197e-eb9e-45ad-9e2b-024caa4c0780",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code/Function node\n// Input:  set $json.text to your string, and optionally $json.model\n// Output: { model, textLength, estimated_tokens }\n\nconst text = $input.first().json.emailText;\nconst model = ($json.model ?? 'gpt-4o-mini').toString();\n\n// Average characters per token (rough) per model family.\n// Adjust/extend as needed.\nconst AVG_CHARS_PER_TOKEN = {\n  'gpt-4o-mini': 3.3,\n  'gpt-4o': 3.1,\n  'gpt-4.1': 3.1,\n  'gpt-4.1-mini': 3.2,\n  'gpt-3.5-turbo': 4.0,\n  'text-embedding-3-large': 3.6,\n  'text-embedding-3-small': 3.6,\n  'claude-3.5-sonnet': 3.0,\n  'claude-3.5-haiku': 3.2,\n};\n\nfunction estimateTokens(str, modelName) {\n  const avg = AVG_CHARS_PER_TOKEN[modelName] ?? 3.3;\n\n  // Normalize and split into coarse parts to better mimic subword splits.\n  const parts = str\n    .normalize('NFKC')\n    .split(/(\\s+)/)                // keep whitespace groups separate\n    .filter(s => s.trim().length > 0);\n\n  let tokens = 0;\n\n  for (const part of parts) {\n    // URLs/emails turn into many small pieces\n    if (/^https?:\\/\\//i.test(part) || /@/.test(part)) {\n      tokens += Math.ceil(part.length / 3);\n      continue;\n    }\n\n    // Non-ASCII (CJK, emoji, etc.): assume ~2 tokens per grapheme\n    if (/[^\\x00-\\x7F]/.test(part)) {\n      const graphemes = Array.from(part); // split by Unicode code points\n      tokens += graphemes.length * 2;\n      continue;\n    }\n\n    // Split further into letter runs, digit runs, and punctuation\n    const chunks = part.match(/[A-Za-z]+|[0-9]+|[^\\w\\s]/g) || [];\n    for (const c of chunks) {\n      if (/^[A-Za-z]+$/.test(c)) {\n        // Approximate BPE: ~1 token per ~avg chars\n        tokens += Math.ceil(c.length / avg);\n      } else if (/^[0-9]+$/.test(c)) {\n        // Numbers often split more; ~1 per 3 digits is a decent heuristic\n        tokens += Math.ceil(c.length / 3);\n      } else {\n        // Punctuation and symbols: ~1 each\n        tokens += 1;\n      }\n    }\n  }\n\n  return tokens;\n}\n\nreturn [\n  {\n    json: {\n      text, text,\n      model,\n      textLength: text.length,\n      estimated_tokens: estimateTokens(text, model),\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        940
+      ],
+      "id": "28fdbc11-bfef-4463-8ce3-f06183a77dba",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "jsCode": "const n_tokens = $input.first().json.estimated_tokens || 0;\nconst text = $input.first().json.text || \"\";\n\n// --- If under threshold, return original ---\nif (n_tokens <= 75000) {\n  return [\n    {\n      json: {\n        text: text\n      }\n    }\n  ];\n}\n\n// --- Otherwise: apply split / clean / chunking ---\nconst parts = text.split(\"From:\");\nconst emails = [];\n\nfor (let i = 0; i < parts.length; i++) {\n  let part = parts[i].trim();\n  if (!part) continue;\n\n  const email = (i === 0 ? part : \"From: \" + part);\n  emails.push(email);\n}\n\n// --- Cleaner ---\nconst cleanText = (str) => {\n  return str\n    .replace(/https?:\\/\\/[^\\s<>()\"']+/gi, '')                  // Remove normal URLs\n    .replace(/www\\.[^\\s<>()\"']+/gi, '')                        // Remove www links\n    .replace(/https?:\\s*\\/\\s*\\/[^\\s]+/gi, '')                  // Remove broken/spaced links\n    .replace(/magiclink=.*?(\\s|$)/gi, '')                      // Remove mimecast magiclinks\n    .replace(/mimecast\\.com\\S+/gi, '')                         // Remove MIMECAST encoded URLs\n    .replace(/[<>]/g, '')                                      // Remove angle brackets\n    .replace(/CGBANNERINDICATOR/gi, '')                        // Remove banners\n    .replace(/\\n\\s*>\\s*/g, ' ')                                // Remove \"\\n > \" line continuations\n    .replace(/\\s{2,}/g, ' ')                                   // Collapse multiple spaces\n    .trim();\n};\n\nconst cleanedEmails = emails.map(cleanText);\n\n// --- Chunk into 5 groups ---\nconst chunkCount = 5;\nconst chunkSize = Math.ceil(cleanedEmails.length / chunkCount);\n\nconst chunks = [];\n\nfor (let i = 0; i < chunkCount; i++) {\n  const chunkEmails = cleanedEmails.slice(i * chunkSize, (i + 1) * chunkSize);\n  if (chunkEmails.length) {\n    chunks.push({\n      json: {\n        text: chunkEmails.join('\\n\\n')\n      }\n    });\n  }\n}\n\nreturn chunks;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        180,
+        940
+      ],
+      "id": "35d2beb1-f462-4a09-a60b-def6a068dcc8",
+      "name": "Chunking"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize variables\nlet combinedEmails = '';\nlet emailContacts = new Map(); // Use Map to store unique name-email pairs\n\n// Get the old Managers list from SessionData\nconst triggerData = $(\"Trigger\").first().json;\nconst Managers_old = $(\"SessionData\").first().json.Managers || [];\n\n// Helper function to clean and validate email addresses\nfunction isValidEmail(email) {\n  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$/;\n  \n  // List of emails to exclude\n  const excludedEmails = [\n    'asst@patchbay.xyz'\n  ];\n  \n  return emailRegex.test(email) && \n         email.length < 100 && \n         !excludedEmails.includes(email.toLowerCase());\n}\n\n// Helper function to check if email exists in Managers list\nfunction isInManagersList(email) {\n  const normalizedEmail = email.toLowerCase().trim();\n  return Managers_old.some(manager => \n    manager.address && manager.address.toLowerCase().trim() === normalizedEmail\n  );\n}\n\n// Helper function to clean names\nfunction cleanName(name) {\n  return name.replace(/[\\|\\-\\(\\)]/g, ' ')\n             .replace(/\\s+/g, ' ')\n             .trim()\n             .replace(/^(From|To|Cc):\\s*/i, '');\n}\n\n// PRIORITY 1: Extract from structured data (Trigger Node)\nfunction extractFromStructuredData(emailData) {\n  const fields = ['from', 'to', 'cc', 'bcc'];\n  \n  fields.forEach(field => {\n    if (emailData[field]) {\n      let contacts = [];\n      \n      // Handle different data structures from trigger node\n      if (emailData[field].value && Array.isArray(emailData[field].value)) {\n        contacts = emailData[field].value;\n      } else if (Array.isArray(emailData[field])) {\n        contacts = emailData[field];\n      } else if (typeof emailData[field] === 'object' && emailData[field].address) {\n        contacts = [emailData[field]];\n      } else if (typeof emailData[field] === 'string') {\n        // Parse string format \"Name <email@domain.com>\" or \"email@domain.com\"\n        const emailRegex = /([^<]*?)\\s*<([^>]+)>|([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,})/g;\n        let match;\n        while ((match = emailRegex.exec(emailData[field])) !== null) {\n          if (match[2] && match[1]) {\n            contacts.push({ name: match[1].trim().replace(/\"/g, ''), address: match[2] });\n          } else if (match[3]) {\n            contacts.push({ address: match[3] });\n          }\n        }\n      }\n      \n      // Process each contact\n      contacts.forEach(contact => {\n        if (contact && contact.address) {\n          const email = contact.address.toLowerCase().trim();\n          let name = contact.name ? cleanName(contact.name) : '';\n          \n          // Only add if valid email AND not in Managers list\n          if (isValidEmail(email) && !isInManagersList(email)) {\n            if (!name || name.length <= 1) {\n              // Generate name from email if no name provided\n              const emailPrefix = email.split('@')[0];\n              name = emailPrefix.replace(/[._]/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase());\n            }\n            emailContacts.set(email, name);\n          }\n        }\n      });\n    }\n  });\n}\n\n// Extract from trigger node structured data\nif (triggerData) {\n  extractFromStructuredData(triggerData);\n}\n\n// PRIORITY 2: Process text data from second node (fallback)\nfunction extractFromText(text) {\n  // Only extract emails not already found in structured data\n  const headerRegex = /^(From|To|Cc):\\s*([^(]+?)\\s*\\(([^)]+)\\)/gm;\n  let match;\n  while ((match = headerRegex.exec(text)) !== null) {\n    const name = cleanName(match[2]);\n    const email = match[3].toLowerCase().trim();\n    // Check if valid, not already added, and not in Managers list\n    if (isValidEmail(email) && name && name.length > 1 && !emailContacts.has(email) && !isInManagersList(email)) {\n      emailContacts.set(email, name);\n    }\n  }\n  \n  // Handle multiple contacts in same line\n  const multiContactRegex = /^(From|To|Cc):\\s*(.+)$/gm;\n  while ((match = multiContactRegex.exec(text)) !== null) {\n    const contactsLine = match[2];\n    const contactRegex = /([^,(]+?)\\s*\\(([^)]+)\\)/g;\n    let contactMatch;\n    while ((contactMatch = contactRegex.exec(contactsLine)) !== null) {\n      const name = cleanName(contactMatch[1]);\n      const email = contactMatch[2].toLowerCase().trim();\n      // Check if valid, not already added, and not in Managers list\n      if (isValidEmail(email) && name && name.length > 1 && !emailContacts.has(email) && !isInManagersList(email)) {\n        emailContacts.set(email, name);\n      }\n    }\n  }\n  \n  // Handle email-only format\n  const emailOnlyRegex = /^(From|To|Cc):\\s*([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}(?:\\s*,\\s*[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,})*)\\s*$/gm;\n  while ((match = emailOnlyRegex.exec(text)) !== null) {\n    const emailsLine = match[2];\n    const emails = emailsLine.split(/\\s*,\\s*/);\n    emails.forEach(email => {\n      email = email.toLowerCase().trim();\n      // Check if valid, not already added, and not in Managers list\n      if (isValidEmail(email) && !emailContacts.has(email) && !isInManagersList(email)) {\n        const emailPrefix = email.split('@')[0];\n        const generatedName = emailPrefix.replace(/[._]/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase());\n        emailContacts.set(email, generatedName);\n      }\n    });\n  }\n}\n\n// Process all items from input node for text combining and fallback extraction\nfor (const item of $input.all()) {\n  if (item.json) {\n    // Combine email text content\n    if (item.json.text) {\n      combinedEmails += item.json.text + '\\n\\n';\n      \n      // Extract from text only if not already found in structured data\n      extractFromText(item.json.text);\n    } else if (item.json.html) {\n      combinedEmails += item.json.html + '\\n\\n';\n    }\n  }\n}\n\n// Convert Map to Array of objects (only non-manager emails)\nconst emailAddressList = Array.from(emailContacts)\n  .filter(([email, name]) => isValidEmail(email) && name && name.length > 0)\n  .map(([email, name]) => ({\n    name: name,\n    address: email\n  }))\n  .sort((a, b) => a.name.localeCompare(b.name));\n\n// Return the processed data\nreturn [\n  {\n    json: {\n      ThreadId: triggerData?.threadId || \"\", \n      Subject: triggerData?.subject || \"\",\n      Emails: combinedEmails.trim(),\n      Others: emailAddressList,\n      Managers: Managers_old  // Keep original Managers list unchanged\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        920,
+        940
+      ],
+      "id": "f1abe593-b624-4a99-9012-24db794ff2ae",
+      "name": "ExtractEmails"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ $json.Others }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1120,
+        940
+      ],
+      "id": "3ba58453-053f-4e0d-a241-83c66999f627",
+      "name": "IdentifyUsers1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $('ExtractEmails').first().json;\nconst managers_new = $input.first().json.Managers || [];\nconst remove = new Set();\n\n// Start with existing managers from data (preserve them)\nconst existingManagers = data.Managers || [];\nconst existingManagerEmails = new Set(\n  existingManagers.map(m => m.address.toLowerCase())\n);\n\n// Merge managers: keep existing ones and add new ones that don't exist\nconst mergedManagers = [...existingManagers];\n\nfor (const newManager of managers_new) {\n  if (newManager.address && !existingManagerEmails.has(newManager.address.toLowerCase())) {\n    // Add new manager only if not already in existing managers\n    mergedManagers.push(newManager);\n  }\n}\n\n// Collect all manager addresses for filtering Others\nfor (const manager of mergedManagers) {\n  if (manager.address) {\n    remove.add(manager.address.toLowerCase());\n  }\n  // Optionally collect client addresses if needed\n  // for (const client of manager.Clients || []) {\n  //   if (client.address) {\n  //     remove.add(client.address.toLowerCase());\n  //   }\n  // }\n}\n\n// Update data with merged managers\ndata.Managers = mergedManagers;\n\n// Filter Others to exclude all manager addresses\ndata.Others = data.Others.filter(person => {\n  return !remove.has(person.address.toLowerCase());\n});\n\nreturn [{ json: data }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1560,
+        940
+      ],
+      "id": "06bf2326-6d2a-4763-813c-73868c212d59",
+      "name": "Update1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        940
+      ],
+      "id": "053c67ca-51dd-4615-b4b9-983c95d5fa2e",
+      "name": "UpdateSesssion",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"Managers\": {{ \n    ($input.all().length === 1 && Object.keys($input.first().json).length === 0) \n      ? [] \n      : $input.all().map(item => item.json) \n  }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1300,
+        940
+      ],
+      "id": "fbdf68f5-8581-4d49-9ca1-db26cd02c433",
+      "name": "Edit Fields4",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check_attachement",
+            "data": "=",
+            "binary": "={{ $json.binary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1980,
+        940
+      ],
+      "id": "4bf7c200-3fba-41a3-b1c4-dd984e418768",
+      "name": "GetAttachements3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.item.json;\nconst node2 = $(\"Update1\").first().json;\nconst old_session = $(\"SessionData\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n  \n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n    \n  };\n  \n  return { json: node2 };\n} else {\n  // If status is false, check if old_session has last_attachment\n  if (old_session && old_session.last_attachment) {\n    // Update node2 with the old_session's last_attachment\n    node2.last_attachment = old_session.last_attachment;\n  }\n  \n  return { json: node2 };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        940
+      ],
+      "id": "045e5980-73b8-4468-abfa-eafcf5e82481",
+      "name": "Code8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "07e86cb0-a457-4110-bcc1-d7d3ad78f309",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2560,
+        940
+      ],
+      "id": "700c5989-4d8f-4b29-bb82-bf05052ef8f6",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "19984a96559413df",
+        "simple": false,
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -1380,
+        1810
+      ],
+      "id": "4e0d6141-6d7a-498c-a67a-eb4a1cf5346e",
+      "name": "Gmail",
+      "webhookId": "2d0a719f-dc9b-4dea-a056-71087aee1861",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "thread",
+        "key": "=thread_199320b43e092d51",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1160,
+        1810
+      ],
+      "id": "a07aedb9-07fd-4fba-894b-a72e7b31d1b0",
+      "name": "GetSession",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        1810
+      ],
+      "id": "cf6613ff-8d68-4cb2-a0d8-ef1bedc3df8b",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "const results = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n\n  // Get all CCs except 'asst@patchbay.xyz'\n  const allCC = data.cc?.value || [];\n  const filteredCC = allCC.filter(cc => cc.address !== \"asst@patchbay.xyz\");\n\n  const output = {\n    ThreadId: data.threadId,\n    EmailId : data.id,\n    MessageId: data.messageId,\n    References: data.references,\n    Subject: data.subject,\n    From: data.from?.value || [],\n    to: data.to?.value || [],\n    cc: filteredCC,\n    date: data.date,\n    emailText: data.text || '',\n    isForwarded: data.isForwarded || false\n  };\n\n  results.push({ json: output });\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1380,
+        2330
+      ],
+      "id": "1ae9b825-bb3c-4281-9804-b25bf667a2f5",
+      "name": "ExtractData2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $('Trigger').all();\n\nfor (const item of items) {\n  const headers = item.json.payload?.headers || [];\n  const html = item.json.payload?.body?.data || item.json.html || \"\";\n\n  // Ensure headers is an array\n  if (!Array.isArray(headers)) {\n    item.json.isForwarded = false;\n    continue;\n  }\n\n  // Create header map\n  const headerMap = {};\n  for (const h of headers) {\n    if (h.name && h.value) {\n      headerMap[h.name.toLowerCase()] = h.value;\n    }\n  }\n\n  // Known forwarding headers\n  const forwardedHeaders = [\n    \"x-forwarded-for\",\n    \"x-forwarded\",\n    \"x-forwarded-encrypted\",\n    \"x-mail-forwarded-for\"\n  ];\n\n  // Base check: known headers\n  let isForwarded = forwardedHeaders.some(h => h in headerMap);\n\n  // Check for common forwarded message marker in content\n  if (typeof html === 'string' && html.includes(\"---- Forwarded message ----\")) {\n    isForwarded = true;\n  }\n\n  // Check if HTML contains more than 4 email addresses\n  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}/gi;\n  const emailMatches = html.match(emailRegex);\n  if (emailMatches && emailMatches.length > 4) {\n    isForwarded = true;\n  }\n\n  item.json.isForwarded = isForwarded;\n}\nreturn items;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1600,
+        2330
+      ],
+      "id": "c0fa22e2-c78a-4b1d-ae19-a64d44e51c39",
+      "name": "CheckForwarded1"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const sessionData = $input.item.json.thread;\n\nif (typeof sessionData === \"string\") {\n  try {\n    const parsed = JSON.parse(sessionData);\n    parsed.sessionStatus = true;\n    return parsed;\n  } catch {\n    return { sessionStatus: false }; // Invalid JSON\n  }\n} else {\n  return { sessionStatus: false }; // No session data\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -940,
+        1810
+      ],
+      "id": "bb314561-1af5-4232-9e60-2c87bf3201a6",
+      "name": "SessionData1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node - JavaScript\n// Reformats the Emails array into structured string format\n\n// Helper function to format contact array\nfunction formatContacts(contacts) {\n  if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {\n    return '';\n  }\n  \n  return contacts.map(contact => {\n    if (contact.name && contact.address) {\n      return `${contact.name} (${contact.address})`;\n    } else if (contact.address) {\n      return contact.address;\n    }\n    return '';\n  }).filter(c => c).join(', ');\n}\n\n// Helper function to format date\nfunction formatDate(dateString) {\n  if (!dateString) return '';\n  \n  try {\n    const date = new Date(dateString);\n    return date.toLocaleString('en-US', {\n      weekday: 'short',\n      month: 'short',\n      day: 'numeric',\n      year: 'numeric',\n      hour: 'numeric',\n      minute: '2-digit',\n      hour12: true\n    });\n  } catch (error) {\n    return dateString; // Return original if parsing fails\n  }\n}\n\n// Process each input item\nconst results = [];\n\nfor (const item of $input.all()) {\n  if (item.json) {\n    // Start with a clean object\n    const processedItem = {};\n    \n    // Copy ThreadId\n    if (item.json.ThreadId) {\n      processedItem.ThreadId = item.json.ThreadId;\n    }\n    \n    // Add Subject field from first email\n    if (item.json.Emails && Array.isArray(item.json.Emails) && item.json.Emails.length > 0) {\n      const firstEmail = item.json.Emails[0];\n      if (firstEmail && firstEmail.Subject) {\n        processedItem.Subject = firstEmail.Subject;\n      }\n    }\n    \n    // Convert Emails array to formatted string\n    if (item.json.Emails && Array.isArray(item.json.Emails)) {\n      let emailsString = '';\n      \n      item.json.Emails.forEach((email, index) => {\n        if (index > 0) {\n          emailsString += '\\n\\n';\n        }\n        \n        emailsString += '---------------\\n';\n        \n        // From field\n        const fromFormatted = formatContacts(email.From);\n        emailsString += `From: ${fromFormatted}\\n`;\n        \n        // To field\n        const toFormatted = formatContacts(email.to);\n        emailsString += `To: ${toFormatted}\\n`;\n        \n        // Cc field (only add if not empty)\n        const ccFormatted = formatContacts(email.cc);\n        if (ccFormatted) {\n          emailsString += `Cc: ${ccFormatted}\\n`;\n        }\n        \n        // Date field\n        const dateFormatted = formatDate(email.date);\n        emailsString += `Date: ${dateFormatted}\\n`;\n        \n        // Body field\n        emailsString += `Body: ${email.emailText || ''}\\n`;\n        \n        emailsString += '---------------';\n      });\n      \n      processedItem.Emails = emailsString;\n    }\n    \n    // Copy other fields that should be preserved\n    if (item.json.Others) {\n      processedItem.Others = item.json.Others;\n    }\n    \n    if (item.json.Managers) {\n      processedItem.Managers = item.json.Managers;\n    }\n    \n    if (item.json.Label) {\n      processedItem.Label = item.json.Label;\n    }\n    \n    if (item.json.sessionStatus !== undefined) {\n      processedItem.sessionStatus = item.json.sessionStatus;\n    }\n    if (item.json.last_attachment !== undefined) {\n      processedItem.last_attachment = item.json.last_attachment;\n    }\n    \n    results.push({ json: processedItem });\n  }\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1600,
+        2070
+      ],
+      "id": "f9c98853-127a-49d0-abc6-2068f03c6846",
+      "name": "Code9"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "1d94716a-927b-439a-8a5c-d55afd77c9d1",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2076,
+        500
+      ],
+      "id": "46a32f2b-c624-422b-b81d-77c02dd52a42",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.first().json;\nconst node2 = $(\"Update\").first().json;\nconst old_session = $(\"SessionData\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file;\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n  \n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n  };\n  \n  return { json: node2 };\n} else {\n  // If status is false, check if old_session has last_attachment\n  if (old_session && old_session.last_attachment) {\n    // Update node2 with the old_session's last_attachment\n    node2.last_attachment = old_session.last_attachment;\n  }\n  \n  return { json: node2 };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1636,
+        500
+      ],
+      "id": "df4568b9-599a-45fe-b32f-70df764a13af",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check_attachement",
+            "data": "=",
+            "binary": "={{ $json.binary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1416,
+        500
+      ],
+      "id": "af0c5ed5-e6ae-4ddd-b478-a475c8417c08",
+      "name": "GetAttachements"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"Managers\": {{ $('If3').all().map(item => item.json) }}\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        756,
+        500
+      ],
+      "id": "641d6fd6-5e2b-4bd1-8c2d-eadf5479a14d",
+      "name": "Edit Fields",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "21282e1b-bd37-41ba-81bb-cb3bab057dde",
+              "name": "output",
+              "value": "no_users",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        756,
+        700
+      ],
+      "id": "2c116d51-5c1b-4039-8c0f-5327bee275d6",
+      "name": "NoManagers"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0b083fdb-0cc6-4f9a-9921-6d2e3b9bbebc",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        458,
+        600
+      ],
+      "id": "cac76b80-88aa-4da6-aedb-de86399610c1",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node - JavaScript\n// Formats single emails with proper structure and adds Subject field\n\n// Helper function to format contact array\nfunction formatContacts(contacts) {\n  if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {\n    return '';\n  }\n  \n  return contacts.map(contact => {\n    if (contact.name && contact.address) {\n      return `${contact.name} (${contact.address})`;\n    } else if (contact.address) {\n      return contact.address;\n    }\n    return '';\n  }).filter(c => c).join(', ');\n}\n\n// Helper function to format date\nfunction formatDate(dateString) {\n  if (!dateString) return '';\n  \n  try {\n    const date = new Date(dateString);\n    return date.toLocaleString('en-US', {\n      weekday: 'short',\n      month: 'short',\n      day: 'numeric',\n      year: 'numeric',\n      hour: 'numeric',\n      minute: '2-digit',\n      hour12: true\n    });\n  } catch (error) {\n    return dateString; // Return original if parsing fails\n  }\n}\n\nconst input = $input.all().map(item => item.json);\n\nconst grouped = {};\n\nfor (const email of input) {\n  const threadId = email.ThreadId;\n\n  if (!grouped[threadId]) {\n    grouped[threadId] = {\n      ThreadId: threadId,\n      Emails: []\n    };\n  }\n\n  // Clone email and remove isForwarded and ThreadId from child\n  const {\n    isForwarded, // omit this\n    ThreadId,    // omit this from child\n    ...cleanedEmail\n  } = email;\n\n  grouped[threadId].Emails.push(cleanedEmail);\n}\n\n// Process each grouped thread\nconst results = Object.values(grouped).map(group => {\n  // Add Subject field from first email\n  if (group.Emails && group.Emails.length > 0 && group.Emails[0].Subject) {\n    group.Subject = group.Emails[0].Subject;\n  }\n\n  // Generate Others list from all emails in the thread\n  const seen = new Set();\n  const uniqueEmails = [];\n  \n  for (const email of group.Emails || []) {\n    ['From', 'to', 'cc'].forEach(field => {\n      const list = email[field] || [];\n      list.forEach(entry => {\n        if (entry.address) {\n          const address = entry.address.toLowerCase();\n          if (!seen.has(address)) {\n            seen.add(address);\n            uniqueEmails.push({\n              name: entry.name || \"\",\n              address: address\n            });\n          }\n        }\n      });\n    });\n  }\n  \n  group.Others = uniqueEmails;\n\n  // Format the Emails array as structured text\n  if (group.Emails && Array.isArray(group.Emails)) {\n    let emailsString = '';\n    \n    group.Emails.forEach((email, index) => {\n      if (index > 0) {\n        emailsString += '\\n\\n';\n      }\n      \n      emailsString += '---------------\\n';\n      \n      // From field\n      const fromFormatted = formatContacts(email.From);\n      emailsString += `From: ${fromFormatted}\\n`;\n      \n      // To field\n      const toFormatted = formatContacts(email.to);\n      emailsString += `To: ${toFormatted}\\n`;\n      \n      // Cc field (only add if not empty)\n      const ccFormatted = formatContacts(email.cc);\n      if (ccFormatted) {\n        emailsString += `Cc: ${ccFormatted}\\n`;\n      }\n      \n      // Date field\n      const dateFormatted = formatDate(email.date);\n      emailsString += `Date: ${dateFormatted}\\n`;\n      \n      // Body field\n      emailsString += `Body: ${email.emailText || ''}\\n`;\n      \n      emailsString += '---------------';\n    });\n    \n    group.Emails = emailsString;\n  }\n\n  return group;\n});\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -60,
+        600
+      ],
+      "id": "fca8d73f-614b-4110-9a95-102b1037e14c",
+      "name": "Reformat1"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2296,
+        500
+      ],
+      "id": "6d807043-18e8-45f5-8fc9-0693b34ab97e",
+      "name": "UpdateSesssion2",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $('Reformat1').first().json\nconst managers = $input.first().json.Managers;\n\nconst remove = new Set();\n\n// Collect manager addresses\nfor (const manager of managers) {\n  if (manager.address) {\n    remove.add(manager.address.toLowerCase());\n  }\n\n  // // Collect each client's address\n  // for (const client of manager.Clients || []) {\n  //   if (client.address) {\n  //     remove.add(client.address.toLowerCase());\n  //   }\n  // }\n}\n\ndata.Managers = managers\n\ndata.Others = data.Others.filter(person => {\n  return !remove.has(person.address.toLowerCase());\n});\n\nreturn  [{ json: data }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        976,
+        500
+      ],
+      "id": "86fe77e2-ada0-421c-a236-67527427c83e",
+      "name": "Update",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "9oc9YDvdPI0zvKah",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ $json.Others }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        160,
+        600
+      ],
+      "id": "cef1dcca-30a7-4653-9419-8056ec8d68a6",
+      "name": "IdentifyUsers"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json\nconst attachements = $(\"Trigger\").first().binary;\n\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1196,
+        500
+      ],
+      "id": "f099a7be-5136-4b0a-a688-bbab0c6a1dd2",
+      "name": "Binary"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json\nconst attachements = $(\"Trigger\").first().binary;\n\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        940
+      ],
+      "id": "7519eeb0-feb9-4c98-8a3f-e1216c97eced",
+      "name": "Binary1"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        620,
+        1820
+      ],
+      "id": "05ef7c76-6374-4703-b1f9-45ace81082e4",
+      "name": "UpdateSesssion3",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const attachements = $input.item.binary\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -40,
+        1820
+      ],
+      "id": "c791a6d7-f4e2-4a8c-8c33-4c375158e7b4",
+      "name": "Code7"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check_attachement",
+            "binary": "={{ $json.binary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        180,
+        1820
+      ],
+      "id": "5bc77b88-9b14-433b-847d-3a41f640984c",
+      "name": "GetAttachements5"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.item.json;\nconst node2 = $(\"SessionData1\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file;\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n\n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n  };\n\n  return { json: node2 };\n} else {\n  // Return node2 input as is\n  return { json: node2 };\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        1820
+      ],
+      "id": "9618a345-f5f5-44f0-b8ff-c77f23e64507",
+      "name": "Code10"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $('Trigger').all();\n\nfor (const item of items) {\n  const headers = item.json.payload?.headers || [];\n  const html = item.json.payload?.body?.data || item.json.html || \"\";\n\n  // Ensure headers is an array\n  if (!Array.isArray(headers)) {\n    item.json.isForwarded = false;\n    continue;\n  }\n\n  // Create header map\n  const headerMap = {};\n  for (const h of headers) {\n    if (h.name && h.value) {\n      headerMap[h.name.toLowerCase()] = h.value;\n    }\n  }\n\n  // Known forwarding headers\n  const forwardedHeaders = [\n    \"x-forwarded-for\",\n    \"x-forwarded\",\n    \"x-forwarded-encrypted\",\n    \"x-mail-forwarded-for\"\n  ];\n\n  // Base check: known headers\n  let isForwarded = forwardedHeaders.some(h => h in headerMap);\n\n  // Check for common forwarded message marker in content\n  if (typeof html === 'string' && html.includes(\"---- Forwarded message ----\")) {\n    isForwarded = true;\n  }\n\n  // Check if HTML contains more than 4 email addresses\n  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}/gi;\n  const emailMatches = html.match(emailRegex);\n  if (emailMatches && emailMatches.length > 4) {\n    isForwarded = true;\n  }\n\n  item.json.isForwarded = isForwarded;\n}\nreturn items;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -940,
+        550
+      ],
+      "id": "8154f021-ba18-4539-b5fd-430363eae77b",
+      "name": "CheckForwarded2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1856,
+        500
+      ],
+      "id": "6825f7d2-ea81-43a6-9627-989b84129c4d",
+      "name": "AddReference"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        458,
+        100
+      ],
+      "id": "3530b761-51f9-4a6b-8920-2ba390980dcc",
+      "name": "AddReference1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        976,
+        300
+      ],
+      "id": "0dcbb5f7-3188-422f-bdd1-e899b3b45c01",
+      "name": "AddReference2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        940
+      ],
+      "id": "bebb1b53-8f79-4629-9ce5-6dd1e9ecd4f9",
+      "name": "AddReference3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const results = [];\nfor (const item of $input.all()) {\n  const data = item.json;\n  \n  // Get all CCs except 'asst@patchbay.xyz'\n  const allCC = data.cc?.value || [];\n  const filteredCC = allCC.filter(cc => cc.address !== \"asst@patchbay.xyz\");\n  \n  // Format From\n  const fromFormatted = data.from?.value?.[0] \n    ? `${data.from.value[0].name} (${data.from.value[0].address})`\n    : '';\n  \n  // Format To\n  const toFormatted = (data.to?.value || [])\n    .map(t => `${t.name} (${t.address})`)\n    .join(', ');\n  \n  // Format CC\n  const ccFormatted = filteredCC\n    .map(c => `${c.name} (${c.address})`)\n    .join(', ');\n  \n  // Format Date\n  const dateFormatted = data.date \n    ? new Date(data.date).toLocaleString('en-US', {\n        weekday: 'long',\n        year: 'numeric',\n        month: 'long',\n        day: 'numeric',\n        hour: 'numeric',\n        minute: '2-digit',\n        hour12: true\n      })\n    : '';\n  \n  // Build formatted email text\n  let formattedEmail = `From: ${fromFormatted}\\n`;\n  formattedEmail += `To: ${toFormatted}\\n`;\n  if (ccFormatted) {\n    formattedEmail += `CC: ${ccFormatted}\\n`;\n  }\n  formattedEmail += `Date: ${dateFormatted}\\n`;\n  formattedEmail += `Subject: ${data.subject}\\n`;\n  formattedEmail += `Body:\\n${data.text || ''}`;\n  \n  const output = {\n    ThreadId: data.threadId,\n    EmailId: data.id,\n    MessageId: data.messageId,\n    References: data.references,\n    Subject: data.subject,\n    From: data.from?.value || [],\n    to: data.to?.value || [],\n    cc: filteredCC,\n    date: data.date,\n    emailText: formattedEmail,\n    isForwarded: data.isForwarded || false\n  };\n  \n  results.push({ json: output });\n}\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -500,
+        760
+      ],
+      "id": "06aff18b-c930-4d7c-b41a-1e69ec51e67f",
+      "name": "ExtractData"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node - Email Thread Parser (Fixed)\n// Input: $input.all()[0].json.text (your email thread text)\n\nconst emailText = $input.first().json.email_text\n\n// Function to extract email address and name\nfunction parseEmailAddress(str) {\n  if (!str) return null;\n  \n  // Pattern: Name <email@domain.com>\n  const nameEmailMatch = str.match(/(.+?)\\s*<([^>]+)>/);\n  if (nameEmailMatch) {\n    return { \n      name: nameEmailMatch[1].trim(), \n      email: nameEmailMatch[2].trim() \n    };\n  }\n  \n  // Pattern: just email@domain.com\n  const emailMatch = str.match(/([\\w\\.\\-]+@[\\w\\.\\-]+\\.\\w+)/);\n  if (emailMatch) {\n    return { name: '', email: emailMatch[1].trim() };\n  }\n  \n  return null;\n}\n\n// Function to parse multiple recipients (comma or semicolon separated)\nfunction parseRecipients(str) {\n  if (!str) return [];\n  \n  const recipients = [];\n  // Split carefully - respect angle brackets\n  const parts = str.split(/>\\s*[,;]\\s*/).map(p => p.trim());\n  \n  parts.forEach(part => {\n    // Re-add the closing bracket if it was split\n    if (part && !part.includes('>') && part.includes('<')) {\n      part += '>';\n    }\n    \n    const parsed = parseEmailAddress(part);\n    if (parsed) {\n      recipients.push(parsed);\n    }\n  });\n  \n  return recipients;\n}\n\n// Main parsing function\nfunction parseEmailThread(text) {\n  const emails = [];\n  const lines = text.split('\\n');\n  \n  let i = 0;\n  while (i < lines.length) {\n    const line = lines[i].trim();\n    \n    // Detect email start: \"On [Date] ... <email> wrote:\"\n    const onWroteMatch = line.match(/^On\\s+(.+?)\\s+(.+?)\\s*<([^>]+)>\\s*wrote:/i);\n    \n    if (onWroteMatch) {\n      const email = {\n        from: { name: onWroteMatch[2].trim(), email: onWroteMatch[3].trim() },\n        to: [],\n        cc: [],\n        date: onWroteMatch[1].trim(),\n        subject: '',\n        body: ''\n      };\n      \n      i++;\n      const bodyLines = [];\n      let foundHeaders = false;\n      \n      // Look for headers in the next lines\n      while (i < lines.length) {\n        const currentLine = lines[i].trim();\n        \n        // Check for next email\n        if (currentLine.match(/^On\\s+.+<[^>]+>\\s*wrote:/i)) {\n          break;\n        }\n        \n        // Extract Da/From\n        if (currentLine.match(/^(Da:|From:)/i)) {\n          const match = currentLine.match(/^(?:Da:|From:)\\s*(.+)/i);\n          if (match) {\n            const parsed = parseEmailAddress(match[1]);\n            if (parsed) email.from = parsed;\n          }\n          foundHeaders = true;\n          i++;\n          continue;\n        }\n        \n        // Extract Inviato/Sent/Date\n        if (currentLine.match(/^(Inviato:|Sent:|Date:)/i)) {\n          const match = currentLine.match(/^(?:Inviato:|Sent:|Date:)\\s*(.+)/i);\n          if (match) email.date = match[1].trim();\n          foundHeaders = true;\n          i++;\n          continue;\n        }\n        \n        // Extract A/To\n        if (currentLine.match(/^(A:|To:)/i)) {\n          const match = currentLine.match(/^(?:A:|To:)\\s*(.+)/i);\n          if (match) {\n            email.to = parseRecipients(match[1]);\n          }\n          foundHeaders = true;\n          i++;\n          continue;\n        }\n        \n        // Extract Cc\n        if (currentLine.match(/^(Cc:)/i)) {\n          const match = currentLine.match(/^Cc:\\s*(.+)/i);\n          if (match) {\n            email.cc = parseRecipients(match[1]);\n          }\n          foundHeaders = true;\n          i++;\n          continue;\n        }\n        \n        // Extract Oggetto/Subject\n        if (currentLine.match(/^(Oggetto:|Subject:)/i)) {\n          const match = currentLine.match(/^(?:Oggetto:|Subject:)\\s*(.+)/i);\n          if (match) email.subject = match[1].trim();\n          foundHeaders = true;\n          i++;\n          continue;\n        }\n        \n        // Skip empty lines and separators at the start\n        if (!foundHeaders && (currentLine === '' || currentLine.match(/^[>\\s]*$/))) {\n          i++;\n          continue;\n        }\n        \n        // Skip EXTERNAL SENDER warnings\n        if (currentLine.match(/^(EXTERNAL SENDER|Non ricevi spesso)/i)) {\n          i++;\n          continue;\n        }\n        \n        // Collect body content\n        if (foundHeaders && currentLine !== '') {\n          bodyLines.push(currentLine);\n        } else if (foundHeaders && currentLine === '' && bodyLines.length > 0) {\n          bodyLines.push('');\n        }\n        \n        i++;\n      }\n      \n      email.body = bodyLines.join('\\n').trim();\n      emails.push(email);\n    } else {\n      i++;\n    }\n  }\n  \n  return emails;\n}\n\n// Format output as requested\nfunction formatEmail(email, index) {\n  const formatRecipient = (r) => {\n    if (!r) return '';\n    return r.name ? `${r.name} <${r.email}>` : r.email;\n  };\n  \n  let output = '______________\\n';\n  \n  if (email.from) {\n    output += `From: ${formatRecipient(email.from)}\\n`;\n  }\n  \n  if (email.to && email.to.length > 0) {\n    output += `To: ${email.to.map(formatRecipient).join(', ')}\\n`;\n  }\n  \n  if (email.cc && email.cc.length > 0) {\n    output += `CC: ${email.cc.map(formatRecipient).join(', ')}\\n`;\n  }\n  \n  if (email.date) {\n    output += `Date: ${email.date}\\n`;\n  }\n  \n  if (email.subject) {\n    output += `Subject: ${email.subject}\\n`;\n  }\n  \n  output += `\\nBody:\\n${email.body}\\n`;\n  output += '________________________\\n\\n';\n  \n  return output;\n}\n\n// Execute parsing\nconst parsedEmails = parseEmailThread(emailText);\nconst formattedOutput = parsedEmails.map((email, idx) => formatEmail(email, idx)).join('\\n');\n\n// Debug info\nconsole.log(`Found ${parsedEmails.length} emails`);\n\n// Return structured data\nreturn [\n  {\n    json: {\n      emails: parsedEmails,\n      formattedOutput: formattedOutput,\n      count: parsedEmails.length,\n      rawTextLength: emailText.length\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1600,
+        1640
+      ],
+      "id": "9f30950e-28c7-4435-bd23-52d927948e77",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "model": "mistral-large-latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        -1220,
+        1660
+      ],
+      "id": "adcf2fc0-7699-4c9c-858b-f67a3371bb82",
+      "name": "Mistral Cloud Chat Model",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "2AOeyxzPZBYlq1p6",
+          "name": "Mistral Cloud account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "function parseEmailThread(threadText) {\n  if (!threadText || threadText.trim() === '') {\n    return [];\n  }\n  \n  const emails = [];\n  \n  // Split by email separators (looking for patterns like \"_______________\" or \"---------------\")\n  const emailBlocks = threadText.split(/_{10,}|_{3,}\\n/);\n  \n  for (const block of emailBlocks) {\n    if (!block.trim()) continue;\n    \n    const email = {};\n    const lines = block.trim().split('\\n');\n    \n    // Parse email fields\n    let bodyStartIndex = -1;\n    \n    for (let i = 0; i < lines.length; i++) {\n      const line = lines[i].trim();\n      \n      if (line.startsWith('From:')) {\n        email.from = line.replace('From:', '').trim();\n      } else if (line.startsWith('To:')) {\n        email.to = line.replace('To:', '').trim();\n      } else if (line.startsWith('CC:') || line.startsWith('Cc:')) {\n        email.cc = line.replace(/CC:|Cc:/i, '').trim();\n      } else if (line.startsWith('Date:')) {\n        const dateStr = line.replace('Date:', '').trim();\n        email.dateString = dateStr;\n        email.date = parseEmailDate(dateStr);\n      } else if (line.startsWith('Subject:')) {\n        email.subject = line.replace('Subject:', '').trim();\n      } else if (line.startsWith('Body:')) {\n        bodyStartIndex = i + 1;\n        break;\n      }\n    }\n    \n    // Extract body content\n    if (bodyStartIndex > -1) {\n      const bodyLines = lines.slice(bodyStartIndex);\n      email.body = bodyLines.join('\\n').trim();\n    }\n    \n    // Only add email if it has required fields\n    if (email.from && email.date) {\n      emails.push(email);\n    }\n  }\n  \n  return emails;\n}\n\nfunction parseEmailDate(dateStr) {\n  // Handle various date formats\n  \n  // Format: \"Wednesday, October 1, 2025 at 12:56 PM PDT\"\n  const atMatch = dateStr.match(/(\\w+,\\s+)?(\\w+\\s+\\d+,\\s+\\d{4})\\s+at\\s+(\\d+:\\d+\\s+[AP]M)/i);\n  if (atMatch) {\n    return new Date(`${atMatch[2]} ${atMatch[3]}`);\n  }\n  \n  // Format: \"Sep 24, 2025\" or \"Sep 16, 2025\"\n  const shortDateMatch = dateStr.match(/\\w+\\s+\\d+,\\s+\\d{4}/);\n  if (shortDateMatch) {\n    return new Date(shortDateMatch[0]);\n  }\n  \n  // Format: \"Monday, September 15, 2025 at 8:03 PM\"\n  const longDateMatch = dateStr.match(/\\w+,\\s+\\w+\\s+\\d+,\\s+\\d{4}/);\n  if (longDateMatch) {\n    return new Date(longDateMatch[0]);\n  }\n  \n  // Try parsing as-is\n  const parsed = new Date(dateStr);\n  return isNaN(parsed.getTime()) ? new Date(0) : parsed;\n}\n\n// Main execution\nconst threadNew = $input.first().json.text;\nconst threadOld = $('SessionData')?.first()?.json?.Emails || '';\n\n// Parse both threads\nconst emailsNew = parseEmailThread(threadNew);\nconst emailsOld = parseEmailThread(threadOld);\n\n// Combine emails\nconst allEmails = [...emailsNew, ...emailsOld];\n\n// Remove duplicates based on from, date, and subject\nconst uniqueEmails = [];\nconst seen = new Set();\n\nfor (const email of allEmails) {\n  const key = `${email.from}|${email.date.getTime()}|${email.subject || ''}`;\n  if (!seen.has(key)) {\n    seen.add(key);\n    uniqueEmails.push(email);\n  }\n}\n\n// Sort by date (newest first)\nuniqueEmails.sort((a, b) => b.date.getTime() - a.date.getTime());\n\n// Take latest 30 emails\nconst latest30 = uniqueEmails.slice(0, 80);\n\n// Format output in the same format as input\nconst formattedEmails = latest30.map(email => {\n  let emailText = '_______________\\n';\n  \n  if (email.from) {\n    emailText += `From: ${email.from}\\n`;\n  }\n  if (email.to) {\n    emailText += `To: ${email.to}\\n`;\n  }\n  if (email.cc) {\n    emailText += `CC: ${email.cc}\\n`;\n  }\n  if (email.dateString) {\n    emailText += `Date: ${email.dateString}\\n`;\n  }\n  if (email.subject) {\n    emailText += `Subject: ${email.subject}\\n`;\n  }\n  \n  emailText += '\\nBody:\\n';\n  if (email.body) {\n    emailText += email.body + '\\n';\n  }\n  \n  emailText += '________________________';\n  \n  return emailText;\n});\n\n// Combine all emails into a single thread string\nconst combinedThread = formattedEmails.join('\\n\\n');\n\nreturn [{ json: { text: combinedThread } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        940
+      ],
+      "id": "1f9f8700-60c6-42ae-875a-1b0c53ca8aff",
+      "name": "Combine"
+    },
+    {
+      "parameters": {
+        "url": "https://ff17b1a7fbe1afad3e275d6dd2f1eff91be4bf4e90473863ff1d82d-apidata.googleusercontent.com/download/storage/v1/b/test-abid/o/Matt%20Wills%20additionally%20producing%20DJ%20Kogis%20(Missing%20You).FE.pdf?jk=AUDkFInwNsA-qGKQIlfiMv7TNtjFakey6N4xX-MmFYmorvNGUJpsMGvwKGwUhiLngQnJsdDrPVI3TGpgQ7aoLp4CnPjyixvSNM23Ab1Xt_BF_cTkCg9GmKAwn0F7o0_i8mR2pmplgS87EGymcuDqO-SV3Lyg26nm4NR0jjrtyjTZEeM_L3VdE6z8el5Dmf40yrWxuasyVjHxz4TjqDohUwfWP0Dhv0wYmWqts5Ahgcr8cHPych3DN0dJoPhXADDeTmZRBSFEzGyEvQZr5T0bPTi075MhSevBezV_d24Y7ppKggMll6Yi1uGVcIVZWbtLOKFgxTBKEzgHWW16VZ2oSLfaP3Bw2yqZMRYqVoMM6T3r3x-hLpbz7mvgSTSSQkHCNRIn0_8oBIcee4Vdxlj7m1x98DRbEIVPLNKWSMWFIx635IbRBKeFDUq0br6CwSOlac3HD3eFXABOqGKMvJZgVxQ6CEReSkLkuYX5rJvdYwsHL5fpQXa-M4RvehaChiuJQ05c0E5SEBBft_2IXKekx9oZ1eAH2zn-Lz6v5bZkovUtU1m2kY8VYYm3X4j86KfEBuPqSwcK89lgEdMaIlYDL91aABJ20RAMDUbt6bU1ZhP9gn5q3j-x1zCXzwDoKIyVJsq8P7Y8dzNDL63Fy5VWKOqbCdnq6qRw9bzpWm2482LnOQvhYNGI0WhQHulvBBHNX0KFsd3jK-lppgXQ6sUEQwz9RkvJThxS-aJ7Lxaq__9yfFGJ1ySj331jv3T0C9TS-46AOKZWzGvsWRKqhZ70ljDQk-50c8c7RYbWTd1BPnDDJh2j_R7O8ezmt3WyWjhLxbxO1Lcy13WT8XhMlXEnn7YaCf_C6CzMmOggLXfeWQbFfXRDIShMsU1ggDU6QbuJ5lgUXNztFjH2Y4iyUMb6Ry-aX8gsAhbXdS8w7SegF-PKjKtTX_FdHXd6z2VemKPj3OWWl7jGBChAeO-QhImBy3LkUo43WrThY77pw_KJTvPUKCjwiHlB_A4vZPR-koMO6Jn212kt8TXzHPYgSWmLi2wIOzeShVzbE9cb59oiLmYV8FiW7VYXygpbWYSxOpNxWsPA1cZMREzrYTQhb0yMzOdM0DZDHT-WN2t38940VO_SyUWHuYPKGqlu25w8dPni7VwD4CXuO7VTGaYdLJKrEst-4pEGfHiVye9pxZyW-f_v5Oor6YfHv5YvoYnw0SP4VXLMdVRIUkzhna33iiTZwilGhxmadxLrPoxapKzF9KxLdd11vKQap6NI-1IDEkgbdfk6pyWNCEAlcBT-lg-co_VLUDTKazKexho_AD2ONccbyxSDlfzdk_73KAFXHcEqmyubq_HPf2VXT74AYiZVQw&isca=1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -640,
+        1820
+      ],
+      "id": "5db1d54c-80f3-488e-86e8-1655b9ca7d94",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "id": "199abd96f1ac1e38",
+          "threadId": "199320b43e092d51",
+          "labelIds": [
+            "UNREAD",
+            "YELLOW_STAR",
+            "IMPORTANT",
+            "STARRED",
+            "Label_6620791052158273947",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 17719,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from localhost (0.92.231.35.bc.googleusercontent.com. [35.231.92.0])\r\n        by smtp.gmail.com with UTF8SMTPSA id 71dfb90a1353d-5523cf3eab2sm1462519e0c.13.2025.10.03.13.52.54\r\n        for <asst@patchbay.xyz>\r\n        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);\r\n        Fri, 03 Oct 2025 13:52:55 -0700 (PDT)",
+            "x-received": "X-Received: by 2002:a05:6122:788:b0:54a:a782:47de with SMTP id 71dfb90a1353d-5524ea6d71cmr1985687e0c.13.1759524776961;\r\n        Fri, 03 Oct 2025 13:52:56 -0700 (PDT)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1759524777; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=Ju9ZVAqp4YUWPiWEfOaUnH+fitYImhG2mNbMeS1EFDuvb/ox7PT1TXaX6S0D5Ktf33\r\n         i6i+WstfCoZ5S7KE7JKQUGGJ3foyUShVRJ3v7N0vLMEkPZ0iev/Dk58Nvm97ccGfbK7l\r\n         YJRJ0BJZB3kIvuZM5319kF/rVT1WMRxD8Cg7uTVZpR7qb+AQxR8qvCO1RGQ8CbMf3aOO\r\n         u3KqhPaT7PMKMrLIAXRD2mPDyZGNz6x+Yo3u1292c8OesOsjcitOnJrXDN6/wspinXtG\r\n         RawQRRuETzrz1JnZZoEL4IZ2dHfJQcishY5p5khQB4erTMITmudEgtYmGuSrJ7ZW7AGq\r\n         xGXw==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=cc:date:to:references:in-reply-to:subject:message-id:from\r\n         :mime-version:dkim-signature;\r\n        bh=hTrFk3tTSRudHv/LjFxotH9hatKw9XFVZphlMLP1xDU=;\r\n        fh=bymonHrOL1FRjfq6hlXcvT4zau3aXHhHlDJnys19q7w=;\r\n        b=S3+ke4a6At0Y57rUVTX/+Xxox3qDj/jCXQd1bMKQnONGwLxBsAWM4UWsYQvAEZfuBI\r\n         ByJgiETRQdKTYpS/rpfBtwHheXgpAsPpV8RZ1iTUWeK6Mz8XVZU0HHmKo4oxlxb/h2D6\r\n         eQVwTLFNiayPS9PPPuzpjyOfrEQH6mHTMTe5IoCg9fbsbOfXBSl3Mb0OwB/A/3h26Gvn\r\n         orGabOAVw6Dt2ffdu80KzPLFbwb2DnWSIB9eHGmotO8rxISSh1m+m8rrVU20FXoDSvpE\r\n         dtezdmw76/CFvxdO1zEOBbBGWbfn+/0B8SvVExWHPUKrUgisJtWCruM3+PWJ40XiYiMd\r\n         6zIQ==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@1916mgmt-com.20230601.gappssmtp.com header.s=20230601 header.b=X88I9jl9;\r\n       spf=pass (google.com: domain of aidan@1916mgmt.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=aidan@1916mgmt.com;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "return-path": "Return-Path: <aidan@1916mgmt.com>",
+            "received-spf": "Received-SPF: pass (google.com: domain of aidan@1916mgmt.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@1916mgmt-com.20230601.gappssmtp.com header.s=20230601 header.b=X88I9jl9;\r\n       spf=pass (google.com: domain of aidan@1916mgmt.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=aidan@1916mgmt.com;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "dkim-signature": "DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1916mgmt-com.20230601.gappssmtp.com; s=20230601; t=1759524777; x=1760129577; darn=patchbay.xyz;\r\n        h=cc:date:to:references:in-reply-to:subject:message-id:from\r\n         :mime-version:from:to:cc:subject:date:message-id:reply-to;\r\n        bh=hTrFk3tTSRudHv/LjFxotH9hatKw9XFVZphlMLP1xDU=;\r\n        b=X88I9jl9ObPbbmK8CwjLDuXx/gvkGraB+evWuLo6FhIf7euHzvsjtJ7Ee0Q/vtjJZj\r\n         E4fyPtO8BDBcCRfLibfXYXRubF9CnFaU4KLcyrvDsuHFFYaaQaTYs+nU6EQyv51lCsWP\r\n         ijIJz0Hl5JexqHgQ8yNdrYlkx3Q97lPP6ucsHe0pLBGhc03Zs/RwygUNzDLBG6WuyvKs\r\n         1Vn62+NQm1Ia73MtuJaP9ZeyFPCFHhOV6DX/wbggmDpzkaWnMaRxvCi9KjxVfpb5JXUU\r\n         cCOircbgSxe1IGWeLmAKUtT+1jeoyf0xpzIO5GPS/YJeDDux0ZJrL6zvxdBMEIyTRTZD\r\n         Fz7w==",
+            "x-google-dkim-signature": "X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20230601; t=1759524777; x=1760129577;\r\n        h=cc:date:to:references:in-reply-to:subject:message-id:from\r\n         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id\r\n         :reply-to;\r\n        bh=hTrFk3tTSRudHv/LjFxotH9hatKw9XFVZphlMLP1xDU=;\r\n        b=mUCgXJ51YNQXuUF5lFYVI8R99fVqVR8zE0Rk65fDnVzB1xeudc8G4UwUWnzd1uqTcP\r\n         ZIsF0JL4GAtiq7XAVXFKxaClO3WY6Fi25MIUxvVpIu7yscfyzbD8uyjpMeed4Qo1sGpI\r\n         pBkuDEErMMTSGwlWee80xtnXaKoM0LQuwsTGRgyQe7iSpl5CR/G3mnoS5yqaYQsLOekq\r\n         2LGik8GD+8M7Q0nNDMbxvGll44CrCFA+UMJB5Gu7LJmGFrNSf+6BQAeGEjqJx91H1WbF\r\n         u8yBPqzHIqDYjCPotfKl+KXjkZgNLl7ll+2lv4XDmvOKTJ3zp4buZRCyjk+7JHG+Jgj2\r\n         cBaQ==",
+            "x-gm-message-state": "X-Gm-Message-State: AOJu0YydcVYKMj2bHDjPpg9PzKG6pKkbKrZpm62pNGZ6SW2aypDWtT/l\r\n\tVxzHUawFQ5FNdnpjN/ACaj0jPWNWmkmp1JWXILzkKkCVNYHFk42EeNFT9FhFdyN8CSQChYzblu1\r\n\tTG/Y=",
+            "x-gm-gg": "X-Gm-Gg: ASbGnctJ//+zw2NFFQZyz5BTHdfaIw4TCMey8hFD0LsMAhGt51SRoAA9niEoWk8hPQv\r\n\tRvgFJxhdgJ0YUCEz4NgAoEGqmgoPwbzGFFVJmiNLTeUZK1KmF3jL9cGJnHTF05QmJQVCfXdNJJD\r\n\tNi66Bmcz8+PADypMsaj68mTjl4mpNgwq5n4PzBv4CeCMbfrp0MEkSH09J1sNSOLQelOOlJUvK8Z\r\n\tlFuX7KBb5NFbw+FIvmq+4LmTI7iM+8d2XlGn55y1JQ4htJXHulbKrZRpS4iog+RzarmttPLt2r0\r\n\tqOvyfInFqEVYjV6UOaTmd9O8UxtLgVCNZ4UUeq6HDhMqjgNmad2ulYgkD01OpdxVnyO5/IxpwMg\r\n\t1xhUdF9C8mxkOW7zB1EX6D9zYonw2fY1TqHqQ2DWlNTGBrp4hoxgD5/lyF6JNKuSI8dxHzai6tO\r\n\t8z/AFdWUcsBw==",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IEVmsdQ2t6YdjO6P2t8/KzgxzR3HKB6MhsNC2Od9oePJ+GZwBCsI3X0ugdWaXhhbfLbRCtE2w==",
+            "mime-version": "Mime-Version: 1.0",
+            "from": "From: \"Aidan Schechter\" <aidan@1916mgmt.com>",
+            "message-id": "Message-ID: <mgbblnuc.cfc2ac2b-51db-4fcb-b11e-9a3472020605@we.are.superhuman.com>",
+            "subject": "Subject: Re: Fwd: Re: DJ Kogis / Matt Wills co-producing 'Missing You'\r\n (subject to signed contract",
+            "x-mailer": "X-Mailer: Superhuman Desktop (2025-10-03T19:06:08Z)",
+            "x-superhuman-id": "X-Superhuman-ID: mgbblwr5.9814cb80-a1e1-43df-8dc2-585648f12101",
+            "x-superhuman-draft-id": "X-Superhuman-Draft-ID: draft00671fbd581ad89e",
+            "in-reply-to": "In-Reply-To: <CAEaeWjSZZ0asycEDTACzJE2wNOHUA0-HJHONTpk=kqd85jXfpA@mail.gmail.com>",
+            "references": "References: <mg13uet3.7c232c04-1ad4-48e9-99d6-3a340fa92ce3@we.are.superhuman.com> <CAEaeWjSZZ0asycEDTACzJE2wNOHUA0-HJHONTpk=kqd85jXfpA@mail.gmail.com>",
+            "to": "To: asst@patchbay.xyz",
+            "date": "Date: Fri, 03 Oct 2025 20:52:53 +0000",
+            "cc": "Cc: abid@patchbay.xyz",
+            "content-type": "Content-Type: multipart/alternative;\r\n boundary=42d47826f384fc3fb4b4a95cca345d64dc26cf67c4fba31008745c2c97be"
+          },
+          "html": "<html><head></head><body><div><div><div><div>Please upload the fully executed file and create the invoice and share it with me here <br/></div><div><br/></div><div>Thank you.<br/></div></div><div><div style=\"display: none; border: 0px; width: 0px; height: 0px; overflow: hidden; visibility: hidden;\"><img src=\"https://r.superhuman.com/Tj9EA2P8sz9UVntirbh3jAiUx8zeTzDKWDqbihtuxHhehrpENQnQUwFR030LynPyNWPmymVJ_XTEqZ6qhMS6d6T6CotxkVBjCaiqMy8UVrK-H7Wae9-HdvsOM7avUW0Sbu-OAJG85afaYTq3aKYT9SlT8nn0hefS_oriNBh3lXbH-NujaQ.gif\" alt=\" \" width=\"1\" height=\"0\" style=\"display: none; border: 0px; width: 0px; height: 0px; overflow: hidden; visibility: hidden;\"/><!--                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                --></div><br/><div class=\"gmail_signature\"><div><div dir=\"ltr\"><font face=\"arial, sans-serif\" class=\"sh-preserve-font-family\">Best,</font><div><font face=\"arial, sans-serif\" class=\"sh-preserve-font-family\">Aidan Schechter</font></div><div><font face=\"arial, sans-serif\" class=\"sh-preserve-font-family\"><br class=\"sh-preserve-font-family\"/></font></div><div><span><div align=\"left\" style=\"margin-left:0pt\" dir=\"ltr\"><table style=\"border:none;border-collapse:collapse\"><colgroup><col width=\"176\"/><col width=\"403\"/></colgroup><tbody><tr style=\"height:78.28947265625001pt\"><td style=\"vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden\"><p style=\"line-height:2.0736;margin-top:0pt;margin-bottom:0pt\" dir=\"ltr\" class=\"sh-preserve-line-height\"><span style=\"font-size:11pt;font-family:Arial;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\"><span style=\"border:none;display:inline-block;overflow:hidden;width:131px;height:67px\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\"><img style=\"margin-left:0px;margin-top:0px\" height=\"67\" width=\"131\" src=\"https://lh6.googleusercontent.com/jUH4I5j5gaLI5AKRjzsucG3zpOMuMvL7V1K7YYbY_kuiM8qGy2W3MFBNsn-5XZi40Wi81ZCU8viXUAAWDFZZqgPCdA0WC-e77shX-B8GVBto1F6iarQdDrkLyTuS-Vna7F_PBuE\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\"/></span></span><span style=\"font-size:11pt;font-family:Arial;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\">   </span><span style=\"font-size:11pt;font-family:Arial;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\"></span></p></td><td style=\"vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden\"><p style=\"line-height:1.56;margin-top:0pt;margin-bottom:0pt\" dir=\"ltr\" class=\"sh-preserve-line-height\"><span style=\"font-size:11pt;font-family:Archivo,sans-serif;color:rgb(0,0,0);background-color:transparent;font-weight:700;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\">AIDAN SCHECHTER </span></p><p style=\"line-height:1.56;margin-top:0pt;margin-bottom:0pt\" dir=\"ltr\" class=\"sh-preserve-line-height\"><span style=\"font-size:9pt;font-family:Archivo,sans-serif;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\">P: </span><span style=\"font-size:9pt;font-family:Archivo,sans-serif;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\">+1 310.467.6229</span><span style=\"font-size:9pt;font-family:Archivo,sans-serif;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\"> | E: </span><span style=\"font-size:9pt;font-family:Archivo,sans-serif;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline;white-space:pre-wrap\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\"><a href=\"mailto:AIDAN@1916MGMT.COM\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-preserve-line-height sh-preserve-font-family sh-preserve-font-size\">AIDAN@1916MGMT.COM</a></span></p></td></tr></tbody></table></div></span></div></div></div><br/></div></div><br/><div><div class=\"gmail_quote\">On Fri, Sep 26, 2025 at 8:29 PM,  <span dir=\"ltr\">&lt;<a href=\"mailto:asst@patchbay.xyz\" target=\"_blank\">asst@patchbay.xyz</a>&gt;</span> wrote:<br/><blockquote class=\"gmail_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex\"><div class=\"gmail_extra\"><div class=\"gmail_quote sh-color-black sh-color\"><p class=\"sh-color-black sh-color\">I’ve updated the Producer Deal for Matt Wills on the project <strong class=\"sh-color-black sh-color\">“Missing You”</strong> with DJ Kogis to <strong class=\"sh-color-black sh-color\">Fully Executed</strong> as confirmed by Disorder Legal’s recent correspondence.</p><ul class=\"sh-color-black sh-color\"><li class=\"sh-color-black sh-color\"><strong class=\"sh-color-black sh-color\">Deal status:</strong> Now marked as Fully Executed in Patchbay.</li></ul><p class=\"sh-color-black sh-color\">Regarding uploading the file you previously sent: Please clarify if you’d like this file attached to the deal record, or if you want it shared with a specific recipient. If you’d like it uploaded to Patchbay for internal record-keeping, kindly re-send the file here or specify its location, as I do not have direct access to your email attachments.</p><p class=\"sh-color-black sh-color\">Please let me know how you’d like to proceed, and I’ll take care of it promptly.</p><p class=\"sh-color-black sh-color\">Patchbay Assistant</p></div></div></blockquote></div></div><br/></div></div></body></html>",
+          "text": "Please upload the fully executed file and create the invoice and share it with me here\n\nThank you.\n\nBest,\nAidan Schechter\n\nAIDAN SCHECHTER\n\nP: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n\nOn Fri, Sep 26, 2025 at 8:29 PM, < asst@patchbay.xyz > wrote:\n\n> \n> \n> \n> I’ve updated the Producer Deal for Matt Wills on the project *“Missing\n> You”* with DJ Kogis to *Fully Executed* as confirmed by Disorder Legal’s\n> recent correspondence.\n> \n> \n> \n> * *Deal status:* Now marked as Fully Executed in Patchbay.\n> \n> \n> \n> \n> Regarding uploading the file you previously sent: Please clarify if you’d\n> like this file attached to the deal record, or if you want it shared with\n> a specific recipient. If you’d like it uploaded to Patchbay for internal\n> record-keeping, kindly re-send the file here or specify its location, as I\n> do not have direct access to your email attachments.\n> \n> \n> \n> Please let me know how you’d like to proceed, and I’ll take care of it\n> promptly.\n> \n> \n> \n> Patchbay Assistant\n> \n> \n>",
+          "textAsHtml": "<p>Please upload the fully executed file and create the invoice and share it with me here</p><p>Thank you.</p><p>Best,<br/>Aidan Schechter</p><p>AIDAN SCHECHTER</p><p>P: +1 310.467.6229 | E: <a href=\"mailto:AIDAN@1916MGMT.COM\">AIDAN@1916MGMT.COM</a></p><p>On Fri, Sep 26, 2025 at 8:29 PM, &lt; <a href=\"mailto:asst@patchbay.xyz\">asst@patchbay.xyz</a> &gt; wrote:</p><p>&gt;<br/>&gt;<br/>&gt;<br/>&gt; I&rsquo;ve updated the Producer Deal for Matt Wills on the project *&ldquo;Missing<br/>&gt; You&rdquo;* with DJ Kogis to *Fully Executed* as confirmed by Disorder Legal&rsquo;s<br/>&gt; recent correspondence.<br/>&gt;<br/>&gt;<br/>&gt;<br/>&gt; * *Deal status:* Now marked as Fully Executed in Patchbay.<br/>&gt;<br/>&gt;<br/>&gt;<br/>&gt;<br/>&gt; Regarding uploading the file you previously sent: Please clarify if you&rsquo;d<br/>&gt; like this file attached to the deal record, or if you want it shared with<br/>&gt; a specific recipient. If you&rsquo;d like it uploaded to Patchbay for internal<br/>&gt; record-keeping, kindly re-send the file here or specify its location, as I<br/>&gt; do not have direct access to your email attachments.<br/>&gt;<br/>&gt;<br/>&gt;<br/>&gt; Please let me know how you&rsquo;d like to proceed, and I&rsquo;ll take care of it<br/>&gt; promptly.<br/>&gt;<br/>&gt;<br/>&gt;<br/>&gt; Patchbay Assistant<br/>&gt;<br/>&gt;<br/>&gt;</p>",
+          "subject": "Re: Fwd: Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract",
+          "references": [
+            "<mg13uet3.7c232c04-1ad4-48e9-99d6-3a340fa92ce3@we.are.superhuman.com>",
+            "<CAEaeWjSZZ0asycEDTACzJE2wNOHUA0-HJHONTpk=kqd85jXfpA@mail.gmail.com>"
+          ],
+          "date": "2025-10-03T20:52:53.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "asst@patchbay.xyz",
+                "name": ""
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><a href=\"mailto:asst@patchbay.xyz\" class=\"mp_address_email\">asst@patchbay.xyz</a></span>",
+            "text": "asst@patchbay.xyz"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "aidan@1916mgmt.com",
+                "name": "Aidan Schechter"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Aidan Schechter</span> &lt;<a href=\"mailto:aidan@1916mgmt.com\" class=\"mp_address_email\">aidan@1916mgmt.com</a>&gt;</span>",
+            "text": "\"Aidan Schechter\" <aidan@1916mgmt.com>"
+          },
+          "cc": {
+            "value": [
+              {
+                "address": "abid@patchbay.xyz",
+                "name": ""
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><a href=\"mailto:abid@patchbay.xyz\" class=\"mp_address_email\">abid@patchbay.xyz</a></span>",
+            "text": "abid@patchbay.xyz"
+          },
+          "messageId": "<mgbblnuc.cfc2ac2b-51db-4fcb-b11e-9a3472020605@we.are.superhuman.com>",
+          "inReplyTo": "<CAEaeWjSZZ0asycEDTACzJE2wNOHUA0-HJHONTpk=kqd85jXfpA@mail.gmail.com>",
+          "routing": "bot_only"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-10T17:57:36.743Z",
+  "versionId": "b8d4d615-5d68-4bc8-933d-b8e8f263a48b"
+}
