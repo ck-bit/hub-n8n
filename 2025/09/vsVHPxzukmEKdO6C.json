@@ -1,0 +1,3925 @@
+{
+  "active": true,
+  "connections": {
+    "GetMasters": {
+      "main": [
+        [
+          {
+            "node": "ExcludeExistingMasters",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetBookIds": {
+      "main": [
+        [
+          {
+            "node": "Route1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExcludeExistingMasters": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExcludeExistingPersons": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TimeTrigger": {
+      "main": [
+        [
+          {
+            "node": "GetOrganizations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetPerson": {
+      "main": [
+        [
+          {
+            "node": "Route2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetOrganizations": {
+      "main": [
+        [
+          {
+            "node": "Route4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "SetPersonsInput",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetOutputA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "SetMastersInput",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetOutputA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "SetOrganizationsInput",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetOutputA3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetMastersInput": {
+      "main": [
+        [
+          {
+            "node": "EmbeddingGenerator1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetPersonsInput": {
+      "main": [
+        [
+          {
+            "node": "payloadUnified",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetOrganizationsInput": {
+      "main": [
+        [
+          {
+            "node": "EmbedOrganizations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route1": {
+      "main": [
+        [
+          {
+            "node": "GetMasters",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDataOutputA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route2": {
+      "main": [
+        [
+          {
+            "node": "ExcludeExistingPersons",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDataOutputA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route4": {
+      "main": [
+        [
+          {
+            "node": "ExcludeOrg",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDataOutputB1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExcludeOrg": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDataOutputB1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader1": {
+      "ai_document": [
+        [
+          {
+            "node": "EmbeddingGenerator1",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter1": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader1",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "EmbeddingGenerator1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Arrange1": {
+      "main": [
+        [
+          {
+            "node": "Update1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EmbeddingGenerator1": {
+      "main": [
+        [
+          {
+            "node": "modify1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "modify1": {
+      "main": [
+        [
+          {
+            "node": "Arrange1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TimeTrigger2": {
+      "main": [
+        [
+          {
+            "node": "GetPerson",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TimeTrigger3": {
+      "main": [
+        [
+          {
+            "node": "GetBookIds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader2": {
+      "ai_document": [
+        [
+          {
+            "node": "Embed Deals",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter2": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader2",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Embed Deals",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareData": {
+      "main": [
+        [
+          {
+            "node": "Embed Deals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embed Deals": {
+      "main": [
+        [
+          {
+            "node": "Deals4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Deals4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Created": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "PrepareData",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetOutputA2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TimeTrigger5": {
+      "main": [
+        [
+          {
+            "node": "MasterDeals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "MasterDeals",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PubDeals",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RecordDeals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Filter Created",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetOutputA2": {
+      "main": [
+        [
+          {
+            "node": "Deals4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ErrorOutput2": {
+      "main": [
+        [
+          {
+            "node": "Deals4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader3": {
+      "ai_document": [
+        [
+          {
+            "node": "EmbedOrganizations",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter3": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader3",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI3": {
+      "ai_embedding": [
+        [
+          {
+            "node": "EmbedOrganizations",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExcludeExistingArtists1": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader4": {
+      "ai_document": [
+        [
+          {
+            "node": "EmbeddingGenerator2",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter4": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader4",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI4": {
+      "ai_embedding": [
+        [
+          {
+            "node": "EmbeddingGenerator2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetArtist1": {
+      "main": [
+        [
+          {
+            "node": "Route",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "SetArtistsInput1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetOutputA4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EmbeddingGenerator2": {
+      "main": [
+        []
+      ]
+    },
+    "SetArtistsInput1": {
+      "main": [
+        [
+          {
+            "node": "EmbeddingGenerator2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route": {
+      "main": [
+        [
+          {
+            "node": "ExcludeExistingArtists1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoDataOutputB2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TimeTrigger4": {
+      "main": [
+        [
+          {
+            "node": "GetArtist1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "payloadUnified": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EmbeddingGenerator": {
+      "main": [
+        [
+          {
+            "node": "modify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "modify": {
+      "main": [
+        [
+          {
+            "node": "Arrange",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Arrange": {
+      "main": [
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "EmbeddingGenerator",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "EmbeddingGenerator",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "SetOutputA",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "EmbeddingGenerator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PubDeals": {
+      "main": [
+        [
+          {
+            "node": "If7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If7": {
+      "main": [
+        [
+          {
+            "node": "Filter Created1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If8": {
+      "main": [
+        [
+          {
+            "node": "PrepareData1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetOutputA5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Created1": {
+      "main": [
+        [
+          {
+            "node": "If8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TimeTrigger6": {
+      "main": [
+        [
+          {
+            "node": "PubDeals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MasterDeals": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader5": {
+      "ai_document": [
+        [
+          {
+            "node": "Embed Deals1",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter5": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader5",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI5": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Embed Deals1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareData1": {
+      "main": [
+        [
+          {
+            "node": "Embed Deals1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embed Deals1": {
+      "main": [
+        [
+          {
+            "node": "Deals",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Deals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetOutputA5": {
+      "main": [
+        [
+          {
+            "node": "Deals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ErrorOutput5": {
+      "main": [
+        [
+          {
+            "node": "Deals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deals4": {
+      "main": [
+        []
+      ]
+    },
+    "RecordDeals": {
+      "main": [
+        [
+          {
+            "node": "If9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TimeTrigger7": {
+      "main": [
+        [
+          {
+            "node": "RecordDeals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If9": {
+      "main": [
+        [
+          {
+            "node": "Filter Created2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Created2": {
+      "main": [
+        [
+          {
+            "node": "If10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ErrorOutput6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If10": {
+      "main": [
+        [
+          {
+            "node": "PrepareData2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetOutputA6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader6": {
+      "ai_document": [
+        [
+          {
+            "node": "Embed Deals2",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter6": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader6",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI6": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Embed Deals2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embed Deals2": {
+      "main": [
+        [
+          {
+            "node": "Deals1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Deals1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareData2": {
+      "main": [
+        [
+          {
+            "node": "Embed Deals2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetOutputA6": {
+      "main": [
+        [
+          {
+            "node": "Deals1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ErrorOutput6": {
+      "main": [
+        [
+          {
+            "node": "Deals1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-15T05:43:03.144Z",
+  "id": "vsVHPxzukmEKdO6C",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Database Manager",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    m.number as master_number,\n    $1 as number,\n    m.name,\n    m.version_subtitle,\n    m.isrc,\n    m.master_type,\n    m.status,\n    'master' as entity_type\nFROM \n    song_master m\nWHERE m.book_id = $2 AND m.deleted_at ISNULL;",
+        "options": {
+          "queryReplacement": "={{ $json.number }}, {{ $json.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        300,
+        970
+      ],
+      "id": "40048b15-63bd-4ba3-b2eb-0a5e077eff53",
+      "name": "GetMasters",
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM books_bookofwork \nWHERE deleted_at IS NULL AND verified IS TRUE;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -140,
+        1120
+      ],
+      "id": "2faa4d69-857b-4ca9-adc1-356191447277",
+      "name": "GetBookIds",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT NOT EXISTS (\n  SELECT 1 FROM patchbay_embeddings \n  WHERE metadata->>'for' = 'masters'\n    AND metadata->>'master_number' = '{{ $json.master_number }}'\n) AS is_empty;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        520,
+        945
+      ],
+      "id": "7a996c87-2110-4681-909f-53349618917b",
+      "name": "ExcludeExistingMasters",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT NOT EXISTS (\n  SELECT 1 FROM patchbay_embeddings \n  WHERE metadata->>'for' = 'persons'\n    AND metadata->>'number' = '{{ $json.number }}'\n) AS is_empty;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        300,
+        1920
+      ],
+      "id": "9c3c0934-d556-4eb8-9d22-7b31048213f8",
+      "name": "ExcludeExistingPersons",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -340,
+        3600
+      ],
+      "id": "8ecbe59a-1f93-4a86-8b53-ac2e7ce734e3",
+      "name": "TimeTrigger"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    p.number,\n    pp.name,\n    pp.performer_name,\n    p.verified,\n    COALESCE(ARRAY_AGG(DISTINCT ppp.role) FILTER (WHERE ppp.role IS NOT NULL), '{}') AS roles\nFROM \n    person_person p\nJOIN \n    person_personproperties pp ON p.current_properties_id = pp.id\nLEFT JOIN \n    person_personrole ppp ON p.id = ppp.person_id\nWHERE \n    p.deleted_at IS NULL\n  AND p.created_at >= NOW() -INTERVAL '10000 days'\nGROUP BY \n    p.number, pp.name, pp.performer_name, p.verified\nORDER BY \n    p.verified DESC;\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -140,
+        1795
+      ],
+      "id": "3fc710c8-64fb-4154-b44b-d3347a61b8ab",
+      "name": "GetPerson",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  p.name,\n  p.number,\n  p.id,\n  p.verified,\n  pp.role\nFROM organization_organization p\nJOIN organization_organizationrole pp ON p.id = pp.id\nWHERE p.deleted_at IS NULL\nAND p.created_at >= NOW() - INTERVAL '8 days' \nORDER BY p.verified DESC",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -120,
+        3600
+      ],
+      "id": "ee9380ad-0f00-455b-b990-4a1fde360085",
+      "name": "GetOrganizations",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6552509b-5d34-479a-89cb-af67679dfd42",
+              "leftValue": "={{ $json.is_empty }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        520,
+        1995
+      ],
+      "id": "2e328bf3-4c95-4f69-a903-faad9fd026f4",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6552509b-5d34-479a-89cb-af67679dfd42",
+              "leftValue": "={{ $json.is_empty }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        740,
+        895
+      ],
+      "id": "4450698c-3975-4981-8677-2da665e292cf",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6552509b-5d34-479a-89cb-af67679dfd42",
+              "leftValue": "={{ $json.is_empty }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        540,
+        3380
+      ],
+      "id": "986f9a59-1721-4d4b-be4f-8e708a975f0a",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6472e9a3-db78-463d-b44f-9ca2f25f9e6a",
+              "name": "content",
+              "value": "={{ $('GetMasters').item.json.version_subtitle ? `${$('GetMasters').item.json.name} (${$('GetMasters').item.json.version_subtitle})` : $('GetMasters').item.json.name }}\n",
+              "type": "string"
+            },
+            {
+              "id": "d9c0cdde-c98d-472e-9f19-d68de3678477",
+              "name": "number",
+              "value": "={{ $('GetMasters').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "16695144-6202-4547-828d-41c4714b8a3f",
+              "name": "for",
+              "value": "masters",
+              "type": "string"
+            },
+            {
+              "id": "3722ad82-7082-46bf-9ca6-04de1bb83152",
+              "name": "full_text",
+              "value": "={{  $('GetMasters').item.json.toJsonString() }}",
+              "type": "string"
+            },
+            {
+              "id": "45fd792d-5999-48f5-aadc-20013c159c30",
+              "name": "master_number",
+              "value": "={{ $('GetMasters').item.json.master_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        960,
+        720
+      ],
+      "id": "b90535b7-4453-4458-b7e0-98beb3507341",
+      "name": "SetMastersInput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6472e9a3-db78-463d-b44f-9ca2f25f9e6a",
+              "name": "content",
+              "value": "={{ [\n  $('GetPerson').item.json.name ? `Legal Name: ${$('GetPerson').item.json.name}` : null,\n  $('GetPerson').item.json.performer_name ? `Performer Name: ${$('GetPerson').item.json.performer_name}` : null,\n  $('GetPerson').item.json.roles?.length ? `Roles: ${$('GetPerson').item.json.roles.join(', ')}` : null\n].filter(Boolean).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "d9c0cdde-c98d-472e-9f19-d68de3678477",
+              "name": "number",
+              "value": "={{ $('GetPerson').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "16695144-6202-4547-828d-41c4714b8a3f",
+              "name": "for",
+              "value": "persons",
+              "type": "string"
+            },
+            {
+              "id": "3722ad82-7082-46bf-9ca6-04de1bb83152",
+              "name": "full_text",
+              "value": "={{  $('GetPerson').item.json.toJsonString() }}",
+              "type": "string"
+            },
+            {
+              "id": "695d252d-57e9-45e1-862e-d05350a59e4b",
+              "name": "role",
+              "value": "={{ $('Route2').item.json.roles }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        2120
+      ],
+      "id": "bb16ee78-bf4e-4058-8339-014a34fc3921",
+      "name": "SetPersonsInput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6472e9a3-db78-463d-b44f-9ca2f25f9e6a",
+              "name": "content",
+              "value": "={{ 'Organization Name: ' + $('GetOrganizations').first().json.name + '\\nOrganization Role: ' + $('GetOrganizations').first().json.role }}",
+              "type": "string"
+            },
+            {
+              "id": "d9c0cdde-c98d-472e-9f19-d68de3678477",
+              "name": "organization_numer",
+              "value": "={{ $('GetOrganizations').first().json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "d9a6a172-6906-4f6f-850d-ec4e31e709ab",
+              "name": "organization_id",
+              "value": "={{ $('GetOrganizations').first().json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ffbcbbd1-9726-4c28-9a96-139bd89df6db",
+              "name": "role",
+              "value": "={{ $('GetOrganizations').item.json.role }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        3280
+      ],
+      "id": "ea4d0507-ca98-4575-8808-c85ba56f9241",
+      "name": "SetOrganizationsInput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7474ff6a-fec5-403a-9e07-50c54be19e38",
+              "name": "output",
+              "value": "Encountered an Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        1370
+      ],
+      "id": "7f90c383-c41f-417f-a1cc-a4fd4a0f91b7",
+      "name": "ErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e8ca2144-7cf1-420b-bcdb-db5df03c8d79",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        80,
+        1045
+      ],
+      "id": "c19ce27b-060f-4fd1-b01a-bc75405f0387",
+      "name": "Route1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cb7e127e-5ec0-4a06-ade4-694500ca08cb",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        80,
+        1870
+      ],
+      "id": "bd70578b-419c-4d2a-a6a0-255cd0bfa6ef",
+      "name": "Route2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9566052a-5872-4a15-94e2-6a8763827ad2",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        100,
+        3500
+      ],
+      "id": "ea7c1f54-c063-4aa6-8886-cec055d922bf",
+      "name": "Route4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8700c312-2e6f-4f70-b19b-9a6b635ca360",
+              "name": "output",
+              "value": "No Data Found",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        300,
+        1195
+      ],
+      "id": "cce99817-1576-4ad4-b6b8-b515ccf5f1a8",
+      "name": "NoDataOutputA"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c7ea381f-57ea-433d-b522-c75764934048",
+              "name": "status",
+              "value": "exists",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1814,
+        1720
+      ],
+      "id": "06fa2be1-673b-4ee7-ac47-a35ff7375b80",
+      "name": "SetOutputA"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT NOT EXISTS (\n  SELECT 1 FROM organizations_vectorstore \n    WHERE metadata->>'organization_number' = '{{ $json.number }}'\n) AS is_empty;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        320,
+        3420
+      ],
+      "id": "fae649b4-b919-4347-b800-28aecf9b1b6a",
+      "name": "ExcludeOrg",
+      "retryOnFail": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('SetMastersInput').item.json.content.trim() }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "for",
+                "value": "={{ $('SetMastersInput').item.json.for }}"
+              },
+              {
+                "name": "number",
+                "value": "={{ $('SetMastersInput').item.json.number }}"
+              },
+              {
+                "name": "full_payload",
+                "value": "={{ $('SetMastersInput').item.json.full_text }}"
+              },
+              {
+                "name": "master_number",
+                "value": "={{ $('SetMastersInput').item.json.master_number }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        942.5
+      ],
+      "id": "77c765a2-9f43-452d-8d9a-61074d349aeb",
+      "name": "Default Data Loader1"
+    },
+    {
+      "parameters": {
+        "chunkSize": 20000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1388,
+        1140
+      ],
+      "id": "c40ff322-0ef3-4d7a-b201-8a405964c8fe",
+      "name": "Token Splitter1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1180,
+        940
+      ],
+      "id": "e5a2c3d2-0f2c-4324-be98-8ae16aba1035",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "patchbay_embeddings",
+          "mode": "list",
+          "cachedResultName": "patchbay_embeddings"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "id": "={{ $json.id }}",
+            "text": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "embedding",
+              "displayName": "embedding",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "options",
+              "canBeUsedToMatch": true,
+              "options": [],
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2392,
+        720
+      ],
+      "id": "08107c1b-adbd-4969-9fb8-0084d73e6bb9",
+      "name": "Update1",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "347dae1b-912f-444a-8b46-3d1ed0bd48ec",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "d8cec7f9-6e50-40b2-accf-0f5f3d9abf2c",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bfaac5a2-0986-49cb-82d8-f7d2d4d5b660",
+              "name": "metadata",
+              "value": "={{ $json.metadata.removeField('full_payload') }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2172,
+        720
+      ],
+      "id": "f6d34db1-7cec-4732-9cac-19aa3d2a1e23",
+      "name": "Arrange1"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "patchbay_embeddings",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        1196,
+        720
+      ],
+      "id": "69fb926c-1cb6-4c48-a1e9-90fa39e9247d",
+      "name": "EmbeddingGenerator1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, metadata->>'full_payload' AS text, metadata\nFROM patchbay_embeddings\nWHERE metadata->>'for' = '{{ $json.metadata.for }}' AND metadata->>'master_number' = '{{ $json.metadata.master_number }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1814,
+        720
+      ],
+      "id": "1a26ce38-a057-4092-b431-d3a416e0b5ec",
+      "name": "modify1",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -360,
+        1795
+      ],
+      "id": "757b6123-b9be-4c3e-afef-ea6ee71e6b43",
+      "name": "TimeTrigger2"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -360,
+        1120
+      ],
+      "id": "53b3383c-9916-4c4c-be47-1d47b36b189e",
+      "name": "TimeTrigger3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// N8N Code Node - Deal Data Processor\n// Input: Array of deal objects from the SQL query\n\n// Function to safely get data from nodes\nconst getNodeData = (nodeName) => {\n  try {\n    const nodeData = $(nodeName);\n    return nodeData?.all() || [];\n  } catch (error) {\n    console.log(`Node ${nodeName} is not available or not executed`);\n    return [];\n  }\n};\n\n// Try to get data from available nodes\nlet inputData = [];\n\n// Check for \"Deals\" node first\nconst dealsData = getNodeData(\"MasterDeals\");\nif (dealsData.length > 0) {\n  inputData = dealsData;\n} else {\n  // Fall back to \"Trigger\" node\n  const triggerData = getNodeData(\"CustomInput\");\n  if (triggerData.length > 0) {\n    inputData = triggerData;\n  }\n}\n\n// If no data found, return empty array with warning\nif (inputData.length === 0) {\n  console.log(\"Warning: No data found in either 'Deals' or 'Trigger' nodes\");\n  return [];\n}\n\nconst processedData = [];\n\ninputData.forEach(item => {\n  // Safely access the json property\n  const dealData = item?.json || item || {};\n  \n  // Light normalization - preserve semantic structure\n  const lightNormalize = (text) => {\n    if (!text || typeof text !== 'string') return '';\n    return text\n      .trim()\n      .replace(/\\s+/g, ' ')  // Multiple spaces to single space\n      .replace(/[^\\w\\s-.,]/g, ' ')  // Keep basic punctuation\n      .replace(/\\s+/g, ' ')\n      .trim();\n  };\n  \n  // Create semantic content parts (preserve natural language)\n  const contentParts = [];\n  \n  // Add person legal name with context\n  const legalName = lightNormalize(dealData.person_legal_name);\n  if (legalName) {\n    contentParts.push(`${legalName}`);\n  }\n  \n  // Add performer name if different\n  const performerName = lightNormalize(dealData.person_performer_name);\n  if (performerName && performerName.toLowerCase() !== legalName.toLowerCase()) {\n    contentParts.push(`${performerName}`);\n  }\n  \n  // Add artist name\n  const artistName = lightNormalize(dealData.artist_name);\n  if (artistName) {\n    contentParts.push(`${artistName}`);\n  }\n  \n  // Add masters with context\n  const mastersKey = dealData.masters_names || dealData.masters || '';\n  const masters = lightNormalize(mastersKey);\n  if (masters) {\n    contentParts.push(`${masters}`);\n  }\n  \n  // // Add deal context for better semantic understanding\n  // if (dealData.status) {\n  //   contentParts.push(`Status: ${dealData.status}`);\n  // }\n  \n  // Join with natural separators\n  const content = contentParts.join(' | ');\n  \n  // Create metadata object with safe property access\n  const metadata = {\n    deal_number: dealData.deal_number || '',\n    deal_id: dealData.deal_id || '',\n    deal_subtype: dealData.deal_subtype || '',\n    book_id: dealData.book_id || '',\n    status: dealData.status || '',\n    deal_type: 'Master' // Default value as requested\n  };\n  \n  // Create the final processed object\n  processedData.push({\n    content: content,\n    metadata: metadata\n  });\n});\n\n// Return the processed data\nreturn processedData;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        4460
+      ],
+      "id": "5836ccb2-a283-42ed-b7bb-1e55a10fd0cc",
+      "name": "PrepareData"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('PrepareData').item.json.content }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "=deal_type",
+                "value": "={{ $('PrepareData').item.json.metadata.deal_type }}"
+              },
+              {
+                "name": "deal_subtype",
+                "value": "={{ $('PrepareData').item.json.metadata.deal_subtype }}"
+              },
+              {
+                "name": "deal_number",
+                "value": "={{ $('PrepareData').item.json.metadata.deal_number }}"
+              },
+              {
+                "name": "deal_id",
+                "value": "={{ $('PrepareData').item.json.metadata.deal_id }}"
+              },
+              {
+                "name": "deal_status",
+                "value": "={{ $('PrepareData').item.json.metadata.status }}"
+              },
+              {
+                "name": "book_id",
+                "value": "={{ $('PrepareData').item.json.metadata.book_id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        4580
+      ],
+      "id": "2dec87eb-93a9-4d68-ae87-fea8b13b0bb7",
+      "name": "Default Data Loader2"
+    },
+    {
+      "parameters": {
+        "chunkSize": 20000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        4780
+      ],
+      "id": "bb556c9d-9543-46da-a0e5-3a1db3e30b8c",
+      "name": "Token Splitter2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1400,
+        4580
+      ],
+      "id": "8141a934-94a7-4364-b628-c8dd5f39545e",
+      "name": "Embeddings OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "patchbay_deal_vectorstore",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        4240
+      ],
+      "id": "6e82b1e2-3119-4a26-a875-6000bed38c75",
+      "name": "Embed Deals",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  CASE \n    WHEN EXISTS (\n      SELECT 1 \n      FROM patchbay_deal_vectorstore \n      WHERE metadata->>'deal_number' = $1 AND metadata->>'deal_type' = 'Master'\n    ) \n    THEN false \n    ELSE true \n  END AS is_new_deal;",
+        "options": {
+          "queryReplacement": "={{ $json.deal_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        380,
+        4480
+      ],
+      "id": "498766fc-0cda-4642-a7be-916624088511",
+      "name": "Filter Created",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7474ff6a-fec5-403a-9e07-50c54be19e38",
+              "name": "output",
+              "value": "Encountered an Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        600,
+        4840
+      ],
+      "id": "ebe17be5-438f-43f8-b5c5-47d7849bbe66",
+      "name": "ErrorOutput2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c7ea381f-57ea-433d-b522-c75764934048",
+              "name": "status",
+              "value": "exists",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1360,
+        4860
+      ],
+      "id": "4ef4a0a2-8e82-4cfa-a90e-243b431aefba",
+      "name": "SetOutputA2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "096ca4f2-84db-4f28-9244-b9cf1b8b24c7",
+              "leftValue": "={{ $json.is_new_deal }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        600,
+        4440
+      ],
+      "id": "73ff81c9-6d6f-4231-8c1d-3a0ffd1b4ce1",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -440,
+        4400
+      ],
+      "id": "5f564dcc-7ee2-40a6-8fdb-cbc159dbfa59",
+      "name": "TimeTrigger5"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1260,
+        5340
+      ],
+      "id": "6dd3706e-bfec-444b-bf37-7fd2912f9d21",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2ca924ed-6a7a-4f1f-915c-887b0d62ad9e",
+              "leftValue": "={{$json.isNotEmpty()}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        160,
+        4480
+      ],
+      "id": "2ff4a46b-6b12-4c29-b5de-af301d4503bf",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "DELETE FROM patchbay_deal_vectorstore\nWHERE metadata->>'deal_number' IN (\n  SELECT d.number::text\n  FROM deals_masterdeal d\n  WHERE d.deleted_at IS NOT NULL\n    AND d.deleted_at >= CURRENT_DATE - INTERVAL '2 days'\n)\nAND metadata->>'deal_type' = 'Master';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2220,
+        4860
+      ],
+      "id": "c2528690-a579-4881-b1ed-7e94af8fe141",
+      "name": "Deals4",
+      "alwaysOutputData": true,
+      "executeOnce": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7474ff6a-fec5-403a-9e07-50c54be19e38",
+              "name": "output",
+              "value": "Encountered an Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        100,
+        3700
+      ],
+      "id": "801ade2f-e239-424e-a2b3-58c4e3991a03",
+      "name": "ErrorOutput4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8700c312-2e6f-4f70-b19b-9a6b635ca360",
+              "name": "output",
+              "value": "No Data Found",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        540,
+        3600
+      ],
+      "id": "55a3bd92-5bd9-4a2b-8d21-6c96f573a70b",
+      "name": "NoDataOutputB1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c7ea381f-57ea-433d-b522-c75764934048",
+              "name": "status",
+              "value": "exists",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        3480
+      ],
+      "id": "388ae4e0-c5a6-4b72-8520-335347973fb6",
+      "name": "SetOutputA3"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('SetOrganizationsInput').first().json.content }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "organization_number",
+                "value": "={{ $('SetOrganizationsInput').item.json.organization_numer }}"
+              },
+              {
+                "name": "organization_role",
+                "value": "={{ $('SetOrganizationsInput').item.json.role }}"
+              },
+              {
+                "name": "organization_id",
+                "value": "={{ $('SetOrganizationsInput').item.json.organization_id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        3500
+      ],
+      "id": "a9b606f9-723f-4ade-83a5-87bc0c7465ff",
+      "name": "Default Data Loader3"
+    },
+    {
+      "parameters": {
+        "chunkSize": 20000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        3700
+      ],
+      "id": "1d43a8cb-0231-4f57-a004-088e1daba196",
+      "name": "Token Splitter3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        980,
+        3500
+      ],
+      "id": "e5ea0461-91a2-47fd-96e6-b123cb1484b5",
+      "name": "Embeddings OpenAI3",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "organizations_vectorstore",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        3280
+      ],
+      "id": "c56c80d1-dd3d-4ff4-9f24-3b50a46a95c1",
+      "name": "EmbedOrganizations",
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT NOT EXISTS (\n  SELECT 1 FROM artists_vectorstore \n  WHERE  metadata->>'artist_number' = '{{ $json.number }}'\n) AS is_empty;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        340,
+        2740
+      ],
+      "id": "93ebe54f-0667-41ed-9274-0af32a8e9fd6",
+      "name": "ExcludeExistingArtists1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('SetArtistsInput1').item.json.content }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "artist_number",
+                "value": "={{ $('SetArtistsInput1').item.json.artist_number }}"
+              },
+              {
+                "name": "=artist_id",
+                "value": "={{ $('SetArtistsInput1').item.json.artist_id }}"
+              },
+              {
+                "name": "artist_spotify_id",
+                "value": "={{ $('SetArtistsInput1').item.json.spotify_id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        2800
+      ],
+      "id": "6a3c20aa-f192-423a-b6be-e5ab454b365a",
+      "name": "Default Data Loader4"
+    },
+    {
+      "parameters": {
+        "chunkSize": 20000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        3000
+      ],
+      "id": "099466ea-f106-4398-a85d-4a66aef4b740",
+      "name": "Token Splitter4"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1000,
+        2800
+      ],
+      "id": "f040263f-0eb0-48f8-83fe-9cfbced197b4",
+      "name": "Embeddings OpenAI4",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  p.id,\n  p.number,\n  pp.name,\n  pp.spotify_id,\n  pp.profile_image_url,\n  pp.spotify_id,\n  p.verified\nFROM \n  person_artist p\nJOIN \n  person_artistproperties pp ON p.current_properties_id = pp.id\nWHERE \n  p.deleted_at IS NULL \n  AND pp.deleted_at IS NULL\n  AND p.created_at >= NOW() - INTERVAL '8 days' \nORDER BY \n  p.verified DESC,\n  p.created_at DESC ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -100,
+        2920
+      ],
+      "id": "89a45452-1ec7-4880-9e84-fbc51bdab8e2",
+      "name": "GetArtist1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6552509b-5d34-479a-89cb-af67679dfd42",
+              "leftValue": "={{ $json.is_empty }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        560,
+        2680
+      ],
+      "id": "64cf24e3-0c72-414f-9c5a-78de830b435f",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "artists_vectorstore",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        2580
+      ],
+      "id": "7682eddc-03d8-405f-94e3-3fed11a8570f",
+      "name": "EmbeddingGenerator2",
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6472e9a3-db78-463d-b44f-9ca2f25f9e6a",
+              "name": "content",
+              "value": "={{ [\n  $('GetArtist1').item.json.name ? `Artist Name: ${$('GetArtist1').item.json.name}` : null,\n].filter(Boolean).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "d9c0cdde-c98d-472e-9f19-d68de3678477",
+              "name": "artist_number",
+              "value": "={{ $('GetArtist1').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "283a5201-1480-430f-a993-c75939f08e30",
+              "name": "artist_id",
+              "value": "={{ $('GetArtist1').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "62182e41-8fd5-4b9e-aaaa-6d3e06dd9e15",
+              "name": "spotify_id",
+              "value": "={{ $('GetArtist1').item.json.spotify_id }}",
+              "type": "string"
+            },
+            {
+              "id": "b75ed377-f85a-464c-b172-b867840c0b1d",
+              "name": "verified",
+              "value": "={{ $('GetArtist1').item.json.verified }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        2580
+      ],
+      "id": "02bf5a78-d07d-4afc-88b5-89f0ae4936dd",
+      "name": "SetArtistsInput1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9fd4459f-5268-4b28-8765-dac9f882f209",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        2840
+      ],
+      "id": "d8f0c2b1-b2f3-4e11-be47-f313f8d3b1cb",
+      "name": "Route"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8700c312-2e6f-4f70-b19b-9a6b635ca360",
+              "name": "output",
+              "value": "No Data Found",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        340,
+        2940
+      ],
+      "id": "0e4fc8e3-3eb9-4c06-bc22-878cb4fde748",
+      "name": "NoDataOutputB2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7474ff6a-fec5-403a-9e07-50c54be19e38",
+              "name": "output",
+              "value": "Encountered an Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        560,
+        3040
+      ],
+      "id": "75c97350-9ad6-4b12-98fc-4bdd52b997ea",
+      "name": "ErrorOutput3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c7ea381f-57ea-433d-b522-c75764934048",
+              "name": "status",
+              "value": "exists",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        2780
+      ],
+      "id": "334fc4da-e433-498a-98b0-6db602098f52",
+      "name": "SetOutputA4"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -320,
+        2920
+      ],
+      "id": "f9e39e4f-a4c0-483f-b08d-99840e9bee74",
+      "name": "TimeTrigger4"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, metadata->>'full_payload' AS text, metadata\nFROM patchbay_embeddings\nWHERE metadata->>'for' = '{{ $json.metadata.for }}' AND metadata->>'number' = '{{ $json.metadata.number }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2172,
+        2120
+      ],
+      "id": "1acf6497-fea9-4b6b-be6a-10f363039e3d",
+      "name": "modify",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0dfe747-8bbd-4b31-aa7e-0a5b00c30910",
+              "name": "payload",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        960,
+        2120
+      ],
+      "id": "aa98acf9-1502-414b-8f51-c4f8c3520590",
+      "name": "payloadUnified"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "patchbay_embeddings",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        1692,
+        2120
+      ],
+      "id": "8fe6cff0-4a9b-48de-9b08-0035e64b5ecc",
+      "name": "EmbeddingGenerator",
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "347dae1b-912f-444a-8b46-3d1ed0bd48ec",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "d8cec7f9-6e50-40b2-accf-0f5f3d9abf2c",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bfaac5a2-0986-49cb-82d8-f7d2d4d5b660",
+              "name": "metadata",
+              "value": "={{ $json.metadata.removeField('full_payload') }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2392,
+        2120
+      ],
+      "id": "f24ec741-7a5f-4eef-bf6a-b81334b18899",
+      "name": "Arrange"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "patchbay_embeddings",
+          "mode": "list",
+          "cachedResultName": "patchbay_embeddings"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "id": "={{ $json.id }}",
+            "text": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "embedding",
+              "displayName": "embedding",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "options",
+              "canBeUsedToMatch": true,
+              "options": [],
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2612,
+        2120
+      ],
+      "id": "5b9d24cd-ff33-4b1b-955e-baaf46eb8533",
+      "name": "Update",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1676,
+        2340
+      ],
+      "id": "0b8f2f65-74e9-44cb-ae80-4249fd032a5d",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chunkSize": 20000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1884,
+        2540
+      ],
+      "id": "cf118dd2-4acc-45dd-9608-73a54f3e3a31",
+      "name": "Token Splitter"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('payloadUnified').item.json.payload.content }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "for",
+                "value": "={{ $('payloadUnified').item.json.payload.for }}"
+              },
+              {
+                "name": "number",
+                "value": "={{ $('payloadUnified').item.json.payload.number }}"
+              },
+              {
+                "name": "full_payload",
+                "value": "={{ $('payloadUnified').item.json.payload.full_text }}"
+              },
+              {
+                "name": "role",
+                "value": "={{ $('payloadUnified').item.json.payload.role }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1796,
+        2342.5
+      ],
+      "id": "b0702847-9f8f-461d-802f-92d694c2c6d0",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4ef28c69-ae12-4bf3-ae0e-3461fc20bc3d",
+              "leftValue": "={{ $json.payload.content===\"\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1318,
+        2120
+      ],
+      "id": "84cd8f12-ca25-46e4-a98e-6f1d0e159b95",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    pd.number AS deal_number,\n    pd.id AS deal_id,\n    pd.book_id,\n    pd.publishing_deal_type AS pub_deal_type,\n    pd.status AS deal_status,\n    \n    -- Publisher information\n    pub_org.name AS publisher_name,\n    \n    -- Administrator information\n    admin_org.name AS administrator_name,\n    \n    -- Person information\n    pp.name AS person_name,\n    pp.performer_name AS person_performer_name\n\nFROM books_publishingdeal pd\n\n-- Join publisher organization\nLEFT JOIN organization_organization pub_org \n    ON pd.publisher_id = pub_org.id\n    AND pub_org.deleted_at IS NULL\n\n-- Join administrator organization\nLEFT JOIN organization_organization admin_org \n    ON pd.administrator_id = admin_org.id\n    AND admin_org.deleted_at IS NULL\n\n-- Join person\nLEFT JOIN person_person person \n    ON pd.person_id = person.id \n    AND person.deleted_at IS NULL\n\n-- Join person properties (for name and performer_name)\nLEFT JOIN person_personproperties pp \n    ON person.current_properties_id = pp.id \n    AND pp.deleted_at IS NULL\n\nWHERE pd.deleted_at IS NULL\nAND pd.created_at >= CURRENT_DATE - INTERVAL '2 days'\nORDER BY pd.created_at DESC;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -200,
+        5360
+      ],
+      "id": "8fc72104-5e32-40ba-8956-3bf158d894ce",
+      "name": "PubDeals",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2ca924ed-6a7a-4f1f-915c-887b0d62ad9e",
+              "leftValue": "={{$json.isNotEmpty()}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        160,
+        5340
+      ],
+      "id": "7403bfa8-4830-463f-b7f1-a2eef21385d3",
+      "name": "If7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7474ff6a-fec5-403a-9e07-50c54be19e38",
+              "name": "output",
+              "value": "Encountered an Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        820,
+        5560
+      ],
+      "id": "27f20d96-d0fb-4797-b843-f9d1b2bc2c0a",
+      "name": "ErrorOutput5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "096ca4f2-84db-4f28-9244-b9cf1b8b24c7",
+              "leftValue": "={{ $json.is_new_deal }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        820,
+        5200
+      ],
+      "id": "a155d800-b509-490a-92b1-70966b8ed6e8",
+      "name": "If8"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  CASE \n    WHEN EXISTS (\n      SELECT 1 \n      FROM patchbay_deal_vectorstore \n      WHERE  metadata->>'deal_number' = $1 AND metadata->>'deal_type' = 'Publishing'\n    ) \n    THEN false \n    ELSE true \n  END AS is_new_deal;",
+        "options": {
+          "queryReplacement": "={{ $json.deal_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        560,
+        5220
+      ],
+      "id": "25079577-de7f-48d9-8cb0-e022ae1f3d22",
+      "name": "Filter Created1",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// N8N Code Node - Publishing Deal Data Processor\n// Input: Array of publishing deal objects from the SQL query\n\n// Function to safely get data from nodes\nconst getNodeData = (nodeName) => {\n  try {\n    const nodeData = $(nodeName);\n    return nodeData?.all() || [];\n  } catch (error) {\n    console.log(`Node ${nodeName} is not available or not executed`);\n    return [];\n  }\n};\n\n// Try to get data from available nodes\nlet inputData = [];\n\n// Check for \"Publishing Deals\" node first\nconst pubDealsData = getNodeData(\"PubDeals\");\nif (pubDealsData.length > 0) {\n  inputData = pubDealsData;\n} else {\n  // Fall back to \"CustomInput\" node\n  const triggerData = getNodeData(\"CustomInput\");\n  if (triggerData.length > 0) {\n    inputData = triggerData;\n  }\n}\n\n// If no data found, return empty array with warning\nif (inputData.length === 0) {\n  console.log(\"Warning: No data found in either 'Publishing Deals' or 'CustomInput' nodes\");\n  return [];\n}\n\nconst processedData = [];\n\ninputData.forEach(item => {\n  // Safely access the json property\n  const dealData = item?.json || item || {};\n  \n  // Light normalization - preserve semantic structure\n  const lightNormalize = (text) => {\n    if (!text || typeof text !== 'string') return '';\n    return text\n      .trim()\n      .replace(/\\s+/g, ' ')  // Multiple spaces to single space\n      .replace(/[^\\w\\s-.,]/g, ' ')  // Keep basic punctuation\n      .replace(/\\s+/g, ' ')\n      .trim();\n  };\n  \n  // Create semantic content parts (preserve natural language)\n  const contentParts = [];\n  \n  // Add person name\n  const personName = lightNormalize(dealData.person_name);\n  if (personName) {\n    contentParts.push(`${personName}`);\n  }\n  \n  // Add performer name if different and not null\n  const performerName = lightNormalize(dealData.person_performer_name);\n  if (performerName && performerName.toLowerCase() !== personName.toLowerCase()) {\n    contentParts.push(`${performerName}`);\n  }\n  \n  // Add publisher name if not null\n  const publisherName = lightNormalize(dealData.publisher_name);\n  if (publisherName) {\n    contentParts.push(`${publisherName}`);\n  }\n  \n  // Add administrator name if not null and different from publisher name\n  const administratorName = lightNormalize(dealData.administrator_name);\n  if (administratorName && administratorName.toLowerCase() !== publisherName.toLowerCase()) {\n    contentParts.push(`${administratorName}`);\n  }\n  \n  // Add publishing deal type\n  const pubDealType = lightNormalize(dealData.pub_deal_type);\n  if (pubDealType) {\n    contentParts.push(`${pubDealType}`);\n  }\n  \n  // Join with natural separators\n  const content = contentParts.join(' | ');\n  \n  // Create metadata object with safe property access\n  const metadata = {\n    deal_number: dealData.deal_number || '',\n    deal_id: dealData.deal_id || '',\n    book_id: dealData.book_id || '',\n    status: dealData.deal_status || '',\n    deal_type: 'Publishing', // Set to \"Publishing\" as requested\n    deal_subtype: pubDealType\n  };\n  \n  // Create the final processed object\n  processedData.push({\n    content: content,\n    metadata: metadata\n  });\n});\n\n// Return the processed data\nreturn processedData;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        5200
+      ],
+      "id": "b1586c7d-43ce-42e1-b0ff-dff53801f000",
+      "name": "PrepareData1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c7ea381f-57ea-433d-b522-c75764934048",
+              "name": "status",
+              "value": "exists",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1220,
+        5560
+      ],
+      "id": "67b38903-b0e2-487a-904b-19f4ad110c7b",
+      "name": "SetOutputA5"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -500,
+        5360
+      ],
+      "id": "1b8f454f-1e6b-4ff1-8960-ec52edc92cee",
+      "name": "TimeTrigger6"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  d.number AS deal_number,\n  d.id AS deal_id,\n  d.type as deal_subtype,\n  d.book_id,\n  d.payment_status,\n  d.status,\n  COALESCE(NULLIF(pp.name, ''), '') AS person_legal_name,\n  COALESCE(NULLIF(pp.performer_name, ''), '') AS person_performer_name,\n  ap.name AS artist_name,\n  (\n    SELECT COALESCE(string_agg(DISTINCT sm.name, ', ' ORDER BY sm.name), '')\n    FROM deals_masteragreement ma\n    JOIN song_master sm ON sm.id = ma.master_id\n    WHERE ma.deal_id = d.id\n      AND ma.deleted_at IS NULL\n  ) AS masters_names\nFROM deals_masterdeal d\nJOIN person_personproperties pp ON pp.person_id = d.person_id \n  AND pp.deleted_at IS NULL\nJOIN person_artistproperties ap ON ap.artist_id = d.artist_id\n  AND ap.deleted_at IS NULL\nWHERE d.deleted_at IS NULL\n  AND d.created_at >= CURRENT_DATE - INTERVAL '2 days'\nORDER BY d.created_at DESC;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -180,
+        4560
+      ],
+      "id": "8cdc1779-577d-407a-b36f-a720eddb43ed",
+      "name": "MasterDeals",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('PrepareData1').item.json.content }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "=deal_type",
+                "value": "={{ $('PrepareData1').item.json.metadata.deal_type }}"
+              },
+              {
+                "name": "deal_subtype",
+                "value": "={{ $('PrepareData1').item.json.metadata.deal_subtype }}"
+              },
+              {
+                "name": "deal_number",
+                "value": "={{ $('PrepareData1').item.json.metadata.deal_number }}"
+              },
+              {
+                "name": "deal_id",
+                "value": "={{ $('PrepareData1').item.json.metadata.deal_id }}"
+              },
+              {
+                "name": "deal_status",
+                "value": "={{ $('PrepareData1').item.json.metadata.status }}"
+              },
+              {
+                "name": "book_id",
+                "value": "={{ $('PrepareData1').item.json.metadata.book_id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        5540
+      ],
+      "id": "674c6a26-6ac4-4f89-a5b1-565059370fb4",
+      "name": "Default Data Loader5"
+    },
+    {
+      "parameters": {
+        "chunkSize": 20000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        5740
+      ],
+      "id": "09a7c7ec-efba-4eb9-a32a-7b01d5af39da",
+      "name": "Token Splitter5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1480,
+        5540
+      ],
+      "id": "a8d19dad-2ba4-43aa-8bd8-d7597117bb04",
+      "name": "Embeddings OpenAI5",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "patchbay_deal_vectorstore",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        5200
+      ],
+      "id": "20ac2d3c-3b68-436f-8787-f32bdfa67cba",
+      "name": "Embed Deals1",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "DELETE FROM patchbay_deal_vectorstore\nWHERE metadata->>'deal_number' IN (\n  SELECT d.number::text\n  FROM books_publishingdeal d\n  WHERE d.deleted_at IS NOT NULL\n    AND d.deleted_at >= CURRENT_DATE - INTERVAL '2 days'\n)\nAND metadata->>'deal_type' = 'Publishing';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2180,
+        5560
+      ],
+      "id": "23317183-49ef-4ba2-9314-5cb4e447980a",
+      "name": "Deals",
+      "alwaysOutputData": true,
+      "executeOnce": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    rd.number AS deal_number,\n    rd.id AS deal_id,\n    rd.book_id,\n    rd.record_deal_type AS record_deal_type,\n    rd.status AS deal_status,\n\n  -- Distributor information\n    lbl_org.name AS label_name,\n    \n    -- Distributor information\n    dist_org.name AS distributer_name,\n  \n    -- Artist information\n    ap.name AS artist_name\n\nFROM books_recorddeal rd\n\n-- Join distributor/label organization\nLEFT JOIN organization_organization lbl_org \n    ON rd.label_id = lbl_org.id\n    AND lbl_org.deleted_at IS NULL\n\n-- Join distributor/label organization\nLEFT JOIN organization_organization dist_org \n    ON rd.distributor_id = dist_org.id\n    AND dist_org.deleted_at IS NULL\n\n-- Join artist\nLEFT JOIN person_artist artist \n    ON rd.artist_id = artist.id \n    AND artist.deleted_at IS NULL\n\n-- Join artist properties (for name and performer_name)\nLEFT JOIN person_artistproperties ap \n    ON artist.current_properties_id = ap.id \n    AND ap.deleted_at IS NULL\n\nWHERE rd.deleted_at IS NULL AND rd.created_at >= CURRENT_DATE - INTERVAL '2 days'\n\nORDER BY rd.created_at DESC;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -200,
+        6160
+      ],
+      "id": "900ab759-344d-44a3-8c70-b7badbc36656",
+      "name": "RecordDeals",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -460,
+        6300
+      ],
+      "id": "d92bf1ec-7947-4d7b-8180-f671431f2e00",
+      "name": "TimeTrigger7"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2ca924ed-6a7a-4f1f-915c-887b0d62ad9e",
+              "leftValue": "={{$json.isNotEmpty()}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        260,
+        6140
+      ],
+      "id": "07a1207f-31c4-4c2d-9be5-7f5c9ee8976a",
+      "name": "If9"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7474ff6a-fec5-403a-9e07-50c54be19e38",
+              "name": "output",
+              "value": "Encountered an Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        6360
+      ],
+      "id": "a085fd81-21dc-4f42-acc4-751ef5180c5d",
+      "name": "ErrorOutput6"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  CASE \n    WHEN EXISTS (\n      SELECT 1 \n      FROM patchbay_deal_vectorstore \n      WHERE  metadata->>'deal_number' = $1 AND metadata->>'deal_type' = 'Record'\n    ) \n    THEN false \n    ELSE true \n  END AS is_new_deal;",
+        "options": {
+          "queryReplacement": "={{ $json.deal_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        600,
+        6060
+      ],
+      "id": "fc90c429-03e4-410f-9e9a-70671f745001",
+      "name": "Filter Created2",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "096ca4f2-84db-4f28-9244-b9cf1b8b24c7",
+              "leftValue": "={{ $json.is_new_deal }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        6040
+      ],
+      "id": "6eef254c-8598-4455-b471-6e898c8d76b7",
+      "name": "If10"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c7ea381f-57ea-433d-b522-c75764934048",
+              "name": "status",
+              "value": "exists",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1220,
+        6360
+      ],
+      "id": "3a346c5e-2e87-41f2-971f-0a7038f91a0b",
+      "name": "SetOutputA6"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('PrepareData2').item.json.content }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "=deal_type",
+                "value": "={{ $('PrepareData2').item.json.metadata.deal_type }}"
+              },
+              {
+                "name": "deal_subtype",
+                "value": "={{ $('PrepareData2').item.json.metadata.deal_subtype }}"
+              },
+              {
+                "name": "deal_number",
+                "value": "={{ $('PrepareData2').item.json.metadata.deal_number }}"
+              },
+              {
+                "name": "deal_id",
+                "value": "={{ $('PrepareData2').item.json.metadata.deal_id }}"
+              },
+              {
+                "name": "deal_status",
+                "value": "={{ $('PrepareData2').item.json.metadata.status }}"
+              },
+              {
+                "name": "book_id",
+                "value": "={{ $('PrepareData2').item.json.metadata.book_id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        6440
+      ],
+      "id": "7368d4dd-192d-4160-b793-051f6998f77c",
+      "name": "Default Data Loader6"
+    },
+    {
+      "parameters": {
+        "chunkSize": 20000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1800,
+        6640
+      ],
+      "id": "d81309fa-43eb-4960-a944-8fe2b7738384",
+      "name": "Token Splitter6"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1580,
+        6440
+      ],
+      "id": "cb343ac7-495c-46e2-a6be-94cdd1d1c359",
+      "name": "Embeddings OpenAI6",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "patchbay_deal_vectorstore",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        6100
+      ],
+      "id": "dbc8208f-172d-4678-8c4f-c873538aacdc",
+      "name": "Embed Deals2",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "DELETE FROM patchbay_deal_vectorstore\nWHERE metadata->>'deal_number' IN (\n  SELECT d.number::text\n  FROM books_recorddeal d\n  WHERE d.deleted_at IS NOT NULL\n    AND d.deleted_at >= CURRENT_DATE - INTERVAL '2 days'\n)\nAND metadata->>'deal_type' = 'Record';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2240,
+        6380
+      ],
+      "id": "5c0472b9-36c0-4d57-b6c5-c032440b1491",
+      "name": "Deals1",
+      "alwaysOutputData": true,
+      "executeOnce": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// N8N Code Node - Record Deal Data Processor\n// Input: Array of record deal objects from the SQL query\n\n// Function to safely get data from nodes\nconst getNodeData = (nodeName) => {\n  try {\n    const nodeData = $(nodeName);\n    return nodeData?.all() || [];\n  } catch (error) {\n    console.log(`Node ${nodeName} is not available or not executed`);\n    return [];\n  }\n};\n\n// Try to get data from available nodes\nlet inputData = [];\n\n// Check for \"Record Deals\" node first\nconst recordDealsData = getNodeData(\"RecordDeals\");\nif (recordDealsData.length > 0) {\n  inputData = recordDealsData;\n} else {\n  // Fall back to \"CustomInput\" node\n  const triggerData = getNodeData(\"CustomInput\");\n  if (triggerData.length > 0) {\n    inputData = triggerData;\n  }\n}\n\n// If no data found, return empty array with warning\nif (inputData.length === 0) {\n  console.log(\"Warning: No data found in either 'Record Deals' or 'CustomInput' nodes\");\n  return [];\n}\n\nconst processedData = [];\n\ninputData.forEach(item => {\n  // Safely access the json property\n  const dealData = item?.json || item || {};\n  \n  // Light normalization - preserve semantic structure\n  const lightNormalize = (text) => {\n    if (!text || typeof text !== 'string') return '';\n    return text\n      .trim()\n      .replace(/\\s+/g, ' ')  // Multiple spaces to single space\n      .replace(/[^\\w\\s-.,]/g, ' ')  // Keep basic punctuation\n      .replace(/\\s+/g, ' ')\n      .trim();\n  };\n  \n  // Create semantic content parts (preserve natural language)\n  const contentParts = [];\n  \n  // Add artist name\n  const artistName = lightNormalize(dealData.artist_name);\n  if (artistName) {\n    contentParts.push(`${artistName}`);\n  }\n  \n  // Add artist performer name if different and not null\n  const artistPerformerName = lightNormalize(dealData.artist_performer_name);\n  if (artistPerformerName && artistPerformerName.toLowerCase() !== artistName.toLowerCase()) {\n    contentParts.push(`${artistPerformerName}`);\n  }\n  \n  // Add label name if not null\n  const labelName = lightNormalize(dealData.label_name);\n  if (labelName) {\n    contentParts.push(`${labelName}`);\n  }\n\n  // Add label name if not null\n  const distName = lightNormalize(dealData.distributer_name);\n  if (distName) {\n    contentParts.push(`${distName}`);\n  }\n  \n  // Add record deal type\n  const recordDealType = lightNormalize(dealData.record_deal_type);\n  if (recordDealType) {\n    contentParts.push(`${recordDealType}`);\n  }\n  \n  // Join with natural separators\n  const content = contentParts.join(' | ');\n  \n  // Create metadata object with safe property access\n  const metadata = {\n    deal_number: dealData.deal_number || '',\n    deal_id: dealData.deal_id || '',\n    book_id: dealData.book_id || '',\n    status: dealData.deal_status || '',\n    deal_type: 'Record', // Set to \"Record\" for record deals\n    deal_subtype: dealData.record_deal_type\n  };\n  \n  // Create the final processed object\n  processedData.push({\n    content: content,\n    metadata: metadata\n  });\n});\n\n// Return the processed data\nreturn processedData;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        6020
+      ],
+      "id": "9359c673-b006-48de-a928-9e306ed8c6c7",
+      "name": "PrepareData2"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * from books_recorddeal LIMIT 10",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -140,
+        7040
+      ],
+      "id": "641a3da8-aa2e-478c-be15-f0f5b2041e99",
+      "name": "Filter Created3",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "\nDELETE FROM patchbay_deal_vectorstore \nWHERE metadata->>'deal_type' = 'Record'",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        440,
+        6820
+      ],
+      "id": "b709db78-09b2-4892-b220-6b0df390b2c8",
+      "name": "Filter Created4",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {
+    "TimeTrigger2": [
+      {
+        "json": {
+          "timestamp": "2025-04-28T05:37:15.622+00:00",
+          "Readable date": "April 28th 2025, 5:37:15 am",
+          "Readable time": "5:37:15 am",
+          "Day of week": "Monday",
+          "Year": "2025",
+          "Month": "April",
+          "Day of month": "28",
+          "Hour": "05",
+          "Minute": "37",
+          "Second": "15",
+          "Timezone": "UTC (UTC+00:00)"
+        }
+      }
+    ],
+    "TimeTrigger3": [
+      {
+        "json": {
+          "timestamp": "2025-04-28T05:37:15.622+00:00",
+          "Readable date": "April 28th 2025, 5:37:15 am",
+          "Readable time": "5:37:15 am",
+          "Day of week": "Monday",
+          "Year": "2025",
+          "Month": "April",
+          "Day of month": "28",
+          "Hour": "05",
+          "Minute": "37",
+          "Second": "15",
+          "Timezone": "UTC (UTC+00:00)"
+        }
+      }
+    ],
+    "TimeTrigger4": [
+      {
+        "json": {
+          "timestamp": "2025-04-28T05:37:15.622+00:00",
+          "Readable date": "April 28th 2025, 5:37:15 am",
+          "Readable time": "5:37:15 am",
+          "Day of week": "Monday",
+          "Year": "2025",
+          "Month": "April",
+          "Day of month": "28",
+          "Hour": "05",
+          "Minute": "37",
+          "Second": "15",
+          "Timezone": "UTC (UTC+00:00)"
+        }
+      }
+    ],
+    "Trigger": [
+      {
+        "json": {
+          "action": "embed",
+          "data": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 3600,
+    "saveDataSuccessExecution": "none"
+  },
+  "staticData": {
+    "node:TimeTrigger": {
+      "recurrenceRules": []
+    },
+    "node:TimeTrigger1": {
+      "recurrenceRules": []
+    },
+    "node:TimeTrigger2": {
+      "recurrenceRules": []
+    },
+    "node:TimeTrigger3": {
+      "recurrenceRules": []
+    },
+    "node:TimeTrigger5": {
+      "recurrenceRules": []
+    },
+    "node:TimeTrigger4": {
+      "recurrenceRules": []
+    },
+    "node:TimeTrigger6": {
+      "recurrenceRules": []
+    },
+    "node:TimeTrigger7": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 7,
+  "updatedAt": "2025-11-10T07:26:55.269Z",
+  "versionId": "dc69c6b0-0544-482d-8ff4-638a5e62e053"
+}
