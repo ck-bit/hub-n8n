@@ -1,0 +1,493 @@
+{
+  "active": false,
+  "connections": {
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "PersonLookup",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "ArtistLookup",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "CounterPartyLookup",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ParserSchema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PersonLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CounterPartyLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ArtistLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AddFields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PreparePayload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PreparePayload": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-17T06:12:02.418Z",
+  "id": "6dtbyr3DmFR25m4P",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Neighbouring Rights",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -720,
+        740
+      ],
+      "id": "547312c9-1caf-4b68-8ad7-4e2853d6cfdc",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"book_id\": {\n      \"type\": \"string\",\n      \"description\": \"Identifier for the associated Book of Work. Provided as input.\"\n    },\n    \"person_name\": {\n      \"type\": \"string\",\n      \"description\": \"Name of the individual human (e.g., contributor, producer, mixer) extracted by running the tool:PersonRetriever with name as query identified from the Deal Document. A 'person' in this schema refers strictly to a human individual involved in the creation or production of music. This is not the same as an Artist. If the document names someone providing services (e.g., Alex Goldblatt), that name must be passed to tool:PersonRetriever to get the correct match from the database.\"\n    },\n    \"person_number\": {\n      \"type\": \"string\",\n      \"description\": \"number extracted from tool:PersonRetriever payload using the person name (e.g., producer, mixer, contributor) as the query. Used to uniquely identify the Person in the database.\"\n    },\n    \"artist_name\": {\n      \"type\": \"string\",\n      \"description\": \"Name of the performing or releasing musical entity extracted from tool:ArtistRetriever using the artist name found in the Deal Document. An Artist is a performance identity (e.g., solo act or group) and not a human individual per se. For example, if the document states 'Bella Poarch' as the artist, that name is passed to tool:ArtistRetriever to locate the corresponding Artist entity in the database.\"\n    },\n    \"artist_number\": {\n      \"type\": \"string\",\n      \"description\": \"number extracted from tool:ArtistRetriever payload using the artist name as query. Used to uniquely identify the Artist in the system.\"\n    },\n    \"counterparty_name\": {\n        \"type\": \"string\",\n        \"description\": \"Name of the counterparty extracted from tool:CounterPartyRetriever using counterparty name as query\"\n      },\n    \"counterparty_number\": {\n        \"type\": \"string\",\n        \"description\": \"Number extracted from from tool:CounterPartyRetriever payload.\"\n      },\n    \"execution_date\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"date\",\n      \"description\": \"The date when the deal was executed.\"\n    },\n    \"status\": {\n      \"type\": \"string\",\n      \"description\": \"Current status of the neighboring rights deal.\",\n      \"enum\": [\n        \"Needs Review\",\n        \"Counterparty Action\",\n        \"Client Signature\",\n        \"Counterparty Signature\",\n        \"Fully Executed\",\n        \"Terminated\"\n      ]\n    },\n    \"status_updated_at\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"Timestamp when the deal status was last updated.\"\n    },\n    \"territories\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      },\n      \"description\": \"List of geographic territories covered in the deal.\"\n    },\n    \"collection_mandates\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\",\n        \"enum\": [\"Performer\", \"Rights Owner\"]\n      },\n      \"description\": \"Mandates authorized for this deal (e.g., Performer, Rights Owner).\"\n    },\n    \"exclusivity\": {\n      \"type\": \"boolean\",\n      \"description\": \"Indicates whether the deal is exclusive.\"\n    },\n    \"eligible_repertoire\": {\n      \"type\": \"string\",\n      \"description\": \"Text description of the eligible repertoire covered under this deal.\"\n    },\n    \"client_share\": {\n      \"type\": \"number\",\n      \"description\": \"Percentage share allocated to the client.\"\n    },\n    \"counterparty_share\": {\n      \"type\": \"number\",\n      \"description\": \"Percentage share allocated to the counterparty organization.\"\n    },\n    \"executed_contract\": {\n      \"type\": \"string\",\n      \"description\": \"Reference to the executed contract identifier.\"\n    },\n    \"notes\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Additional notes or context regarding the deal.\"\n    },\n    \"priority\": {\n      \"type\": [\"integer\", \"null\"],\n      \"description\": \"Priority level of the deal, useful for processing or display ordering.\"\n    },\n    \"agreement_link\": {\n      \"type\": \"string\",\n      \"description\": \"URL or reference to the agreement document (human readable).\"\n    }\n  },\n  \"required\": [\n    \"book_id\",\n    \"person_name\",\n    \"person_number\",\n    \"artist_name\",\n    \"artist_number\",\n    \"counterparty_name\",\n    \"counterparty_number\",\n    \"execution_date\",\n    \"status\",\n    \"status_updated_at\",\n    \"territories\",\n    \"collection_mandates\",\n    \"exclusivity\",\n    \"eligible_repertoire\",\n    \"client_share\",\n    \"counterparty_share\",\n    \"executed_contract\",\n    \"notes\",\n    \"priority\"\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -220,
+        540
+      ],
+      "id": "a3185cc4-f99f-4e71-b084-a293d1d9bd75",
+      "name": "ParserSchema"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1220,
+        540
+      ],
+      "id": "adf3cb8e-4a70-4cee-bd5d-7e80c5bc9406",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Deal Document: {{ $json.document }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Your job is to analyse the given \"Deal Document\" and extract the required filds specified in the JSON Schema.\n\nYou must get the relevant data by executing the tools based on \"as needed\"\n\nYour output must be in JSON format."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -800,
+        320
+      ],
+      "id": "8d35ad70-310f-4f71-bced-60904631c42c",
+      "name": "Agent"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1220,
+        320
+      ],
+      "id": "9c3af44c-40e3-4872-b75e-cd357c1d3454",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "PersonRetriever",
+        "toolDescription": "If \"type\" is \"producer\" or \"mixer\". Run this tool to get the relevant data. Input to this tool is the producer name or mixer name.",
+        "tableName": "patchbay_embeddings",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "for",
+                "value": "persons"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        540
+      ],
+      "id": "7187d052-4108-4f51-af2a-70bb4fdb8b6c",
+      "name": "PersonLookup",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "CounterPartyRetriever",
+        "toolDescription": "Trigger this tool to retrieve the counterparty as specified in the output schema.",
+        "tableName": "patchbay_embeddings",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "for",
+                "value": "organizations"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        560
+      ],
+      "id": "ab9272e3-3b89-4cde-a5c9-c7864e7fcb03",
+      "name": "CounterPartyLookup",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "ArtistRetriever",
+        "toolDescription": "If \"type\" is \"featured_artist\". Run this tool to get the relevant data. Input to this tool is artist name.",
+        "tableName": "patchbay_embeddings",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "for",
+                "value": "artists"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1,
+      "position": [
+        -500,
+        560
+      ],
+      "id": "c2f27500-b61d-45e5-97a1-0a3fbfb7c640",
+      "name": "ArtistLookup",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad142379-c41b-4b51-acb2-31ae1cebf66b",
+              "leftValue": "={{ typeof $json.output === 'string' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -240,
+        320
+      ],
+      "id": "c5e31e78-25ba-4cc8-a47c-ccd88c6445e1",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        460
+      ],
+      "id": "25082070-7722-40a6-805d-bb6d59f057a7",
+      "name": "IfFailed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e84ac3-4ec7-4210-b2f1-a6cd94acd695",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ce8bfc-bd10-40ee-b723-cfe88c028dbe",
+              "name": "output.book",
+              "value": "={{ $('Trigger').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "efbf91b7-4dd9-42ad-84d0-2640b22fd6e3",
+              "name": "type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        180
+      ],
+      "id": "beb7c0ad-bbe6-44e9-8c6a-1c2f22ae456e",
+      "name": "AddFields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k29nXdKslVJNTozZ",
+          "mode": "list",
+          "cachedResultName": "New Fields Recommender"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        180,
+        0
+      ],
+      "id": "f1172c5e-f89b-4f16-b16f-b416505af2a3",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5142cf48-42e6-4c07-9d0c-77086df272d8",
+              "name": "extracted_schema",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "9a6e5008-0913-4195-837f-3b019b01d042",
+              "name": "deal_document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "caf6f8c2-f645-47ab-a67f-912d120fa7a4",
+              "name": "deal_type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bb42aa76-ccb4-424c-829c-aac0ca217e52",
+      "name": "PreparePayload"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "none",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "OXd6Bgv6fGlRWzmQ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-22T10:47:12.830Z",
+  "versionId": "001d3d19-2dc9-425d-9a59-b84020184864"
+}
