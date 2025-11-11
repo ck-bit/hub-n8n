@@ -1,0 +1,324 @@
+{
+  "active": false,
+  "connections": {
+    "ParserSchema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AddFields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PreparePayload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IfFailed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PreparePayload": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-03T04:22:01.449Z",
+  "id": "Lj03k3lpcO7wb2FV",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Live Performance",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Deal Document: {{ $json.document }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Your job is to analyse the given \"Deal Document\" and extract the required filds specified in the JSON Schema.\n\nYou must get the relevant data by executing the tools based on \"as needed\"\n\nYour output must be in JSON format.\n\nIf the type is TOUR, leave SHOW completely blank."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -580,
+        280
+      ],
+      "id": "80986666-5484-4745-95af-c0acb81461c3",
+      "name": "Agent"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"counterparty\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"The entity or individual contracting for the performance. Common types include: Promoters (Live Nation, AEG, local promoters), Venues (clubs, theaters, arenas), Festival organizations, Booking agencies, Corporate clients, Private individuals (weddings, parties), or Non-profits/institutions (universities, museums, charities). This determines payment terms, contract complexity, and promotional obligations.\"\n    },\n    \"notes\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Any optional notes related to the deal\"\n    },\n   \"type\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"The type of live performance deal (e.g., one-off show, festival appearance, tour date, or residency).\",\n      \"enum\": [\n        \"One-Off\",\n        \"Festival\",\n        \"Tour Date\",\n        \"Residency\",\n        null\n      ]\n    },\n    \"show\": {\n      \"type\": \"object\",\n      \"description\": \"The show described in the document. Leave blank if it's a tour.\",\n      \"properties\": {\n        \"deal_number\": {\n          \"type\": [\"string\", \"null\"],\n          \"format\": \"uuid\",\n          \"description\": \"UUID of the deal if known\"\n        },\n        \"venue\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Venue where the performance is scheduled\"\n        },\n        \"city\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"City of the performance\"\n        },\n        \"date\": {\n          \"type\": [\"string\", \"null\"],\n          \"format\": \"date\",\n          \"description\": \"Date of the show\"\n        },\n        \"fee_amount\": {\n          \"type\": [\"number\", \"null\"],\n          \"description\": \"Fee amount for the show\"\n        },\n        \"fee_currency\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Currency for the fee amount (ISO 4217 currency code)\"\n        },\n        \"performance_date\": {\n          \"type\": [\"string\", \"null\"],\n          \"format\": \"date\",\n          \"description\": \"Actual date of performance\"\n        }\n      },\n      \"required\": []\n    }\n  },\n  \"required\": []\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -440,
+        500
+      ],
+      "id": "dd6f7c81-2838-44e8-a2df-d8e37f3e3e43",
+      "name": "ParserSchema"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -560,
+        500
+      ],
+      "id": "69eb5d2c-0b65-42e5-bfe1-9c6af110f594",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -800,
+        280
+      ],
+      "id": "ed9919f8-2ae2-4b8b-92f2-9c171cc6f74f",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad142379-c41b-4b51-acb2-31ae1cebf66b",
+              "leftValue": "={{ typeof $json.output === 'string' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -200,
+        280
+      ],
+      "id": "d9a20a3c-040d-47f4-99ca-66dd5574d7d7",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": null\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        20,
+        400
+      ],
+      "id": "ada502f6-e4bd-45f9-b3a2-3187948c0990",
+      "name": "IfFailed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e84ac3-4ec7-4210-b2f1-a6cd94acd695",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ce8bfc-bd10-40ee-b723-cfe88c028dbe",
+              "name": "output.book",
+              "value": "={{ $('Trigger').item.json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "fbcaa028-b52d-4872-af5c-8d2f359846ac",
+              "name": "type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        200
+      ],
+      "id": "10282631-58f3-45c7-9e0a-e456f2764cb6",
+      "name": "AddFields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k29nXdKslVJNTozZ",
+          "mode": "list",
+          "cachedResultName": "New Fields Recommender"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        140,
+        0
+      ],
+      "id": "22cb66c4-2a6e-415b-9d65-0fdf1278acf4",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5142cf48-42e6-4c07-9d0c-77086df272d8",
+              "name": "extracted_schema",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "9a6e5008-0913-4195-837f-3b019b01d042",
+              "name": "deal_document",
+              "value": "={{ $('Trigger').item.json.document }}",
+              "type": "string"
+            },
+            {
+              "id": "caf6f8c2-f645-47ab-a67f-912d120fa7a4",
+              "name": "deal_type",
+              "value": "={{ $('Trigger').item.json.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a7238c85-94c8-46dd-b21e-3a2cd8236212",
+      "name": "PreparePayload"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "none",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "OXd6Bgv6fGlRWzmQ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-22T10:46:35.312Z",
+  "versionId": "3f9036bb-b2dc-4462-8e97-15b199ded1ea"
+}
