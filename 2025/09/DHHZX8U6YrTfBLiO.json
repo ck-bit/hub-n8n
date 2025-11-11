@@ -1,0 +1,1429 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Memory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deal and Invoice Manager.": {
+      "ai_tool": [
+        [
+          {
+            "node": "RecommenderGeneral",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatHistory": {
+      "main": [
+        [
+          {
+            "node": "Postgres2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "ChatHistory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres2": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatHistory": {
+      "main": [
+        [
+          {
+            "node": "Prompt Window",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "main": [
+        [
+          {
+            "node": "FormatHistory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OutputFixer1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "RecommenderGeneral",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "OutputFixer1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RecommenderGeneral",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "OutputFixer1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Window": {
+      "main": [
+        [
+          {
+            "node": "AgentRouting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RecommenderGeneral": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deal and Invoice Manager.1": {
+      "ai_tool": [
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OutputFixer": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "OutputFixer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "OutputFixer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RecommenderGeneral1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AgentRouting": {
+      "main": [
+        [
+          {
+            "node": "RecommenderGeneral",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RecommenderGeneral1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession9": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AutoParser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI-Manager": {
+      "ai_tool": [
+        [
+          {
+            "node": "RecommenderGeneral2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AutoParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "RecommenderGeneral2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RecommenderGeneral2",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AutoParser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "subsession": {
+      "main": [
+        [
+          {
+            "node": "RecommenderGeneral2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Session": {
+      "main": [
+        [
+          {
+            "node": "subsession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ActionsExecuter": {
+      "ai_tool": [
+        [
+          {
+            "node": "RecommenderGeneral2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-25T07:28:03.544Z",
+  "id": "DHHZX8U6YrTfBLiO",
+  "meta": null,
+  "name": "Recommend-V1.0.4",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2520,
+        1800
+      ],
+      "id": "b7f5f5ce-2c60-4de2-9bae-0835b374ae0c",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ea8bc648-c48d-417d-86f0-5cef6db4a27c",
+              "leftValue": "={{ $('RecommenderGeneral').first().json.output.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        1500
+      ],
+      "id": "b4285a65-dbc9-4692-9dc0-0f4e7ba72c33",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a162561e-1399-4ee3-9db1-452ef7e923b3",
+              "name": "output.response",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        44,
+        1600
+      ],
+      "id": "5e0ddf76-a397-45e7-88bd-cd177b73552f",
+      "name": "Edit Fields4",
+      "alwaysOutputData": false,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "name": "DealAndInvoiceManager",
+        "description": "Call this tool to;\n- Identify the client in manager workspace\n- Locate previous deals and invoices related to a client/customer.\n- Locate invoice clients for a customer.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "zsDs6hDhuY8ohvvx",
+          "mode": "list",
+          "cachedResultName": "DealAndInvoice-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deals_and_invoices",
+            "data": "={{ { \n\"user_id\": $('Trigger').first().json.data.Manager.user_id,\nsession_data: $('Trigger').first().json.data.thread, last_email: $('Trigger').first().json.data.last_email,\nManager: $('Trigger').first().json.data.Manager,\nhistory: $('FormatHistory').first().json.history\n} }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_input",
+              "displayName": "ai_input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1332,
+        1520
+      ],
+      "id": "f7c00179-24ad-4e3e-9b3c-08c3334c20ef",
+      "name": "Deal and Invoice Manager."
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// Creates two DB-ready objects (human, then ai) with cleaned content\n// Adds \"Last interaction: <date time>\" to the human message content\n// Hardened for Postgres: escapes backslashes and invalid \\u escapes, removes null bytes, fixes unpaired surrogates.\n\n// ---------------- Helpers ----------------\nconst toStr = (v) => (v === null || v === undefined) ? \"\" : String(v);\n\n/** Strip HTML to plain text and tidy whitespace */\nfunction stripHtml(html) {\n  const s = toStr(html);\n  const withoutTags = s.replace(/<[^>]*>/g, \" \");\n  const decoded = withoutTags\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&quot;/gi, '\"');\n  return decoded.replace(/\\s+/g, \" \").trim();\n}\n\n/** Try to parse JSON safely */\nfunction tryParseJson(s) {\n  if (typeof s !== \"string\") return null;\n  const trimmed = s.trim();\n  if (!(trimmed.startsWith(\"{\") || trimmed.startsWith(\"[\"))) return null;\n  try { return JSON.parse(trimmed); } catch { return null; }\n}\n\n/** Remove null bytes and fix unpaired surrogate code units */\nfunction sanitizeUnicode(s) {\n  let out = s.replace(/\\u0000/g, \"\"); // remove NULs\n  // remove unpaired surrogates\n  out = out.replace(/[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?<![\\uD800-\\uDBFF])[\\uDC00-\\uDFFF]/g, \"�\");\n  return out;\n}\n\n/** Escape content so Postgres won't treat \\u... as a Unicode escape */\nfunction escapeForPostgresText(s) {\n  // First, double all backslashes\n  let out = s.replace(/\\\\/g, \"\\\\\\\\\");\n  // If any sequence looks like \\u but not \\uXXXX, re-escape it (turn \\\\u into \\\\\\\\u in the final string)\n  out = out.replace(/\\\\u(?![0-9a-fA-F]{4})/g, \"\\\\\\\\u\");\n  return out;\n}\n\n/** Normalize AI/Human content */\nfunction normalizeContent(raw) {\n  const asString = typeof raw === \"string\" ? raw : JSON.stringify(raw ?? \"\");\n  const maybeJson = tryParseJson(asString);\n\n  if (maybeJson && typeof maybeJson === \"object\") {\n    const respHtml =\n      maybeJson?.output?.response_html ??\n      maybeJson?.response_html ??\n      maybeJson?.html ??\n      null;\n\n    if (respHtml) return stripHtml(respHtml);\n\n    if (typeof maybeJson.content === \"string\") {\n      const c = maybeJson.content.trim();\n      return /<[^>]+>/.test(c) ? stripHtml(c) : c;\n    }\n    return JSON.stringify(maybeJson);\n  }\n\n  return /<[^>]+>/.test(asString) ? stripHtml(asString) : asString.trim();\n}\n\n/** Build one DB record */\nfunction buildRecord({ tag, content, session_id, id = null }) {\n  const type = (toStr(tag).toLowerCase() === \"human\") ? \"human\" : \"ai\";\n  let cleaned = normalizeContent(content);\n\n  // Add last interaction timestamp only for human\n  if (type === \"human\") {\n    const ts = new Date().toISOString(); // ISO 8601 (UTC)\n    cleaned += `\\n\\nLast interaction: ${ts}`;\n  }\n\n  // Unicode + Postgres safety\n  cleaned = sanitizeUnicode(cleaned);\n  cleaned = escapeForPostgresText(cleaned);\n\n  return {\n    json: {\n      session_id: toStr(session_id),\n      message: {\n        type,\n        content: cleaned,\n        tool_calls: [],\n        additional_kwargs: {},\n        response_metadata: {},\n        invalid_tool_calls: []\n      }\n    }\n  };\n}\n\n// ---------------- Input Normalization ----------------\nconst inJson = $json ?? {};\nlet humanRec = null;\nlet aiRec = null;\n\n// Case 1: records array\nif (Array.isArray(inJson.records)) {\n  for (const r of inJson.records) {\n    const tag = toStr(r?.tag).toLowerCase();\n    if (tag === \"human\") humanRec = { ...r };\n    if (tag === \"ai\") aiRec = { ...r };\n  }\n}\n\n// Case 2: explicit human/ai objects\nif (!humanRec && inJson.human) {\n  humanRec = {\n    tag: \"human\",\n    content: inJson.human.content,\n    session_id: inJson.human.session_id ?? inJson.session_id\n  };\n}\nif (!aiRec && inJson.ai) {\n  aiRec = {\n    tag: \"ai\",\n    content: inJson.ai.content,\n    session_id: inJson.ai.session_id ?? inJson.session_id\n  };\n}\n\n// Case 3: separate fields\nif (!humanRec && (inJson.human_content || inJson.human_text)) {\n  humanRec = {\n    tag: \"human\",\n    content: inJson.human_content ?? inJson.human_text,\n    session_id: inJson.session_id\n  };\n}\nif (!aiRec && (inJson.ai_content || inJson.ai_text)) {\n  aiRec = {\n    tag: \"ai\",\n    content: inJson.ai_content ?? inJson.ai_text,\n    session_id: inJson.session_id\n  };\n}\n\n// Case 4: fallback\nif (!humanRec && !aiRec && inJson.tag && inJson.content) {\n  const tag = toStr(inJson.tag).toLowerCase();\n  if (tag === \"human\") humanRec = { tag: \"human\", content: inJson.content, session_id: inJson.session_id };\n  if (tag === \"ai\") aiRec = { tag: \"ai\", content: inJson.content, session_id: inJson.session_id };\n}\n\n// Session fallback\nconst sessionFallback = humanRec?.session_id ?? aiRec?.session_id ?? inJson.session_id ?? \"\";\nif (humanRec && !humanRec.session_id) humanRec.session_id = sessionFallback;\nif (aiRec && !aiRec.session_id) aiRec.session_id = sessionFallback;\n\n// ---------------- Build Output ----------------\nconst out = [];\nif (humanRec) out.push(buildRecord(humanRec));\nif (aiRec) out.push(buildRecord(aiRec));\n\nif (out.length === 0) {\n  throw new Error(\"No valid inputs found. Provide `records`, or human/ai objects, or content fields.\");\n}\n\nreturn out;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -616,
+        1500
+      ],
+      "id": "822b0b37-5740-4b38-b325-eadfbc37f8c3",
+      "name": "ChatHistory"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n  {\n  records: [\n    { tag: \"human\", content: $('Trigger').first().json.data.last_email, session_id: $('Trigger').first().json.data.thread.ThreadId + $('Trigger').first().json.data.Manager.user_id},\n    { tag: \"ai\", content: $json.output.response_html, session_id: $('Trigger').first().json.data.thread.ThreadId + $('Trigger').first().json.data.Manager.user_id},\n  ]\n  }\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -836,
+        1500
+      ],
+      "id": "9fb7a28f-30bf-4823-a6e0-621fda56477b",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_chat_histories",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "session_id",
+              "displayName": "session_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -396,
+        1500
+      ],
+      "id": "c592cddf-f4ab-47f9-8198-25a8a052449a",
+      "name": "Postgres2",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Function node\n// Input: last 10 message objects, newest at index 0\n// Output: { json: { markdown: \"<markdown string>\" } }\n\nconst WINDOW_SIZE = 10;\n\n// ---- Helpers ----\nconst toStr = (v) => (v === null || v === undefined) ? \"\" : String(v);\n\nconst stripHtml = (s) => {\n  const str = toStr(s);\n  return str\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, \" \")\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, \" \")\n    .replace(/<[^>]*>/g, \" \")\n    .replace(/\\s+/g, \" \")\n    .trim();\n};\n\nconst decodeHtml = (s) => {\n  const map = {\n    \"&nbsp;\": \" \",\n    \"&lt;\": \"<\",\n    \"&gt;\": \">\",\n    \"&amp;\": \"&\",\n    \"&quot;\": \"\\\"\",\n    \"&#39;\": \"'\",\n  };\n  return toStr(s).replace(/(&nbsp;|&lt;|&gt;|&amp;|&quot;|&#39;)/g, (m) => map[m] || m);\n};\n\nconst htmlToText = (html) => stripHtml(decodeHtml(html));\n\nconst safeJsonParse = (val) => {\n  if (typeof val !== \"string\") return null;\n  const t = val.trim();\n  if (!(t.startsWith(\"{\") || t.startsWith(\"[\"))) return null;\n  try { return JSON.parse(t); } catch { return null; }\n};\n\nconst formatTime = (raw) => {\n  if (!raw) return \"unknown\";\n  // If it's already a readable string (e.g., \"2025-09-05 10:23:44\"), keep it.\n  // Otherwise try to parse and convert to ISO.\n  const d = new Date(raw);\n  if (isNaN(d.getTime())) return toStr(raw).trim();\n  // Use local-like ISO without milliseconds for readability\n  const iso = d.toISOString().replace(\"T\", \" \").replace(\".000Z\", \"Z\");\n  return iso;\n};\n\n// ---- Collect messages (use order as provided; newest first) ----\nlet messages = [];\nif (items.length === 1) {\n  const j = items[0].json ?? {};\n  if (Array.isArray(j)) messages = j;\n  else if (Array.isArray(j.data)) messages = j.data;\n  else if (Array.isArray(j.messages)) messages = j.messages;\n  else if (j.id && j.message) messages = [j];\n} else {\n  for (const it of items) {\n    const j = it.json ?? {};\n    if (j.id && j.message) messages.push(j);\n  }\n}\n\nif (!messages.length) {\n  return [{ json: { history: \"Missing\" } }];\n}\n\n// ---- Keep window of 10 (already newest-first), then switch to chronological for pairing ----\nconst windowMsgs = messages.slice(0, WINDOW_SIZE);\nconst chronological = windowMsgs.slice(); // oldest -> newest\n\n// ---- Build user→AI turns (with timestamps) ----\nconst turns = [];\nfor (let i = 0; i < chronological.length; i++) {\n  const msg = chronological[i];\n  if (msg?.message?.type === \"human\") {\n    const userRaw = msg.message.content ?? \"\";\n    const userText = stripHtml(userRaw);\n    \n    let aiText = null;\n\n    // Look ahead for next AI reply within the window\n    for (let j = i + 1; j < chronological.length; j++) {\n      const next = chronological[j];\n      const type = next?.message?.type;\n      if (type === \"ai\") {\n        const raw = next.message.content ?? \"\";\n        const parsed = safeJsonParse(raw);\n        const responseHtml = parsed?.output?.response_html ?? null;\n        aiText = responseHtml ? htmlToText(responseHtml) : stripHtml(raw);\n        break;\n      }\n      if (type === \"human\") break; // next human starts a new turn\n    }\n\n    turns.push({\n      userText,\n      aiText,\n    });\n  }\n}\n\n// ---- Build Markdown string ----\nlet md = `### Conversation (last ${Math.min(WINDOW_SIZE, turns.length)} turns)\\n\\n`;\nturns.forEach((t) => {\n  md += `**User** ${t.userText}\\n\\n`;\n  if (t.aiText) {\n    md += `**AI** ${t.aiText}\\n\\n`;\n  } else {\n    md += `**AI** (no reply found)_\\n\\n`;\n  }\n});\n\nreturn [{\n  json: {\n    history: md.trim()\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2080,
+        1800
+      ],
+      "id": "d0670f7f-0eea-43ac-995c-7a1935a88ded",
+      "name": "FormatHistory"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_chat_histories",
+          "mode": "name"
+        },
+        "limit": 12,
+        "where": {
+          "values": [
+            {
+              "column": "session_id",
+              "value": "={{ $json.data.thread.ThreadId+$('Trigger').item.json.data.Manager.user_id }}"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2300,
+        1800
+      ],
+      "id": "36d5639a-9a9f-4cff-aa49-6a9090f191a8",
+      "name": "Memory",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1212,
+        1522.5
+      ],
+      "id": "fe7ca407-73eb-4a01-96b6-39a44c5f4b3a",
+      "name": "OutputFixer1"
+    },
+    {
+      "parameters": {
+        "name": "DecideGreet",
+        "description": "Call this tool on every message to decide how to greet the user.",
+        "jsCode": "// n8n Code node (JavaScript)\n// INPUT ($json):\n// {\n//   \"conversation_history_status\": true|false,\n//   \"last_interaction_time\": \"2025-09-02T07:45:00Z\" | null,\n//   \"manager_first_name\": \"Aidan\" (optional),\n//   \"current_time\": \"2025-09-03T10:15:00Z\" (optional)\n// }\n\nfunction parseDate(v) {\n  if (!v) return null;\n  const d = new Date(v);\n  return isNaN(d.getTime()) ? null : d;\n}\n\nfunction getTimeOfDay(date) {\n  const h = date.getHours();\n  if (h < 12) return \"morning\";\n  if (h < 18) return \"afternoon\";\n  return \"evening\";\n}\n\nconst hasHistory = Boolean($json.conversation_history_status);\nconst lastRaw = $json.last_interaction_time ?? null;\nconst now = parseDate($json.current_time) || new Date();\nconst last = parseDate(lastRaw);\n\nlet should_greet = false;\n\nif (!hasHistory) {\n  should_greet = true;\n} else if (last) {\n  const hoursSinceLast = (now - last) / (1000 * 60 * 60);\n  if (hoursSinceLast > 24) should_greet = true;\n} else {\n  should_greet = false; // history but no timestamp\n}\n\nconst time_of_day = should_greet ? getTimeOfDay(now) : null;\nconst firstName = ($json.manager_first_name || \"\").trim();\n\nlet greeting_instruction = \"\";\n\nif (should_greet) {\n  greeting_instruction = `Begin the email with: \"Good ${time_of_day}${firstName ? ` ${firstName}` : \"\"},\" followed by a line break. Use this only once.`;\n} else {\n  greeting_instruction = \"Do not include any greeting line. Start directly with the task response to avoid repetition.\";\n}\n\n// Return as a plain string\nreturn greeting_instruction;\n",
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"title\": \"GreetingAutomationInput\",\n  \"description\": \"Schema for greeting decision logic. The AI must extract these values from the conversation history.\",\n  \"properties\": {\n    \"last_interaction_time\": {\n      \"type\": [\"string\", \"null\"],\n      \"format\": \"date-time\",\n      \"description\": \"The timestamp of the last user → assistant interaction in ISO 8601 format (e.g., 2025-09-02T07:45:00Z). If no prior interaction is found, set this to null.\"\n    },\n    \"conversation_history_status\": {\n      \"type\": \"boolean\",\n      \"description\": \"Boolean flag indicating whether any prior conversation history exists. True = history present, False = no prior history.\"\n    }\n  },\n  \"required\": [\"last_interaction_time\", \"conversation_history_status\"],\n  \"additionalProperties\": false\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        -2520,
+        1060
+      ],
+      "id": "4f862810-46da-4a18-a5f1-177db01ca5d5",
+      "name": "GreetingAutomation"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"response_html\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\": \"Gmail-ready HTML response to be sent to the manager.\"\n\t\t},\n\t\t\"tool_executed\": {\n\t\t\t\"type\": \"boolean\",\n\t\t\t\"description\": \"True if the DealAndInvoiceManager tool was executed, false otherwise.\"\n\t\t},\n        \"deal_status\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Set the right deal_status based on the tool:DealAndInvoiceManager output. Strictly set to null if not provided/missing\",\n          \"enum\": [\"update\", \"not_update\", \"create_new\", \"no_action\", \"await_confirmation\", \"unsupported_deal\"]\n        },\n        \"invoice_status\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Set the right invoice_status based on the tool:DealAndInvoiceManager output. Strictly set to null if not provided/missing\",\n          \"enum\": [\"update\", \"not_update\", \"create_new\", \"no_action\", \"await_confirmation\", \"send_file_to_user\"]\n        }\n\t}\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1104,
+        1720
+      ],
+      "id": "02dc305c-a754-44fc-973d-f5d767b0032b",
+      "name": "Parser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1392,
+        1720
+      ],
+      "id": "14921595-97f1-4a9b-bf22-522cc78c6c49",
+      "name": "Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// Get outputs from RecommendActions node\nconst out = $('RecommenderGeneral').item.json.output || {};\n\n// Get Manager object from Trigger node\nconst manager = ($('Trigger').first().json.data || {}).Manager || {\n  name: \"\",\n  address: \"\",\n  user_id: \"\",\n  person_number: \"\",\n  Role: \"Manager\",\n  Clients: [],\n};\n\n// Allowed statuses\nconst allowedDeal = [\"create_new\", \"await_confirmation\", \"update\", \"unsupported_deal\"];\nconst allowedInvoice = [\"create_new\", \"await_confirmation\", \"update\", \"send_file_to_user\"];\n\n// Extract values\nconst deal = out.deal_status ?? null;\nconst invoice = out.invoice_status ?? null;\n\n// Function to normalize into array\nconst toArray = (val) => Array.isArray(val) ? val : (val !== null ? [val] : []);\n\n// Convey_to_user logic\nlet conveyToUser = false;\nif (deal === null || invoice === null) {\n  conveyToUser = true;\n} else {\n  const dealStatuses = toArray(deal);\n  const invoiceStatuses = toArray(invoice);\n  conveyToUser =\n    dealStatuses.some(s => allowedDeal.includes(s)) ||\n    invoiceStatuses.some(s => allowedInvoice.includes(s));\n}\n\n// Build response HTML (fallback if none provided)\nconst responseHtml = out.response_html ?? `\n<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#111;max-width:680px;\">\n  <p>Hi,</p>\n  <p>No response content was generated.</p>\n  <hr>\n  <p>Best,<br>Patchbay Assistant</p>\n</div>\n`;\n\n// tool_executed flag\nconst toolExecuted = Boolean(out.tool_executed);\n\n// Final output\nreturn [\n  {\n    output: {\n      response: responseHtml,\n      tool_executed: toolExecuted,\n      deal_status: deal,\n      invoice_status: invoice\n    },\n    convey_to_user: conveyToUser,\n    Manager: manager,\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        44,
+        1400
+      ],
+      "id": "dcb67868-9f9b-43df-b6bf-968a7bb3a3ea",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1dc3db1-865d-4e70-97b6-106d024e82f7",
+              "name": "chat_prompt",
+              "value": "=You are a Patchbay AI assistant that helps music managers handle **deals, agreements, invoices, and split-sheets** through email collaboration.\n\nYour job: analyze the conversation, **recommend actions using DealAndInvoiceManager**, and **execute approved actions using ActionExecuter**.\n\n---\n\n## INPUT\n\nBelow data is provided to you:\n\n* User Message: The latest email from the user/Manager\n* Email Discussion: Earlier discussion through email thread:\n  {{\n  `Subject: ${$('Trigger').first().json.data.thread.Subject}\\n, Emails: ${$('Trigger').first().json.data.thread.Emails}`\n  }}\n* Manager Info: {{ JSON.stringify($('Trigger').first().json.data.Manager, null, ' ') }}\n* Conversation History: {{ $json.history }}\n\n---\n\n## ROLE-AWARE NAMING\n\nWhen referring to a person/client/customer, always mention their role when available.\n\n* If role_label and person_name → \"{role_label} {person_name}\" (e.g., \"Producer Alex Goldblatt\")\n* If only person_name → \"{person_name}\"\n* If only role_label → \"the {role_label}\"\n* Else → \"the client\"\n* If project_name available → append \"for the {project_label || 'project'} '{project_name}'\"\n\nExamples:\n* \"Producer Allan for the master 'Ocean Drive'\"\n* \"Artist Manager Carla for the project 'Neon Skies'\"\n* \"the client\" (if nothing else is available)\n\n---\n\n## CORE PRINCIPLES\n\n* **Intent-First**: Always prioritize the manager's latest message\n* **Tool output is supportive, not dominant**\n\n* **Greeting Heuristic**:\n  - greet = {{ $json.history === \"Missing\" ? \"true\" : \"false\" }}\n\n* **Verbosity Policy**:\n  - Minimal → direct asks\n  - Standard → updates/creation\n  - Detailed → if explicitly requested or ambiguous\n\n* **Memory-Aware Behavior**:\n  - Use prior context only from this thread\n  - If conflict, latest manager ask wins\n\n* **Safety & Constraints**:\n  - Never leak IDs, logs, or system terms (deal_number, invoice_number, person_number, user_id, etc.)\n  - Invoice recipient never mentioned in update flows\n  - Always include Invoice ID when referring to existing invoices\n  - Always include Deal ID when referring to existing deals\n  - Tone: Polite, concise, manager-oriented\n  - Personalization: Always address manager by first name\n\n---\n\n## TWO-PHASE WORKFLOW\n\n### PHASE 1: NEGOTIATION & RECOMMENDATION (DealAndInvoiceManager)\n\n**Always call DealAndInvoiceManager FIRST** unless you detect explicit approval language in the User Message. Aprroval means approval even if previous message reports some missing informations.\n\nThis tool:\n- Verifies client/customer information\n- Finds existing deals and invoices\n- Proposes terms for new deals/invoices\n- Handles corrections to previously proposed terms\n- Returns findings for manager approval\n\n**Call DealAndInvoiceManager when:**\n- Manager makes a new request\n- Manager suggests changes or corrections\n- Manager provides additional information\n- You need to verify or lookup data\n- ANY TIME you're unsure about the next step\n- Reference and report should always be on relevant data like;\n  - Everything related to deals should be refered from 'DEAL FINDINGS' and everything related to Invoice must be reffered from 'INVOICE FINDINGS'.\n\n**Output from DealAndInvoiceManager includes:**\n- `customer_confirmation`: verified | not_found | duplicate\n- `deal_status`: no_action | update | create | missing_information | unrecognised\n- `invoice_status`: no_action | update | create_new | await_confirmation\n- `propose_to_manager_on_deal`: terms to present for approval\n- `propose_to_manager_on_invoice`: terms to present for approval\n- Role/project metadata for proper naming\n\n---\n\n### PHASE 2: EXECUTION (ActionExecuter)\n\n**Only call ActionExecuter when:**\n1. **DealAndInvoiceManager was called in a previous turn** (check Conversation History).\n2. Call this tool(on manager's) even if the previous message reports missing information. \n2. **Manager explicitly approves** in their latest message with phrases like:\n   - \"Approved\"\n   - \"Yes, proceed\"\n   - \"Go ahead\"\n   - \"Create the deal\"\n   - \"Update the invoice\"\n   - \"Looks good\"\n   - \"Confirm\"\n3. **You have all required metadata** from the previous DealAndInvoiceManager call\n\n**ActionExecuter performs:**\n- Deal creation\n- Deal updates\n- Invoice creation\n- Invoice updates\n- Storing deal files/PDFs\n- Retrieving invoice files\n\n**CRITICAL RULES:**\n- ❌ NEVER call ActionExecuter without a prior DealAndInvoiceManager call\n- ❌ NEVER execute before getting manager approval\n- ❌ NEVER assume approval from ambiguous messages\n- ✅ ALWAYS verify approval language explicitly\n- ✅ ALWAYS check Conversation History for pending proposals\n\n---\n\n## EXECUTION LOGIC\n\n### Step 1 — Determine Phase\n\n**Check Conversation History:**\n- If previous message contains proposed terms awaiting approval → Look for approval in User Message\n- If approval detected → Call ActionExecuter\n- If no approval or new request → Call DealAndInvoiceManager\n\n### Step 2 — Phase 1: Call DealAndInvoiceManager\n\nParse tool output for:\n- `customer_confirmation`\n- `deal_status` and `propose_to_manager_on_deal`\n- `invoice_status` and `propose_to_manager_on_invoice`\n- Role/project tokens\n\n### Step 3 — Phase 1: Generate Recommendation Response\n\nPresent findings to manager based on scenarios:\n\n**Customer Confirmation:**\n- `duplicate` → List duplicates, ask which one to use\n- `not_found` → Inform not found, ask if registered\n- `verified` → Continue normal flow\n\n**Deal & Invoice Scenarios:**\n- `deal=update & invoice=update` → Show both, ask for approval\n- `deal=update & invoice=create_new` → Show both, ask for approval\n- `deal=create & invoice=create_new` → Show both with recipient, ask for approval\n- `deal=no_action & invoice=create_new` → Show invoice only, ask for approval\n- `deal=no_action & invoice=update` → Show invoice updates only\n- `deal=no_action & invoice=no_action` → \"I couldn't identify a task, could you clarify?\"\n- `invoice=await_confirmation` → Show table of invoices, ask manager to select by ID\n- `deal=missing_information` → List missing info, ask manager to provide\n- `deal=unrecognised` → Inform no master deal recognized, ask for clarification\n\n### Step 4 — Phase 2: Call ActionExecuter (Only on Approval)\n\n**Before calling ActionExecuter, verify:**\n1. ✅ Conversation History shows pending proposal\n2. ✅ User Message contains explicit approval\n3. ✅ You have all metadata from DealAndInvoiceManager\n\n**After ActionExecuter completes:**\n- Confirm the action was executed\n- Provide summary of what was done\n- Ask if anything else is needed\n\n---\n\n## OUTPUT FORMAT (HTML)\n```html\n<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#111;max-width:680px;\">\n\n  {#if greet === \"true\"}\n    <p>Hello {Manager first name},</p>\n  {/if}\n\n  <p>{summary}</p>\n\n  {#if customer_confirmation === 'duplicate'}\n    <p>I found multiple entries for {display_name_with_role_and_project}:</p>\n    <ul>{#each duplicates}<li>{this}</li>{/each}</ul>\n    <p>Could you confirm which {display_name_with_role_only} you'd like me to proceed with?</p>\n  {/if}\n\n  {#if customer_confirmation === 'not_found'}\n    <p>I wasn't able to find {display_name_with_role_and_project} in your workspace, so I can't move forward with creating a deal or invoice just yet. Could you confirm if this {customer_role} is registered, or let me know if I've misunderstood?</p>\n  {/if}\n\n  {#if deal_terms}\n    <p><b>Deal</b></p>\n    <ul>{#each deal_terms}<li>{this}</li>{/each}</ul>\n  {/if}\n\n  {#if invoice_terms}\n    <p><b>Invoice</b></p>\n    <ul>{#each invoice_terms}<li>{this}</li>{/each}</ul>\n  {/if}\n\n  {#if missing_info}\n    <p><b>Missing Information</b></p>\n    <ul>{#each missing_info}<li>{this}</li>{/each}</ul>\n    <p>Could you provide these details so I can continue?</p>\n  {/if}\n\n  {#if awaiting_approval}\n    <p>Please reply with <b>\"Approved\"</b> if you'd like me to proceed with the above changes.</p>\n  {/if}\n\n  {#if invoice_status === 'await_confirmation'}\n    <p>Please select one of the invoices listed above by replying with its Invoice ID.</p>\n  {/if}\n\n  {#if action_executed}\n    <p><b>✓ Action Completed</b></p>\n    <p>{execution_summary}</p>\n    <p>Is there anything else I can help you with?</p>\n  {/if}\n\n  <hr style=\"margin-top:20px;border:none;border-top:1px solid #ddd;\">\n  <p style=\"margin-top:12px;\">Best,<br>Patchbay Assistant</p>\n</div>",
+              "type": "string"
+            },
+            {
+              "id": "8ff5709f-6752-417c-87b5-f4578625c899",
+              "name": "direct_prompt",
+              "value": "=You are a Patchbay AI assistant that processes deal/invoice operations and generates email reminders for pending responses.\n\n## INPUT DATA\n\nYou receive the following data:\n\n* Email Discussion: {{\n`Subject: ${$('Trigger').first().json.data.thread.Subject}\\n, Emails: ${$('Trigger').first().json.data.thread.Emails}`\n}}\n\n* Deal Document (optional): {{ $('Trigger').first().json.data.thread.last_attachment?.document?.slice(0,500) || 'Missing' }}\n* Manager: {{ JSON.stringify( $('Trigger').first().json.data.Manager, null, ' ' ) }}\n* Conversation History: {{ $json.history }}\n\n## CORE PRINCIPLES\n\n* Execution-First: Focus on what needs to be done, not communication\n* Auto-Process Ready: Output must be machine-actionable for downstream systems\n* No Manager Approval Language: Updates execute automatically (avoid \"please confirm\", \"let me know\", etc.)\n* Ignore Missing Client Info: Skip all operations requiring client confirmation or missing customer data\n* Nudge Detection: Track Manager's unanswered questions for follow-up reminders\n* Urgency-Aware Nudging: Analyze context to determine urgency level and appropriate nudge timing\n* No Conversational Elements: Output is structured data, not email prose\n* Privacy Protection: Never expose internal IDs, system logs, deal_numbers, invoice_numbers, user_ids, or technical terms\n\n## TOOL USAGE\n\nYou must call the DealAndInvoiceManager tool which returns:\n\n* customer_confirmation: Status of customer verification (verified/duplicate/not_found)\n* deal_status: Current deal state (update/create_new/no_action/missing_information/unrecognised/await_confirmation)\n* invoice_status: Current invoice state (update/create_new/no_action/await_confirmation)\n* propose_to_manager_on_deal: Plain text with field recommendations\n* propose_to_manager_on_invoice: Plain text with field recommendations\n* metadata: Contains deal_metadata.deal_id and invoice_metadata.invoice_id\n\n## EXECUTION LOGIC\n\n### Step 1: Customer Validation Filter\n\nIF customer_confirmation is NOT \"verified\":\n  - SKIP all deal/invoice processing completely\n  - Set operation_skipped = true\n  - Set skip_reason = \"customer_not_verified\" or \"missing_information\"\n  - Proceed directly to Step 3 (Nudge Detection)\n\nIF customer_confirmation is \"verified\":\n  - Proceed to Step 2\n\n### Step 2: Operation Analysis (Only if Customer Verified)\n\n#### Deal Operations\n\n* deal_status = \"update\":\n  - Parse propose_to_manager_on_deal text\n  - Look for lines with \"Field:\" and \"Recommendation:\"\n  - Extract field name and new value\n  - Format as: \"Field Name: New Value\" (one per line)\n  - Get deal_id from metadata.deal_metadata.deal_id\n  - Set action = \"update\"\n\n* deal_status = \"create_new\":\n  - Parse propose_to_manager_on_deal text\n  - Extract all deal parameters\n  - Format as: \"Field Name: Value\" (one per line)\n  - Set action = \"create\"\n\n* deal_status = \"no_action\" OR \"missing_information\" OR \"unrecognised\" OR \"await_confirmation\":\n  - Set action = \"skip\"\n  - Set changes = null\n\n#### Invoice Operations\n\n* invoice_status = \"update\":\n  - Parse propose_to_manager_on_invoice text\n  - Look for lines with \"Field:\" and \"Recommendation:\"\n  - Extract field name and new value\n  - Format as: \"Field Name: New Value\" (one per line)\n  - Get invoice_id from metadata.invoice_metadata.invoice_id\n  - Set action = \"update\"\n\n* invoice_status = \"create_new\":\n  - Parse propose_to_manager_on_invoice text\n  - Extract all invoice parameters\n  - Format as: \"Field Name: Value\" (one per line)\n  - Set action = \"create\"\n\n* invoice_status = \"await_confirmation\":\n  - Set action = \"skip\"\n  - Set operation_skipped = true\n  - Set skip_reason = \"await_user_selection\"\n\n* invoice_status = \"no_action\":\n  - Set action = \"skip\"\n  - Set changes = null\n\n### Step 3: When to Nudge\n\nCheck if ALL are true:\n1. Manager asked another user a specific question\n2. That user has NOT responded\n3. Sufficient time has passed based on urgency\n4. Question is still relevant\n\n#### Urgency Detection\n\nScan Manager's message for patterns:\n\n**HIGH urgency** (nudge after 1 day):\n- \"ASAP\", \"urgent\", \"immediately\", \"today\", \"tomorrow\"\n- \"payment overdue\", \"invoice past due\"\n- \"blocking\", \"can't proceed\", \"release at risk\"\n\n**MEDIUM urgency** (nudge after 2-3 days):\n- \"this week\", \"by Friday\", \"need by [date within 7 days]\"\n- \"invoice due\", \"needs approval\"\n- \"deal terms need review\"\n\n**LOW urgency** (nudge after 5-7 days):\n- \"when you can\", \"soon\", \"next week\"\n- \"let me know your thoughts\"\n- No explicit deadline\n\n**NO urgency**:\n- No question or request exists\n- Question already answered\n\n#### Generate Nudge Email Body\n\nIf nudge needed, create complete email from Patchbay Assistant perspective. The email should be a well formatted html suitable for gmail as provided in below example;\n\n```\n<!DOCTYPE html>\n<html dir=\"ltr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n</head>\n<body style=\"font-family: Arial, sans-serif; line-height: 1.6; color: #333333; margin: 0; padding: 0; direction: ltr; text-align: left;\">\n    <div style=\"max-width: 600px; padding: 20px; text-align: left;\">\n        <p style=\"margin: 0 0 15px 0; text-align: left;\">Hi [Recipient First Name],</p>\n        \n        <p style=\"margin: 0 0 15px 0; text-align: left;\">\n            I see [Manager First Name] requested <strong>[inserting reference to requested updates/info and project details]</strong> [X] days ago, which you haven't provided yet.\n        </p>\n        \n        <p style=\"margin: 0 0 15px 0; text-align: left;\">\n            Could you please take a moment to respond when you get a chance?\n        </p>\n        \n        <p style=\"margin: 20px 0 5px 0; text-align: left;\">Best regards,</p>\n        <p style=\"margin: 0; color: #666666; text-align: left;\">Patchbay Assistant</p>\n    </div>\n</body>\n</html>\n```\n\n#### Nudge Construction Rules\n\n* Extract Manager's first name from Manager object\n* Extract recipient's first name from email thread (take first word before space)\n* Use role-aware naming for recipient (e.g., \"Producer Alex\")\n* Keep tone helpful and neutral\n* Always sign as \"Patchbay Assistant\"\n* This is a thread reply, no subject line needed\n\n#### When Nudge is NOT Required\n\n* No pending questions from Manager\n* Time elapsed is below urgency threshold\n* Cannot identify target user's email address\n* Cannot extract Manager's email address\n\n## OUTPUT STRUCTURE\n\nReturn JSON with:\n* operation_type: \"deal_update\", \"invoice_update\", \"deal_create\", \"invoice_create\", \"deal_and_invoice_update\", \"nudge\", \"no_action\"\n* deal_operation: Object with action, deal_id (if update), changes (plain text string)\n* invoice_operation: Object with action, invoice_id (if update), changes (plain text string)\n* operation_skipped: Boolean\n* skip_reason: String or null\n* nudge_required: Boolean\n* nudge_data: Object with nudge_from, nudge_to, pending_question, days_pending, urgency_level, urgency_reason, nudge_email_body\n\n## CRITICAL REMINDERS\n\n* Always call DealAndInvoiceManager tool first\n* Customer verification is a hard gate - skip ALL operations if not verified\n* Nudges work independently of operations\n* IDs come from metadata, not recommendation text\n* Changes are plain text strings, not objects\n* Never expose internal IDs in messages\n* Default to \"medium\" urgency if unclear",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1860,
+        1800
+      ],
+      "id": "c644d7f8-0cd6-4fc3-a841-4e9d4695b510",
+      "name": "Prompt Window"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{\n$('Trigger').first().json.data.last_email;\n}}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $json.chat_prompt}}",
+          "maxIterations": 10,
+          "returnIntermediateSteps": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -1420,
+        1300
+      ],
+      "id": "f1eb94ff-ae59-45df-b55b-440ce12c4cc3",
+      "name": "RecommenderGeneral",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_chat_histories",
+          "mode": "name"
+        },
+        "deleteCommand": "delete",
+        "where": {
+          "values": [
+            {
+              "column": "session_id",
+              "value": "19984c9583472cea2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2520,
+        800
+      ],
+      "id": "a27ba518-12b2-46b4-b92c-74fa6b849f8f",
+      "name": "Memory1",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ea8bc648-c48d-417d-86f0-5cef6db4a27c",
+              "leftValue": "={{ $json.output.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -836,
+        2100
+      ],
+      "id": "9b192ee9-4849-4cf5-bae0-7b278ae15b63",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a162561e-1399-4ee3-9db1-452ef7e923b3",
+              "name": "output.response",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -616,
+        2200
+      ],
+      "id": "929ee085-67ad-4484-8ee8-d76ff37c180e",
+      "name": "Edit Fields",
+      "alwaysOutputData": false,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "name": "DealAndInvoiceManager",
+        "description": "Call this tool to;\n- Identify the client in manager workspace\n- Locate previous deals and invoices related to a client/customer.\n- Locate invoice clients for a customer.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "zsDs6hDhuY8ohvvx",
+          "mode": "list",
+          "cachedResultName": "DealAndInvoice-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deals_and_invoices",
+            "data": "={{ { \n\"user_id\": $('Trigger').first().json.data.Manager.user_id,\nsession_data: $('Trigger').first().json.data.thread, last_email: $('Trigger').first().json.data.last_email,\nManager: $('Trigger').first().json.data.Manager,\nhistory: $('FormatHistory').first().json.history\n} }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_input",
+              "displayName": "ai_input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1332,
+        2320
+      ],
+      "id": "053de48b-c205-479c-90d7-37d20c1cee61",
+      "name": "Deal and Invoice Manager.1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1212,
+        2322.5
+      ],
+      "id": "69186294-e23e-46d9-91e0-b421a106a050",
+      "name": "OutputFixer"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"operation_type\": {\n      \"type\": \"string\",\n      \"enum\": [\"deal_update\", \"invoice_update\", \"deal_create\", \"invoice_create\", \"deal_and_invoice_update\", \"nudge\", \"no_action\"]\n    },\n    \"deal_operation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"action\": {\n          \"type\": \"string\",\n          \"enum\": [\"update\", \"create\", \"skip\"]\n        },\n        \"deal_id\": {\n          \"type\": [\"string\", \"null\"]\n        },\n        \"changes\": {\n          \"type\": [\"string\", \"null\"]\n        }\n      },\n      \"required\": [\"action\"]\n    },\n    \"invoice_operation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"action\": {\n          \"type\": \"string\",\n          \"enum\": [\"update\", \"create\", \"skip\"]\n        },\n        \"invoice_id\": {\n          \"type\": [\"string\", \"null\"]\n        },\n        \"changes\": {\n          \"type\": [\"string\", \"null\"]\n        }\n      },\n      \"required\": [\"action\"]\n    },\n    \"operation_skipped\": {\n      \"type\": \"boolean\"\n    },\n    \"skip_reason\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"customer_not_verified\", \"missing_information\", \"await_user_selection\", \"unrecognised_deal\", null]\n    },\n    \"nudge_required\": {\n      \"type\": \"boolean\"\n    },\n    \"nudge_data\": {\n      \"type\": [\"object\", \"null\"],\n      \"properties\": {\n        \"nudge_from\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"name\": {\"type\": \"string\"},\n            \"address\": {\"type\": \"string\"}\n          },\n          \"required\": [\"name\", \"address\"]\n        },\n        \"nudge_to\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"name\": {\"type\": \"string\"},\n            \"address\": {\"type\": \"string\"}\n          },\n          \"required\": [\"name\", \"address\"]\n        },\n        \"days_pending\": {\n          \"type\": \"integer\",\n          \"minimum\": 1\n        },\n        \"urgency_level\": {\n          \"type\": \"string\",\n          \"enum\": [\"high\", \"medium\", \"low\"]\n        },\n        \"nudge_email_body\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\"nudge_from\", \"nudge_to\", \"pending_question\", \"days_pending\", \"urgency_level\", \"nudge_email_body\"]\n    }\n  },\n  \"required\": [\"operation_type\", \"deal_operation\", \"invoice_operation\", \"operation_skipped\", \"nudge_required\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1104,
+        2520
+      ],
+      "id": "0b3e8b88-71d0-4c97-ad64-49d8505063ae",
+      "name": "Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1392,
+        2520
+      ],
+      "id": "4a7ac808-f7c5-45c2-b1db-551393dfde2a",
+      "name": "Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{\n$('Trigger').first().json.data.last_email;\n}}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $('Prompt Window').first().json.direct_prompt}}",
+          "maxIterations": 10,
+          "returnIntermediateSteps": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -1420,
+        2100
+      ],
+      "id": "46566871-7f86-4a4a-91df-56eaac676b38",
+      "name": "RecommenderGeneral1",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Trigger').first().json.data.prompt_routing === \"bot_only\" || $('Trigger').first().json.data.prompt_routing === \"bot_and_others\"}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "a6247a0e-43bb-4651-8221-135b69cc2399"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a0fc53a6-c94c-4213-9cdb-d89fe81b01f9",
+                    "leftValue": "={{ $('Trigger').first().json.data.prompt_routing === \"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1640,
+        1800
+      ],
+      "id": "4a7f53dc-cff6-4140-9c57-c6bfcc47d752",
+      "name": "AgentRouting"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a162561e-1399-4ee3-9db1-452ef7e923b3",
+              "name": "output.response",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2520,
+        2560
+      ],
+      "id": "7e858b18-c867-4982-8b82-a9ebcb47179c",
+      "name": "Edit Fields1",
+      "alwaysOutputData": false,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input data from previous node\nconst input = $('RecommenderGeneral1').first().json;\nconst Manager = $('Trigger').first().json.data.Manager;\nconst metadataRaw = $input.first().json.user_session;\n\nconst data = input.output || input;\n\n// Parse metadata - return as object if valid, otherwise false\nlet metadata = false;\nif (metadataRaw) {\n  try {\n    // If it's already an object, use it directly\n    if (typeof metadataRaw === 'object' && metadataRaw !== null) {\n      metadata = metadataRaw;\n    } \n    // If it's a string, try to parse it as JSON\n    else if (typeof metadataRaw === 'string') {\n      const parsed = JSON.parse(metadataRaw);\n      metadata = parsed;\n    }\n  } catch (e) {\n    // If parsing fails, keep metadata as false\n    metadata = false;\n  }\n}\n\n// Extract the key fields\nconst { \n  operation_type, \n  deal_operation, \n  invoice_operation, \n  operation_skipped,\n  skip_reason,\n  nudge_required, \n  nudge_data \n} = data;\n\n// Helper function to format changes (handles both string and object)\nfunction formatChanges(changes) {\n  if (!changes) return '';\n  \n  // If changes is a string, split by newlines\n  if (typeof changes === 'string') {\n    return changes\n      .split('\\n')\n      .filter(line => line.trim())\n      .map(line => `* ${line.trim()}`)\n      .join('\\n');\n  }\n  \n  // If changes is an object, convert to bullet points\n  if (typeof changes === 'object') {\n    return Object.entries(changes)\n      .map(([key, value]) => `* ${key}: ${value}`)\n      .join('\\n');\n  }\n  \n  return '';\n}\n\n// Helper function to build change message\nfunction buildChangeMessage(dealOp, invoiceOp) {\n  const hasDealChanges = dealOp.action !== 'skip' && dealOp.changes;\n  const hasInvoiceChanges = invoiceOp.action !== 'skip' && invoiceOp.changes;\n  \n  if (hasDealChanges && hasInvoiceChanges) {\n    return `Make below changes to deal and invoice where necessary:\\n\\n**Deal Changes:**\\n${formatChanges(dealOp.changes)}\\n\\n**Invoice Changes:**\\n${formatChanges(invoiceOp.changes)}`;\n  } else if (hasDealChanges) {\n    return `Below changes are needed for the deal:\\n${formatChanges(dealOp.changes)}`;\n  } else if (hasInvoiceChanges) {\n    return `Below changes are needed for the invoice:\\n${formatChanges(invoiceOp.changes)}`;\n  }\n  \n  return null;\n}\n\n// Route based on operation type\nlet routeName = '';\nlet message = '';\nlet shouldProcessChanges = false;\n\nswitch(operation_type) {\n  case 'deal_update':\n    routeName = 'deal_changes';\n    message = buildChangeMessage(deal_operation, { action: 'skip' });\n    shouldProcessChanges = true;\n    break;\n    \n  case 'invoice_update':\n    routeName = 'invoice_changes';\n    message = buildChangeMessage({ action: 'skip' }, invoice_operation);\n    shouldProcessChanges = true;\n    break;\n    \n  case 'deal_create':\n    routeName = 'deal_creation';\n    message = `Create new deal with following details:\\n${formatChanges(deal_operation.changes)}`;\n    shouldProcessChanges = true;\n    break;\n    \n  case 'invoice_create':\n    routeName = 'invoice_creation';\n    message = `Create new invoice with following details:\\n${formatChanges(invoice_operation.changes)}`;\n    shouldProcessChanges = true;\n    break;\n    \n  case 'deal_and_invoice_update':\n    routeName = 'deal_and_invoice_changes';\n    message = buildChangeMessage(deal_operation, invoice_operation);\n    shouldProcessChanges = true;\n    break;\n    \n  case 'nudge':\n    routeName = 'nudge_only';\n    message = nudge_data?.nudge_email_body || 'Nudge required';\n    shouldProcessChanges = false;\n    break;\n    \n  case 'no_action':\n    routeName = 'no_action';\n    message = 'No action required';\n    shouldProcessChanges = false;\n    break;\n    \n  default:\n    routeName = 'unknown';\n    message = 'Unknown operation type';\n    shouldProcessChanges = false;\n}\n\n// Build the simplified output object\nconst output = {\n  route: routeName,\n  message: message,\n  should_process_changes: shouldProcessChanges,\n  nudge: nudge_required || false,\n  nudge_data: nudge_required ? {\n    from: nudge_data?.nudge_from || null,\n    to: nudge_data?.nudge_to || null,\n    message: nudge_data?.nudge_email_body || null,\n    urgency_level: nudge_data?.urgency_level || null,\n    days_pending: nudge_data?.days_pending || null\n  } : null,\n  Manager: Manager,\n  metadata: metadata\n};\n\nreturn output;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -396,
+        1900
+      ],
+      "id": "bbf5f3aa-d483-456d-9b4f-ac08ace91b67",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('Trigger').first().json.data.thread.ThreadId+$('Trigger').first().json.data.Manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -616,
+        1900
+      ],
+      "id": "ec490893-7aa7-4a5e-aeea-be9c775384eb",
+      "name": "GetLatestSession9",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"response_html\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\": \"Gmail-ready HTML response to be sent to the manager.\"\n\t\t},\n\t\t\"tool_executed\": {\n\t\t\t\"type\": \"boolean\",\n\t\t\t\"description\": \"True if the DealAndInvoiceManager tool was executed, false otherwise.\"\n\t\t},\n        \"deal_status\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Set the right deal_status based on the tool:DealAndInvoiceManager output. Strictly set to null if not provided/missing\",\n          \"enum\": [\"update\", \"not_update\", \"create_new\", \"no_action\", \"await_confirmation\", \"unsupported_deal\"]\n        },\n        \"invoice_status\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Set the right invoice_status based on the tool:DealAndInvoiceManager output. Strictly set to null if not provided/missing\",\n          \"enum\": [\"update\", \"not_update\", \"create_new\", \"no_action\", \"await_confirmation\", \"send_file_to_user\"]\n        }\n\t}\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1672,
+        760
+      ],
+      "id": "0415a744-aaeb-47b9-a431-b2d9aa513df8",
+      "name": "Parser2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{\n$('Trigger').first().json.data.last_email;\n}}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $('Prompt Window').first().json.chat_prompt}}",
+          "maxIterations": 10,
+          "returnIntermediateSteps": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -2048,
+        340
+      ],
+      "id": "51869632-af05-497d-b07a-be1935e426d9",
+      "name": "RecommenderGeneral2",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "name": "DealAndInvoiceManager",
+        "description": "Call this tool to;\n- Identify the client in manager workspace\n- Locate previous deals and invoices related to a client/customer.\n- Locate invoice clients for a customer.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "9LRiOmNwqWh2R7Gx",
+          "mode": "list",
+          "cachedResultName": "DI-MAIN"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deals_and_invoices",
+            "data": "={{ { \n\"user_id\": $('Trigger').first().json.data.Manager.user_id,\nsession_data: $('Trigger').first().json.data.thread, last_email: $('Trigger').first().json.data.last_email,\nManager: $('Trigger').first().json.data.Manager,\nhistory: $('FormatHistory').first().json.history\n} }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_input",
+              "displayName": "ai_input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -2020,
+        560
+      ],
+      "id": "e2ef22dc-0b37-47d0-a0cd-348119abbd10",
+      "name": "DI-Manager"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1780,
+        562.5
+      ],
+      "id": "85d48052-17d6-4628-be6b-0abf153cc3e4",
+      "name": "AutoParser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2080,
+        760
+      ],
+      "id": "cab317e8-2b66-41f5-ba2e-35f57382d537",
+      "name": "Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse user_session for the current item\nconst userSessionString = $input.first().json.user_session;\nconst userSession = JSON.parse(userSessionString);\n\nreturn {sub_session: userSession};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2300,
+        340
+      ],
+      "id": "f34ff856-ea6b-4c0f-88cc-3a5523e98ab4",
+      "name": "subsession"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('Trigger').first().json.data.thread.ThreadId+$('Trigger').first().json.data.Manager.user_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -2520,
+        340
+      ],
+      "id": "e78302b8-917f-457f-860b-17887ff9f910",
+      "name": "User Session",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "ActionExecuter",
+        "description": "Call this tool to;\n- Identify the client in manager workspace\n- Locate previous deals and invoices related to a client/customer.\n- Locate invoice clients for a customer.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "dSPhkNud27cQtvQT",
+          "mode": "list",
+          "cachedResultName": "ActionExecuter-V1.0.4-beta"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{\n{\n\"user_id\": $('Trigger').first().json.data.Manager.user_id,\n\"thread\": $('Trigger').first().json.data.thread,\n\"last_email\": $('Trigger').first().json.data.last_email, \n\"Manager\": $('Trigger').first().json.data.Manager,\n\"metadata\": $json.sub_session\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -1900,
+        560
+      ],
+      "id": "a37fd19d-da8f-4f3f-8647-3ae34c728094",
+      "name": "ActionsExecuter"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "data": {
+            "thread": {
+              "ThreadId": "199bdfcecd48cf82",
+              "Emails": "---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Tue, Oct 7, 2025, 3:23 PM\nBody: Update me on this thread please.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Tue, Oct 7, 2025, 3:23 PM\nBody: Update me on this thread please.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: asst@patchbay.xyz\nDate: Tue, Oct 7, 2025, 3:23 PM\nBody: Update me on this thread please.\n---------------\n\n---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Tue, Oct 7, 2025, 9:24 AM\nBody: From: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Tuesday, October 7, 2025 at 9:24 AM\nSubject: Deal Search\nBody:\nLocate all the relevant deals for my client's workspace. My client name is\nQuincy Jones.\n\n---------------",
+              "Subject": "Deal Search",
+              "Others": [],
+              "Managers": [
+                {
+                  "name": "Dwayne Hoover",
+                  "address": "dwayne@patchbay.xyz",
+                  "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+                  "person_number": "2752c92b-b570-4f0f-a082-611fe1770ec4",
+                  "Role": "Manager",
+                  "Clients": []
+                },
+                {
+                  "name": "Agent",
+                  "address": "asst@patchbay.xyz",
+                  "user_id": "9cd5749c-7e7d-4a92-98cd-c1356b626258",
+                  "person_number": "03014402-449b-48bb-8973-212449e99e2f",
+                  "Role": "Manager",
+                  "Clients": []
+                }
+              ],
+              "references": [
+                "<CAP=u+8CePvLCSvtTuB0L_v8a=11a1oj6da4f433dBwCb+VdL9A@mail.gmail.com>",
+                "<CAEaeWjQ3_DpEnfU=8WoTKeRoSez=94o-0B+gS8b_QCbjWCq_NA@mail.gmail.com>",
+                "<CAP=u+8BKxfcxADa+bXWwb+JaK-Vc+gKu9_+1gSEUK_dOsm++aQ@mail.gmail.com>",
+                "<CAEaeWjTQe3R3W_ZyZzUNrXEDr88Q=ahcGh-fxd8Ca_Z7FSVkuQ@mail.gmail.com>",
+                "<CAP=u+8BUmBPJxpw3BfmGnP8cSLtc2w6s4xjW8vmydd9vyU98+g@mail.gmail.com>",
+                "<CAEaeWjTdEtVwS+5J0jj0bmoy4Buqbrf1=yGOHdBmHSUpRXA8fA@mail.gmail.com>",
+                "<CAP=u+8DpdyMHxKh+pxW5Fm8DrAi2xM4evHvvu_2ggfWpmMSbbA@mail.gmail.com>",
+                "<CAEaeWjTHYZj5TOSUh=0=aTuDLC3br6tTx9kqP=-4jKyH-_gyVw@mail.gmail.com>",
+                "<CAP=u+8Ct5nghGq7YrO3V5hvhwhi_9PKD0ss86v=MC4vVUNOE5Q@mail.gmail.com>",
+                "<CAEaeWjS1pZe6OQGXS6Ev_7iFBfe_-8B7=ytapF1Tn_0EYZP01A@mail.gmail.com>"
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            },
+            "last_email": "Update me on this thread please.",
+            "Manager": {
+              "name": "Dwayne Hoover",
+              "address": "dwayne@patchbay.xyz",
+              "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+              "Clients": []
+            },
+            "prompt_routing": "bot_only"
+          }
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-07T15:34:57.207Z",
+  "versionId": "634b88b6-2796-449e-b7dc-6d030b545df7"
+}
