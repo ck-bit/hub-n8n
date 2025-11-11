@@ -1,0 +1,1758 @@
+{
+  "active": false,
+  "connections": {
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Reformat1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetSession1": {
+      "main": [
+        [
+          {
+            "node": "SessionData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route": {
+      "main": [
+        [
+          {
+            "node": "Route2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ExtractData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractData1": {
+      "main": [
+        [
+          {
+            "node": "UpdateEmails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateEmails": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "GetSession1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SessionData": {
+      "main": [
+        [
+          {
+            "node": "CheckForwarded2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements1": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "AddReference2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route2": {
+      "main": [
+        [
+          {
+            "node": "ExtractData1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ExtractData1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code6": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "AddReference1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements2": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Combine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Chunking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chunking": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractEmails": {
+      "main": [
+        [
+          {
+            "node": "IdentifyUsers1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IdentifyUsers1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update1": {
+      "main": [
+        [
+          {
+            "node": "Binary1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Update1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements3": {
+      "main": [
+        [
+          {
+            "node": "Code8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code8": {
+      "main": [
+        [
+          {
+            "node": "AddReference3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "AddReference",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAttachements": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoManagers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reformat1": {
+      "main": [
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update": {
+      "main": [
+        [
+          {
+            "node": "Binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IdentifyUsers": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Binary": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Binary1": {
+      "main": [
+        [
+          {
+            "node": "GetAttachements3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckForwarded2": {
+      "main": [
+        [
+          {
+            "node": "Route",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddReference3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractData": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine": {
+      "main": [
+        [
+          {
+            "node": "ExtractEmails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-10T05:39:43.160Z",
+  "id": "UWofd6PgsUYZxJFf",
+  "meta": null,
+  "name": "ProcessData-V-1.0.5",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "47e0a37d-8a79-41c4-b1a7-33b8f9662052",
+              "leftValue": "={{ $('CheckForwarded2').first().json.isForwarded }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -120,
+        790
+      ],
+      "id": "b25a1d42-7744-41bb-8fb5-e8e3c15df528",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "thread",
+        "key": "=thread_{{ $json.threadId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1220,
+        690
+      ],
+      "id": "b069bc4e-f7e4-4bb1-bcf5-f3859ae245fc",
+      "name": "GetSession1",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b541275c-053b-422f-820a-bb310978adc5",
+              "leftValue": "=  {{ $('SessionData').first().json.sessionStatus === true && $json.isForwarded === false }}\n",
+              "rightValue": "=true",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -560,
+        690
+      ],
+      "id": "988ba862-1241-4302-bb52-45783b1ac284",
+      "name": "Route"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node - JavaScript\n// Processes emails with cleaning, formatting, and Others generation\n\n// ---------- Helpers (same cleaning technique) ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,\n    /\\nSent from my (iPhone|Android).*$/i,\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,\n    /\\n>+/m,\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n  let newest = cutAtFirst(t, cutoffPatterns);\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\n// Helper function to format contact array for display\nfunction formatContacts(contacts) {\n  if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {\n    return '';\n  }\n  \n  return contacts.map(contact => {\n    if (contact.name && contact.address) {\n      return `${contact.name} (${contact.address})`;\n    } else if (contact.address) {\n      return contact.address;\n    }\n    return '';\n  }).filter(c => c).join(', ');\n}\n\n// Helper function to format date\nfunction formatDate(dateString) {\n  if (!dateString) return '';\n  \n  try {\n    const date = new Date(dateString);\n    return date.toLocaleString('en-US', {\n      weekday: 'short',\n      month: 'short',\n      day: 'numeric',\n      year: 'numeric',\n      hour: 'numeric',\n      minute: '2-digit',\n      hour12: true\n    });\n  } catch (error) {\n    return dateString; // Return original if parsing fails\n  }\n}\n\n// ---------- Main processing with formatting ----------\nconst results = [];\n\nfor (const item of $('Trigger').all()) {\n  const data = item.json;\n\n  // Get all CCs except 'asst@patchbay.xyz'\n  const allCC = (data.cc?.value) || [];\n  const filteredCC = allCC.filter(cc => cc.address !== \"asst@patchbay.xyz\");\n\n  // Cleaned latest email body (prefer text, fallback to html)\n  let raw = pickBody(data);\n  let cleaned = firstBodyOnly(raw);\n  // Make single-line (keep if you want compact output)\n  const emailText = cleaned.replace(/\\n/g, \" \").replace(/\\s+/g, \" \").trim();\n\n  // Create the email object\n  const emailObject = {\n    ThreadId: data.threadId,\n    Label: data.Label,\n    EmailId: data.id,\n    MessageId: data.messageId,\n    References: data.references,\n    Subject: data.subject,\n    From: data.from?.value || [],\n    to: data.to?.value || [],\n    cc: filteredCC,\n    date: data.date,\n    emailText: emailText || '',\n  };\n\n  // Format the email as structured text\n  let emailsString = '';\n  \n  emailsString += '---------------\\n';\n  \n  // From field\n  const fromFormatted = formatContacts(emailObject.From);\n  emailsString += `From: ${fromFormatted}\\n`;\n  \n  // To field\n  const toFormatted = formatContacts(emailObject.to);\n  emailsString += `To: ${toFormatted}\\n`;\n  \n  // Cc field (only add if not empty)\n  const ccFormatted = formatContacts(emailObject.cc);\n  if (ccFormatted) {\n    emailsString += `Cc: ${ccFormatted}\\n`;\n  }\n  \n  // Date field\n  const dateFormatted = formatDate(emailObject.date);\n  emailsString += `Date: ${dateFormatted}\\n`;\n  \n  // Body field\n  emailsString += `Body: ${emailObject.emailText || ''}\\n`;\n  \n  emailsString += '---------------';\n\n  const output = {\n    ThreadId: data.threadId,\n    Subject: data.subject,\n    Emails: emailsString\n  };\n\n  results.push({ json: output });\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -120,
+        340
+      ],
+      "id": "67639b88-3ed6-4cf5-bcae-ba95bc6393da",
+      "name": "ExtractData1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get input data\nconst node1 = $('SessionData').item.json; // Main input with existing emails\nconst node2 = $input.item.json; // New emails to merge\n\n// Combine emails (Node-2 on top, then Node-1)\nlet combinedEmails = '';\n\n// Add Node-2 emails first (on top)\nif (node2.Emails && node2.Emails.trim()) {\n  combinedEmails += node2.Emails;\n}\n\n// Add separator if both have content\nif (node2.Emails && node2.Emails.trim() && node1.Emails && node1.Emails.trim()) {\n  combinedEmails += '\\n\\n';\n}\n\n// Add Node-1 emails after\nif (node1.Emails && node1.Emails.trim()) {\n  combinedEmails += node1.Emails;\n}\n\n// Update Node-1 structure with merged emails\nnode1.Emails = combinedEmails;\n\nreturn [{ json: node1 }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        100,
+        340
+      ],
+      "id": "4775b8b5-ec5f-4cb9-ad38-2a1c5c42e851",
+      "name": "UpdateEmails"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1576,
+        340
+      ],
+      "id": "55ffe280-1820-470a-8790-c3e3438038f5",
+      "name": "UpdateSesssion4",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1440,
+        690
+      ],
+      "id": "ea042d5a-0f7b-49f4-9162-7afc6cd38dd5",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const sessionData = $input.first().json.thread;\n\nif (typeof sessionData === \"string\") {\n  try {\n    const parsed = JSON.parse(sessionData);\n    parsed.sessionStatus = true;\n    return parsed;\n  } catch {\n    return { sessionStatus: false }; // Invalid JSON\n  }\n} else {\n  return { sessionStatus: false }; // No session data\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1000,
+        690
+      ],
+      "id": "38d91e67-7ffc-4994-87f8-5fcfdd1d1d4c",
+      "name": "SessionData"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check_attachement",
+            "data": "={{ $json.lastEmail }}",
+            "binary": "={{ $json.binary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        618,
+        340
+      ],
+      "id": "e9817e33-6c37-4634-b957-4b656a0e6413",
+      "name": "GetAttachements1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.item.json;\nconst node2 = $(\"UpdateEmails\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file;\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n\n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n  };\n\n  return { json: node2 };\n} else {\n  // Return node2 input as is\n  return { json: node2 };\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        916,
+        340
+      ],
+      "id": "6da0bbbe-12a6-48ba-8429-a58f688d328b",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input JSON (assuming input is from previous node)\nconst input = $input.first().json\nconst attachements = $(\"Trigger\").first().binary\n\n// Extract the Emails array\nconst emails = input.Emails || [];\n\n// Get the last email object (if available)\nconst lastEmail = emails.length > 0 ? emails[emails.length - 1] : null;\n\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        340
+      ],
+      "id": "cba3f40b-30e8-40fa-a1e0-f8e2e76c312b",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2603e6ff-7726-4ff2-b203-be61210c4d6b",
+              "leftValue": "={{ $('Trigger').first().json.routing===\"bot_only\"}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -340,
+        340
+      ],
+      "id": "7916b740-6fd8-43a9-87d6-350f9587951e",
+      "name": "Route2"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        920,
+        120
+      ],
+      "id": "a337d06a-cfa7-4c91-8f04-bece958c3e72",
+      "name": "UpdateSesssion5",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const attachements = $(\"Trigger\").first().binary\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        120
+      ],
+      "id": "d8260daf-bb36-485d-8747-5ce10dcb1364",
+      "name": "Code6"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.item.json;\nconst node2 = $(\"SessionData\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file;\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n\n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n  };\n\n  return { json: node2 };\n} else {\n  // Return node2 input as is\n  return { json: node2 };\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        120
+      ],
+      "id": "57b0e440-a10b-455e-8611-52a4b05d19c9",
+      "name": "Code5"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "binary": "={{ $json.binary }}",
+            "action": "check_attachement"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        40,
+        120
+      ],
+      "id": "2a8faa2c-f3a3-4880-96b8-79bbc27310ff",
+      "name": "GetAttachements2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "48efb2d8-b04d-4932-899b-d06f98a0b7d2",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1356,
+        340
+      ],
+      "id": "32d70888-c00e-4c04-ba7c-538b4fc848f9",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "ce22242b-3046-4149-abf7-09e9ddb5c278",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        700,
+        120
+      ],
+      "id": "89161222-ee1f-440b-b988-3dd73d1f1a69",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=# Email Thread Extraction Prompt\n\nYou are an email parsing specialist. Your task is to extract and format all emails from the provided email thread.\n\n## Input\nThe user will provide an email thread that may contain:\n- Multiple nested/forwarded emails\n- Various email header formats (From, To, CC, Date, Subject)\n- Quoted text and replies\n\n## Your Task\nExtract EVERY individual email from the thread with complete accuracy. Each email should include:\n- **From**: Full name and email address\n- **To**: All recipients with full names and email addresses\n- **CC**: All CC'd recipients (if present)\n- **Date**: The date/time the email was sent\n- **Subject**: Email subject line (if present)\n- **Body**: The complete email body text written by that sender\n\n## Output Format\nFormat each email exactly as shown below. Use this format for EVERY email:\n\n```\n_______________\nFrom: John Doe (john.doe@example.com)\nTo: Jane Smith (jane.smith@example.com), Bob Johnson (bob@company.com)\nCC: Mike Wilson (mike@company.com)\nDate: Monday, September 29, 2025 at 2:46 AM\nSubject: Re: Project Update\n\nBody:\n[Complete email body content here, preserving paragraphs and formatting]\n________________________\n\n```\n\n## Critical Rules\n1. **NO numbering** - Do not add \"Email #1\", \"Email #2\", etc.\n2. **Extract ALL emails** - Every single email in the thread must be extracted\n3. **Complete bodies** - Include the full text of each email body, not summaries\n4. **Preserve formatting** - Keep line breaks and paragraph structure\n5. **Skip signatures** - Omit email signatures, legal disclaimers, and footer boilerplate\n6. **Skip quoted replies** - Don't duplicate content that's quoted from previous emails\n7. **Clean format** - Remove technical artifacts like \"EXTERNAL SENDER\", \">\" quote markers, excessive whitespace\n8. **Handle missing fields** - If CC, Subject, or other fields are absent, simply omit that line\n9. **Consistent name format** - Always use: Full Name (email@address.com)\n10. **No commentary** - Output only the formatted emails, no explanations or notes\n\n## Order\nPresent emails in **chronological order** (new to old by date), so the conversation flows naturally.\n\n## Example\nIf the thread contains 3 emails, output exactly 3 formatted email blocks following the structure above, separated by the delimiter lines.\n\nNow, extract all emails from the following thread:"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        540,
+        990
+      ],
+      "id": "e89202b9-df98-485c-b859-246dc62a5601",
+      "name": "Basic LLM Chain",
+      "retryOnFail": false,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini-2025-04-14"
+        },
+        "options": {
+          "temperature": 0.3,
+          "timeout": 1000000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        628,
+        1210
+      ],
+      "id": "35acada1-ded9-4858-a1bc-bb29e970467e",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code/Function node\n// Input:  set $json.text to your string, and optionally $json.model\n// Output: { model, textLength, estimated_tokens }\n\nconst text = $input.first().json.emailText;\nconst model = ($json.model ?? 'gpt-4o-mini').toString();\n\n// Average characters per token (rough) per model family.\n// Adjust/extend as needed.\nconst AVG_CHARS_PER_TOKEN = {\n  'gpt-4o-mini': 3.3,\n  'gpt-4o': 3.1,\n  'gpt-4.1': 3.1,\n  'gpt-4.1-mini': 3.2,\n  'gpt-3.5-turbo': 4.0,\n  'text-embedding-3-large': 3.6,\n  'text-embedding-3-small': 3.6,\n  'claude-3.5-sonnet': 3.0,\n  'claude-3.5-haiku': 3.2,\n};\n\nfunction estimateTokens(str, modelName) {\n  const avg = AVG_CHARS_PER_TOKEN[modelName] ?? 3.3;\n\n  // Normalize and split into coarse parts to better mimic subword splits.\n  const parts = str\n    .normalize('NFKC')\n    .split(/(\\s+)/)                // keep whitespace groups separate\n    .filter(s => s.trim().length > 0);\n\n  let tokens = 0;\n\n  for (const part of parts) {\n    // URLs/emails turn into many small pieces\n    if (/^https?:\\/\\//i.test(part) || /@/.test(part)) {\n      tokens += Math.ceil(part.length / 3);\n      continue;\n    }\n\n    // Non-ASCII (CJK, emoji, etc.): assume ~2 tokens per grapheme\n    if (/[^\\x00-\\x7F]/.test(part)) {\n      const graphemes = Array.from(part); // split by Unicode code points\n      tokens += graphemes.length * 2;\n      continue;\n    }\n\n    // Split further into letter runs, digit runs, and punctuation\n    const chunks = part.match(/[A-Za-z]+|[0-9]+|[^\\w\\s]/g) || [];\n    for (const c of chunks) {\n      if (/^[A-Za-z]+$/.test(c)) {\n        // Approximate BPE: ~1 token per ~avg chars\n        tokens += Math.ceil(c.length / avg);\n      } else if (/^[0-9]+$/.test(c)) {\n        // Numbers often split more; ~1 per 3 digits is a decent heuristic\n        tokens += Math.ceil(c.length / 3);\n      } else {\n        // Punctuation and symbols: ~1 each\n        tokens += 1;\n      }\n    }\n  }\n\n  return tokens;\n}\n\nreturn [\n  {\n    json: {\n      text, text,\n      model,\n      textLength: text.length,\n      estimated_tokens: estimateTokens(text, model),\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        100,
+        990
+      ],
+      "id": "bf9adf58-036b-4ae1-b3ab-642eaf7ac8ad",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "jsCode": "const n_tokens = $input.first().json.estimated_tokens || 0;\nconst text = $input.first().json.text || \"\";\n\n// --- If under threshold, return original ---\nif (n_tokens <= 75000) {\n  return [\n    {\n      json: {\n        text: text\n      }\n    }\n  ];\n}\n\n// --- Otherwise: apply split / clean / chunking ---\nconst parts = text.split(\"From:\");\nconst emails = [];\n\nfor (let i = 0; i < parts.length; i++) {\n  let part = parts[i].trim();\n  if (!part) continue;\n\n  const email = (i === 0 ? part : \"From: \" + part);\n  emails.push(email);\n}\n\n// --- Cleaner ---\nconst cleanText = (str) => {\n  return str\n    .replace(/https?:\\/\\/[^\\s<>()\"']+/gi, '')                  // Remove normal URLs\n    .replace(/www\\.[^\\s<>()\"']+/gi, '')                        // Remove www links\n    .replace(/https?:\\s*\\/\\s*\\/[^\\s]+/gi, '')                  // Remove broken/spaced links\n    .replace(/magiclink=.*?(\\s|$)/gi, '')                      // Remove mimecast magiclinks\n    .replace(/mimecast\\.com\\S+/gi, '')                         // Remove MIMECAST encoded URLs\n    .replace(/[<>]/g, '')                                      // Remove angle brackets\n    .replace(/CGBANNERINDICATOR/gi, '')                        // Remove banners\n    .replace(/\\n\\s*>\\s*/g, ' ')                                // Remove \"\\n > \" line continuations\n    .replace(/\\s{2,}/g, ' ')                                   // Collapse multiple spaces\n    .trim();\n};\n\nconst cleanedEmails = emails.map(cleanText);\n\n// --- Chunk into 5 groups ---\nconst chunkCount = 5;\nconst chunkSize = Math.ceil(cleanedEmails.length / chunkCount);\n\nconst chunks = [];\n\nfor (let i = 0; i < chunkCount; i++) {\n  const chunkEmails = cleanedEmails.slice(i * chunkSize, (i + 1) * chunkSize);\n  if (chunkEmails.length) {\n    chunks.push({\n      json: {\n        text: chunkEmails.join('\\n\\n')\n      }\n    });\n  }\n}\n\nreturn chunks;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        990
+      ],
+      "id": "3e7c2314-9722-4087-bc4b-f5d851932bcd",
+      "name": "Chunking"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize variables\nlet combinedEmails = '';\nlet emailContacts = new Map(); // Use Map to store unique name-email pairs\n\n// Get the old Managers list from SessionData\nconst triggerData = $(\"Trigger\").first().json;\nconst Managers_old = $(\"SessionData\").first().json.Managers || [];\n\n// Helper function to clean and validate email addresses\nfunction isValidEmail(email) {\n  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$/;\n  \n  // List of emails to exclude\n  const excludedEmails = [\n    'asst@patchbay.xyz'\n  ];\n  \n  return emailRegex.test(email) && \n         email.length < 100 && \n         !excludedEmails.includes(email.toLowerCase());\n}\n\n// Helper function to check if email exists in Managers list\nfunction isInManagersList(email) {\n  const normalizedEmail = email.toLowerCase().trim();\n  return Managers_old.some(manager => \n    manager.address && manager.address.toLowerCase().trim() === normalizedEmail\n  );\n}\n\n// Helper function to clean names\nfunction cleanName(name) {\n  return name.replace(/[\\|\\-\\(\\)]/g, ' ')\n             .replace(/\\s+/g, ' ')\n             .trim()\n             .replace(/^(From|To|Cc):\\s*/i, '');\n}\n\n// PRIORITY 1: Extract from structured data (Trigger Node)\nfunction extractFromStructuredData(emailData) {\n  const fields = ['from', 'to', 'cc', 'bcc'];\n  \n  fields.forEach(field => {\n    if (emailData[field]) {\n      let contacts = [];\n      \n      // Handle different data structures from trigger node\n      if (emailData[field].value && Array.isArray(emailData[field].value)) {\n        contacts = emailData[field].value;\n      } else if (Array.isArray(emailData[field])) {\n        contacts = emailData[field];\n      } else if (typeof emailData[field] === 'object' && emailData[field].address) {\n        contacts = [emailData[field]];\n      } else if (typeof emailData[field] === 'string') {\n        // Parse string format \"Name <email@domain.com>\" or \"email@domain.com\"\n        const emailRegex = /([^<]*?)\\s*<([^>]+)>|([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,})/g;\n        let match;\n        while ((match = emailRegex.exec(emailData[field])) !== null) {\n          if (match[2] && match[1]) {\n            contacts.push({ name: match[1].trim().replace(/\"/g, ''), address: match[2] });\n          } else if (match[3]) {\n            contacts.push({ address: match[3] });\n          }\n        }\n      }\n      \n      // Process each contact\n      contacts.forEach(contact => {\n        if (contact && contact.address) {\n          const email = contact.address.toLowerCase().trim();\n          let name = contact.name ? cleanName(contact.name) : '';\n          \n          // Only add if valid email AND not in Managers list\n          if (isValidEmail(email) && !isInManagersList(email)) {\n            if (!name || name.length <= 1) {\n              // Generate name from email if no name provided\n              const emailPrefix = email.split('@')[0];\n              name = emailPrefix.replace(/[._]/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase());\n            }\n            emailContacts.set(email, name);\n          }\n        }\n      });\n    }\n  });\n}\n\n// Extract from trigger node structured data\nif (triggerData) {\n  extractFromStructuredData(triggerData);\n}\n\n// PRIORITY 2: Process text data from second node (fallback)\nfunction extractFromText(text) {\n  // Only extract emails not already found in structured data\n  const headerRegex = /^(From|To|Cc):\\s*([^(]+?)\\s*\\(([^)]+)\\)/gm;\n  let match;\n  while ((match = headerRegex.exec(text)) !== null) {\n    const name = cleanName(match[2]);\n    const email = match[3].toLowerCase().trim();\n    // Check if valid, not already added, and not in Managers list\n    if (isValidEmail(email) && name && name.length > 1 && !emailContacts.has(email) && !isInManagersList(email)) {\n      emailContacts.set(email, name);\n    }\n  }\n  \n  // Handle multiple contacts in same line\n  const multiContactRegex = /^(From|To|Cc):\\s*(.+)$/gm;\n  while ((match = multiContactRegex.exec(text)) !== null) {\n    const contactsLine = match[2];\n    const contactRegex = /([^,(]+?)\\s*\\(([^)]+)\\)/g;\n    let contactMatch;\n    while ((contactMatch = contactRegex.exec(contactsLine)) !== null) {\n      const name = cleanName(contactMatch[1]);\n      const email = contactMatch[2].toLowerCase().trim();\n      // Check if valid, not already added, and not in Managers list\n      if (isValidEmail(email) && name && name.length > 1 && !emailContacts.has(email) && !isInManagersList(email)) {\n        emailContacts.set(email, name);\n      }\n    }\n  }\n  \n  // Handle email-only format\n  const emailOnlyRegex = /^(From|To|Cc):\\s*([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}(?:\\s*,\\s*[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,})*)\\s*$/gm;\n  while ((match = emailOnlyRegex.exec(text)) !== null) {\n    const emailsLine = match[2];\n    const emails = emailsLine.split(/\\s*,\\s*/);\n    emails.forEach(email => {\n      email = email.toLowerCase().trim();\n      // Check if valid, not already added, and not in Managers list\n      if (isValidEmail(email) && !emailContacts.has(email) && !isInManagersList(email)) {\n        const emailPrefix = email.split('@')[0];\n        const generatedName = emailPrefix.replace(/[._]/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase());\n        emailContacts.set(email, generatedName);\n      }\n    });\n  }\n}\n\n// Process all items from input node for text combining and fallback extraction\nfor (const item of $input.all()) {\n  if (item.json) {\n    // Combine email text content\n    if (item.json.text) {\n      combinedEmails += item.json.text + '\\n\\n';\n      \n      // Extract from text only if not already found in structured data\n      extractFromText(item.json.text);\n    } else if (item.json.html) {\n      combinedEmails += item.json.html + '\\n\\n';\n    }\n  }\n}\n\n// Convert Map to Array of objects (only non-manager emails)\nconst emailAddressList = Array.from(emailContacts)\n  .filter(([email, name]) => isValidEmail(email) && name && name.length > 0)\n  .map(([email, name]) => ({\n    name: name,\n    address: email\n  }))\n  .sort((a, b) => a.name.localeCompare(b.name));\n\n// Return the processed data\nreturn [\n  {\n    json: {\n      ThreadId: triggerData?.threadId || \"\", \n      Subject: triggerData?.subject || \"\",\n      Emails: combinedEmails.trim(),\n      Others: emailAddressList,\n      Managers: Managers_old  // Keep original Managers list unchanged\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1136,
+        990
+      ],
+      "id": "77be7c05-ce23-42aa-b8f0-41f2994845be",
+      "name": "ExtractEmails"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ $json.Others }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1356,
+        990
+      ],
+      "id": "c38a8488-3659-4f87-acbe-8da9c1afb707",
+      "name": "IdentifyUsers1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $('ExtractEmails').first().json;\nconst managers_new = $input.first().json.Managers || [];\nconst remove = new Set();\n\n// Start with existing managers from data (preserve them)\nconst existingManagers = data.Managers || [];\nconst existingManagerEmails = new Set(\n  existingManagers.map(m => m.address.toLowerCase())\n);\n\n// Merge managers: keep existing ones and add new ones that don't exist\nconst mergedManagers = [...existingManagers];\n\nfor (const newManager of managers_new) {\n  if (newManager.address && !existingManagerEmails.has(newManager.address.toLowerCase())) {\n    // Add new manager only if not already in existing managers\n    mergedManagers.push(newManager);\n  }\n}\n\n// Collect all manager addresses for filtering Others\nfor (const manager of mergedManagers) {\n  if (manager.address) {\n    remove.add(manager.address.toLowerCase());\n  }\n  // Optionally collect client addresses if needed\n  // for (const client of manager.Clients || []) {\n  //   if (client.address) {\n  //     remove.add(client.address.toLowerCase());\n  //   }\n  // }\n}\n\n// Update data with merged managers\ndata.Managers = mergedManagers;\n\n// Filter Others to exclude all manager addresses\ndata.Others = data.Others.filter(person => {\n  return !remove.has(person.address.toLowerCase());\n});\n\nreturn [{ json: data }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1796,
+        990
+      ],
+      "id": "7fad7ad6-88ed-452c-910b-7db9b3ed41d6",
+      "name": "Update1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        3116,
+        990
+      ],
+      "id": "68d66744-9cf2-410c-b41b-dafb0c134206",
+      "name": "UpdateSesssion",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"Managers\": {{ \n    ($input.all().length === 1 && Object.keys($input.first().json).length === 0) \n      ? [] \n      : $input.all().map(item => item.json) \n  }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1576,
+        990
+      ],
+      "id": "e7eb4343-992d-43d0-96d1-52a0b84092ea",
+      "name": "Edit Fields4",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check_attachement",
+            "data": "=",
+            "binary": "={{ $json.binary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2240,
+        1000
+      ],
+      "id": "fe5b977d-693c-4997-a86c-1f742cc7e291",
+      "name": "GetAttachements3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.item.json;\nconst node2 = $(\"Update1\").first().json;\nconst old_session = $(\"SessionData\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n  \n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n    \n  };\n  \n  return { json: node2 };\n} else {\n  // If status is false, check if old_session has last_attachment\n  if (old_session && old_session.last_attachment) {\n    // Update node2 with the old_session's last_attachment\n    node2.last_attachment = old_session.last_attachment;\n  }\n  \n  return { json: node2 };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2456,
+        990
+      ],
+      "id": "9731ef56-801f-4e3f-af1a-b286cd19f661",
+      "name": "Code8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "07e86cb0-a457-4110-bcc1-d7d3ad78f309",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2896,
+        990
+      ],
+      "id": "1fa50486-116c-4bfb-860e-7aa3a90a5610",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "571a73ae-cc13-47f8-9a2f-b91f9422c873",
+              "name": "Label",
+              "value": "CRUD-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "1d94716a-927b-439a-8a5c-d55afd77c9d1",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2236,
+        540
+      ],
+      "id": "60f3e681-1ae2-42c0-acee-6b77f2601518",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs from n8n nodes\nconst node1 = $input.first().json;\nconst node2 = $(\"Update\").first().json;\nconst old_session = $(\"SessionData\").first().json;\n\n// Prepare the last_attachment object only if status is true\nif (node1.status === true) {\n  // Map through deal_document array, collect markdown and join into a string\n  const documentString = Array.isArray(node1.deal_document)\n    ? node1.deal_document.map(item => item.markdown || '').join('\\n')\n    : '';\n  const org_file = node1.file;\n  // Current datetime in ISO format\n  const attachedAt = new Date().toISOString();\n  \n  // Update node2 with last_attachment object\n  node2.last_attachment = {\n    document: documentString,\n    attached_at: attachedAt,\n    file: org_file\n  };\n  \n  return { json: node2 };\n} else {\n  // If status is false, check if old_session has last_attachment\n  if (old_session && old_session.last_attachment) {\n    // Update node2 with the old_session's last_attachment\n    node2.last_attachment = old_session.last_attachment;\n  }\n  \n  return { json: node2 };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1796,
+        540
+      ],
+      "id": "e54ce919-dbdb-4960-9652-6c2543fc7b8a",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check_attachement",
+            "data": "=",
+            "binary": "={{ $json.binary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1576,
+        540
+      ],
+      "id": "94abe93e-0b76-4736-8697-79c8462e2953",
+      "name": "GetAttachements"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"Managers\": {{ $('If3').all().map(item => item.json) }}\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        916,
+        540
+      ],
+      "id": "fea262cd-46d9-448b-93dc-8aac3f859620",
+      "name": "Edit Fields",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "21282e1b-bd37-41ba-81bb-cb3bab057dde",
+              "name": "output",
+              "value": "no_users",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        916,
+        740
+      ],
+      "id": "77053680-1a29-4c67-a6bb-1b9059d07e3f",
+      "name": "NoManagers"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0b083fdb-0cc6-4f9a-9921-6d2e3b9bbebc",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        618,
+        640
+      ],
+      "id": "b4d5a87e-8a8f-41e4-a859-f674e4ae6c1d",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node - JavaScript\n// Formats single emails with proper structure and adds Subject field\n\n// Helper function to format contact array\nfunction formatContacts(contacts) {\n  if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {\n    return '';\n  }\n  \n  return contacts.map(contact => {\n    if (contact.name && contact.address) {\n      return `${contact.name} (${contact.address})`;\n    } else if (contact.address) {\n      return contact.address;\n    }\n    return '';\n  }).filter(c => c).join(', ');\n}\n\n// Helper function to format date\nfunction formatDate(dateString) {\n  if (!dateString) return '';\n  \n  try {\n    const date = new Date(dateString);\n    return date.toLocaleString('en-US', {\n      weekday: 'short',\n      month: 'short',\n      day: 'numeric',\n      year: 'numeric',\n      hour: 'numeric',\n      minute: '2-digit',\n      hour12: true\n    });\n  } catch (error) {\n    return dateString; // Return original if parsing fails\n  }\n}\n\nconst input = $input.all().map(item => item.json);\n\nconst grouped = {};\n\nfor (const email of input) {\n  const threadId = email.ThreadId;\n\n  if (!grouped[threadId]) {\n    grouped[threadId] = {\n      ThreadId: threadId,\n      Emails: []\n    };\n  }\n\n  // Clone email and remove isForwarded and ThreadId from child\n  const {\n    isForwarded, // omit this\n    ThreadId,    // omit this from child\n    ...cleanedEmail\n  } = email;\n\n  grouped[threadId].Emails.push(cleanedEmail);\n}\n\n// Process each grouped thread\nconst results = Object.values(grouped).map(group => {\n  // Add Subject field from first email\n  if (group.Emails && group.Emails.length > 0 && group.Emails[0].Subject) {\n    group.Subject = group.Emails[0].Subject;\n  }\n\n  // Generate Others list from all emails in the thread\n  const seen = new Set();\n  const uniqueEmails = [];\n  \n  for (const email of group.Emails || []) {\n    ['From', 'to', 'cc'].forEach(field => {\n      const list = email[field] || [];\n      list.forEach(entry => {\n        if (entry.address) {\n          const address = entry.address.toLowerCase();\n          if (!seen.has(address)) {\n            seen.add(address);\n            uniqueEmails.push({\n              name: entry.name || \"\",\n              address: address\n            });\n          }\n        }\n      });\n    });\n  }\n  \n  group.Others = uniqueEmails;\n\n  // Format the Emails array as structured text\n  if (group.Emails && Array.isArray(group.Emails)) {\n    let emailsString = '';\n    \n    group.Emails.forEach((email, index) => {\n      if (index > 0) {\n        emailsString += '\\n\\n';\n      }\n      \n      emailsString += '---------------\\n';\n      \n      // From field\n      const fromFormatted = formatContacts(email.From);\n      emailsString += `From: ${fromFormatted}\\n`;\n      \n      // To field\n      const toFormatted = formatContacts(email.to);\n      emailsString += `To: ${toFormatted}\\n`;\n      \n      // Cc field (only add if not empty)\n      const ccFormatted = formatContacts(email.cc);\n      if (ccFormatted) {\n        emailsString += `Cc: ${ccFormatted}\\n`;\n      }\n      \n      // Date field\n      const dateFormatted = formatDate(email.date);\n      emailsString += `Date: ${dateFormatted}\\n`;\n      \n      // Body field\n      emailsString += `Body: ${email.emailText || ''}\\n`;\n      \n      emailsString += '---------------';\n    });\n    \n    group.Emails = emailsString;\n  }\n\n  return group;\n});\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        100,
+        640
+      ],
+      "id": "0b09cd94-13eb-43f9-baf9-71af8dc77793",
+      "name": "Reformat1"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2456,
+        540
+      ],
+      "id": "6e520c19-a1f7-4fb4-9410-25655a4fd780",
+      "name": "UpdateSesssion2",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $('Reformat1').first().json\nconst managers = $input.first().json.Managers;\n\nconst remove = new Set();\n\n// Collect manager addresses\nfor (const manager of managers) {\n  if (manager.address) {\n    remove.add(manager.address.toLowerCase());\n  }\n\n  // // Collect each client's address\n  // for (const client of manager.Clients || []) {\n  //   if (client.address) {\n  //     remove.add(client.address.toLowerCase());\n  //   }\n  // }\n}\n\ndata.Managers = managers\n\ndata.Others = data.Others.filter(person => {\n  return !remove.has(person.address.toLowerCase());\n});\n\nreturn  [{ json: data }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1136,
+        540
+      ],
+      "id": "3a5d7aa0-9474-49e1-be4c-f04f147fadf3",
+      "name": "Update",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ $json.Others }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        320,
+        640
+      ],
+      "id": "fda53d2d-4661-438b-977f-824ee1c4fc9d",
+      "name": "IdentifyUsers"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json\nconst attachements = $(\"Trigger\").first().binary;\n\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1356,
+        540
+      ],
+      "id": "c2346f39-2177-44e5-9278-4211f1eada3c",
+      "name": "Binary"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json\nconst attachements = $(\"Trigger\").first().binary;\n\n// Return the result\nreturn [\n  {\n    json: {\n      binary: attachements\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2016,
+        990
+      ],
+      "id": "1f6f2f6f-7508-4f89-84b6-874a262d393e",
+      "name": "Binary1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $('Trigger').all();\n\nfor (const item of items) {\n  const headers = item.json.payload?.headers || [];\n  const html = item.json.payload?.body?.data || item.json.html || \"\";\n\n  // Ensure headers is an array\n  if (!Array.isArray(headers)) {\n    item.json.isForwarded = false;\n    continue;\n  }\n\n  // Create header map\n  const headerMap = {};\n  for (const h of headers) {\n    if (h.name && h.value) {\n      headerMap[h.name.toLowerCase()] = h.value;\n    }\n  }\n\n  // Known forwarding headers\n  const forwardedHeaders = [\n    \"x-forwarded-for\",\n    \"x-forwarded\",\n    \"x-forwarded-encrypted\",\n    \"x-mail-forwarded-for\"\n  ];\n\n  // Base check: known headers\n  let isForwarded = forwardedHeaders.some(h => h in headerMap);\n\n  // Check for common forwarded message marker in content\n  if (typeof html === 'string' && html.includes(\"---- Forwarded message ----\")) {\n    isForwarded = true;\n  }\n\n  // Check if HTML contains more than 4 email addresses\n  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}/gi;\n  const emailMatches = html.match(emailRegex);\n  if (emailMatches && emailMatches.length > 4) {\n    isForwarded = true;\n  }\n\n  item.json.isForwarded = isForwarded;\n}\nreturn items;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -780,
+        690
+      ],
+      "id": "cb2863b9-e75e-4c6d-a3ca-8e3b9fd01e52",
+      "name": "CheckForwarded2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2016,
+        540
+      ],
+      "id": "4571b160-b58d-454c-8d28-dc1cee368952",
+      "name": "AddReference"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        120
+      ],
+      "id": "fa53e47a-6681-4b23-9637-c221fcc91ce1",
+      "name": "AddReference1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1136,
+        340
+      ],
+      "id": "fab151d0-c8a1-4bd2-82e8-f565a097df90",
+      "name": "AddReference2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const to_update = $input.first().json\nconst input_to_insert = $(\"Trigger\").first().json;\n\n// Get new references from input_to_insert\nlet newReferences = input_to_insert.references || [];\n\n// Normalize newReferences to array\n// Handle string (single reference) or array (multiple references)\nif (typeof newReferences === 'string') {\n  // Single reference as string - convert to array\n  newReferences = newReferences.trim() === '' ? [] : [newReferences];\n} else if (Array.isArray(newReferences)) {\n  // Already an array - filter out empty strings and trim whitespace\n  newReferences = newReferences\n    .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n    .map(ref => ref.trim());\n} else {\n  // Not string or array - default to empty array\n  newReferences = [];\n}\n\n// Check if references key exists in to_update\nif (!to_update.hasOwnProperty('references')) {\n  // References key doesn't exist - add it with new references\n  to_update.references = newReferences;\n} else {\n  // References key exists - merge and deduplicate\n  let existingReferences = to_update.references || [];\n  \n  // Normalize existing references to array\n  if (typeof existingReferences === 'string') {\n    existingReferences = existingReferences.trim() === '' ? [] : [existingReferences];\n  } else if (!Array.isArray(existingReferences)) {\n    existingReferences = [];\n  } else {\n    // Clean up existing array\n    existingReferences = existingReferences\n      .filter(ref => ref && typeof ref === 'string' && ref.trim() !== '')\n      .map(ref => ref.trim());\n  }\n  \n  // Combine existing and new references\n  const combinedReferences = [...existingReferences, ...newReferences];\n  \n  // Remove duplicates using Set\n  to_update.references = [...new Set(combinedReferences)];\n}\n\nreturn to_update;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2676,
+        990
+      ],
+      "id": "853e1f50-5fcd-4185-aac0-91c47310c1e6",
+      "name": "AddReference3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const results = [];\nfor (const item of $input.all()) {\n  const data = item.json;\n  \n  // Get all CCs except 'asst@patchbay.xyz'\n  const allCC = data.cc?.value || [];\n  const filteredCC = allCC.filter(cc => cc.address !== \"asst@patchbay.xyz\");\n  \n  // Format From\n  const fromFormatted = data.from?.value?.[0] \n    ? `${data.from.value[0].name} (${data.from.value[0].address})`\n    : '';\n  \n  // Format To\n  const toFormatted = (data.to?.value || [])\n    .map(t => `${t.name} (${t.address})`)\n    .join(', ');\n  \n  // Format CC\n  const ccFormatted = filteredCC\n    .map(c => `${c.name} (${c.address})`)\n    .join(', ');\n  \n  // Format Date\n  const dateFormatted = data.date \n    ? new Date(data.date).toLocaleString('en-US', {\n        weekday: 'long',\n        year: 'numeric',\n        month: 'long',\n        day: 'numeric',\n        hour: 'numeric',\n        minute: '2-digit',\n        hour12: true\n      })\n    : '';\n  \n  // Build formatted email text\n  let formattedEmail = `From: ${fromFormatted}\\n`;\n  formattedEmail += `To: ${toFormatted}\\n`;\n  if (ccFormatted) {\n    formattedEmail += `CC: ${ccFormatted}\\n`;\n  }\n  formattedEmail += `Date: ${dateFormatted}\\n`;\n  formattedEmail += `Subject: ${data.subject}\\n`;\n  formattedEmail += `Body:\\n${data.text || ''}`;\n  \n  const output = {\n    ThreadId: data.threadId,\n    EmailId: data.id,\n    MessageId: data.messageId,\n    References: data.references,\n    Subject: data.subject,\n    From: data.from?.value || [],\n    to: data.to?.value || [],\n    cc: filteredCC,\n    date: data.date,\n    emailText: formattedEmail,\n    isForwarded: data.isForwarded || false\n  };\n  \n  results.push({ json: output });\n}\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -340,
+        790
+      ],
+      "id": "2a5b84c7-d1df-49a7-85eb-6da788a6bbee",
+      "name": "ExtractData"
+    },
+    {
+      "parameters": {
+        "jsCode": "function parseEmailThread(threadText) {\n  if (!threadText || threadText.trim() === '') {\n    return [];\n  }\n  \n  const emails = [];\n  \n  // Split by email separators (looking for patterns like \"_______________\" or \"---------------\")\n  const emailBlocks = threadText.split(/_{10,}|_{3,}\\n/);\n  \n  for (const block of emailBlocks) {\n    if (!block.trim()) continue;\n    \n    const email = {};\n    const lines = block.trim().split('\\n');\n    \n    // Parse email fields\n    let bodyStartIndex = -1;\n    \n    for (let i = 0; i < lines.length; i++) {\n      const line = lines[i].trim();\n      \n      if (line.startsWith('From:')) {\n        email.from = line.replace('From:', '').trim();\n      } else if (line.startsWith('To:')) {\n        email.to = line.replace('To:', '').trim();\n      } else if (line.startsWith('CC:') || line.startsWith('Cc:')) {\n        email.cc = line.replace(/CC:|Cc:/i, '').trim();\n      } else if (line.startsWith('Date:')) {\n        const dateStr = line.replace('Date:', '').trim();\n        email.dateString = dateStr;\n        email.date = parseEmailDate(dateStr);\n      } else if (line.startsWith('Subject:')) {\n        email.subject = line.replace('Subject:', '').trim();\n      } else if (line.startsWith('Body:')) {\n        bodyStartIndex = i + 1;\n        break;\n      }\n    }\n    \n    // Extract body content\n    if (bodyStartIndex > -1) {\n      const bodyLines = lines.slice(bodyStartIndex);\n      email.body = bodyLines.join('\\n').trim();\n    }\n    \n    // Only add email if it has required fields\n    if (email.from && email.date) {\n      emails.push(email);\n    }\n  }\n  \n  return emails;\n}\n\nfunction parseEmailDate(dateStr) {\n  // Handle various date formats\n  \n  // Format: \"Wednesday, October 1, 2025 at 12:56 PM PDT\"\n  const atMatch = dateStr.match(/(\\w+,\\s+)?(\\w+\\s+\\d+,\\s+\\d{4})\\s+at\\s+(\\d+:\\d+\\s+[AP]M)/i);\n  if (atMatch) {\n    return new Date(`${atMatch[2]} ${atMatch[3]}`);\n  }\n  \n  // Format: \"Sep 24, 2025\" or \"Sep 16, 2025\"\n  const shortDateMatch = dateStr.match(/\\w+\\s+\\d+,\\s+\\d{4}/);\n  if (shortDateMatch) {\n    return new Date(shortDateMatch[0]);\n  }\n  \n  // Format: \"Monday, September 15, 2025 at 8:03 PM\"\n  const longDateMatch = dateStr.match(/\\w+,\\s+\\w+\\s+\\d+,\\s+\\d{4}/);\n  if (longDateMatch) {\n    return new Date(longDateMatch[0]);\n  }\n  \n  // Try parsing as-is\n  const parsed = new Date(dateStr);\n  return isNaN(parsed.getTime()) ? new Date(0) : parsed;\n}\n\n// Main execution\nconst threadNew = $input.first().json.text;\nconst threadOld = $('SessionData')?.first()?.json?.Emails || '';\n\n// Parse both threads\nconst emailsNew = parseEmailThread(threadNew);\nconst emailsOld = parseEmailThread(threadOld);\n\n// Combine emails\nconst allEmails = [...emailsNew, ...emailsOld];\n\n// Remove duplicates based on from, date, and subject\nconst uniqueEmails = [];\nconst seen = new Set();\n\nfor (const email of allEmails) {\n  const key = `${email.from}|${email.date.getTime()}|${email.subject || ''}`;\n  if (!seen.has(key)) {\n    seen.add(key);\n    uniqueEmails.push(email);\n  }\n}\n\n// Sort by date (newest first)\nuniqueEmails.sort((a, b) => b.date.getTime() - a.date.getTime());\n\n// Take latest 30 emails\nconst latest30 = uniqueEmails.slice(0, 30);\n\n// Format output in the same format as input\nconst formattedEmails = latest30.map(email => {\n  let emailText = '_______________\\n';\n  \n  if (email.from) {\n    emailText += `From: ${email.from}\\n`;\n  }\n  if (email.to) {\n    emailText += `To: ${email.to}\\n`;\n  }\n  if (email.cc) {\n    emailText += `CC: ${email.cc}\\n`;\n  }\n  if (email.dateString) {\n    emailText += `Date: ${email.dateString}\\n`;\n  }\n  if (email.subject) {\n    emailText += `Subject: ${email.subject}\\n`;\n  }\n  \n  emailText += '\\nBody:\\n';\n  if (email.body) {\n    emailText += email.body + '\\n';\n  }\n  \n  emailText += '________________________';\n  \n  return emailText;\n});\n\n// Combine all emails into a single thread string\nconst combinedThread = formattedEmails.join('\\n\\n');\n\nreturn [{ json: { text: combinedThread } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        916,
+        990
+      ],
+      "id": "e7174bbb-a7ba-4c40-a756-de64747ad3cd",
+      "name": "Combine"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "id": "19a4b3552ec817df",
+          "threadId": "19a4b3552ec817df",
+          "labelIds": [
+            "UNREAD",
+            "IMPORTANT",
+            "Label_6620791052158273947",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 29124,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from smtpclient.apple (unknown [17.57.152.38])\r\n\tby p00-icloudmta-asmtp-us-west-2a-60-percent-9 (Postfix) with ESMTPSA id B46AF1800184\r\n\tfor <asst@patchbay.xyz>; Mon,  3 Nov 2025 19:32:54 +0000 (UTC)",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IG7xAR6itmN/2O1jpWFhNrnJJA6o8lPSI8lJKBy59FHlC01pqpDkW6w1Q24UUh1Q2X+Paj9",
+            "x-received": "X-Received: by 2002:a05:622a:1826:b0:4ec:fc63:257e with SMTP id d75a77b69052e-4ed30f8b689mr163836721cf.53.1762198377134;\r\n        Mon, 03 Nov 2025 11:32:57 -0800 (PST)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1762198377; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=QW6KofZwJ7s7QJ51/PwD8vQ9pSWqG/USBUAENRW2u+bOHOrfde5VExfD4ehj+tJk6M\r\n         DebRLgCv2iDzPpNpOXcArlYvDYUqPhES1XnTdvL8f/vHskqiJlM2O/8mTShlxi2RslSW\r\n         H+Kml++Ro/yVRr2eaPTj0+oaXNI6QExSf2RSOVTgZ3PS4hLi6/jL3bJtjWYW2r8PTByi\r\n         Vq6oIvXOI98TVB/iAHCEfPVu9hjXsWYYrdKzZY/+7yWuimmtbHSZzDz2ihzRixRN+4vY\r\n         BLmvB7rrYUJcFFxE1D9DB0E3FyvAZwp0MZLjXOCMpP14oAWMAxmwlP6nRKSTVfiHiVh6\r\n         ekIg==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=date:to:references:message-id:subject:mime-version:from\r\n         :dkim-signature;\r\n        bh=ya4vQBKikJGjmZ64CoUBoCWVldxrUwW8XnsKg2Y0r1g=;\r\n        fh=fyDnHDG9e7aIl2hAf/TfXX5p4zzWq4+iawtd+KwFY84=;\r\n        b=k7KJgTEUMJIZ9q+u0p+aQCQIeHPzgS0sxFaSqDAF5zdIaj8qCkOlRP3Ci8b72n6rZ/\r\n         Qs3V+iGSKuRg1njDNiF0Gt8Ne9Zlz0HHjaUK8RVMWhdoLZZcDYkz/3GAnKckWoeOTUYq\r\n         MCRi7Vih5HlNp27pPczNLAHO9PGZhVQmuqnG5vwKnKfcKmD/PDPk2sk3BEfpSCpqjnMf\r\n         7ZJDip1RLmP/uvvbztMK9rtQVwagwp2MWpthq5Sr2+RIkCZ1nx8j/gNKev23kDWSnmiW\r\n         whszCntEEmSNMfDhr7EPIyFV9W4Zi4HVekmNQ1E+DTk6R+qaY/UOSCYn9bQq0deE7GEV\r\n         NAEQ==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@me.com header.s=1a1hai header.b=vdhAak+I;\r\n       spf=pass (google.com: domain of evanlipschutz@me.com designates 57.103.69.23 as permitted sender) smtp.mailfrom=evanlipschutz@me.com;\r\n       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=me.com",
+            "return-path": "Return-Path: <evanlipschutz@me.com>",
+            "received-spf": "Received-SPF: pass (google.com: domain of evanlipschutz@me.com designates 57.103.69.23 as permitted sender) client-ip=57.103.69.23;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@me.com header.s=1a1hai header.b=vdhAak+I;\r\n       spf=pass (google.com: domain of evanlipschutz@me.com designates 57.103.69.23 as permitted sender) smtp.mailfrom=evanlipschutz@me.com;\r\n       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=me.com",
+            "dkim-signature": "Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=me.com; s=1a1hai; bh=ya4vQBKikJGjmZ64CoUBoCWVldxrUwW8XnsKg2Y0r1g=; h=From:Content-Type:Mime-Version:Subject:Message-Id:To:Date:x-icloud-hme; b=vdhAak+I87xgfkM6IzXb1OZ13vsuh0bArB73afJf12t+dzGo4t1lvkDXEcratcx+umn1vOSAMfzyX+3QMvyLcY4qpByFklkGyIUT1ZqFAIiXe+fGRi1mRsTkow1sNk1qvmG348lrWaPsONzlCNYz3bUaiIfK+ghnX8zlznUTJUF3dmBR2TQ7NCFMwio2VXwOqFihqcwzrfYkA6gCwogY5OMzvC6W/zbF/dDt1nWCv5FIzqI/aiwZyLyFdANUnhfwjZk3wLNNOjZYqM5sJi52y/g764LW+9vDIdzDYvti74B7lpVpWBHNrzAjAFrffVeojC9A/iTN9E27s+WFO0trWA==",
+            "from": "From: Evan Lipschutz <evanlipschutz@me.com>",
+            "content-type": "Content-Type: multipart/alternative;\r\n\tboundary=\"Apple-Mail=_D284DBF4-4605-42D5-8C92-580036071653\"",
+            "mime-version": "Mime-Version: 1.0 (Mac OS X Mail 16.0 \\(3864.200.81.1.5\\))",
+            "subject": "Subject: Fwd: Atmos Request: mercury | mercury (Live from Blackbird Studio)",
+            "message-id": "Message-Id: <585BFCD2-FC48-495F-A4EA-80989ED027D1@me.com>",
+            "references": "References: <937878BE-8E00-4BA2-AA9B-3B64FAE95C65@dbldwn11.com>",
+            "to": "To: Asst@patchbay.xyz",
+            "date": "Date: Mon, 3 Nov 2025 11:32:43 -0800",
+            "x-mailer": "X-Mailer: Apple Mail (2.3864.200.81.1.5)",
+            "x-proofpoint-guid": "X-Proofpoint-GUID: 4hd_lmz10e3jzDNhAybg2Afbk7SgBNic",
+            "x-proofpoint-spam-details-enc": "X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAzMDE3NSBTYWx0ZWRfX5Q39GwfINfcK\r\n vHDefq5PulrBIoDAYhnfQ9xwW5BKji0dna3LMmPIOWK3D+HDzrvLHHa7dSvlIiCHm7GApJ4QdYW\r\n MjkpYF+MLctFjLVs/byYnlOXgiOIUKaiW8ifJdNPj+7WY2OUIHacZIrsyFFFpo/H2K9IUsRGNIz\r\n kPki596nGsaK2HEdEeiHZyeDTJHby/99E0fkea9smJlhbxS/qRFMa3NCo0GLNw1GWurmeCKWy8A\r\n NuzHKiGnqs9Wycmj75cwKFWz3pKScRQ2ldxhmT6HqQYmXXHRlOCma6Uyvemvngtxqk1BM2Dno=",
+            "x-proofpoint-orig-guid": "X-Proofpoint-ORIG-GUID: 4hd_lmz10e3jzDNhAybg2Afbk7SgBNic",
+            "x-proofpoint-virus-version": "X-Proofpoint-Virus-Version: ",
+            "x-proofpoint-spam-details": "X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0\r\n adultscore=0 phishscore=0 clxscore=1015 suspectscore=0 malwarescore=0\r\n mlxlogscore=999 bulkscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx\r\n scancount=1 engine=8.22.0-2506270000 definitions=main-2511030175",
+            "x-jnj": "X-JNJ: AAAAAAAB6CHAW6Fui5ATZEZqXLXJ53fMtbMnOPgUO4q7MDxnGIvBVq+aSC0V1VLk35MDxzAmFno0yppVcGopA3nktviTOG6cFeWtPGJFgmB8mhLORNONGENJsliG93T8IgEMuviUZjuAx/l7Ls+jzKAp2HyHzysTAGn3ohmN42hmtPP9bliBqgcXtjfk2U4Bsf5H76WGVLFkJqm4PxxzzL4p6dW/NuWkrwETLSay61sb3t7vY5bUl/UOEXAcN7zs/HPjnP+83hF8QJhc2c+6rx/YNmBlFme4PpCI5H1rXly0n/Ay7jmMGEImNaZjs2LfhF9tRmNhn+4cE2EXh+rZHaFV+FuDjRaTxPIr30Oh3O/TqIoHZW04UB0oBGE7OC4wsxeIyCOyRWzyWEWHKJhlaU+rP/L3vl4UT47csS51bhDddarxSo2fuEO9e36FTu79+6J+qs9fKaxozo1FBZvmIZh21TBb+5iKc77huNTM4wUfn75aLaCZ9BOwiZ2HdYO5lfTP6KPcZRsH+DUDJinOCg+EkVjLXHm00pd36GRkqURhDxEkZ7nKNWnYyqbKnJIDsNghMake0H4YtU8YgwvOEq5V1M+OyDsNVlU7vDZouCqmhMNuozTXitGJ0LyKjGOrRrL8KXRG+WaG"
+          },
+          "html": "<html aria-label=\"message body\"><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"></head><body style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\">Please make an invoice to Big Loud for 600/mix.<div><br id=\"lineBreakAtBeginningOfMessage\"><div>\n<div>Evan Lipschutz</div><div>evanlipschutz@me.com</div><div>917-330-5186</div><div><br></div><br class=\"Apple-interchange-newline\">\n\n</div>\n\n<div><br><blockquote type=\"cite\"><div>Begin forwarded message:</div><br class=\"Apple-interchange-newline\"><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>From: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\">Evan Lipschutz &lt;e@dbldwn11.com&gt;<br></span></div><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>Subject: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\"><b>Re: Atmos Request: mercury | mercury (Live from Blackbird Studio)</b><br></span></div><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>Date: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\">November 3, 2025 at 11:29:23 AM PST<br></span></div><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>To: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\">Ally Gecewicz &lt;ally@bigloud.com&gt;<br></span></div><br><div><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><div style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\">Hey Ally…Happy Monday…regular ATMOS rate on these? Will send invoice assuming so.<div><br></div><div>e<br><div><div>\n<div style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\">Evan Lipschutz</div><div style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\">917.330.5186</div><div style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\">e@dbldwn11.com</div><div style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\">www.doubledown11.com</div><a href=\"http://www.dbldwn11.com/\" style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;\"></a><span style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\"></span><br class=\"Apple-interchange-newline\" style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\"><span style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\"></span><span style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\"></span><span style=\"caret-color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;\"></span><span><img alt=\"DD11 Logo Box.png\" src=\"data:image/png;base64,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\"></span><div style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\"><span><br class=\"Apple-interchange-newline\"><br class=\"Apple-interchange-newline\"><br class=\"Apple-interchange-newline\"><br></span></div><div style=\"font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0);\"><span>***Always Double Down on 11</span></div>\n</div>\n\n<div><br><blockquote type=\"cite\"><div>On Nov 3, 2025, at 11:08 AM, Jon Kaplan &lt;jonkaplan1@mac.com&gt; wrote:</div><br class=\"Apple-interchange-newline\"><div><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><div style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\">Hey Ally,<div><br></div><div>Sweet. &nbsp;I’m a fan. &nbsp;I think I can bump what was on the calendar today and get them done. &nbsp;Latest tomorrow cool?</div><div>Copying Evan and Jane re: billing etc.</div><div><br></div><div>Thx</div><div><div>\n-<br>JFK<br>JFKmix.com<br><br><br><br><br><br><br>\n\n</div>\n<div><br><blockquote type=\"cite\"><div>On Nov 3, 2025, at 10:35 AM, Ally Gecewicz &lt;ally@bigloud.com&gt; wrote:</div><br class=\"Apple-interchange-newline\"><div><div dir=\"ltr\"><div>Hey Jon,</div><div><br></div><div>I'd love to have you work on 4 live songs for mercury.&nbsp; I've got assets&nbsp;linked below and let me know if you have the bandwidth!&nbsp; This is already released, so we'd like to have this done quickly, if possible.</div><div><br></div><div>Masters:&nbsp;<a href=\"https://bigloud.box.com/s/yaz0cek69836cupwr06si1dk7ux2gkkh\">https://bigloud.box.com/s/yaz0cek69836cupwr06si1dk7ux2gkkh</a></div><div>Stems:&nbsp;<a href=\"https://bigloud.box.com/s/1v1kypv8s12xycape0b63sm9g0722ie9\">https://bigloud.box.com/s/1v1kypv8s12xycape0b63sm9g0722ie9</a></div><div><br></div><div>Thank you!</div><div><div dir=\"ltr\" class=\"gmail_signature\" data-smartmail=\"gmail_signature\"><div dir=\"ltr\"><div dir=\"ltr\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:Helvetica;background-image:none;border:0px;margin:0px;padding:0px\"><tbody><tr><td colspan=\"2\" style=\"font-family: Arial, Helvetica, sans-serif; padding-bottom: 5px; font-size: 11px;\"><strong>Ally Gecewicz</strong></td></tr><tr><td colspan=\"2\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 11px;\">Sr. Manager, Studio &amp; Label Production</td></tr><tr><td colspan=\"2\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 11px;\"><strong>BIG LOUD / BIG LOUD ROCK</strong></td></tr><tr><td width=\"20\" valign=\"top\" style=\"font-family: Arial, Helvetica, sans-serif; vertical-align: top; width: 20px; font-size: 11px;\">C:&nbsp; O:<br></td><td valign=\"top\" style=\"font-family: Arial, Helvetica, sans-serif; vertical-align: top; font-size: 11px;\">770.866.4269<br>615.320.9228.<br></td></tr><tr><td colspan=\"2\" style=\"padding-bottom:8px;padding-top:5px\"><br></td></tr></tbody></table></div></div></div></div></div>\n</div></blockquote></div><br></div></div></div></blockquote></div><br></div></div></div></div></blockquote></div><br></div></body></html>",
+          "text": "Please make an invoice to Big Loud for 600/mix.\n\nEvan Lipschutz\nevanlipschutz@me.com\n917-330-5186\n\n\n\n> Begin forwarded message:\n> \n> From: Evan Lipschutz <e@dbldwn11.com>\n> Subject: Re: Atmos Request: mercury | mercury (Live from Blackbird Studio)\n> Date: November 3, 2025 at 11:29:23 AM PST\n> To: Ally Gecewicz <ally@bigloud.com>\n> \n> Hey Ally…Happy Monday…regular ATMOS rate on these? Will send invoice assuming so.\n> \n> e\n> Evan Lipschutz\n> 917.330.5186\n> e@dbldwn11.com\n> www.doubledown11.com\n>  <http://www.dbldwn11.com/>\n￼\n> \n> \n> \n> \n> ***Always Double Down on 11\n> \n>> On Nov 3, 2025, at 11:08 AM, Jon Kaplan <jonkaplan1@mac.com> wrote:\n>> \n>> Hey Ally,\n>> \n>> Sweet.  I’m a fan.  I think I can bump what was on the calendar today and get them done.  Latest tomorrow cool?\n>> Copying Evan and Jane re: billing etc.\n>> \n>> Thx\n>> -\n>> JFK\n>> JFKmix.com\n>> \n>> \n>> \n>> \n>> \n>> \n>> \n>>> On Nov 3, 2025, at 10:35 AM, Ally Gecewicz <ally@bigloud.com> wrote:\n>>> \n>>> Hey Jon,\n>>> \n>>> I'd love to have you work on 4 live songs for mercury.  I've got assets linked below and let me know if you have the bandwidth!  This is already released, so we'd like to have this done quickly, if possible.\n>>> \n>>> Masters: https://bigloud.box.com/s/yaz0cek69836cupwr06si1dk7ux2gkkh\n>>> Stems: https://bigloud.box.com/s/1v1kypv8s12xycape0b63sm9g0722ie9\n>>> \n>>> Thank you!\n>>> Ally Gecewicz\n>>> Sr. Manager, Studio & Label Production\n>>> BIG LOUD / BIG LOUD ROCK\n>>> C:  O:\n>>> 770.866.4269\n>>> 615.320.9228.\n>>> \n>> \n> \n\n",
+          "textAsHtml": "<p>Please make an invoice to Big Loud for 600/mix.</p><p>Evan Lipschutz<br/><a href=\"mailto:evanlipschutz@me.com\">evanlipschutz@me.com</a><br/>917-330-5186</p><p>&gt; Begin forwarded message:<br/>&gt;<br/>&gt; From: Evan Lipschutz &lt;<a href=\"mailto:e@dbldwn11.com\">e@dbldwn11.com</a>&gt;<br/>&gt; Subject: Re: Atmos Request: mercury | mercury (Live from Blackbird Studio)<br/>&gt; Date: November 3, 2025 at 11:29:23&#x202F;AM PST<br/>&gt; To: Ally Gecewicz &lt;<a href=\"mailto:ally@bigloud.com\">ally@bigloud.com</a>&gt;<br/>&gt;<br/>&gt; Hey Ally&mldr;Happy Monday&mldr;regular ATMOS rate on these? Will send invoice assuming so.<br/>&gt;<br/>&gt; e<br/>&gt; Evan Lipschutz<br/>&gt; 917.330.5186<br/>&gt; <a href=\"mailto:e@dbldwn11.com\">e@dbldwn11.com</a><br/>&gt; <a href=\"http://www.doubledown11.com\">www.doubledown11.com</a><br/>&gt;  &lt;<a href=\"http://www.dbldwn11.com/\">http://www.dbldwn11.com/</a>&gt;<br/>&#xFFFC;<br/>&gt;<br/>&gt;<br/>&gt;<br/>&gt;<br/>&gt; ***Always Double Down on 11<br/>&gt;<br/>&gt;&gt; On Nov 3, 2025, at 11:08&#x202F;AM, Jon Kaplan &lt;<a href=\"mailto:jonkaplan1@mac.com\">jonkaplan1@mac.com</a>&gt; wrote:<br/>&gt;&gt;<br/>&gt;&gt; Hey Ally,<br/>&gt;&gt;<br/>&gt;&gt; Sweet.  I&rsquo;m a fan.  I think I can bump what was on the calendar today and get them done.  Latest tomorrow cool?<br/>&gt;&gt; Copying Evan and Jane re: billing etc.<br/>&gt;&gt;<br/>&gt;&gt; Thx<br/>&gt;&gt; -<br/>&gt;&gt; JFK<br/>&gt;&gt; <a href=\"http://JFKmix.com\">JFKmix.com</a><br/>&gt;&gt;<br/>&gt;&gt;<br/>&gt;&gt;<br/>&gt;&gt;<br/>&gt;&gt;<br/>&gt;&gt;<br/>&gt;&gt;<br/>&gt;&gt;&gt; On Nov 3, 2025, at 10:35 AM, Ally Gecewicz &lt;<a href=\"mailto:ally@bigloud.com\">ally@bigloud.com</a>&gt; wrote:<br/>&gt;&gt;&gt;<br/>&gt;&gt;&gt; Hey Jon,<br/>&gt;&gt;&gt;<br/>&gt;&gt;&gt; I&apos;d love to have you work on 4 live songs for mercury.  I&apos;ve got assets linked below and let me know if you have the bandwidth!  This is already released, so we&apos;d like to have this done quickly, if possible.<br/>&gt;&gt;&gt;<br/>&gt;&gt;&gt; Masters: <a href=\"https://bigloud.box.com/s/yaz0cek69836cupwr06si1dk7ux2gkkh\">https://bigloud.box.com/s/yaz0cek69836cupwr06si1dk7ux2gkkh</a><br/>&gt;&gt;&gt; Stems: <a href=\"https://bigloud.box.com/s/1v1kypv8s12xycape0b63sm9g0722ie9\">https://bigloud.box.com/s/1v1kypv8s12xycape0b63sm9g0722ie9</a><br/>&gt;&gt;&gt;<br/>&gt;&gt;&gt; Thank you!<br/>&gt;&gt;&gt; Ally Gecewicz<br/>&gt;&gt;&gt; Sr. Manager, Studio &amp; Label Production<br/>&gt;&gt;&gt; BIG LOUD / BIG LOUD ROCK<br/>&gt;&gt;&gt; C:  O:<br/>&gt;&gt;&gt; 770.866.4269<br/>&gt;&gt;&gt; 615.320.9228.<br/>&gt;&gt;&gt;<br/>&gt;&gt;<br/>&gt;</p>",
+          "subject": "Fwd: Atmos Request: mercury | mercury (Live from Blackbird Studio)",
+          "references": "<937878BE-8E00-4BA2-AA9B-3B64FAE95C65@dbldwn11.com>",
+          "date": "2025-11-03T19:32:43.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "Asst@patchbay.xyz",
+                "name": ""
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><a href=\"mailto:Asst@patchbay.xyz\" class=\"mp_address_email\">Asst@patchbay.xyz</a></span>",
+            "text": "Asst@patchbay.xyz"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "evanlipschutz@me.com",
+                "name": "Evan Lipschutz"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Evan Lipschutz</span> &lt;<a href=\"mailto:evanlipschutz@me.com\" class=\"mp_address_email\">evanlipschutz@me.com</a>&gt;</span>",
+            "text": "\"Evan Lipschutz\" <evanlipschutz@me.com>"
+          },
+          "messageId": "<585BFCD2-FC48-495F-A4EA-80989ED027D1@me.com>",
+          "routing": "bot_only"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-04T02:30:16.070Z",
+  "versionId": "a9929022-0349-4ad4-a8c4-62d6e141f489"
+}
