@@ -1,0 +1,2549 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetDealPayload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Process Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Fixing Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetDealPayload": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Crypto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reformat1": {
+      "main": [
+        [
+          {
+            "node": "access_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "Reformat1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crypto": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Time": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Fixing Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reformat2": {
+      "main": [
+        [
+          {
+            "node": "access_token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request8": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields6": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields7": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Reformat2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields8": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetUserSession": {
+      "main": [
+        [
+          {
+            "node": "AddDealMeta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create": {
+      "main": [
+        [
+          {
+            "node": "GetUserSession",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "EmbedDeals",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion4": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AddDealMeta": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token": {
+      "main": [
+        [
+          {
+            "node": "firebaseId",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token1": {
+      "main": [
+        [
+          {
+            "node": "firebaseId1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId": {
+      "main": [
+        [
+          {
+            "node": "Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "RecipientExists",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RecipientExists1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RecipientExists2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields9": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres PGVector Store": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Postgres PGVector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetDealPayload1": {
+      "main": [
+        [
+          {
+            "node": "Format",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Input": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format": {
+      "main": [
+        [
+          {
+            "node": "Guided Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "Model1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Postgres PGVector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres PGVector Store1": {
+      "main": [
+        [
+          {
+            "node": "Format1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format1": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "GetDealPayload1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Format2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format2": {
+      "main": [
+        [
+          {
+            "node": "Guided Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "RecipientExists3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fixing Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Postgres PGVector Store",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Postgres PGVector Store1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Format1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres PGVector Store2": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Postgres PGVector Store2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-15T04:53:49.412Z",
+  "id": "tssc2QZ0cc5XC6aP",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "deal_helpers-V1.0.3",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "ai_input"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2500,
+        700
+      ],
+      "id": "ab476369-198e-4eee-a3c8-e9192793f32e",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e96ad30e-2497-4282-8604-0f0942961d29",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "create",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "22c62b2e-2e05-441c-a60a-48f721ecd563",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "update",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "search",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "1c656e68-bd47-4790-8cb6-9e133264f461"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2280,
+        700
+      ],
+      "id": "2a91ba84-a172-457c-935b-0b26af58927c",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "X0GhGf5U9mIlkowG",
+          "mode": "list",
+          "cachedResultName": "ExtractDeal-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "book_number": "={{ $json.data.client_id }}",
+            "document": "=person_lega_name: {{ $json.data.metadata.person_verification.person_name }}\nArtist: {{ $json.data.metadata.task_metadata.artist_name }}\nMaster: {{ $json.data.metadata.task_metadata.masters }}\n\n\n{{ $json.data.deal_document ? $json.data.deal_document :  $json.ai_input}}\n\n"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "job_id",
+              "displayName": "job_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "book_number",
+              "displayName": "book_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "document",
+              "displayName": "document",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "contract_url",
+              "displayName": "contract_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2060,
+        -25
+      ],
+      "id": "34c40caa-9ec3-4818-bbcb-03e6e66fe907",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Below is the recommended changes to the deal which the manager has approved. Your job is to identify the changes mentioned in Recommendation to the existing deal and return in the output as required. Don't change anything which is mentioned as not needed any change.\n\nRecommended Changes: {{ $('Trigger').item.json.data.recommended_deal_updates }}\n\n------\nExisting Deal: {{ JSON.stringify(\n  $json,\n  null,\n  \" \"\n) }}\n---------",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are Patchbay Deal Updation Agent responsible for updating the fields in 'Existing Deal' as per the 'Recommended Changes' . Your job is to;\n\n- Analyse the given 'Recommended Changes' and identify the value of fields in the 'Existing Deal' which needs to be changes as per recommendation.\n- Write a well structured update which update the selected fields according to the proposed instructions. \n- The 'Existing Deal' is only for reference and you must not update the fields from this data. \n- Only use the Recommended changes for updation and on comparison with Existing Deal, not include the filed in output which does not require any change.\n- Don't process any fields updates if the deal_status is Fully Executed.\n\n---- OUTPUT FORMAT ----\nReturn the query without any additional comments or instructions."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -1620,
+        250
+      ],
+      "id": "68b14e8e-49f8-4c29-84b3-9089de36c858",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "o3-mini"
+        },
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1592,
+        670
+      ],
+      "id": "aa760dfb-3b45-4656-8709-cb36d64003a2",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  d.*,\n  json_agg(\n    json_build_object(\n      'id', ma.id,\n      'number', ma.number,\n      'status', ma.status,\n      'effective_date', ma.effective_date,\n      'master_id', ma.master_id,\n      'master_royalty', ma.master_royalty,\n      'upstream_threshold', ma.upstream_threshold,\n      'sx_lod_status', ma.sx_lod_status,\n      'fee', ma.fee,\n      'start_date', ma.start_date,\n      'credits', (\n        SELECT json_agg(\n          json_build_object(\n            'id', mc.id,\n            'credit', mc.credit,\n            'instrument', mc.instrument\n          )\n        )\n        FROM deals_mastercredit mc\n        WHERE mc.agreement_id = ma.id AND mc.deleted_at IS NULL\n      )\n    )\n  ) AS master_agreements\nFROM deals_masterdeal d\nLEFT JOIN deals_masteragreement ma ON ma.deal_id = d.id AND ma.deleted_at IS NULL\nWHERE d.number = $1 AND d.deleted_at IS NULL\nGROUP BY d.id;",
+        "options": {
+          "queryReplacement": "={{ $json.data.deal_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2060,
+        700
+      ],
+      "id": "0072c3c0-3b3d-4c86-990d-538e7567ebb7",
+      "name": "GetDealPayload",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7b1615f4-6ca8-45fe-bb9d-6ca38e19f4ab",
+              "leftValue": "={{ $json.status.includes(\"completed\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1840,
+        -25
+      ],
+      "id": "98a4084c-808f-4350-9c5d-0ce3c3c09d4c",
+      "name": "If2",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// UUID generator compatible with n8n\nconst generateUUID = () => {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    const r = Math.random() * 16 | 0,\n          v = c === 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n};\n\nconst input = $input.item.json;\n\n// Normalize to ISO date (YYYY-MM-DD) or null\nconst normalizeDate = (value) => {\n  if (!value) return null;\n  const date = new Date(value);\n  return isNaN(date) ? null : date.toISOString().split(\"T\")[0];\n};\n\n// Safely extract agreements\nconst agreements = Array.isArray(input.temp_deal_data?.master_agreements)\n  ? input.temp_deal_data.master_agreements\n  : [];\n\n// Generate AI job ID if missing\nconst ai_extraction_job_id = input.job_id??generateUUID();\n\n// Build output payload\nconst output = {\n  ai_extraction_job_id,\n  book_number: input.book_number,\n  active: input.temp_deal_data?.active ?? false,\n  artist_number: input.temp_deal_data?.artist_number ?? input.temp_deal_data?.artist?.number ?? null,\n  work_for_hire: input.temp_deal_data?.work_for_hire ?? false,\n  executed_contract: input.temp_deal_data?.executed_contract ?? null,\n  execution_date: normalizeDate(input.temp_deal_data?.execution_date),\n  fee_amount: input.temp_deal_data?.fee_amount ?? null,\n  fee_currency: input.temp_deal_data?.fee_currency ?? 'USD',\n  fee_schedule: input.temp_deal_data?.fee_schedule ?? null,\n  kill_fee_amount: input.temp_deal_data?.kill_fee_amount ?? null,\n  kill_fee_currency: input.temp_deal_data?.kill_fee_currency ?? 'USD',\n  payment_status: input.temp_deal_data?.payment_status ?? 'Unpaid',\n  percent_recoupable: input.temp_deal_data?.percent_recoupable ?? null,\n  priority: Number.isInteger(input.temp_deal_data?.priority) ? input.temp_deal_data.priority : 1,\n  person_number: input.temp_deal_data?.person_number ?? input.temp_deal_data?.person?.person_number ?? null,\n  status: input.temp_deal_data?.status ?? 'Needs Review',\n  type: input.temp_deal_data?.type,\n  notes: input.temp_deal_data?.notes ?? null,\n  original_file_name: input.temp_deal_data?.original_file_name ?? null,\n  start_date: normalizeDate(input.temp_deal_data?.start_date),\n  master_credits: agreements.flatMap(agreement =>\n    Array.isArray(agreement.credits)\n      ? agreement.credits.map(c => c.credit)\n      : []\n  ),\n  instruments: agreements.flatMap(agreement =>\n    Array.isArray(agreement.credits)\n      ? agreement.credits.map(c => c.instrument).filter(inst => inst !== null)\n      : []\n  ),\n  master_agreements: agreements.map(agreement => {\n    const credits = Array.isArray(agreement.credits) ? agreement.credits : [];\n    return {\n      person_number: agreement.person_number,\n      master_number: agreement.master_number,\n      deal_number: input.book_number,\n      master_name: agreement.master_name ?? null,\n      master_version_subtitle: agreement.master_version_subtitle ?? null,\n      type: agreement.type ?? null,\n      master_credits: credits.map(c => c.credit),\n      instruments: credits.map(c => c.instrument).filter(inst => inst !== null),\n      status: agreement.status ?? null,\n      effective_date: normalizeDate(agreement.effective_date),\n      upstream_royalty: agreement.upstream_royalty ?? null,\n      upstream_royalty_type: agreement.upstream_royalty_type ?? null,\n      upstream_fee: agreement.upstream_fee ?? null,\n      upstream_fee_currency: agreement.upstream_fee_currency ?? null,\n      fee: agreement.fee ?? null,\n      master_royalty: agreement.master_royalty ?? null,\n      master_royalty_type: agreement.master_royalty_type ?? null,\n      neighboring_rights_royalty: agreement.neighboring_rights_royalty ?? null,\n      sx_percentage: agreement.sx_percentage ?? null,\n      sx_lod_status: agreement.sx_lod_status ?? null,\n      sx_lod_file: agreement.sx_lod_file ?? null,\n      start_date: normalizeDate(agreement.start_date),\n      bonus: agreement.bonus ?? null\n    };\n  })\n};\n\nreturn [{ json: output }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        -275
+      ],
+      "id": "7509e93c-3f00-4c95-b282-47f4dc1e2fc0",
+      "name": "Reformat1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3bd6ea95-7bc1-4589-bf96-9e863e87e14d",
+              "name": "message",
+              "value": "The deal creation failed due to technical issues.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        -25
+      ],
+      "id": "b8bfc38d-bb03-480f-ab4c-9190f08a1b9a",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "717a6a8e-44f1-4792-8c6a-efb8d1cf2e2b",
+              "name": "message",
+              "value": "={{ $json.message }}. Ask the user to provide the latest deal document in the form of PDF or Word format, if he thinks that the discussion is about valid master deal type. ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1438,
+        25
+      ],
+      "id": "817e172d-63e8-44ed-99d5-373bb5dbbf12",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/deals/extract-deal-data/ingest",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -958,
+        -175
+      ],
+      "id": "0803b82c-4551-4338-b004-2e0b3e433833",
+      "name": "HTTP Request7",
+      "retryOnFail": true,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "action": "generate",
+        "dataPropertyName": "job_id"
+      },
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        -1438,
+        -175
+      ],
+      "id": "2f74780c-7920-4295-b7b8-b8021b7e73ee",
+      "name": "Crypto"
+    },
+    {
+      "parameters": {
+        "name": "GetDateTime",
+        "description": "Call this tool to provide current time to updating the status_updated_at field.",
+        "jsCode": "const now = new Date().toISOString();\n\nreturn now"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        -1532,
+        470
+      ],
+      "id": "ab0a5801-6054-4800-9384-f467aa6a8998",
+      "name": "Time"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"description\": \"Schema for master deal and agreements updation. Only include fields that require updating. Omit fields that should remain unchanged. Do not provide nulls unless explicitly resetting a field. Change field only which are explicitly mentioned in the 'Recommended Changes' without altering other fields\",\n  \"properties\": {\n    \"status\": {\n      \"type\": [\"string\", \"null\"],\n      \"description\": \"Updated execution status of the deal (e.g., 'Fully Executed'). Only include if it is being changed.\",\n      \"enum\": [\n        \"Needs Review\",\n        \"Counterparty Action\",\n        \"Client Signature\",\n        \"Counterparty Signature\",\n        \"Fully Executed\",\n        \"Terminated\"\n      ]\n    },\n    \"status_updated_at\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"Current time retrieved by the GetDateTime tool. Always allow this field.\"\n    },\n    \"payment_status\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"Paid\", \"Unpaid\"],\n      \"description\": \"Only include if payment status is being updated.\"\n    },\n    \"fee_amount\": {\n      \"type\": [\"number\", \"null\"],\n      \"description\": \"Update only if the main deal fee amount is changing.\"\n    },\n    \"fee_currency\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"USD\", \"EUR\", \"GBP\", \"JPY\", \"AUD\", \"CAD\"],\n      \"description\": \"Include only if the currency of the fee is being updated.\"\n    },\n    \"fee_schedule\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\n        \"100% Up Front\",\n        \"50% Up Front, 50% On Delivery\",\n        \"100% On Delivery\"\n      ],\n      \"description\": \"Include only if the fee payment schedule is changing.\"\n    },\n    \"kill_fee_amount\": {\n      \"type\": [\"number\", \"null\"],\n      \"description\": \"Set only if kill fee is newly added or modified.\"\n    },\n    \"kill_fee_currency\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"USD\", \"EUR\", \"GBP\", \"JPY\", \"AUD\", \"CAD\"],\n      \"description\": \"Include only if kill fee currency is being updated.\"\n    },\n    \"percent_recoupable\": {\n      \"type\": [\"number\", \"null\"],\n      \"minimum\": 0.0,\n      \"maximum\": 1.0,\n      \"multipleOf\": 0.0001,\n      \"description\": \"Include only if the percent recoupable value is being updated (e.g., 0.25 for 25%).\"\n    },\n    \"master_agreements\": {\n      \"type\": [\"array\", null],\n      \"description\": \"List of individual master agreements that require updates. Include only agreements where updates are detected.\",\n      \"items\": {\n        \"type\": \"object\",\n        \"description\": \"Each object should only contain fields that are changing. Leave out fields that do not require updates.\",\n        \"properties\": {\n          \"status\": {\n            \"type\": \"string\",\n            \"enum\": [\"Credit Only\", \"Needs Drafting\", \"Awaiting Feedback\", \"In Review\", \"Executed\"],\n            \"description\": \"Updated only if the user wants to update the status.\"\n          },\n          \"effective_date\": {\n            \"type\": [\"string\", \"null\"],\n            \"format\": \"date\",\n            \"description\": \"Effective date of this agreement. Include only if recommended for updating.\"\n          },\n          \"master_royalty\": {\n            \"type\": [\"number\", \"null\"],\n            \"minimum\": 0.0,\n            \"maximum\": 1.0,\n            \"multipleOf\": 0.0001,\n            \"description\": \"Include only if royalty percentage is being updated.\"\n          },\n          \"master_royalty_type\": {\n            \"type\": \"string\",\n            \"enum\": [\"None\", \"PPD\", \"Net Profit\", \"Net Receipts Equivalent\"],\n            \"description\": \"Only include if royalty type is changed.\"\n          },\n          \"fee\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Master-level fee update. Include only if needed.\"\n          },\n          \"upstream_royalty\": {\n            \"type\": [\"number\", \"null\"],\n            \"minimum\": 0.0,\n            \"maximum\": 1.0,\n            \"multipleOf\": 0.0001,\n            \"description\": \"Include if upstream royalty is being updated.\"\n          },\n          \"upstream_royalty_type\": {\n            \"type\": \"string\",\n            \"enum\": [\"None\", \"PPD\", \"Net Profit\", \"Net Receipts Equivalent\"],\n            \"description\": \"Update if upstream royalty type has changed.\"\n          },\n          \"upstream_fee\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Only include if upstream fee is being changed.\"\n          },\n          \"upstream_fee_currency\": {\n            \"type\": [\"string\", \"null\"],\n            \"enum\": [\"USD\", \"EUR\", \"GBP\", \"JPY\", \"AUD\", \"CAD\"],\n            \"description\": \"Currency of upstream fee. Include if changed.\"\n          },\n          \"neighboring_rights_royalty\": {\n            \"type\": [\"number\", \"null\"],\n            \"description\": \"Include only if neighboring rights royalty has changed.\"\n          },\n          \"sx_percentage\": {\n            \"type\": [\"number\", \"null\"],\n            \"minimum\": 0.0,\n            \"maximum\": 1.0,\n            \"multipleOf\": 0.0001,\n            \"description\": \"Include if SoundExchange LOD share is newly added or changed.\"\n          },\n          \"start_date\": {\n            \"type\": [\"string\", \"null\"],\n            \"format\": \"date\",\n            \"description\": \"Start date of this master agreement. Include if it’s new or changed.\"\n          },\n          \"credits\": {\n            \"type\": \"array\",\n            \"description\": \"Update credit details only if changes are detected.\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"credit\": {\n                  \"type\": \"string\",\n                  \"enum\": [\n                    \"Mixer\",\n                    \"Producer\",\n                    \"Mastering Engineer\",\n                    \"Dolby Atmos Mixing Engineer\",\n                    \"Dolby Atmos Mastering Engineer\",\n                    \"Additional Production\",\n                    \"Musician\"\n                  ]\n                },\n                \"instrument\": {\n                  \"type\": [\"string\", \"null\"],\n                  \"description\": \"Include if musician's instrument is being updated or added.\"\n                }\n              },\n              \"required\": [\"credit\"]\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1304,
+        670
+      ],
+      "id": "219ef406-d58d-480e-9229-11043183191c",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json.output;\n\nconst cleaned = Object.fromEntries(\n  Object.entries(input).filter(([key, value]) => value !== null)\n);\n\nreturn [\n  {\n    json: cleaned\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        325
+      ],
+      "id": "773c55fa-0cba-4cb0-bdde-1c0e52705ed6",
+      "name": "Reformat2"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/masterDeals/{{ $('Trigger').item.json.data.deal_number }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token1').item.json.access_token}}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Reformat2').item.json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        250
+      ],
+      "id": "d14119d9-ad60-4109-b910-dc686334c1a4",
+      "name": "HTTP Request8",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3bd6ea95-7bc1-4589-bf96-9e863e87e14d",
+              "name": "message",
+              "value": "The deal Updation failed due to technical issues.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        550
+      ],
+      "id": "93c92ca1-f57f-4217-a5a0-5c660433f26d",
+      "name": "Edit Fields6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f36c5ff6-d53f-434e-9a6b-7ebe81047c99",
+              "name": "message",
+              "value": "=Following updates were made to the deal:\n\n{{ JSON.stringify($('AI Agent').item.json.output.removeField(\"status_updated_at\"), null, ' ') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        200
+      ],
+      "id": "51e572bf-d245-4ab9-87a2-a26bc6af2837",
+      "name": "Edit Fields7"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eed5aaf1-1d5e-418b-828c-f66a8bf5fcf9",
+              "leftValue": "={{ $json.output }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -958,
+        450
+      ],
+      "id": "99874241-1350-47ce-83b7-3cc76ec3e260",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3bd6ea95-7bc1-4589-bf96-9e863e87e14d",
+              "name": "message",
+              "value": "No updates detected for the current deal.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -660,
+        675
+      ],
+      "id": "e3ecd263-e7c4-4590-bac0-69ef7b207d82",
+      "name": "Edit Fields8"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -300
+      ],
+      "id": "0f95edce-ceab-48af-86b6-46f211b6765e",
+      "name": "GetUserSession",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/masterDeals",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token').item.json.access_token}}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Reformat1').item.json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        -350
+      ],
+      "id": "26f673e1-1025-4f7b-b940-ed558456158c",
+      "name": "Create",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}",
+        "value": "={{ $json.user_session.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        660,
+        -300
+      ],
+      "id": "88212827-6334-4024-8f7c-a80db134d02f",
+      "name": "UpdateSesssion4",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $json;\n\n// Pull deal info from \"Create\" node (optional)\nconst createRes = $('Create').first()?.json || {};\nconst deal_number =\n  createRes?.master_agreements?.[0]?.deal_number ??\n  createRes?.deal_number ??\n  null;\nconst deal_id =\n  createRes?.master_agreements?.[0]?.deal_id ??\n  createRes?.deal_id ??\n  null;\n\nconst last_response = \"Deal Identification Successful\";\n\n// Parse the user_session JSON safely\nlet userSessionObj;\ntry {\n  if (typeof item.user_session !== 'string') {\n    throw new Error(\"Expected 'user_session' to be a string.\");\n  }\n  userSessionObj = JSON.parse(item.user_session);\n} catch {\n  throw new Error(\"Invalid JSON in 'user_session' field.\");\n}\n\n// Build updated deal_metadata (preserve existing if any)\nconst deal_metadata = {\n  ...(userSessionObj.deal_metadata || {}),\n  deal_status: \"exists\",\n  ...(deal_id != null ? { deal_id } : {}),\n  ...(deal_number != null ? { deal_number } : {}),\n};\n\n// Update the session object\nconst updatedSession = {\n  ...userSessionObj,\n  deal_metadata,\n  last_bot_response: last_response,\n};\n\n// Return updated user_session as a string\nreturn [\n  {\n    json: {\n      ...item,\n      user_session: updatedSession,\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        -300
+      ],
+      "id": "48db5657-ab7a-4289-bc22-4b6c283296f8",
+      "name": "AddDealMeta"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -440,
+        -275
+      ],
+      "id": "4dadde43-cf08-447c-8f04-c4dcecd32630",
+      "name": "access_token",
+      "retryOnFail": false,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -440,
+        325
+      ],
+      "id": "e90cc75b-2faf-42f7-8229-750467f173f0",
+      "name": "access_token1",
+      "retryOnFail": false,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('Trigger').first().json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -220,
+        -350
+      ],
+      "id": "51b544e5-094e-42aa-abf1-a0701ffd09de",
+      "name": "firebaseId",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('Trigger').item.json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -220,
+        250
+      ],
+      "id": "bd34ad8f-2984-479b-b46c-b2791aaa263b",
+      "name": "firebaseId1",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.user_session.invoice_metadata.invoice_recipient.status }}",
+                    "rightValue": "exists",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "90e11aeb-642d-426d-93d2-fa273f4c2a7e"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ee73d168-6e5a-4959-87b1-fc4b0bc1a1d8",
+                    "leftValue": "={{ $json.user_session.invoice_metadata.invoice_recipient.status }}",
+                    "rightValue": "missing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "896d3af9-f039-47c2-b468-d6500651f7d6",
+                    "leftValue": "={{ $json.user_session.invoice_metadata.invoice_recipient.status }}",
+                    "rightValue": "not_provided",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1100,
+        -200
+      ],
+      "id": "11ff38af-41ff-40e4-9715-ed5b5a5e6450",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f36c5ff6-d53f-434e-9a6b-7ebe81047c99",
+              "name": "message",
+              "value": "=Deal created successfully.\n\nDraft an invoice for the Manager (do not call CreateInvoice).\n\nInclide the following terms in the drafted invoice:\nCustomer Name: {{ $('AddDealMeta').item.json.user_session.customer_verification.customer_name }}\nFee: {{ $('Create').item.json.fee_amount }}\nStatus: Draft\nDue Date: <Due Date if provided>\nRecipient: {{ $json.user_session.invoice_metadata.invoice_recipient.name }}\n\nIf you could not find the invoice due date from the conversation, ask the manager to provide it while approving the draft.\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        -400
+      ],
+      "id": "1bd6c524-13f2-41bc-af8e-84b7f31bff02",
+      "name": "RecipientExists"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f36c5ff6-d53f-434e-9a6b-7ebe81047c99",
+              "name": "message",
+              "value": "=Deal created successfully.\n\nDraft an invoice for the Manager (do not call CreateInvoice).\n\nInclide the following terms in the drafted invoice:\nCustomer Name: {{ $('AddDealMeta').item.json.user_session.customer_verification.customer_name }}\nFee: {{ $('Create').item.json.fee_amount }}\nStatus: Draft\nDue Date: <Due Date if provided>\nRecipient: {{ $json.user_session.invoice_metadata.invoice_recipient.name }}\n\nIf you could not find the invoice due date from the conversation, ask the manager to provide it while approving the draft. Also, ask the manager if he wants to proceed with mention 'Recipient' and if not, provide another one.\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        -200
+      ],
+      "id": "aa26add4-c4c9-4618-94ec-18cd3949bfb2",
+      "name": "RecipientExists1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f36c5ff6-d53f-434e-9a6b-7ebe81047c99",
+              "name": "message",
+              "value": "=Deal created successfully.\n\nDraft an invoice for the Manager (do not call CreateInvoice).\n\nInclide the following terms in the drafted invoice:\nCustomer Name: {{ $('AddDealMeta').item.json.user_session.customer_verification.customer_name }}\nFee: {{ $('Create').item.json.fee_amount }}\nStatus: Draft\nDue Date: <Due Date if provided>\nRecipient: Not Provided\n\nIf you could not find the invoice due date from the conversation, ask the manager to provide it while approving the draft. Also, ask the manager to provided an Invoice Recipient.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        0
+      ],
+      "id": "a8a69e57-b846-4bf3-8f92-672e980bcfff",
+      "name": "RecipientExists2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "765c3e41-4525-4f62-9945-bfd0ceb8b261",
+              "leftValue": "={{ $json.status!=\"Fully Executed\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1840,
+        700
+      ],
+      "id": "2b583aa1-14ef-4970-acbf-fab7909abbe5",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        440,
+        200
+      ],
+      "id": "8b1a7195-d14d-4283-a179-d1ee3f0967ad",
+      "name": "UpdateSesssion",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        440,
+        550
+      ],
+      "id": "397da575-999a-43bf-87a3-eb8fba6964ed",
+      "name": "UpdateSesssion1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3bd6ea95-7bc1-4589-bf96-9e863e87e14d",
+              "name": "message",
+              "value": "The deal is \"Fully Executed\" and cannot be processed further for any updates.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1438,
+        850
+      ],
+      "id": "a3fcc6ce-e1cb-4038-a1be-7a2ff585ed6b",
+      "name": "Edit Fields9"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -958,
+        850
+      ],
+      "id": "ee6e4f42-e87d-4964-a41a-5a373fdbbefd",
+      "name": "UpdateSesssion2",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        675
+      ],
+      "id": "5dc1b4ab-296f-4777-b32a-a0600cd7f44c",
+      "name": "UpdateSesssion3",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        440,
+        -25
+      ],
+      "id": "73f880de-a6b2-4f53-a583-402dd4b577f2",
+      "name": "UpdateSesssion5",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "tableName": "patchbay_deal_vectorstore",
+        "prompt": "={{ $json.query }}",
+        "topK": 10,
+        "options": {
+          "distanceStrategy": "cosine",
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "deal_type",
+                "value": "Master"
+              },
+              {
+                "name": "book_id",
+                "value": "={{ $json.metadata.book_id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1.1,
+      "position": [
+        -1040,
+        1160
+      ],
+      "id": "b3c19e94-7971-4ea8-8cff-03e28261ee7a",
+      "name": "Postgres PGVector Store",
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -940,
+        1400
+      ],
+      "id": "e8ef9f21-0195-4add-b87f-470b54bf6c03",
+      "name": "Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  d.*,\n  pp.name AS person_name,\n  pp.performer_name AS performer_name,\n  ap.name AS artist_name,\n  json_agg(\n    json_build_object(\n      'id', ma.id,\n      'number', ma.number,\n      'status', ma.status,\n      'effective_date', ma.effective_date,\n      'master_id', ma.master_id,\n      'master_name', sm.name,\n      'master_royalty', ma.master_royalty,\n      'upstream_threshold', ma.upstream_threshold,\n      'sx_lod_status', ma.sx_lod_status,\n      'fee', ma.fee,\n      'start_date', ma.start_date,\n      'credits', (\n        SELECT json_agg(\n          json_build_object(\n            'id', mc.id,\n            'credit', mc.credit,\n            'instrument', mc.instrument\n          )\n        )\n        FROM deals_mastercredit mc\n        WHERE mc.agreement_id = ma.id AND mc.deleted_at IS NULL\n      )\n    )\n  ) AS master_agreements\nFROM deals_masterdeal d\nLEFT JOIN deals_masteragreement ma ON ma.deal_id = d.id AND ma.deleted_at IS NULL\nLEFT JOIN song_master sm ON sm.id = ma.master_id\nJOIN person_personproperties pp ON pp.person_id = d.person_id \n  AND pp.deleted_at IS NULL\nJOIN person_artistproperties ap ON ap.artist_id = d.artist_id\nWHERE d.number = $1 AND d.deleted_at IS NULL\nGROUP BY d.id, pp.name, ap.name, pp.performer_name;",
+        "options": {
+          "queryReplacement": "={{ $json.deal_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -180,
+        1300
+      ],
+      "id": "2dba86fd-f598-4b72-85ba-152b76061fda",
+      "name": "GetDealPayload1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// N8N Code Node - Route Processing Logic\n// Input data comes from $input.all() in n8n\nconst inputData = $input.all();\nlet result = [];\n\n// Handle empty input or input with empty object\nif (inputData.length === 0 || (inputData.length === 1 && Object.keys(inputData[0].json || {}).length === 0)) {\n    result = [{\n        route: \"discard\",\n        deal_number: null,\n        deal_id: null,\n        book_id: null\n    }];\n    return result.map(item => ({ json: item }));\n}\n\n// Sort by score to ensure we get the top results\nconst sortedData = inputData.sort((a, b) => a.json.score - b.json.score);\n\n// Add deduplication based on deal_id and deal_number\nconst uniqueDeals = [];\nconst seenDeals = new Set();\n\nfor (const item of sortedData) {\n    const dealKey = `${item.json.document.metadata.deal_id}_${item.json.document.metadata.deal_number}`;\n    if (!seenDeals.has(dealKey)) {\n        seenDeals.add(dealKey);\n        uniqueDeals.push(item);\n    }\n}\n\n// Get the lowest score (top-most result)\nconst topScore = uniqueDeals[0].json.score;\n\n// Check if there's a confirmed_by_id with value true in any of the input objects\nconst hasConfirmedById = inputData.some(item => item.json.confirmed_by_id === true);\n\n// Check if deal_search_skip is true (deal_next_step === \"create_new\")\nconst deal_search_skip = inputData.some(item => item.json.deal_next_step === \"create_new\");\n\n// If deal_search_skip is true, immediately discard\nif (deal_search_skip) {\n    // Get the top most input for metadata (if available)\n    const topResult = uniqueDeals[0].json;\n    \n    result = [{\n        route: \"discard\",\n        deal_number: topResult.document?.metadata?.deal_number || null,\n        deal_id: topResult.document?.metadata?.deal_id || null,\n        book_id: topResult.document?.metadata?.book_id || null,\n        reason: \"deal_search_skip\"\n    }];\n    \n    return result.map(item => ({ json: item }));\n}\n\n// Apply routing logic based on score and confirmed_by_id\nif (topScore <= 0.14 || hasConfirmedById) {\n    // Get the top most input (closest to 0) and return as single object\n    // This now applies when score <= 0.10 OR when confirmed_by_id is true\n    const topResult = uniqueDeals[0].json;\n    \n    result = [{\n        route: \"proceed\",\n        deal_number: topResult.document.metadata.deal_number,\n        deal_id: topResult.document.metadata.deal_id,\n        book_id: topResult.document.metadata.book_id,\n        confirmed_by_id: hasConfirmedById,\n        score: topResult.score\n    }];\n    \n} else if (topScore > 0.14 && topScore < 0.50) {\n    // Filter top-3 results and return as list of objects\n    const top3Results = uniqueDeals.slice(0, 3);\n    \n    result = top3Results.map(item => ({\n        route: \"confirm\",\n        deal_number: item.json.document.metadata.deal_number,\n        deal_id: item.json.document.metadata.deal_id,\n        book_id: item.json.document.metadata.book_id,\n        score: item.json.score\n    }));\n    \n} else { // score >= 0.50\n    // Get the top most input (closest to 0) and return as single object\n    const topResult = uniqueDeals[0].json;\n    \n    result = [{\n        route: \"discard\",\n        deal_number: topResult.document.metadata.deal_number,\n        deal_id: topResult.document.metadata.deal_id,\n        book_id: topResult.document.metadata.book_id,\n        score: topResult.score\n    }];\n}\n\n// Sort final results by score (lowest distance on top)\nresult.sort((a, b) => a.score - b.score);\n\n// Return the result for n8n\nreturn result.map(item => ({ json: item }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        1480
+      ],
+      "id": "b56b0767-f531-4281-b2e4-3b32d851fafc",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the search data from the first array element\nconst inputData = $json.data;\nconst searchData = inputData.task_metadata;\nconst personData = inputData.person_verification;\n\n// Light normalization function (same as used for embeddings)\nconst lightNormalize = (text) => {\n  if (!text || typeof text !== 'string') return '';\n  return text\n    .trim()\n    .replace(/\\s+/g, ' ')  // Multiple spaces to single space\n    .replace(/[^\\w\\s-.,]/g, ' ')  // Keep basic punctuation\n    .replace(/\\s+/g, ' ')\n    .trim();\n};\n\n// Create search query parts following same structure as embeddings\nconst queryParts = [];\n\n// Add person name with context\nconst personName = lightNormalize(searchData.person_name);\nif (personName) {\n  queryParts.push(`${personName}`);\n}\n\n// Add artist name with context\nconst artistName = lightNormalize(searchData.artist_name);\nif (artistName) {\n  queryParts.push(`${artistName}`);\n}\n\n// Process masters array into comma-separated string\nlet mastersString = '';\nif (searchData.masters && Array.isArray(searchData.masters) && searchData.masters.length > 0) {\n  // Filter out empty values and normalize each master\n  const normalizedMasters = searchData.masters\n    .filter(master => master && master.trim() !== '')\n    .map(master => lightNormalize(master))\n    .filter(master => master !== '');\n  \n  if (normalizedMasters.length > 0) {\n    mastersString = normalizedMasters.join(', ');\n    queryParts.push(`${mastersString}`);\n  }\n}\n\n// Join with natural separators (same as embedding format)\nconst searchQuery = queryParts.join(' | ');\n\n// Return n8n compatible output\nreturn [{\n  json: {\n    query: searchQuery,\n    metadata: {\n      person_name: personName,\n      person_role: personData?.role || searchData.person_role || '',\n      artist_name: artistName,\n      masters: mastersString,\n      book_id: personData?.book_id || searchData.book_id || '',\n      book_number: personData?.book_number || '',\n      deal_number: searchData.deal_number || '',\n      deal_id: searchData.deal_id || '',\n      deal_type: searchData.deal_type || '',\n      deal_next_step: searchData.deal_next_step,\n      verification_status: personData?.verification_status || ''\n    },\n    hasValidContent: queryParts.length > 0\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2060,
+        1475
+      ],
+      "id": "ec81fdb0-8750-42c3-8a6b-7a6afae570fb",
+      "name": "Process Input"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "46a95b16-1118-4f20-a708-e68dba02a115",
+              "name": "deals",
+              "value": "={{ $input.all().map(item => item.json )}}",
+              "type": "array"
+            },
+            {
+              "id": "3807ab5f-52bb-4228-b75b-06c24405eda3",
+              "name": "route",
+              "value": "={{ $('Code').item.json.route }}",
+              "type": "string"
+            },
+            {
+              "id": "6332885f-8b61-435e-bb27-bb86e25aea77",
+              "name": "person_name",
+              "value": "={{ $('Process Input').first().json.metadata.person_name }}",
+              "type": "string"
+            },
+            {
+              "id": "443bd142-c826-4518-854d-71be0dfca215",
+              "name": "artist_name",
+              "value": "={{ $('Process Input').first().json.metadata.artist_name }}",
+              "type": "string"
+            },
+            {
+              "id": "bcf0ba6c-dd86-4f22-8255-a4add6916a0d",
+              "name": "master(s)",
+              "value": "={{ $('Process Input').first().json.metadata.masters }}",
+              "type": "string"
+            },
+            {
+              "id": "9d3c10d7-dab3-4cf7-a1a7-f8619d3434c4",
+              "name": "confirmed_by_id",
+              "value": "={{ $('Code').first()?.json?.confirmed_by_id || false }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        60,
+        1300
+      ],
+      "id": "a6c7b502-f404-4a5b-a366-d756ce1cb2db",
+      "name": "Format"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input data\nconst inputData = $input.all()[0].json;\n\n// Initialize output object\nlet output = {\n  deal_search_output: \"\",\n  next_route: \"\",  // Changed from deal_status to next_route\n  deal_metadata: []\n};\n\n// Helper function to format currency\nfunction formatCurrency(amount, currency) {\n  return `${currency} ${parseFloat(amount).toFixed(2)}`;\n}\n\n// Helper function to format deal terms into structured string\nfunction formatDealTerms(deal) {\n  const terms = [];\n  \n  terms.push(`**Deal ID:** ${deal.id}`);\n  terms.push(`**Title:** ${deal.title}`);\n  terms.push(`**Status:** ${deal.status}`);\n  terms.push(`**Payment Status:** ${deal.payment_status}`);\n  terms.push(`**Fee Amount:** ${formatCurrency(deal.fee_amount, deal.fee_currency)}`);\n  terms.push(`**Fee Schedule:** ${deal.fee_schedule}`);\n  terms.push(`**Recoupable Percentage:** ${(parseFloat(deal.percent_recoupable) * 100).toFixed(2)}%`);\n  \n  // Add master agreement details if available\n  if (deal.master_agreements && deal.master_agreements.length > 0) {\n    const ma = deal.master_agreements[0];\n    terms.push(`**Master Agreement Status:** ${ma.status}`);\n    terms.push(`**Master Royalty:** ${(ma.master_royalty * 100).toFixed(1)}%`);\n    if (ma.fee) {\n      terms.push(`**Master Agreement Fee:** ${formatCurrency(ma.fee, deal.fee_currency)}`);\n    }\n  }\n  \n  return terms.join('\\n');\n}\n\n// Helper function to extract all masters from master agreements\nfunction extractMasters(masterAgreements) {\n  if (!masterAgreements || masterAgreements.length === 0) {\n    return 'N/A';\n  }\n  \n  const masters = masterAgreements\n    .filter(ma => ma.master_name && ma.master_name.trim())\n    .map(ma => ma.master_name.trim());\n  \n  return masters.length > 0 ? masters.join(', ') : 'N/A';\n}\n\n// Helper function to get person/performer name (whichever is not null)\nfunction getPersonOrPerformerName(deal) {\n  // Prioritize person_name, fallback to performer_name if available\n  if (deal.person_name && deal.person_name.trim()) {\n    return deal.person_name.trim();\n  }\n  \n  // If you have performer_name field in your data structure\n  if (deal.performer_name && deal.performer_name.trim()) {\n    return deal.performer_name.trim();\n  }\n  \n  return 'N/A';\n}\n\n// Modified helper function to create simplified markdown table for confirmation\nfunction createSimplifiedDealsTable(deals) {\n  let table = \"| Deal ID | Person/Performer | Title | Status | Payment Status | Masters |\\n\";\n  table += \"|---------|------------------|-------|--------|----------------|----------|\\n\";\n  \n  deals.forEach((deal) => {\n    const personName = getPersonOrPerformerName(deal);\n    const masters = extractMasters(deal.master_agreements);\n    \n    table += `| ${deal.id || 'N/A'} | ${personName} | ${deal.title || 'N/A'} | ${deal.status || 'N/A'} | ${deal.payment_status || 'N/A'} | ${masters} |\\n`;\n  });\n  \n  return table;\n}\n\n// Helper function to check if a value is unknown/missing\nfunction isUnknown(value) {\n  return !value || value.trim() === \"\" || value.toLowerCase().includes(\"unknown\");\n}\n\n// Helper function to generate context message for unknown masters/artists\nfunction generateUnknownContextMessage(artistName, masters) {\n  let contextMessage = \"\";\n  const unknownArtist = isUnknown(artistName);\n  const unknownMasters = isUnknown(masters);\n  \n  if (unknownArtist && unknownMasters) {\n    contextMessage = \"No artist names or master names were found in the conversation, however here are some deals which may be relevant. \";\n  } else if (unknownArtist) {\n    contextMessage = `No artist names were found in the conversation (masters: ${masters}), however here are some deals which may be relevant. `;\n  } else if (unknownMasters) {\n    contextMessage = `No master names were found in the conversation (artist: ${artistName}), however here are some deals which may be relevant. `;\n  }\n  \n  if (contextMessage) {\n    contextMessage += \"Ask the manager if he would like to proceed with one of these or provide valid details.\";\n  }\n  \n  return contextMessage;\n}\n\n// Helper function to generate metadata array from deals\nfunction generateDealMetadata(deals, personName, artistName, masters) {\n  if (!deals || deals.length === 0) {\n    return [];\n  }\n  \n  return deals.map(deal => ({\n    deal_id: deal.id || \"\",\n    deal_number: deal.number || \"\",\n    person_name: personName || \"\",\n    artist_name: artistName || \"\",\n    masters: masters || \"\",\n    status: deal.status || \"\"\n  }));\n}\n\n// Process based on route\nconst route = inputData.route || \"\";\nconst personName = inputData.person_name || \"Unknown Person\";\nconst artistName = inputData.artist_name || \"Unknown Artist\";\nconst masters = inputData[\"master(s)\"] || \"Unknown Masters\";\nconst role = inputData.role || \"Producer\";\n\nswitch(route.toLowerCase()) {\n  case \"proceed\":\n    // Get the first deal from the list\n    if (inputData.deals && inputData.deals.length > 0) {\n      const deal = inputData.deals[0];\n      const currentTerms = formatDealTerms(deal);\n      \n      // Generate metadata for the single deal\n      output.deal_metadata = generateDealMetadata([deal], personName, artistName, masters);\n      \n      let dealDescription;\n      \n      // Check if this is a confirmed deal by ID\n      if (inputData.confirmed_by_id === true) {\n        // Special message for deals confirmed by manager-provided ID\n        dealDescription = `I have retrieved the deal by provided ID by the manager. Here are the key terms:`;\n      } else {\n        // Original logic for score-based matches\n        const unknownContext = generateUnknownContextMessage(artistName, masters);\n        \n        dealDescription = `I found the deal for ${role} ${personName}`;\n        if (!isUnknown(artistName)) {\n          dealDescription += ` with ${artistName}`;\n        }\n        if (!isUnknown(masters)) {\n          dealDescription += ` for the master(s): ${masters}`;\n        }\n        dealDescription += \".\";\n        \n        if (unknownContext) {\n          dealDescription = unknownContext + \"\\n\\n\" + dealDescription;\n        }\n      }\n      \n      // Check if deal is fully executed\n      if (deal.status === \"Fully Executed\") {\n        output.deal_search_output = `${dealDescription}\\n\\n${currentTerms}\\n\\nThe deal is **Fully Executed** and cannot be proceeded further for any changes.`;\n        output.next_route = \"no_action\";\n      } else {\n        output.deal_search_output = `${dealDescription}\\n\\n${currentTerms}\\n\\nANALYZE this deal thoroughly against the email conversation thread. Compare all deal terms with the latest negotiations and discussions in the email thread. Based on your comprehensive analysis:\\n\\n1. **Fee Structure**: Verify if the fee amount of ${formatCurrency(deal.fee_amount, deal.fee_currency)} with ${deal.fee_schedule} payment schedule aligns with the latest negotiations in the email conversation.\\n\\n2. **Payment Status**: Current status is \"${deal.payment_status}\" - analyze the email thread to confirm if this needs updating based on recent payments or payment agreements discussed.\\n\\n3. **Deal Status**: The deal is currently marked as \"${deal.status}\" - cross-reference with the email conversation to verify if this reflects the current negotiation state.\\n\\n4. **Royalty Terms**: ${deal.master_agreements && deal.master_agreements[0] ? `Master royalty is set at ${(deal.master_agreements[0].master_royalty * 100).toFixed(1)}%` : 'No master royalty defined'} - check if the email thread mentions any royalty changes or new agreements.\\n\\n**CRITICAL INSTRUCTION**: After thorough analysis, PROPOSE/RECOMMEND specific changes or updates needed based on the email conversation. Set deal_update = 'no_update' if no changes are detected after analysis, otherwise set deal_update = 'update' and provide detailed recommendations with specific values and justifications from the email thread.`;\n        output.next_route = \"update\";\n      }\n    } else {\n      output.deal_search_output = \"No deals found in the input data. Please verify the data source.\";\n      output.next_route = \"error\";\n      output.deal_metadata = [];\n    }\n    break;\n    \n  case \"confirm\":\n    // Use simplified table for confirmation with only required fields\n    if (inputData.deals && inputData.deals.length > 0) {\n      // Sort deals by ID\n      const sortedDeals = [...inputData.deals].sort((a, b) => \n        String(a.id).localeCompare(String(b.id))\n      );\n      \n      // Generate metadata for all deals\n      output.deal_metadata = generateDealMetadata(sortedDeals, personName, artistName, masters);\n      \n      const dealsTable = createSimplifiedDealsTable(sortedDeals);\n      const unknownContext = generateUnknownContextMessage(artistName, masters);\n      \n      let dealDescription = `I found the following deals for ${role} ${personName}`;\n      if (!isUnknown(artistName)) {\n        dealDescription += ` with ${artistName}`;\n      }\n      if (!isUnknown(masters)) {\n        dealDescription += ` for ${masters}`;\n      }\n      dealDescription += \":\";\n      \n      if (unknownContext) {\n        dealDescription = unknownContext + \"\\n\\n\" + dealDescription;\n      }\n      \n      output.deal_search_output = `${dealDescription}\\n\\n${dealsTable}\\n\\nAsk the manager to confirm the Deal ID related to the discussion in this email thread.`;\n      \n      output.next_route = \"confirm\";\n    } else {\n      output.deal_search_output = \"No deals found to confirm. Please verify the data source.\";\n      output.next_route = \"error\";\n      output.deal_metadata = [];\n    }\n    break;\n    \n  case \"discard\":\n    // No deals found, propose creating new\n    output.deal_metadata = [];\n    \n    let newDealDescription = `I could not find any existing deals for this conversation.\\n\\nBased on the email thread, compile below key terms for the deal between ${role} ${personName}`;\n    if (!isUnknown(artistName)) {\n      newDealDescription += ` and ${artistName}`;\n    }\n    if (!isUnknown(masters)) {\n      newDealDescription += ` for the track(s) \"${masters}\"`;\n    }\n    newDealDescription += \":\";\n    \n    output.deal_search_output = `${newDealDescription}\\n\\n**Propose below key Deal Terms:**\\n- **Person:** ${personName}\\n- **Artist:** ${!isUnknown(artistName) ? artistName : '<Extract from Email Discussion/Deal Document. If not provided, \"Not Provided\">'}\\n- **Master(s):** ${!isUnknown(masters) ? masters : 'Extract from Email Discussion/Deal Document. If not provided, \"Not Provided'}\\n- **Status:** <Extract from Email Discussion/Deal Document. If not provided, \"Not Provided>\\n- **Payment Status:** <Assign by analysing the email conversation>\\n- **Fee Amount:** <Extract from Email Discussion/Deal Document. If not provided, \"Not Provided>\\n. Please review the email conversation to extract the specific financial terms and conditions discussed. Further draft these terms and ask the manager, if he would you like to create a new deal with these terms?\\n\\n`;\n    \n    output.next_route = \"create_new\";\n    break;\n    \n  default:\n    // Invalid or missing route\n    output.deal_search_output = `Invalid or missing route parameter. Received: \"${route}\". Please specify one of: proceed, confirm, or discard.`;\n    output.next_route = \"error\";\n    output.deal_metadata = [];\n}\n\nreturn [{ json: output }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        1475
+      ],
+      "id": "0bfe0937-ccc1-4ecc-9d8e-a65908e3892c",
+      "name": "Guided Responses"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fda0d2aa-63f8-41a0-a3fa-b872c640296d",
+              "leftValue": "={{ $json.metadata.deal_id==\"\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2500,
+        1960
+      ],
+      "id": "487c7251-be54-4b85-a012-01722897633d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "tableName": "patchbay_deal_vectorstore",
+        "prompt": "={{ $json.query }}",
+        "topK": 10,
+        "options": {
+          "distanceStrategy": "cosine",
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "deal_type",
+                "value": "Master"
+              },
+              {
+                "name": "book_id",
+                "value": "={{ $json.metadata.book_id }}"
+              },
+              {
+                "name": "=deal_id",
+                "value": "={{ $json.metadata.deal_id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1.1,
+      "position": [
+        -1320,
+        1360
+      ],
+      "id": "c6f3e3f6-246a-4d3f-a097-58df43a1df20",
+      "name": "Postgres PGVector Store1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1160,
+        1560
+      ],
+      "id": "59e0dc2a-2ec8-49ce-92d5-2e02a0a8e166",
+      "name": "Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// N8N Code Node - JSON Modifier with Conditional Logic\nconst inputData = $input.all();\n\nreturn inputData.map(item => {\n  const json = item.json;\n  \n  // Check if json is empty (no properties or all properties are null/undefined)\n  const isEmpty = !json || Object.keys(json).length === 0 || \n                  Object.values(json).every(value => value === null || value === undefined);\n\n  if (isEmpty) {\n    // Return as is if empty\n    return { json: json };\n  } else {\n    // Add confirmed_by_id = true if not empty\n    return { \n      json: {\n        ...json,\n        confirmed_by_id: true\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -958,
+        1625
+      ],
+      "id": "814bc029-0e49-4899-b1ec-f58e8eba6b9d",
+      "name": "Format1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8c1242bf-92d7-4cb2-969d-5aeb82d7b310",
+              "leftValue": "={{ $json.deal_number!==null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -440,
+        1475
+      ],
+      "id": "deb412dc-b4c0-49f4-bdb3-f5e9627f36ff",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "46a95b16-1118-4f20-a708-e68dba02a115",
+              "name": "deals",
+              "value": "=[{}]",
+              "type": "array"
+            },
+            {
+              "id": "3807ab5f-52bb-4228-b75b-06c24405eda3",
+              "name": "route",
+              "value": "={{ $('Code').item.json.route }}",
+              "type": "string"
+            },
+            {
+              "id": "6332885f-8b61-435e-bb27-bb86e25aea77",
+              "name": "person_name",
+              "value": "={{ $('Process Input').first().json.metadata.person_name }}",
+              "type": "string"
+            },
+            {
+              "id": "443bd142-c826-4518-854d-71be0dfca215",
+              "name": "artist_name",
+              "value": "={{ $('Process Input').first().json.metadata.artist_name }}",
+              "type": "string"
+            },
+            {
+              "id": "bcf0ba6c-dd86-4f22-8255-a4add6916a0d",
+              "name": "master(s)",
+              "value": "={{ $('Process Input').first().json.metadata.masters }}",
+              "type": "string"
+            },
+            {
+              "id": "9d3c10d7-dab3-4cf7-a1a7-f8619d3434c4",
+              "name": "confirmed_by_id",
+              "value": "={{ $('Code').first()?.json?.confirmed_by_id || false }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        1575
+      ],
+      "id": "6153ea7e-7005-4f72-8678-4d8b56cbe799",
+      "name": "Format2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "264805d4-e065-412b-86e5-4b0162cf3957",
+              "leftValue": "={{ $('Create').item.json.status===\"Needs Review\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        -300
+      ],
+      "id": "59d94108-11be-40e1-8e68-0d08e9c034ac",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f36c5ff6-d53f-434e-9a6b-7ebe81047c99",
+              "name": "message",
+              "value": "=Deal created successfully. No need to recommend anything on the invoice.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1100,
+        -400
+      ],
+      "id": "2c95d7dc-4534-40ba-ab7c-ea2f948d31c9",
+      "name": "RecipientExists3"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "vsVHPxzukmEKdO6C",
+          "mode": "list",
+          "cachedResultName": "Database Manager"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "embed"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        -500
+      ],
+      "id": "6a072c31-442d-41e3-a4c2-ad91655c4e0a",
+      "name": "EmbedDeals"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1412,
+        472.5
+      ],
+      "id": "2ce9789b-fa17-4b8c-82d2-d28fc7a2a1a1",
+      "name": "Fixing Parser"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.metadata.deal_id===\"\" && $json.metadata.deal_next_step !== 'create_new'}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "768c5b81-0373-4013-bf39-a281e0901b24"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4aaf116f-f41c-4444-80ae-e4d9742d0ff8",
+                    "leftValue": "={{ $json.metadata.deal_id!==\"\" && $json.metadata.deal_next_step !== 'create_new'}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ed5e94f9-9b42-4dcf-9924-77b4c04df03d",
+                    "leftValue": "={{ $json.metadata.deal_next_step === 'create_new' }}",
+                    "rightValue": "=",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1840,
+        1475
+      ],
+      "id": "f9d67d62-effb-4101-913a-c0a9f397d69c",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1438,
+        1700
+      ],
+      "id": "d9dc5240-44e7-4c9f-8438-aee0c55a26f1",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Get all the deals for below input and return the deal_id.:\n\nQuincy Jones, Rahat Fateh",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are a deal search agent to look for and retrieve the most relevant deals for the given input query. Avoid duplicates and the deals where the master/track don't match."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        740,
+        1160
+      ],
+      "id": "f39386d8-e8ed-4d73-8ec5-3c0746345682",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "DealSearch",
+        "toolDescription": "Locate and find the most relevant deals for the given input query.",
+        "tableName": "patchbay_deal_vectorstore",
+        "topK": 10,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1.1,
+      "position": [
+        920,
+        1500
+      ],
+      "id": "0d33418f-98ed-40f5-897d-dc238496b5d6",
+      "name": "Postgres PGVector Store2",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1120,
+        1720
+      ],
+      "id": "0d7d01bf-81a1-400b-b309-4cb3836c9dc5",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        700,
+        1380
+      ],
+      "id": "a51b0d5f-c899-42d9-891d-ee7599310042",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1160
+      ],
+      "id": "0feaea84-d319-4d6c-ac0c-6a492bd267b2",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "options": {
+          "prompt": "Instructions:\n--------------\n{instructions}\n--------------\nCompletion:\n--------------\n{completion}\n--------------\n\nAbove, the Completion did not satisfy the constraints given in the Instructions.\nError:\n--------------\n{error}\n--------------\n\nPlease try again. Please only respond with an answer that satisfies the constraints laid out in the Instructions:"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        1320
+      ],
+      "id": "eaa7dfc6-1b45-4be1-baff-62b0d211dc98",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"deal_ids\": {\n\t\t\t\"type\": \"array\",\n\t\t\t\"items\": {\n\t\t\t\t\"type\": \"string\"\n\t\t\t}\n\t\t}\n\t}\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1380,
+        1540
+      ],
+      "id": "992aa7f7-e6f1-4175-8d9c-26d035c5b00e",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "action": "search",
+          "data": {
+            "type": "deals_and_invoices",
+            "person_verification": {
+              "person_name": "Alexander B. Goldblatt",
+              "performer_name": "Alex Goldblatt",
+              "status": "verified",
+              "book_number": "f9fe49b9-7b34-4926-bd85-32a66377e5ba",
+              "book_id": "7",
+              "role": "Producer",
+              "message": "Producer Alexander B. Goldblatt is verified in the Manager's workspace. Inform the manager."
+            },
+            "task_metadata": {
+              "deal_discussion": true,
+              "deal_type": "Master",
+              "deal_id": null,
+              "artist_name": "Lizzo",
+              "masters": [
+                "STILL CANT FUH"
+              ],
+              "deal_next_step": null,
+              "person_name": "Alexander B. Goldblatt",
+              "performer_name": "Alex Goldblatt",
+              "message": "Requirements for deal check satisfied."
+            },
+            "last_bot_response": "Requirements for deal check satisfied."
+          },
+          "ai_input": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-25T04:59:53.999Z",
+  "versionId": "4e92dc45-755b-4201-9a2c-3020dbfbbe1f"
+}
