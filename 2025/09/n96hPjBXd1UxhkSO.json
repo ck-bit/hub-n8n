@@ -1,0 +1,3644 @@
+{
+  "active": false,
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Router",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "access_token2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields11",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Postgres6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ByInvoiceId",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Invoice": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extract Invoice",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Fix",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Fix",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "UpdatePayload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres6": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fix": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Extract Invoice",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdatePayload": {
+      "main": [
+        [
+          {
+            "node": "access_token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId1": {
+      "main": [
+        [
+          {
+            "node": "CreateInvoice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token": {
+      "main": [
+        [
+          {
+            "node": "firebaseId1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnFailure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token1": {
+      "main": [
+        [
+          {
+            "node": "firebaseId",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId": {
+      "main": [
+        [
+          {
+            "node": "GetInvoice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "InvoiceRecipient1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Invoice",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RegisterCustomer": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Extract Invoice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Extract Invoice",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ByInvoiceId": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "InvoiceOutput",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ByRecAndAmount",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "GetInvoices",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ByRecAndAmount",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "GetInvoices1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ByRecipient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "InvoiceOutput1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ByRecipient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If7": {
+      "main": [
+        [
+          {
+            "node": "GetInvoices2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ByAmount",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ByAmount": {
+      "main": [
+        [
+          {
+            "node": "If8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If8": {
+      "main": [
+        [
+          {
+            "node": "GetInvoices3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "InvoiceOutput3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If9": {
+      "main": [
+        [
+          {
+            "node": "InvoiceOutput2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ByAmount",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ByRecAndAmount": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetInvoices": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetInvoices1": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetInvoices2": {
+      "main": [
+        [
+          {
+            "node": "If9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetInvoices3": {
+      "main": [
+        [
+          {
+            "node": "InvoiceOutput3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ByRecipient": {
+      "main": [
+        [
+          {
+            "node": "If7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields8": {
+      "main": [
+        [
+          {
+            "node": "ResetSubsession3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ResetSubsession2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ResetSubsession2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceTerms5": {
+      "main": [
+        [
+          {
+            "node": "access_token3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId2": {
+      "main": [
+        [
+          {
+            "node": "Get Invoice",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token2": {
+      "main": [
+        [
+          {
+            "node": "firebaseId2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "InvoiceTerms5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion5": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "access_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Invoice": {
+      "main": [
+        [
+          {
+            "node": "Get BankingInfo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get BankingInfo": {
+      "main": [
+        [
+          {
+            "node": "Combine",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine": {
+      "main": [
+        [
+          {
+            "node": "Format",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format": {
+      "main": [
+        [
+          {
+            "node": "Pdf-Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pdf-Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetInvoice": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get BankingInfo1": {
+      "main": [
+        [
+          {
+            "node": "Combine1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnFailure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine1": {
+      "main": [
+        [
+          {
+            "node": "Format1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format1": {
+      "main": [
+        [
+          {
+            "node": "Pdf-Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pdf-Request1": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnFailure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreateInvoice": {
+      "main": [
+        [
+          {
+            "node": "Get BankingInfo1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnFailure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnFailure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OnFailure": {
+      "main": [
+        [
+          {
+            "node": "ResetSubsession1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId3": {
+      "main": [
+        [
+          {
+            "node": "Get Invoice1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token3": {
+      "main": [
+        [
+          {
+            "node": "firebaseId3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Invoice1": {
+      "main": [
+        [
+          {
+            "node": "Get BankingInfo2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceRecipient1": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RegisterCustomer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-15T04:50:44.696Z",
+  "id": "n96hPjBXd1UxhkSO",
+  "meta": null,
+  "name": "invoice_helpers-V1.0.3",
+  "nodes": [
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.action.includes(\"create\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "a0d57f1e-2666-4549-a35d-9fb424095a98"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3325ec49-ea5d-4532-a9ce-b2b72dc1172b",
+                    "leftValue": "={{ $json.action.includes(\"pdf_request\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "18c4290d-49af-43d2-a73f-05ae633bcd63",
+                    "leftValue": "={{ $json.action.includes(\"send_file\") }}",
+                    "rightValue": "send_file",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3178b30e-5cff-4271-a4ab-f10a3199af22",
+                    "leftValue": "={{ $json.action.includes(\"update\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5dbddb92-dd71-4b8d-806c-0ac56308c93b",
+                    "leftValue": "={{ $json.action.includes(\"check\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1460,
+        175.5
+      ],
+      "id": "bd039973-600c-4d44-89c1-1ef6d312a86c",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "ai_input"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1680,
+        217.5
+      ],
+      "id": "a341790a-c6c6-4ead-9ab5-fbcadcd17765",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Instructions: {{ $('Trigger').first().json.ai_input }}\n-----\nMetadata: {{ JSON.stringify($json.metadata.removeField('last_bot_response'), null, ' ') }}\n-----\nlast_bot_message: {{$json.metadata.last_bot_response.removeTags()}}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an intelligent AI extraction agent responsible for parsing and extracting invoice-related data in strict accordance with the defined JSON parsing schema.\n\nYour task is to:\n- Fully analyze all available context sources.\n- Accurately extract the required fields.\n- Return the output **exactly matching** the structure, types, and enumerations defined in the JSON schema provided to you.\n\n---\n\n### Output Format\n\nYour response **must strictly follow** the following JSON schema structure:\n\n- All fields are **required** unless explicitly marked optional.\n- Use the correct data types (e.g., string, uuid, float, boolean, date).\n- Populate enum fields only with allowed values as defined (e.g., \"status\", \"deal_type\", \"currency\").\n\nRefer to the following schema definitions when forming the output.\n\n---\n\n### You will receive the following input sources:\n\n- **Email Thread / Deal Document**: Unstructured communication containing important deal or invoice context.\n- **Metadata**: Structured profile data of the manager, client, or associated entities.\n- **Tool Input**: Data retrieved via automated systems (e.g., deal lookups, previously stored values).\n- **Instructions**: Latest user instructions, which may contain constraints or field overrides.\n\n---\n\n### Key Guidelines\n\n1. Extract **only relevant and valid** information from the sources.\n2. If any metadata is missing, you must follow the instructions and set the values accordingly without any guess and hallucinations.\n3. Your output must be **machine-parseable**, **strictly valid JSON**, and conform exactly to the schema.\n\n---\n\nAct deterministically. Do not ask clarifying questions. Your job is to extract and format with precision.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        320,
+        -1256.25
+      ],
+      "id": "75743cf3-d46f-484a-8674-5fc2f59fd28b",
+      "name": "Extract Invoice",
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        348,
+        -836.25
+      ],
+      "id": "56ce91b9-ebc5-4ea3-b036-d9ad1989d4a0",
+      "name": "Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"book_number\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\",\n      \"description\": \"book_id(uuid) provided in metadata.person_verification\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"Appropriate title or label of the invoice\"\n    },\n    \"deal_number\": {\n      \"type\": [\"string\", null],\n      \"format\": \"uuid\",\n      \"description\": \"Search for deal_number(uuid) extracted from Metadata if provided. Set it to null\"\n    },\n    \"deal_type\": {\n      \"type\": [\"string\", null],\n      \"enum\": [\"Producer\", \"Mixer\", \"Featured Artist\"],\n      \"description\": \"Type of deal related to the invoice. If no informations about the deal is present, set this to null\"\n    },\n    \"status\": {\n      \"type\": [\"string\", null],\n      \"enum\": [\"Draft\"],\n      \"description\": \"Status of the invoice. If not matched or provided, set to Draft.\"\n    },\n    \"amount\": {\n      \"type\": \"string\",\n      \"description\": \"Extract the approved amount by the manager in the given context. You must look for the amount and extract is accurately.\"\n    },\n    \"currency\": {\n      \"type\": \"string\",\n      \"enum\": [\"EUR\", \"GBP\", \"USD\", \"CAD\", \"AUD\"],\n      \"description\": \"Currency of the invoice amount\"\n    },\n    \"commissioned_collected\": {\n      \"type\": \"boolean\",\n      \"description\": \"Whether the commissioned amount has been collected\"\n    },\n    \"management_commission\": {\n      \"type\": \"number\",\n      \"description\": \"Management commission amount, if clearly mentioned\"\n    },\n    \"management_commission_currency\": {\n      \"type\": \"string\",\n      \"enum\": [\"EUR\", \"GBP\", \"USD\", \"CAD\", \"AUD\"],\n      \"description\": \"Currency of the management commission. Set USD if no detail found.\"\n    },\n    \"legal_commissioned_collected\": {\n      \"type\": \"boolean\",\n      \"description\": \"Whether the legal commissioned amount has been collected\"\n    },\n    \"contact\": {\n      \"type\": [\"string\", null],\n      \"description\": \"Contact information of the person/customer who is recieving the invoice. Set null if not provided\"\n    },\n    \"customer_number\": {\n      \"type\": [\"string\", null],\n      \"format\": \"uuid\",\n      \"description\": \"Extract the uuid number from invoice_metadata.invoice_customer if provided, otherwise set to null\"\n    },\n    \"po_number\": {\n      \"type\": [\"string\", null],\n      \"description\": \"Purchase Order number for this invoice if provided\"\n    },\n    \"issued_on\": {\n      \"type\": [\"string\", null],\n      \"format\": \"date\",\n      \"description\": \"Date the invoice was issued. Retrieve the latest date for the invoice calling the tool\"\n    },\n    \"due_on\": {\n      \"type\": [\"string\", null],\n      \"format\": \"date\",\n      \"description\": \"Invoice due date provided in the context, set to null if not provided\"\n    },\n    \"details\": {\n      \"type\": [\"string\"],\n      \"description\": \"Short details of the invoice created.\"\n    }\n  },\n  \"required\": [\n    \"book_number\",\n    \"title\",\n    \"deal_number\",\n    \"deal_type\",\n    \"status\",\n    \"amount\",\n    \"currency\",\n    \"commissioned_collected\",\n    \"management_commission\",\n    \"management_commission_currency\",\n    \"legal_commissioned_collected\",\n    \"contact\",\n    \"customer_number\",\n    \"po_number\",\n    \"issued_on\",\n    \"due_on\",\n    \"details\"\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        636,
+        -836.25
+      ],
+      "id": "83f3aa60-6e43-4102-9c36-0e5e386fa8ff",
+      "name": "Parser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=instructions: {{ $('Trigger').item.json.ai_input }}\n\nrecommended changes: {{ $('Trigger').item.json.data.recommended_invoice_updates }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are Patchbay Invoice Updation Agent responsible for modifying existing invoices using structured instructions.\n\nYour responsibilities:\n\n1. Always invoke the PostgreSQL tool `RetrieveInvoice` with the provided `invoice_number` to fetch the current invoice record from the database.\n2. Analyze the retrieved invoice details against the provided `Instructions` to determine exactly which fields require updating.\n3. Construct a clean, minimal JSON payload that includes **only the fields whose values differ from the database record based on the instructions**. Do not include unchanged fields or nulls unless a field is being explicitly reset.\n\n---- INPUTS AVAILABLE TO YOU ----\n- `invoice_number`: Unique identifier for the invoice (used to fetch current data).\n- `Instructions`: The latest user instruction specifying what field(s) need to be updated.\n- `Metadata` (optional): Contextual information such as manager ID, client ID, or Book Number if relevant.\n\n---- OUTPUT FORMAT ----\nReturn the final JSON update payload as per the `UpdateInvoiceRequest` schema, strictly without any additional comments, explanations, or preambles. Example:\n\n{\n  \"title\": \"Updated Title\",\n  \"amount\": 1500.00\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -800,
+        220
+      ],
+      "id": "831da97d-ec6f-4123-9fe6-5ae001067bd8",
+      "name": "AI Agent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": [\"object\", null],\n  \"description\": \"Update payload for an invoice. Only include fields that require updating. Omit fields that should remain unchanged. Do not provide nulls unless explicitly resetting a field. return null if no updation is needed.\",\n  \"properties\": {\n    \"status\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\n        \"Paid\", \"Unpad\", \"Sent\"\n      ],\n      \"description\": \"Updated invoice status. Include only if status has changed.\"\n    },\n    \"amount\": {\n      \"type\": [\"number\", \"null\"],\n      \"description\": \"Updated invoice amount. Include only if the value is being changed.\"\n    },\n    \"commissioned_collected\": {\n      \"type\": [\"boolean\", \"null\"],\n      \"description\": \"Set this only if the commissioned collection status is being updated.\"\n    },\n    \"management_commission\": {\n      \"type\": [\"number\", \"null\"],\n      \"description\": \"Update this field only if the management commission amount is being changed.\"\n    },\n    \"management_commission_currency\": {\n      \"type\": [\"string\", \"null\"],\n      \"enum\": [\"EUR\", \"GBP\", \"USD\", \"CAD\", \"AUD\"],\n      \"description\": \"Currency of the management commission. Include if changed.\"\n    },\n    \"legal_commissioned_collected\": {\n      \"type\": [\"boolean\", \"null\"],\n      \"description\": \"Set this field only if legal commissioned collection status is being updated.\"\n    }\n  },\n  \"required\": [\"number\"]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -608,
+        635
+      ],
+      "id": "9e299bc7-aabb-465f-85cd-979487cba13d",
+      "name": "Parser1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "edbe88af-c3b5-405d-8125-984557fa1789",
+              "leftValue": "={{ $json.output!==null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -340,
+        417.5
+      ],
+      "id": "58e1cfe9-e1fe-45e4-8d97-c518736da7b3",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2111359a-e427-4309-959d-330b0684f2f9",
+              "name": "message",
+              "value": "No changes detected for updating the invoice.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        616.25
+      ],
+      "id": "27cfc884-2962-42ee-8f39-5550ab0f0cdf",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -776,
+        635
+      ],
+      "id": "eef53f0c-db24-4a51-a8d6-4f1e4e3f3ee7",
+      "name": "Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM invoices_invoice WHERE number = $1",
+        "options": {
+          "queryReplacement": "={{ $json.data.invoice_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1240,
+        616.25
+      ],
+      "id": "f0dc2778-c37d-4bc2-a7a9-78dce9e42914",
+      "name": "Postgres6",
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        528,
+        -1033.75
+      ],
+      "id": "21260daa-392b-4014-ae9a-b03814e918c3",
+      "name": "Fix"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f36c5ff6-d53f-434e-9a6b-7ebe81047c99",
+              "name": "message",
+              "value": "=Invoice created successfully with below details;\n\nTitle: {{ $('CreateInvoice').first().json.title }}\nInvoice Amount: {{ $('CreateInvoice').first().json.amount }}\nStatus: {{ $('CreateInvoice').first().json.status }}\nRecipient: {{ $('CreateInvoice').first().json.customer.address.name }}\nCurrency: {{ $('CreateInvoice').first().json.currency }}\nIssue_date: {{ $('CreateInvoice').first().json.issued_on }}\nDue_date: {{ $('CreateInvoice').first().json.due_on }}\n\nNext:\n- Set the next_task = send_file_to_user\nInform the manager about the invoice created and let him know to find the invoice file as attached. Also, ask, if he would like to email this file to someone?",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        -1380
+      ],
+      "id": "462b10f4-5998-41c4-8bf8-336ff7df0784",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4547bf90-18fa-4d61-95ed-ab6b85127523",
+              "name": "output.number",
+              "value": "={{ $('Trigger').item.json.data.invoice_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        293.75
+      ],
+      "id": "df6f4a25-8bbc-4a56-9fc9-38c64954ee63",
+      "name": "UpdatePayload"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3bd6ea95-7bc1-4589-bf96-9e863e87e14d",
+              "name": "message",
+              "value": "=Below updates were made to the invoice;\\n \nInvoice ID: {{ $('GetInvoice').first().json.invoice_number }}\n{{ $json.markdown }}\n\nNext, you must execute to tool: InvoiceFileRequest to get the updated invoice file and follow the instructions of that tool to inform the manager.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1344,
+        -6.25
+      ],
+      "id": "57a10474-768a-4bff-bf91-415d3f091dc0",
+      "name": "Edit Fields6"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('Trigger').item.json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1344,
+        -1131.25
+      ],
+      "id": "e748cae5-e913-496b-9815-c5b33acd0714",
+      "name": "firebaseId1",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1124,
+        -1056.25
+      ],
+      "id": "2ed4e31c-bb16-4c46-954c-48399d225d24",
+      "name": "access_token",
+      "retryOnFail": false,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        100,
+        293.75
+      ],
+      "id": "c386cc31-e2af-4bc2-842e-304de0d80cb1",
+      "name": "access_token1",
+      "retryOnFail": true,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('Trigger').item.json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        502,
+        43.75
+      ],
+      "id": "401e0ae3-dfeb-41f8-8c62-becc373715e9",
+      "name": "firebaseId",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "16461ce0-e9b9-4e0f-b827-b53a6cb9a326",
+                    "leftValue": "={{ $json.invoice_recipient.route ==='register' }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "55e16791-8b8b-4cad-b168-d54be8dc7c2a",
+                    "leftValue": "={{ $json.invoice_recipient.route ==='exists' }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.invoice_recipient.route ==='ask_manager' }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "674a4b45-3662-47af-8741-10cc07c0aa60"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": 1
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1020,
+        -856.25
+      ],
+      "id": "3fcc7bc0-6402-4ec9-8ffe-245ce0defbc1",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1) Safe reads\nconst metadata = $json?.data?.metadata ?? {};\nconst user_id = $json?.data?.user_id ?? \"\";\nconst mdIR = metadata?.invoice_metadata?.invoice_recipient ?? {};\nconst mdStatus = mdIR?.status ?? \"\";\nconst mdName = (mdIR?.name ?? \"\").trim();\nconst userInput = ($json?.data?.invoice_recipient ?? \"\").trim();\nconst thread =\n  $json?.data?.thread ??\n  $json?.data?.session_data?.ThreadId ??\n  \"\";\n\n// 2) Normalize invoice_recipient object + route\nlet invoice_recipient = {\n  status: \"\",   // exists | not_provided | missing | unknown\n  name: \"\",     // never hallucinated; empty string if unknown\n  source: \"\",   // metadata | user_input | none\n  route: \"\",    // use_existing | use_user_input | use_metadata_name | ask_manager | fallback\n};\n\n// CASE 1: metadata says it exists\nif (mdStatus === \"exists\") {\n  invoice_recipient = {\n    status: \"exists\",\n    name: mdName,\n    source: \"metadata\",\n    route: \"exists\",\n  };\n}\n// CASE 2: not_provided but user supplied input\nelse if (mdStatus === \"not_provided\" && userInput !== \"\") {\n  invoice_recipient = {\n    status: \"not_provided\",\n    name: userInput,\n    source: \"user_input\",\n    route: \"register\",\n  };\n}\n// CASE 3: missing in store, but metadata has a non-empty name\nelse if (mdStatus === \"missing\" && mdName !== \"\") {\n  invoice_recipient = {\n    status: \"missing\",\n    name: mdName,\n    source: \"metadata\",\n    route: \"register\",\n  };\n}\n// CASE 4: not_provided and no user input -> return METADATA ONLY\nelse if (mdStatus === \"not_provided\" && userInput === \"\") {\n  return [\n    {\n      json: {\n        metadata, // only metadata as requested\n        route: \"ask_manager\"\n      },\n    },\n  ];\n}\n// Fallback\nelse {\n  invoice_recipient = {\n    status: mdStatus || \"unknown\",\n    name: mdName || \"\",\n    source: mdStatus ? \"metadata\" : \"none\",\n    route: \"fallback\",\n  };\n}\n\n// 3) For Cases 1/2/3/fallback -> return thread + metadata + invoice_recipient\nreturn [\n  {\n    json: {\n      user_id,\n      thread,\n      metadata,\n      invoice_recipient,\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1240,
+        -856.25
+      ],
+      "id": "3cee61c1-4166-49b9-9e90-22610fbea114",
+      "name": "Router"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DI0OK2QjzXrFmcrM",
+          "mode": "list",
+          "cachedResultName": "InvoiceCustomer-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "create",
+            "data": "={{\n{\nuser_id: $json.user_id,\ninvoice_recipient: $json.invoice_recipient,\nmetadata: $json.metadata,\nthread: $json.thread\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        -1006.25
+      ],
+      "id": "13f364fa-099f-44eb-8aee-4e64745c4f4e",
+      "name": "RegisterCustomer"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f36c5ff6-d53f-434e-9a6b-7ebe81047c99",
+              "name": "message",
+              "value": "=To proceed with creating an invoice, a valid invoice recipient is needed. Ask the manager to provide a valid invoice recipient details and set the next_task to \"create_invoice\"",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -680,
+        -706.25
+      ],
+      "id": "c573650a-a888-463c-934d-0a03b5ae5af9",
+      "name": "Edit Fields7"
+    },
+    {
+      "parameters": {
+        "jsCode": "const base = $('Switch1').first().json;\nconst rec  = $input.first().json.invoice_recipient;\n\nconst updated = JSON.parse(JSON.stringify(base)); // deep clone\n\n// Ensure path exists\nupdated.metadata = updated.metadata ?? {};\nupdated.metadata.invoice_metadata = updated.metadata.invoice_metadata ?? {};\nupdated.metadata.invoice_metadata.invoice_recipient = {\n  status: \"exists\",\n  name: rec.name ?? \"\",\n  data: rec.data ?? {}\n};\n\nreturn [{ json: updated }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        100,
+        -1131.25
+      ],
+      "id": "dfe56fcb-aa8a-423a-9144-e735e3c99f05",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "name": "DateTime",
+        "description": "Call this tool to provide current time.",
+        "jsCode": "return new Date().toISOString()"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        408,
+        -1036.25
+      ],
+      "id": "b109dfa5-20f0-41cf-aaa8-0f956f1f6a6f",
+      "name": "Code Tool"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').item.json.data.thread.ThreadId+$('Trigger').item.json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        3324,
+        -1005
+      ],
+      "id": "90449cb6-47b7-4cff-ae14-b0ba18c596c5",
+      "name": "ResetSubsession1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get routes safely\nconst routes = $json?.data?.routes ?? [];\n\n// Find the first route with route_by === \"by_invoice_id\"\nconst matchedRoute = routes.find(r => r.route_by === \"by_invoice_id\") || null;\n\n// Return result\nreturn [\n  {\n    json: {\n      route: matchedRoute\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1240,
+        1190
+      ],
+      "id": "315f1cab-d772-4a83-a77d-f40a7f7a9fc0",
+      "name": "ByInvoiceId"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "757ce2c4-8561-4815-8386-699787b7d3e5",
+              "leftValue": "={{ $json.invoices.length != 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -340,
+        1015
+      ],
+      "id": "a75a6131-dcc7-41c2-84ee-aa1b265d0654",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5c5484d4-7a9b-4154-b35d-f35ba130478e",
+              "leftValue": "={{ $json.route!=null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1020,
+        1190
+      ],
+      "id": "282e5a58-dda2-42aa-91e4-1777aeb2fa23",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5c5484d4-7a9b-4154-b35d-f35ba130478e",
+              "leftValue": "={{ $json.route!=null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        100,
+        1290
+      ],
+      "id": "1b5a06ca-42d0-4b22-b1f0-cb28b6630cc4",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM invoices_invoice WHERE title NOTNULL LIMIT 5",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1680,
+        2605
+      ],
+      "id": "b86fe43a-9c60-4c8e-aa98-6e801bdccf9a",
+      "name": "ByRecipientAndAmount1",
+      "retryOnFail": true,
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "757ce2c4-8561-4815-8386-699787b7d3e5",
+              "leftValue": "={{ $json.invoices.length != 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        904,
+        791.25
+      ],
+      "id": "87ceaf94-3db0-42ce-b2d8-28ce366922ce",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5c5484d4-7a9b-4154-b35d-f35ba130478e",
+              "leftValue": "={{ $json.route!=null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1344,
+        1390
+      ],
+      "id": "1aa0e1b8-8a95-452d-ba7e-c8fb3c802db6",
+      "name": "If7"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get routes safely\nconst routes = $(\"Switch\").first().json?.data?.routes ?? [];\n\n// Find the first route with route_by === \"by_invoice_id\"\nconst matchedRoute = routes.find(r => r.route_by === \"by_amount_only\") || null;\n\n// Return result\nreturn [\n  {\n    json: {\n      route: matchedRoute\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2004,
+        1490
+      ],
+      "id": "d1dad63c-f354-460c-8c70-a2154cb7ed16",
+      "name": "ByAmount"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c40961bf-6c6e-4d49-9479-eccaaa923faa",
+              "name": "invoices",
+              "value": "={{ $json.invoices?? [] }}",
+              "type": "array"
+            },
+            {
+              "id": "e560ccd1-2cf8-4fbf-8b1a-3a2bea01ce0d",
+              "name": "route_by",
+              "value": "={{ $('ByInvoiceId').first().json.route.route_by }}",
+              "type": "string"
+            },
+            {
+              "id": "48020a1b-789f-4b3c-8099-b2769ee88703",
+              "name": "=invoice_next_step",
+              "value": "={{ $('ByInvoiceId').first().json.route.next_step }}",
+              "type": "string"
+            },
+            {
+              "id": "dcbf256a-ea6d-432c-8986-72fec89726f7",
+              "name": "status",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        816.25
+      ],
+      "id": "a9e7d1b9-b57f-45c1-8532-5f9ee02fd8f5",
+      "name": "InvoiceOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5c5484d4-7a9b-4154-b35d-f35ba130478e",
+              "leftValue": "={{ $json.route!=null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2224,
+        1490
+      ],
+      "id": "1956711d-b119-47a7-a4ae-4b0abc177f31",
+      "name": "If8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "757ce2c4-8561-4815-8386-699787b7d3e5",
+              "leftValue": "={{ $json.invoices.length != 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1784,
+        317.5
+      ],
+      "id": "79f759d1-6af3-432f-aa35-cef38d9ece39",
+      "name": "If9"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c40961bf-6c6e-4d49-9479-eccaaa923faa",
+              "name": "invoices",
+              "value": "={{ $json.invoices?? [] }}",
+              "type": "array"
+            },
+            {
+              "id": "e560ccd1-2cf8-4fbf-8b1a-3a2bea01ce0d",
+              "name": "route_by",
+              "value": "={{ $('ByRecAndAmount').first().json.route.route_by }}",
+              "type": "string"
+            },
+            {
+              "id": "e58469f7-ceab-460f-8184-090ae925a99c",
+              "name": "status",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1124,
+        741.25
+      ],
+      "id": "93395e91-0dad-41a6-8575-134731912e93",
+      "name": "InvoiceOutput1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get routes safely\nconst routes = $(\"Switch\").first().json?.data?.routes ?? [];\n\n// Find the first route with route_by === \"by_invoice_id\"\nconst matchedRoute = routes.find(r => r.route_by === \"by_recipient_with_amount\") || null;\n\n// Return result\nreturn [\n  {\n    json: {\n      route: matchedRoute\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -120,
+        1290
+      ],
+      "id": "f7e480f4-f69f-48f1-ac43-812d59871ef6",
+      "name": "ByRecAndAmount"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  COALESCE(\n    (\n      SELECT jsonb_agg(\n               jsonb_build_object(\n                'invoice_id', i.invoice_number,\n                'invoice_number', i.number,\n                'title', i.title,\n                'details', i.details,\n                'invoice_amount', i.amount,\n                'invoice_status', i.status,\n                'book_id', i.book_id\n               )\n               ORDER BY i.created_at DESC\n             )\n      FROM (\n        SELECT *\n        FROM invoices_invoice i\n        WHERE i.book_id = $1\n          AND i.invoice_number = $2\n        ORDER BY i.created_at DESC\n        LIMIT 3\n      ) i\n    ),\n    '[]'::jsonb\n  ) AS invoices;\n",
+        "options": {
+          "queryReplacement": "={{ $json.route.book_id }}, {{ $json.route.invoice_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -680,
+        1115
+      ],
+      "id": "01a6d454-b8d7-4beb-88cd-5b82831b21dd",
+      "name": "GetInvoices",
+      "retryOnFail": true,
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  COALESCE(\n    (\n      SELECT jsonb_agg(\n               jsonb_build_object(\n                 'invoice_id', i.invoice_number,\n                 'invoice_number', i.number,\n                 'title', i.title,\n                 'details', i.details,\n                 'invoice_amount', i.amount,\n                 'invoice_status', i.status,\n                 'invoice_customer_id', i.customer_id,\n                 'invoice_recipient', $4   -- still supplied by caller\n               )\n             )\n      FROM (\n        SELECT i.*\n        FROM invoices_invoice i\n        JOIN invoices_invoiceclient ic\n          ON ic.id = i.customer_id\n        WHERE i.amount = $1          -- amount\n          AND ic.number = $2         -- customer number\n          AND i.book_id = $3         -- scope by book\n        ORDER BY i.created_at DESC\n        LIMIT 3\n      ) i\n    ),\n    '[]'::jsonb\n  ) AS invoices;\n",
+        "options": {
+          "queryReplacement": "={{ $json.route.amount }}, {{ $json.route.recipient_number }}, {{ $json.route.book_id }}, {{ $json.route.recipient_name }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        502,
+        893.75
+      ],
+      "id": "5f756a09-ffe1-4470-a436-1ef262899517",
+      "name": "GetInvoices1",
+      "retryOnFail": true,
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  COALESCE(\n    (\n      SELECT jsonb_agg(\n               jsonb_build_object(\n                 'invoice_id', i.invoice_number,\n                 'invoice_number', i.number,\n                 'title', i.title,\n                 'details', i.details,\n                 'invoice_amount', i.amount,\n                 'invoice_status', i.status,\n                 'invoice_customer_id', i.customer_id,\n                 'invoice_recipient', $3   -- still supplied by caller\n               )\n               ORDER BY i.created_at DESC\n             )\n      FROM (\n        SELECT *\n        FROM invoices_invoice\n        WHERE book_id = $2\n          AND customer_id = (\n            SELECT ic.id\n            FROM invoices_invoiceclient ic\n            WHERE ic.number = $1\n          )\n        ORDER BY created_at DESC\n        LIMIT 3\n      ) i\n    ),\n    '[]'::jsonb\n  ) AS invoices;\n",
+        "options": {
+          "queryReplacement": "={{ $json.route.recipient_number }}, {{ $json.route.book_id }}, {{ $json.route.recipient_name }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1564,
+        417.5
+      ],
+      "id": "83699026-5cef-4b38-bc04-38707389e665",
+      "name": "GetInvoices2",
+      "retryOnFail": true,
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  COALESCE(\n    (\n      SELECT jsonb_agg(t)\n      FROM (\n        SELECT jsonb_build_object(\n                 'invoice_id', i.invoice_number,\n                 'invoice_number', i.number,\n                 'title', i.title,\n                 'details', i.details,\n                 'invoice_amount', i.amount,\n                 'invoice_status', i.status,\n                 'book_id', i.book_id,\n                 'invoice_customer_id', i.customer_id\n               ) AS t\n        FROM invoices_invoice i\n        WHERE i.amount = $1\n          AND i.book_id = $2\n        ORDER BY i.created_at DESC\n        LIMIT 3\n      ) sub\n    ),\n    '[]'::jsonb\n  ) AS invoices;\n",
+        "options": {
+          "queryReplacement": "={{ $json.route.amount }}, {{ $json.route.book_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2444,
+        417.5
+      ],
+      "id": "c1a35723-1f52-4607-b5a5-01a18b5daf5a",
+      "name": "GetInvoices3",
+      "retryOnFail": true,
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c40961bf-6c6e-4d49-9479-eccaaa923faa",
+              "name": "invoices",
+              "value": "={{ $json.invoices?? [] }}",
+              "type": "array"
+            },
+            {
+              "id": "e560ccd1-2cf8-4fbf-8b1a-3a2bea01ce0d",
+              "name": "route_by",
+              "value": "={{ $('ByRecipient').first().json.route.route_by }}",
+              "type": "string"
+            },
+            {
+              "id": "4d77d828-2b50-4534-b015-8c5eac22dc4a",
+              "name": "status",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2004,
+        267.5
+      ],
+      "id": "57e33d22-1b5b-4284-9bc5-9088b42e63a9",
+      "name": "InvoiceOutput2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get routes safely\nconst routes = $(\"Switch\").first().json?.data?.routes ?? [];\n\n// Find the first route with route_by === \"by_invoice_id\"\nconst matchedRoute = routes.find(r => r.route_by === \"by_recipient_no_amount\") || null;\n\n// Return result\nreturn [\n  {\n    json: {\n      route: matchedRoute\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1124,
+        1390
+      ],
+      "id": "262c9333-3c27-42fa-940a-c5e714f472d4",
+      "name": "ByRecipient"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c40961bf-6c6e-4d49-9479-eccaaa923faa",
+              "name": "invoices",
+              "value": "={{ $json.invoices?? [] }}",
+              "type": "array"
+            },
+            {
+              "id": "e560ccd1-2cf8-4fbf-8b1a-3a2bea01ce0d",
+              "name": "route_by",
+              "value": "={{ $('ByAmount').first().json.route.route_by }}",
+              "type": "string"
+            },
+            {
+              "id": "7475bba3-5526-42fa-920c-66eea607fc17",
+              "name": "status",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2664,
+        1565
+      ],
+      "id": "e8d33f8f-7ca7-4d9e-89e4-10de72c61a5b",
+      "name": "InvoiceOutput3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "162a3fa5-af95-4298-aee0-c7da07a90bae",
+              "name": "status",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "bb557265-4bfd-4fcd-b122-4202d7575eaf",
+              "name": "message",
+              "value": "Failed due to technical reasons",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -340,
+        1215
+      ],
+      "id": "d7d37274-ddcb-44d1-884d-0b2546434ff2",
+      "name": "Error"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "162a3fa5-af95-4298-aee0-c7da07a90bae",
+              "name": "status",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "bb557265-4bfd-4fcd-b122-4202d7575eaf",
+              "name": "message",
+              "value": "Failed due to technical reasons",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        904,
+        991.25
+      ],
+      "id": "c3ab6475-7afe-419d-95cd-f5d2c891cc1c",
+      "name": "Error1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "162a3fa5-af95-4298-aee0-c7da07a90bae",
+              "name": "status",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "bb557265-4bfd-4fcd-b122-4202d7575eaf",
+              "name": "message",
+              "value": "Failed due to technical reasons",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1784,
+        517.5
+      ],
+      "id": "ec854811-07b3-45fb-9e83-5427ed52170b",
+      "name": "Error2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "162a3fa5-af95-4298-aee0-c7da07a90bae",
+              "name": "status",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "bb557265-4bfd-4fcd-b122-4202d7575eaf",
+              "name": "message",
+              "value": "Failed due to technical reasons",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2664,
+        367.5
+      ],
+      "id": "b7d8f58a-13a7-41c6-9e51-587286eab25d",
+      "name": "Error3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -716,
+        440
+      ],
+      "id": "604b9dbb-8718-4007-8532-227a4a385bb7",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2111359a-e427-4309-959d-330b0684f2f9",
+              "name": "message",
+              "value": "Encountered some technical issue while creating the invoice. Excuse to the usre.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1124,
+        516.25
+      ],
+      "id": "bcb84eb3-6c44-4e8c-9f2d-8ccdb825fbce",
+      "name": "Edit Fields8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f5ef10ea-156d-417f-bb44-a161c486a098",
+              "leftValue": "={{ $json.status!=\"Paid\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1020,
+        616.25
+      ],
+      "id": "2eb65389-1cac-4bb7-8d54-f75c15cd20f3",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').first().json.data.ThreadId+$('Trigger').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        815
+      ],
+      "id": "8a7933db-0530-4826-8ab3-8f029ed9609a",
+      "name": "ResetSubsession2",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2111359a-e427-4309-959d-330b0684f2f9",
+              "name": "message",
+              "value": "The invoice status is already Paid and cannot be processed further.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -340,
+        815
+      ],
+      "id": "5cdf2cfc-553e-4b72-8fb2-bb2613eef7c7",
+      "name": "Edit Fields9"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('Trigger').item.json.data.ThreadId+$('Trigger').item.json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        516.25
+      ],
+      "id": "00bfd3a9-d77d-453d-8f06-b0a587570f98",
+      "name": "ResetSubsession3",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM invoices_invoice WHERE customer_id NOTNULL LIMIT 10",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1460,
+        1825
+      ],
+      "id": "a03a554a-df51-44a0-97f2-eb6be23867ec",
+      "name": "InvoiceTerms5",
+      "retryOnFail": true,
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('Trigger').item.json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1020,
+        -281.25
+      ],
+      "id": "1fab7964-0804-4e0e-baec-d7c2d53eee36",
+      "name": "firebaseId2",
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1240,
+        -206.25
+      ],
+      "id": "811ad811-d2fc-4804-a481-fc4082ab1610",
+      "name": "access_token2",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1680,
+        1825
+      ],
+      "id": "e4686c03-7d0d-490b-9007-070a50d82ea1",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the metadata object from Trigger node\nconst metadata = $('Trigger').item.json.data.metadata;\n\n// Clone to avoid mutating directly (optional)\nlet updatedMetadata = { ...metadata };\n\n// Ensure invoice_metadata exists\nif (!updatedMetadata.invoice_metadata) {\n  updatedMetadata.invoice_metadata = {};\n}\n\n// Add / update pdf_invoice_content\nupdatedMetadata.invoice_metadata.pdf_invoice_content = $input.first().json.pdf;\n\n// Return updated object\nreturn [\n  {\n    json: {\n        user_session: updatedMetadata,\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        904,
+        -556.25
+      ],
+      "id": "dfd5b4bb-fa23-4f9f-b4b2-317e3c9fc128",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('Trigger').first().json.data.ThreadId+$('Trigger').first().json.data.user_id }}",
+        "value": "={{ $json.user_session.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1124,
+        -556.25
+      ],
+      "id": "c2242bb9-3f3b-4735-b92c-330c39daa4e2",
+      "name": "UpdateSesssion5",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "34849289-7322-4a23-923a-ab1a7f20a242",
+              "name": "message",
+              "value": "Requested Invoice File is attached. Ask the manager to find it in the attachements. Also ask the manager, if he would like you to send this file to a recipient. Ask recipient details too.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1344,
+        -606.25
+      ],
+      "id": "81d0f808-fafe-4696-bef6-f60ef80a519c",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e56ee683-dcb0-4795-93e1-0d30ca2ef356",
+              "name": "message",
+              "value": "=Feature of sharing files on cc is not supported yet. Let the manager know politely. Set task_completed=send_file and next_task=\"no_action\"",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1680,
+        2085
+      ],
+      "id": "002c739e-2307-4d3e-843e-c9c4e7d9cecb",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "91511acc-0775-4b15-ac71-fa59b0dfa57f",
+              "name": "output.book_number",
+              "value": "={{ $('Trigger').item.json.data.metadata.person_verification.book_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        904,
+        -1056.25
+      ],
+      "id": "d2900fa4-335b-463f-9dfc-c793445a2971",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -1680,
+        2345
+      ],
+      "id": "29ece096-24bf-4b65-851a-e15941b1ec40",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28d9ee30-04e5-43d5-b29a-38211df99b7c",
+              "name": "message",
+              "value": "The feature to send files as email to recipients is not build yet.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1240,
+        217.5
+      ],
+      "id": "d536a199-8634-4db5-9a04-15d61bdd1422",
+      "name": "Edit Fields11"
+    },
+    {
+      "parameters": {
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/invoices/{{ $('Trigger').item.json.data.metadata.invoice_metadata.invoice_number }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token2').item.json.access_token.trim() }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -680,
+        -356.25
+      ],
+      "id": "5a18522e-bff1-4b3d-932a-3c3f0faf1495",
+      "name": "Get Invoice",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/clients/{{ $json.book_number }}/bankingInfo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token2').item.json.access_token.trim() }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $('firebaseId2').item.json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -340,
+        -431.25
+      ],
+      "id": "641ea706-be43-4602-a2d0-fae48ce8d889",
+      "name": "Get BankingInfo",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b00acd7e-e92b-426b-87ac-7094b10a28c4",
+              "name": "invoice_details",
+              "value": "={{ $('Get Invoice').item.json }}",
+              "type": "object"
+            },
+            {
+              "id": "16c4155a-b4b3-412d-8f9a-75e9b0ce0194",
+              "name": "bill_from",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        -481.25
+      ],
+      "id": "ae29fab3-31f4-468c-a770-c2322f347766",
+      "name": "Combine"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// Transforms your input array into InvoicePDFRequest objects for the /generate-invoice-pdf API\n\nconst items = $input.all();\n\n// === Configure these or map them from previous nodes ===\nconst CONFIG = {\n  // Default values - these will be overridden by actual data from input\n  routing_number: '021000021',          // Fallback if not in data\n  account_number: '1234567890',         // Fallback if not in data\n  // Optional cosmetics\n  details_title: null,\n  invoice_code: null,                    // e.g., \"PB\" -> \"Invoice PB-0029\"\n};\n\n// --- Helpers ---\nconst isNonEmptyStr = v => typeof v === 'string' && v.trim().length > 0;\nconst safeStr = (v, fb = '') => (isNonEmptyStr(v) ? String(v).trim() : fb);\nconst toISOorNull = (v) => {\n  if (!v) return null;\n  try {\n    const d = new Date(v);\n    if (!isNaN(d.getTime())) return d.toISOString();\n  } catch {}\n  return null;\n};\nconst uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));\n\nconst buildDescription = ({ inv, deal, amount, currency }) => {\n  // Use the details from invoice if available\n  if (safeStr(inv?.details)) {\n    return inv.details;\n  }\n  \n  // Build fallback description\n  const clientName = safeStr(deal?.client?.name);\n  const counterpartyName = safeStr(deal?.counterparty?.name);\n  const dealType = safeStr(deal?.type);\n  const masters = Array.isArray(deal?.masters) ? deal.masters : [];\n  const masterNames = uniq(masters.map(m => safeStr(m?.name))).join(', ');\n  \n  let description = `Invoice for ${dealType || 'music'} deal`;\n  if (clientName || counterpartyName) {\n    description += ` between ${clientName || 'Client'} and ${counterpartyName || 'Counterparty'}`;\n  }\n  if (masterNames) {\n    description += ` for: ${masterNames}`;\n  }\n  description += `. Amount: ${currency} ${amount}.`;\n  \n  return description;\n};\n\nconst buildLineItems = ({ inv, deal }) => {\n  // Use invoice line_items if provided\n  if (Array.isArray(inv?.line_items) && inv.line_items.length > 0) {\n    return inv.line_items.map(li => ({\n      name: safeStr(li?.name) || '',\n      service: safeStr(li?.service) || '',\n    }));\n  }\n  \n  // Fallback: create line items from masters\n  const masters = Array.isArray(deal?.masters) ? deal.masters : [];\n  if (masters.length === 0) {\n    return [{\n      name: safeStr(deal?.type) || 'Service',\n      service: `${safeStr(deal?.client?.name)} - ${safeStr(deal?.counterparty?.name)}`,\n    }];\n  }\n  \n  return masters.map(m => ({\n    name: safeStr(m?.name) || 'Track',\n    service: `${safeStr(deal?.type)} deal - ${safeStr(deal?.client?.name)} & ${safeStr(deal?.counterparty?.name)}`,\n  }));\n};\n\nconst buildBillFrom = (billFromData) => {\n  if (!billFromData?.address) return null;\n  \n  const addr = billFromData.address;\n  return {\n    name: safeStr(addr.name),\n    address_line_1: safeStr(addr.address_line_1),\n    address_line_2: safeStr(addr.address_line_2),\n    city: safeStr(addr.city),\n    state: safeStr(addr.state),\n    postal_code: safeStr(addr.postal_code),\n    country: safeStr(addr.country),\n  };\n};\n\nconst buildBillTo = (billToData, deal, inv) => {\n  // Try to build from bill_to data first\n  if (billToData?.address) {\n    const addr = billToData.address;\n    const customer = {\n      address: {\n        name: safeStr(addr.name),\n        address_line_1: safeStr(addr.address_line_1),\n        address_line_2: safeStr(addr.address_line_2),\n        city: safeStr(addr.city),\n        state: safeStr(addr.state),\n        postal_code: safeStr(addr.postal_code),\n        country: safeStr(addr.country),\n      }\n    };\n    \n    // Add bank address if present\n    if (billToData.bank_address) {\n      const bankAddr = billToData.bank_address;\n      customer.bank_address = {\n        name: safeStr(bankAddr.name),\n        address_line_1: safeStr(bankAddr.address_line_1),\n        address_line_2: safeStr(bankAddr.address_line_2),\n        city: safeStr(bankAddr.city),\n        state: safeStr(bankAddr.state),\n        postal_code: safeStr(bankAddr.postal_code),\n        country: safeStr(bankAddr.country),\n      };\n    }\n    \n    return customer;\n  }\n  \n  // Fallback: use existing customer data from invoice\n  if (inv?.customer?.address) {\n    const customer = {\n      address: {\n        name: safeStr(inv.customer.address.name),\n        address_line_1: safeStr(inv.customer.address.address_line_1),\n        address_line_2: safeStr(inv.customer.address.address_line_2),\n        city: safeStr(inv.customer.address.city),\n        state: safeStr(inv.customer.address.state),\n        postal_code: safeStr(inv.customer.address.postal_code),\n        country: safeStr(inv.customer.address.country),\n      }\n    };\n    \n    if (inv.customer.bank_address) {\n      customer.bank_address = {\n        name: safeStr(inv.customer.bank_address.name),\n        address_line_1: safeStr(inv.customer.bank_address.address_line_1),\n        address_line_2: safeStr(inv.customer.bank_address.address_line_2),\n        city: safeStr(inv.customer.bank_address.city),\n        state: safeStr(inv.customer.bank_address.state),\n        postal_code: safeStr(inv.customer.bank_address.postal_code),\n        country: safeStr(inv.customer.bank_address.country),\n      };\n    }\n    \n    return customer;\n  }\n  \n  // Final fallback: create minimal \"Bill To\" from deal participants\n  // In music deals, typically the counterparty (artist) pays the client (producer)\n  const billToName = safeStr(deal?.counterparty?.name) || safeStr(deal?.client?.name) || '';\n  \n  if (billToName) {\n    return {\n      address: {\n        name: billToName,\n        address_line_1: '',\n        address_line_2: '',\n        city: '',\n        state: '',\n        postal_code: '',\n        country: '',\n      }\n    };\n  }\n  \n  return null;\n};\n\nconst buildTitle = (inv, deal) => {\n  if (safeStr(inv?.title)) {\n    return inv.title;\n  }\n  \n  const invoiceNum = safeStr(inv?.invoice_number) || safeStr(inv?.number);\n  const dealType = safeStr(deal?.type);\n  const masterNames = Array.isArray(deal?.masters) ? \n    deal.masters.map(m => safeStr(m?.name)).filter(Boolean).join(', ') : '';\n  \n  let title = 'Invoice';\n  if (invoiceNum) title += ` ${invoiceNum}`;\n  if (dealType) title += ` - ${dealType} Deal`;\n  if (masterNames) title += ` - ${masterNames}`;\n  \n  return title;\n};\n\nconst buildInvoiceNumber = (inv) => {\n  return safeStr(inv?.invoice_number) || safeStr(inv?.number) || 'UNKNOWN';\n};\n\nconst buildAmountCurrency = (inv, deal) => {\n  // Use invoice amount first, then deal fee_amount\n  const amount = (inv?.amount != null) ? Number(inv.amount) :\n                 (deal?.fee_amount != null) ? Number(deal.fee_amount) : 0;\n  const currency = safeStr(inv?.currency) || safeStr(deal?.fee_currency) || 'USD';\n  return { amount, currency };\n};\n\nconst out = items.map(({ json }) => {\n  const inv = json?.invoice_details ?? json;\n  const deal = inv?.deal ?? {};\n  const billFromData = json?.bill_from ?? {};\n  const billToData = json?.bill_to ?? {};\n\n  const invoice_number = buildInvoiceNumber(inv);\n  const { amount, currency } = buildAmountCurrency(inv, deal);\n  const title = buildTitle(inv, deal);\n  const details = buildDescription({ inv, deal, amount, currency });\n  const line_items = buildLineItems({ inv, deal });\n\n  // Build Bill To (customer who needs to pay)\n  const customer = buildBillTo(billToData, deal, inv);\n  \n  // Build Bill From (the invoice issuer)\n  const bill_from = buildBillFrom(billFromData);\n  \n  // Get banking details from bill_from data\n  const routing_number = safeStr(billFromData?.routing_number, CONFIG.routing_number);\n  const account_number = safeStr(billFromData?.account_number, CONFIG.account_number);\n\n  const issued_on = toISOorNull(inv?.issued_on);\n  const due_on = toISOorNull(inv?.due_on);\n  const po_number = safeStr(inv?.po_number) || null;\n  const contact = safeStr(inv?.contact) || null;\n\n  const requestBody = {\n    invoice: {\n      invoice_number,\n      title,\n      customer: customer ?? null,\n      issued_on,\n      due_on,\n      po_number,\n      details,\n      line_items,\n      amount,\n      currency,\n      contact,\n    },\n    routing_number,\n    account_number,\n    bill_from: bill_from ?? null,\n    details_title: CONFIG.details_title,\n    invoice_code: CONFIG.invoice_code,\n  };\n\n  return { json: requestBody };\n});\n\nreturn out;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        100,
+        -481.25
+      ],
+      "id": "12464d2d-9b5c-4fbd-8d83-bf82f796ae69",
+      "name": "Format"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://68b9e3a004a4.ngrok-free.app/generate-invoice-pdf",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        502,
+        -481.25
+      ],
+      "id": "2bda1155-4974-4944-a8cc-72878ebca15d",
+      "name": "Pdf-Request",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28d9ee30-04e5-43d5-b29a-38211df99b7c",
+              "name": "message",
+              "value": "Encountered a technical issue to retrieve the invoice file. ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        -155
+      ],
+      "id": "c47763bf-988b-4889-a74d-0493ba672009",
+      "name": "OnError"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28d9ee30-04e5-43d5-b29a-38211df99b7c",
+              "name": "message",
+              "value": "Encountered a technical issue to retrieve the invoice file. ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1344,
+        -231.25
+      ],
+      "id": "aa446cd4-9193-4f1b-bb23-45fde3a3be99",
+      "name": "OnError1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the AI Agent output\nconst aiAgentOutput = $('AI Agent').item.json.output;\n\n// Parse if string, otherwise use as-is\nconst data = typeof aiAgentOutput === 'string' ? JSON.parse(aiAgentOutput) : aiAgentOutput;\n\n// Convert to markdown format\nfunction toMarkdownString(obj, prefix = '') {\n    let result = '';\n    \n    if (obj === null || obj === undefined) {\n        return `${prefix}: null\\n`;\n    }\n    \n    if (Array.isArray(obj)) {\n        if (obj.length === 0) {\n            return `${prefix}: []\\n`;\n        }\n        obj.forEach((item, index) => {\n            const newPrefix = prefix ? `${prefix}[${index}]` : `[${index}]`;\n            if (typeof item === 'object' && item !== null) {\n                result += toMarkdownString(item, newPrefix);\n            } else {\n                result += `${newPrefix}: ${String(item)}\\n`;\n            }\n        });\n        return result;\n    }\n    \n    if (typeof obj === 'object') {\n        const entries = Object.entries(obj);\n        if (entries.length === 0) {\n            return `${prefix}: {}\\n`;\n        }\n        \n        entries.forEach(([key, value]) => {\n            const newPrefix = prefix ? `${prefix}.${key}` : key;\n            \n            if (value === null || value === undefined) {\n                result += `${newPrefix}: null\\n`;\n            } else if (Array.isArray(value)) {\n                if (value.length === 0) {\n                    result += `${newPrefix}: []\\n`;\n                } else {\n                    value.forEach((item, index) => {\n                        const arrayPrefix = `${newPrefix}[${index}]`;\n                        if (typeof item === 'object' && item !== null) {\n                            result += toMarkdownString(item, arrayPrefix);\n                        } else {\n                            result += `${arrayPrefix}: ${String(item)}\\n`;\n                        }\n                    });\n                }\n            } else if (typeof value === 'object') {\n                result += toMarkdownString(value, newPrefix);\n            } else {\n                result += `${newPrefix}: ${String(value)}\\n`;\n            }\n        });\n        return result;\n    }\n    \n    return `${prefix}: ${String(obj)}\\n`;\n}\n\n// Generate markdown\nconst markdown = toMarkdownString(data);\n\n// Return for next node\nreturn {\n    markdown: markdown\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1124,
+        -6.25
+      ],
+      "id": "137d89e2-74b4-4558-8fe2-03ec3e52e862",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/invoices/{{ $('Trigger').item.json.data.invoice_number }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token1').item.json.access_token.trim() }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('UpdatePayload').item.json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        904,
+        43.75
+      ],
+      "id": "9b82224c-1acb-4500-896c-40b69f36b765",
+      "name": "GetInvoice",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the metadata object from Trigger node\nconst metadata = $('Trigger').item.json.data.metadata;\n\n// Clone to avoid mutating directly\nlet updatedMetadata = { ...metadata };\n\nlet invoice_created = $(\"CreateInvoice\").first().json;\n\n// Check if input has pdf\nconst inputData = $input.first().json;\n\n// Ensure invoice_metadata exists\nif (!updatedMetadata.invoice_metadata) {\n  updatedMetadata.invoice_metadata = {};\n}\n\n// Add / update properties\nupdatedMetadata.invoice_metadata.exists = true;\nupdatedMetadata.invoice_metadata.invoice_number = invoice_created.number;\nupdatedMetadata.invoice_metadata.invoice_id = invoice_created.invoice_number; // Check if this should be invoice_created.id instead\nupdatedMetadata.invoice_metadata.pdf_invoice_content = inputData.pdf;\n\n// Return updated object\nreturn [\n  {\n    json: {\n        user_session: updatedMetadata,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2664,
+        -1356.25
+      ],
+      "id": "06949d1b-7463-4391-989d-e6a73c8a3aff",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('Trigger').first().json.data.ThreadId+$('Trigger').first().json.data.user_id }}",
+        "value": "={{ $json.user_session.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2884,
+        -1356.25
+      ],
+      "id": "9e4695de-d900-4f63-bbab-711b280b8234",
+      "name": "UpdateSesssion",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/clients/{{ $json.book_number }}/bankingInfo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token').item.json.access_token.trim() }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $('firebaseId1').item.json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1784,
+        -1206.25
+      ],
+      "id": "bab39d5d-331e-4792-b89c-b503a8439989",
+      "name": "Get BankingInfo1",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b00acd7e-e92b-426b-87ac-7094b10a28c4",
+              "name": "invoice_details",
+              "value": "={{ $('CreateInvoice').item.json }}",
+              "type": "object"
+            },
+            {
+              "id": "16c4155a-b4b3-412d-8f9a-75e9b0ce0194",
+              "name": "bill_from",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2004,
+        -1281.25
+      ],
+      "id": "42cb9e81-8a1c-4383-8e0f-51b1f495f8f1",
+      "name": "Combine1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// Transforms your input array into InvoicePDFRequest objects for the /generate-invoice-pdf API\n\nconst items = $input.all();\n\n// === Configure these or map them from previous nodes ===\nconst CONFIG = {\n  // Default values - these will be overridden by actual data from input\n  routing_number: '021000021',          // Fallback if not in data\n  account_number: '1234567890',         // Fallback if not in data\n  // Optional cosmetics\n  details_title: null,\n  invoice_code: null,                    // e.g., \"PB\" -> \"Invoice PB-0029\"\n};\n\n// --- Helpers ---\nconst isNonEmptyStr = v => typeof v === 'string' && v.trim().length > 0;\nconst safeStr = (v, fb = '') => (isNonEmptyStr(v) ? String(v).trim() : fb);\nconst toISOorNull = (v) => {\n  if (!v) return null;\n  try {\n    const d = new Date(v);\n    if (!isNaN(d.getTime())) return d.toISOString();\n  } catch {}\n  return null;\n};\nconst uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));\n\nconst buildDescription = ({ inv, deal, amount, currency }) => {\n  // Use the details from invoice if available\n  if (safeStr(inv?.details)) {\n    return inv.details;\n  }\n  \n  // Build fallback description\n  const clientName = safeStr(deal?.client?.name);\n  const counterpartyName = safeStr(deal?.counterparty?.name);\n  const dealType = safeStr(deal?.type);\n  const masters = Array.isArray(deal?.masters) ? deal.masters : [];\n  const masterNames = uniq(masters.map(m => safeStr(m?.name))).join(', ');\n  \n  let description = `Invoice for ${dealType || 'music'} deal`;\n  if (clientName || counterpartyName) {\n    description += ` between ${clientName || 'Client'} and ${counterpartyName || 'Counterparty'}`;\n  }\n  if (masterNames) {\n    description += ` for: ${masterNames}`;\n  }\n  description += `. Amount: ${currency} ${amount}.`;\n  \n  return description;\n};\n\nconst buildLineItems = ({ inv, deal }) => {\n  // Use invoice line_items if provided\n  if (Array.isArray(inv?.line_items) && inv.line_items.length > 0) {\n    return inv.line_items.map(li => ({\n      name: safeStr(li?.name) || '',\n      service: safeStr(li?.service) || '',\n    }));\n  }\n  \n  // Fallback: create line items from masters\n  const masters = Array.isArray(deal?.masters) ? deal.masters : [];\n  if (masters.length === 0) {\n    return [{\n      name: safeStr(deal?.type) || 'Service',\n      service: `${safeStr(deal?.client?.name)} - ${safeStr(deal?.counterparty?.name)}`,\n    }];\n  }\n  \n  return masters.map(m => ({\n    name: safeStr(m?.name) || 'Track',\n    service: `${safeStr(deal?.type)} deal - ${safeStr(deal?.client?.name)} & ${safeStr(deal?.counterparty?.name)}`,\n  }));\n};\n\nconst buildBillFrom = (billFromData) => {\n  if (!billFromData?.address) return null;\n  \n  const addr = billFromData.address;\n  return {\n    name: safeStr(addr.name),\n    address_line_1: safeStr(addr.address_line_1),\n    address_line_2: safeStr(addr.address_line_2),\n    city: safeStr(addr.city),\n    state: safeStr(addr.state),\n    postal_code: safeStr(addr.postal_code),\n    country: safeStr(addr.country),\n  };\n};\n\nconst buildBillTo = (billToData, deal, inv) => {\n  // Try to build from bill_to data first\n  if (billToData?.address) {\n    const addr = billToData.address;\n    const customer = {\n      address: {\n        name: safeStr(addr.name),\n        address_line_1: safeStr(addr.address_line_1),\n        address_line_2: safeStr(addr.address_line_2),\n        city: safeStr(addr.city),\n        state: safeStr(addr.state),\n        postal_code: safeStr(addr.postal_code),\n        country: safeStr(addr.country),\n      }\n    };\n    \n    // Add bank address if present\n    if (billToData.bank_address) {\n      const bankAddr = billToData.bank_address;\n      customer.bank_address = {\n        name: safeStr(bankAddr.name),\n        address_line_1: safeStr(bankAddr.address_line_1),\n        address_line_2: safeStr(bankAddr.address_line_2),\n        city: safeStr(bankAddr.city),\n        state: safeStr(bankAddr.state),\n        postal_code: safeStr(bankAddr.postal_code),\n        country: safeStr(bankAddr.country),\n      };\n    }\n    \n    return customer;\n  }\n  \n  // Fallback: use existing customer data from invoice\n  if (inv?.customer?.address) {\n    const customer = {\n      address: {\n        name: safeStr(inv.customer.address.name),\n        address_line_1: safeStr(inv.customer.address.address_line_1),\n        address_line_2: safeStr(inv.customer.address.address_line_2),\n        city: safeStr(inv.customer.address.city),\n        state: safeStr(inv.customer.address.state),\n        postal_code: safeStr(inv.customer.address.postal_code),\n        country: safeStr(inv.customer.address.country),\n      }\n    };\n    \n    if (inv.customer.bank_address) {\n      customer.bank_address = {\n        name: safeStr(inv.customer.bank_address.name),\n        address_line_1: safeStr(inv.customer.bank_address.address_line_1),\n        address_line_2: safeStr(inv.customer.bank_address.address_line_2),\n        city: safeStr(inv.customer.bank_address.city),\n        state: safeStr(inv.customer.bank_address.state),\n        postal_code: safeStr(inv.customer.bank_address.postal_code),\n        country: safeStr(inv.customer.bank_address.country),\n      };\n    }\n    \n    return customer;\n  }\n  \n  // Final fallback: create minimal \"Bill To\" from deal participants\n  // In music deals, typically the counterparty (artist) pays the client (producer)\n  const billToName = safeStr(deal?.counterparty?.name) || safeStr(deal?.client?.name) || '';\n  \n  if (billToName) {\n    return {\n      address: {\n        name: billToName,\n        address_line_1: '',\n        address_line_2: '',\n        city: '',\n        state: '',\n        postal_code: '',\n        country: '',\n      }\n    };\n  }\n  \n  return null;\n};\n\nconst buildTitle = (inv, deal) => {\n  if (safeStr(inv?.title)) {\n    return inv.title;\n  }\n  \n  const invoiceNum = safeStr(inv?.invoice_number) || safeStr(inv?.number);\n  const dealType = safeStr(deal?.type);\n  const masterNames = Array.isArray(deal?.masters) ? \n    deal.masters.map(m => safeStr(m?.name)).filter(Boolean).join(', ') : '';\n  \n  let title = 'Invoice';\n  if (invoiceNum) title += ` ${invoiceNum}`;\n  if (dealType) title += ` - ${dealType} Deal`;\n  if (masterNames) title += ` - ${masterNames}`;\n  \n  return title;\n};\n\nconst buildInvoiceNumber = (inv) => {\n  return safeStr(inv?.invoice_number) || safeStr(inv?.number) || 'UNKNOWN';\n};\n\nconst buildAmountCurrency = (inv, deal) => {\n  // Use invoice amount first, then deal fee_amount\n  const amount = (inv?.amount != null) ? Number(inv.amount) :\n                 (deal?.fee_amount != null) ? Number(deal.fee_amount) : 0;\n  const currency = safeStr(inv?.currency) || safeStr(deal?.fee_currency) || 'USD';\n  return { amount, currency };\n};\n\nconst out = items.map(({ json }) => {\n  const inv = json?.invoice_details ?? json;\n  const deal = inv?.deal ?? {};\n  const billFromData = json?.bill_from ?? {};\n  const billToData = json?.bill_to ?? {};\n\n  const invoice_number = buildInvoiceNumber(inv);\n  const { amount, currency } = buildAmountCurrency(inv, deal);\n  const title = buildTitle(inv, deal);\n  const details = buildDescription({ inv, deal, amount, currency });\n  const line_items = buildLineItems({ inv, deal });\n\n  // Build Bill To (customer who needs to pay)\n  const customer = buildBillTo(billToData, deal, inv);\n  \n  // Build Bill From (the invoice issuer)\n  const bill_from = buildBillFrom(billFromData);\n  \n  // Get banking details from bill_from data\n  const routing_number = safeStr(billFromData?.routing_number, CONFIG.routing_number);\n  const account_number = safeStr(billFromData?.account_number, CONFIG.account_number);\n\n  const issued_on = toISOorNull(inv?.issued_on);\n  const due_on = toISOorNull(inv?.due_on);\n  const po_number = safeStr(inv?.po_number) || null;\n  const contact = safeStr(inv?.contact) || null;\n\n  const requestBody = {\n    invoice: {\n      invoice_number,\n      title,\n      customer: customer ?? null,\n      issued_on,\n      due_on,\n      po_number,\n      details,\n      line_items,\n      amount,\n      currency,\n      contact,\n    },\n    routing_number,\n    account_number,\n    bill_from: bill_from ?? null,\n    details_title: CONFIG.details_title,\n    invoice_code: CONFIG.invoice_code,\n  };\n\n  return { json: requestBody };\n});\n\nreturn out;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2224,
+        -1281.25
+      ],
+      "id": "318b424c-0edd-461d-9db4-3a29ecd8687f",
+      "name": "Format1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://68b9e3a004a4.ngrok-free.app/generate-invoice-pdf",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2444,
+        -1281.25
+      ],
+      "id": "ee3c6532-b6c2-418c-b272-f7790cce3695",
+      "name": "Pdf-Request1",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/invoices",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token').item.json.access_token.trim() }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Extract Invoice').item.json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1564,
+        -1131.25
+      ],
+      "id": "762e9326-7a7e-4943-808a-ed9a742757ef",
+      "name": "CreateInvoice",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3bd6ea95-7bc1-4589-bf96-9e863e87e14d",
+              "name": "message",
+              "value": "The invoice creation failed due to technical issues. Inform the manager that PatcBay customer support will reachout to him. Set the next_task to \"no_action\"",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        -1005
+      ],
+      "id": "8b8ea29f-93c7-4fc9-bb86-090422869dc2",
+      "name": "OnFailure"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('Trigger').item.json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1020,
+        1825
+      ],
+      "id": "291f2f7d-dffc-42cc-b73f-66b21989b072",
+      "name": "firebaseId3",
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1240,
+        1825
+      ],
+      "id": "89c02ba6-a2c6-4f0a-8f7f-70d5177284fe",
+      "name": "access_token3",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/invoices/{{ $('Trigger').item.json.data.metadata.invoice_metadata.invoice_number }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token3').item.json.access_token.trim() }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -800,
+        1825
+      ],
+      "id": "2a763b50-fd88-4f51-ae33-3efd0f8234b3",
+      "name": "Get Invoice1",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/clients/{{ $json.book_number }}/bankingInfo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$('access_token3').item.json.access_token.trim() }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $('firebaseId3').item.json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -580,
+        1825
+      ],
+      "id": "7d23f590-61fb-4c6e-9b90-a3e9287ab060",
+      "name": "Get BankingInfo2",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DI0OK2QjzXrFmcrM",
+          "mode": "list",
+          "cachedResultName": "InvoiceCustomer-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "retrieve",
+            "data": "={{  \n{\n\"invoice_recipient\": $json.invoice_recipient.name ?? \"\", \"threshold\": 0.05,\nbook_number: $json.metadata.person_verification.book_number\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -680,
+        -1131.25
+      ],
+      "id": "2b88fdca-be72-49df-a64a-566ad3312947",
+      "name": "InvoiceRecipient1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d788525e-ebda-43f4-b7af-93b4cfd9eb08",
+              "leftValue": "={{ $json.invoice_recipient.status }}",
+              "rightValue": "exists",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -340,
+        -1131.25
+      ],
+      "id": "dedf2ae7-4325-4009-8372-d6d4a837c5bf",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c8ce596d-8435-4fbd-ab81-a988d92acfc5",
+              "name": "invoice_recipient.status",
+              "value": "={{ $json.invoice_recipient.status }}",
+              "type": "string"
+            },
+            {
+              "id": "80da6f4c-5a53-49a9-83db-02ed91616074",
+              "name": "invoice_recipient.name",
+              "value": "={{ $json.invoice_recipient.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b129ee59-aa3c-4e37-9f80-8561ee0d74c6",
+              "name": "invoice_recipient.data.customer_number",
+              "value": "={{ $json.invoice_recipient.invoice_recipient_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        -1231.25
+      ],
+      "id": "5d633a1f-a58d-4a01-839f-42864f2c872e",
+      "name": "Edit Fields4"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "action": "create",
+          "data": {
+            "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+            "metadata": {
+              "type": "deals_and_invoices",
+              "person_verification": {
+                "person_name": "Quincy  Jones",
+                "performer_name": "Quincy Jones",
+                "status": "verified",
+                "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                "book_id": "620",
+                "role": "Producer",
+                "message": "Producer Quincy  Jones is verified in the Manager's workspace. Inform the manager."
+              },
+              "task_metadata": {
+                "deal_discussion": true,
+                "deal_type": "Master",
+                "deal_id": null,
+                "artist_name": "Atif Aslam",
+                "masters": [
+                  "Hang On Sloopy"
+                ],
+                "deal_next_step": null,
+                "person_name": "Quincy  Jones",
+                "performer_name": "Quincy Jones",
+                "message": "Requirements for deal check satisfied."
+              },
+              "last_bot_response": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#111;max-width:680px;\">\n  <p>Hello Dwayne</p>\n\n  <p>I reviewed the producer deal for your client Producer Quincy Jones for the project \u00199Hang On Sloopy\u00199 involving artist Atif Aslam. The deal is currently at the \u0019Client Signature\u0019 stage with no updates needed.</p>\n\n  <p>However, I noticed there is no existing invoice for this deal. To proceed, I propose creating a draft invoice with these details:</p>\n  <ul>\n    <li>Deal Title: Quincy Jones x Atif Aslam - Hang On Sloopy Producer Deal</li>\n    <li>Amount: Not Provided (please confirm if USD 2000.00 should be used as per the deal)</li>\n    <li>Due Date: Not Provided (please specify)</li>\n    <li>Status: Draft</li>\n    <li>Recipient: Please provide the recipient's details for the invoice.</li>\n  </ul>\n\n  <p>If you want to proceed with creating this invoice draft, please reply with \"Approved\" and provide the missing invoice details.</p>\n\n  <hr>\n  <p>Best,<br>Patchbay Assistant</p>\n</div>",
+              "deal_metadata": {
+                "deal_id": "805",
+                "deal_number": "198f6f13-0b01-4d29-91ac-c87c9727b9d2",
+                "person_name": "Quincy Jones",
+                "artist_name": "Atif Aslam",
+                "masters": "Hang On Sloopy",
+                "status": "Client Signature"
+              },
+              "invoice_metadata": {
+                "exists": false,
+                "invoice_recipient": {
+                  "status": "not_provided",
+                  "name": "Not Provided"
+                }
+              },
+              "routing_id": "<CAEaeWjR_r_T3wVU_jACrvir-dNidfivwwPzyN8aMTVfXTwBoyg@mail.gmail.com>"
+            },
+            "invoice_recipient": "Sony Music Entertainment",
+            "thread": {
+              "ThreadId": "1997ad74e2b24302",
+              "Emails": [
+                {
+                  "EmailId": "1997ad74e2b24302",
+                  "MessageId": "<CAP=u+8AkgLPPS+CwoEnzk5Oqyt4KmcatPC97gqv-nFpMBvX_oQ@mail.gmail.com>",
+                  "Subject": "Producer Deal",
+                  "From": [
+                    {
+                      "address": "dwayne@patchbay.xyz",
+                      "name": "Dwayne Hoover"
+                    }
+                  ],
+                  "to": [
+                    {
+                      "address": "asst@patchbay.xyz",
+                      "name": "Patchbay Assistant"
+                    }
+                  ],
+                  "cc": [],
+                  "date": "2025-09-24T08:29:02.000Z",
+                  "emailText": "Producer deal for my client Quincy Jones. Quincy Jones | Atif Aslam | Hang\nOn Sloopy\n"
+                },
+                {
+                  "ThreadId": "1997ad74e2b24302",
+                  "EmailId": "1997ad99706d1d86",
+                  "MessageId": "<CAP=u+8CQvj8BZxZt-hQ23zECxMTrxnyst5GAmmYs-O8+3yrPWA@mail.gmail.com>",
+                  "References": [
+                    "<CAP=u+8AkgLPPS+CwoEnzk5Oqyt4KmcatPC97gqv-nFpMBvX_oQ@mail.gmail.com>",
+                    "<CAEaeWjR_r_T3wVU_jACrvir-dNidfivwwPzyN8aMTVfXTwBoyg@mail.gmail.com>"
+                  ],
+                  "Subject": "Re: Producer Deal",
+                  "From": [
+                    {
+                      "address": "dwayne@patchbay.xyz",
+                      "name": "Dwayne Hoover"
+                    }
+                  ],
+                  "to": [
+                    {
+                      "address": "asst@patchbay.xyz",
+                      "name": ""
+                    }
+                  ],
+                  "cc": [],
+                  "date": "2025-09-24T08:31:31.000Z",
+                  "emailText": "Yes, I approve. - Amount: USD 2000.00 - Due Date: 100 days from today. - Status: Draft - Recipient: Sony Music Entertainment."
+                }
+              ],
+              "Others": [],
+              "Managers": [
+                {
+                  "name": "Dwayne Hoover",
+                  "address": "dwayne@patchbay.xyz",
+                  "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+                  "person_number": "2752c92b-b570-4f0f-a082-611fe1770ec4",
+                  "Role": "Manager",
+                  "Clients": [
+                    {
+                      "person_name": "Quincy  Jones",
+                      "performer_name": "Quincy Jones",
+                      "status": "verified",
+                      "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                      "book_id": "620",
+                      "role": "Producer",
+                      "message": "Producer Quincy  Jones is verified in the Manager's workspace. Inform the manager."
+                    }
+                  ]
+                },
+                {
+                  "name": "Agent",
+                  "address": "asst@patchbay.xyz",
+                  "user_id": "9cd5749c-7e7d-4a92-98cd-c1356b626258",
+                  "person_number": "03014402-449b-48bb-8973-212449e99e2f",
+                  "Role": "Manager",
+                  "Clients": []
+                }
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            }
+          },
+          "ai_input": "Create a draft invoice for the deal titled 'Quincy Jones x Atif Aslam - Hang On Sloopy Producer Deal' with the following details: Amount: USD 2000.00, Due Date: 100 days from today, Status: Draft, Recipient: Sony Music Entertainment. This invoice is for the producer Quincy Jones, managed by Dwayne Hoover. The deal is currently at the Client Signature stage and there are no updates needed to the deal itself."
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-24T09:31:32.922Z",
+  "versionId": "0e76a126-67a4-4806-9df2-69a92e6d5ad6"
+}
