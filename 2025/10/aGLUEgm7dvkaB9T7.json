@@ -1,0 +1,1590 @@
+{
+  "active": false,
+  "connections": {
+    "IdentifyUsers": {
+      "main": [
+        [
+          {
+            "node": "Route1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion": {
+      "main": [
+        [
+          {
+            "node": "LocateUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckUser": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EmailPath": {
+      "main": [
+        [
+          {
+            "node": "UpdateSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSession": {
+      "main": [
+        [
+          {
+            "node": "CheckUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route1": {
+      "main": [
+        [
+          {
+            "node": "UpdateUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatResponse": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateUsers": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LocateUser": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage": {
+      "main": [
+        [
+          {
+            "node": "GetUserSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetUserSession": {
+      "main": [
+        [
+          {
+            "node": "FormatUserSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WTrigger": {
+      "main": [
+        [
+          {
+            "node": "EmailPath",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatUserSession": {
+      "main": [
+        [
+          {
+            "node": "Recommender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage1": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender1": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession9": {
+      "main": [
+        [
+          {
+            "node": "Recommender1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Reply6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetLatestSession10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession10": {
+      "main": [
+        [
+          {
+            "node": "Parse1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse1": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "Reply1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "SendEmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "SendEmail1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-10T05:44:58.324Z",
+  "id": "aGLUEgm7dvkaB9T7",
+  "meta": null,
+  "name": "Chat-Orchestrator-1.0.5",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ [{\"address\": $json.address}] }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2360,
+        420
+      ],
+      "id": "e6d3f853-c7b6-4abc-add3-acc263da2c5f",
+      "name": "IdentifyUsers",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1700,
+        280
+      ],
+      "id": "3cb4b4b9-5a7f-4d83-a960-b77b7169de71",
+      "name": "UpdateSesssion",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json?.from?.value?.[0]?.address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\" + senderAddress\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2800,
+        520
+      ],
+      "id": "64ba4ebe-ca37-4aa1-92c3-5c378d842b40",
+      "name": "CheckUser"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -160,
+        120
+      ],
+      "id": "f2e038f3-8048-4c95-b34c-cfbc49f8749c",
+      "name": "Reply6",
+      "webhookId": "5ef9dca7-7796-4988-9384-f3d6dbc77ea7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const assistantEmail = 'asst@patchbay.xyz';\n\nreturn items.map(item => {\n  const data = item.json;\n\n  const from = data.from?.value?.[0]?.address || '';\n  const toList = data.to?.value?.map(e => e.address.toLowerCase()) || [];\n  const ccList = data.cc?.value?.map(e => e.address.toLowerCase()) || [];\n  const bccList = data.bcc?.value?.map(e => e.address.toLowerCase()) || [];\n\n  const toIncludesAssistant = toList.includes(assistantEmail);\n  const ccIncludesAssistant = ccList.includes(assistantEmail);\n  const bccIncludesAssistant = bccList.includes(assistantEmail);\n  const totalToRecipients = toList.length;\n\n  let routing = 'unclassified';\n\n  if (from === assistantEmail) {\n    routing = 'self';\n  } else if (toIncludesAssistant && totalToRecipients > 1) {\n    routing = 'bot_and_others';\n  } else if (toIncludesAssistant && totalToRecipients === 1) {\n    routing = 'bot_only';\n  } else if (ccIncludesAssistant || bccIncludesAssistant) {\n    routing = 'bot_ccd_bccd';\n  }\n\n  return {\n    json: {\n      ...data,\n      routing,\n    },\n    binary: item.binary || {}\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3240,
+        520
+      ],
+      "id": "22e3e9e5-54b8-4828-8351-1b6765619296",
+      "name": "EmailPath",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "UWofd6PgsUYZxJFf",
+          "mode": "list",
+          "cachedResultName": "ProcessData-V-1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -3020,
+        520
+      ],
+      "id": "6ec4b7e4-09bb-4ea9-9847-eca1fc8fc29b",
+      "name": "UpdateSession",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a75d3ba0-14c6-49ff-bb4c-9846c7b8c281",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2140,
+        420
+      ],
+      "id": "75386048-e023-4280-b4ad-71459597a76f",
+      "name": "Route1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "={{ $('CheckUser').item.json}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1920,
+        480
+      ],
+      "id": "8c1ebfaf-b0b6-4956-bbf0-8600f7317aab",
+      "name": "FormatResponse"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const thread = $(\"UpdateSession\").item.json;\nlet newManagers = $input.item.json;\n\n// Ensure Managers key exists\nif (!Array.isArray(thread.Managers)) {\n  thread.Managers = [];\n}\n\n// Normalize to array\nif (!Array.isArray(newManagers)) {\n  newManagers = [newManagers];\n}\n\n// Collect existing user_ids\nconst existingIds = new Set(thread.Managers.map(m => m.address));\n\n// Append only if user_id not already present\nnewManagers.forEach(manager => {\n  if (!existingIds.has(manager.address)) {\n    thread.Managers.push(manager);\n  }\n});\n\nreturn { json: thread };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1920,
+        280
+      ],
+      "id": "7ffdb663-8d29-48f9-a458-ac61ed7db60e",
+      "name": "UpdateUsers"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json.from.value[0].address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Clients, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\"\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1480,
+        280
+      ],
+      "id": "8be6207e-4636-4b3f-b573-740b6ebc8d60",
+      "name": "LocateUser"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n\n  let newest = cutAtFirst(t, cutoffPatterns);\n\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// ---------- Build result ----------\nlet raw = pickBody(lastEmail);\nlet emailText = firstBodyOnly(raw);\n\n// Final normalization to a single-line-ish text (optional; keep line breaks by removing the next line)\nemailText = emailText.replace(/\\n/g, \" \").replace(/\\s+/g, \" \").trim();\n\nreturn [\n  {\n    json: {\n      ThreadId: lastEmail.threadId || null,\n      email_text: emailText,\n      from: extractAddresses(\"from\"),\n      to: extractAddresses(\"to\"),\n      cc: extractAddresses(\"cc\"),\n      bcc: extractAddresses(\"bcc\"),\n      manager: $input.first().json.manager\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        220
+      ],
+      "id": "10af3dd3-91fe-4d0d-bd27-d83c81b35c29",
+      "name": "PrepareMessage"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.ThreadId+$('PrepareMessage').item.json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        220
+      ],
+      "id": "97535eb3-9189-47e9-9112-8fb73745ad5e",
+      "name": "GetUserSession",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "iExgwh7WwQliXugj",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').first().json,\nlast_email: $('PrepareMessage').first().json.email_text,\nManager: $('PrepareMessage').first().json.manager,\nprompt_routing: $('EmailPath').first().json.routing\n}\n\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -560,
+        220
+      ],
+      "id": "31146a03-b8b8-4d47-bfb7-449042998bfc",
+      "name": "Recommender",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -3460,
+        520
+      ],
+      "id": "a1df6b47-fabf-40dc-91c3-9d79cb59477d",
+      "name": "WTrigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the reply ID to match\nconst inReplyTo = $('EmailPath').first()?.json?.inReplyTo;\n\n// Scan all incoming items\nconst items = $input.all();\n\nlet matched = null;\n\nfor (const it of items) {\n  const sessionStr = it.json?.user_session;\n  if (typeof sessionStr !== 'string') continue;\n\n  try {\n    const sessionObj = JSON.parse(sessionStr);\n    if (sessionObj?.routing_id && sessionObj.routing_id === inReplyTo) {\n      matched = sessionObj;\n      break;\n    }\n  } catch (e) {\n    // skip invalid JSON\n  }\n}\n\nreturn [\n  {\n    json: {\n      output: matched\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -820,
+        220
+      ],
+      "id": "cb126586-71a5-40e1-be12-687fd45c6f25",
+      "name": "FormatUserSession"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// Get the managers list from the Managers node and filter out asst@patchbay.xyz\nconst managersList = ($('UpdateSession').first().json.Managers || [])\n  .filter(manager => manager.address !== 'asst@patchbay.xyz');\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n  let newest = cutAtFirst(t, cutoffPatterns);\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// Helper to format email with full headers\nconst formatEmailText = (email) => {\n  // Format From\n  const fromArray = email?.from?.value || [];\n  const fromFormatted = fromArray.length > 0\n    ? `${fromArray[0].name} (${fromArray[0].address})`\n    : '';\n  \n  // Format To\n  const toArray = email?.to?.value || [];\n  const toFormatted = toArray\n    .map(t => `${t.name} (${t.address})`)\n    .join(', ');\n  \n  // Format CC (filtered)\n  const ccArray = email?.cc?.value || [];\n  const filteredCC = ccArray.filter(cc => cc.address !== 'asst@patchbay.xyz');\n  const ccFormatted = filteredCC\n    .map(c => `${c.name} (${c.address})`)\n    .join(', ');\n  \n  // Format Date\n  const dateFormatted = email.date \n    ? new Date(email.date).toLocaleString('en-US', {\n        weekday: 'long',\n        year: 'numeric',\n        month: 'long',\n        day: 'numeric',\n        hour: 'numeric',\n        minute: '2-digit',\n        hour12: true\n      })\n    : '';\n  \n  // Get the email body\n  let raw = pickBody(email);\n  let emailBody = firstBodyOnly(raw);\n  \n  // Build formatted email text\n  let formattedEmail = `From: ${fromFormatted}\\n`;\n  formattedEmail += `To: ${toFormatted}\\n`;\n  if (ccFormatted) {\n    formattedEmail += `CC: ${ccFormatted}\\n`;\n  }\n  formattedEmail += `Date: ${dateFormatted}\\n`;\n  formattedEmail += `Subject: ${email.subject || ''}\\n`;\n  formattedEmail += `Body:\\n${emailBody}`;\n  \n  return formattedEmail;\n};\n\n// ---------- Build result ----------\nconst emailText = formatEmailText(lastEmail);\n\n// Create the base email object structure\nconst baseEmailObject = {\n  ThreadId: lastEmail.threadId || null,\n  email_text: emailText,\n  from: extractAddresses(\"from\"),\n  to: extractAddresses(\"to\"),\n  cc: extractAddresses(\"cc\"),\n  bcc: extractAddresses(\"bcc\")\n};\n\n// If managers list is empty or not provided, return the original behavior\nif (!Array.isArray(managersList) || managersList.length === 0) {\n  return [\n    {\n      json: {\n        ...baseEmailObject,\n        manager: $input.first().json.manager\n      }\n    }\n  ];\n}\n\n// Create structured object for each manager in the list\nreturn managersList.map(manager => ({\n  json: {\n    ...baseEmailObject,\n    manager: manager\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1700,
+        820
+      ],
+      "id": "113d8356-d3e7-4a71-94f2-6eb30a488d03",
+      "name": "PrepareMessage1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "iExgwh7WwQliXugj",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').item.json,\nlast_email: $('PrepareMessage1').item.json.email_text,\nManager: $('PrepareMessage1').item.json.manager,\nprompt_routing: $('EmailPath').item.json.routing\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1260,
+        820
+      ],
+      "id": "651e06eb-3a05-4760-9ef7-9a81643735a0",
+      "name": "Recommender1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status===true && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "df9dfabf-eb51-443e-b267-28085d36d2c1"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3a5d1230-4212-475d-8552-662b69cd2b68",
+                    "leftValue": "={{ $json.status===false && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9c08ad0b-ac17-4b81-bee7-d1c5532fc8fb",
+                    "leftValue": "={{ $json.status===false && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "977406f0-aa5b-4392-bf73-638834764d54",
+                    "leftValue": "={{ $json.status===true && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2580,
+        500
+      ],
+      "id": "9a9fc578-b196-4f41-947b-1beabdf772d3",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.ThreadId+$json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1480,
+        820
+      ],
+      "id": "ff5c4304-b1d0-490a-b9c1-983b511a7ee9",
+      "name": "GetLatestSession9",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2b32a7f8-013c-4578-b1a2-59ba8c0e3fa2",
+                    "leftValue": "={{ $json.output.nudge===true && $json.output.skip_manager_update===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_other_user"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.nudge===false &&  $json.output.skip_manager_update===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "2deffe09-b334-4c58-b9d7-563137c16ee9"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_manager"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f773b437-3505-4564-9e65-c723aea21ac8",
+                    "leftValue": "={{ $json.output.nudge===true &&  $json.output.skip_manager_update===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_both"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "69af329f-98dd-4c84-88f1-27c955959a40",
+                    "leftValue": "={{ $json.output.nudge===false &&  $json.output.skip_manager_update===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_none"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1040,
+        800
+      ],
+      "id": "ec45f3bc-11fd-4772-9530-634fb5c73319",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8b131df7-3143-4f66-84ec-2c01ed7952b7",
+              "leftValue": "={{ $json.output.invoice_next_step }}",
+              "rightValue": "send_file_to_user",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -380,
+        220
+      ],
+      "id": "21763f6c-eb75-47d7-aac1-2941888731e0",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        320
+      ],
+      "id": "1f07109c-a56f-4bd3-84ea-0fe6df4e70ae",
+      "name": "GetLatestSession10",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse, extract base64 PDF, attach as binary\n// Works with multiple incoming items.\n\nconst items = $input.all();\n\nfunction safeParseSession(value) {\n  if (value && typeof value === 'object') return value;\n  if (typeof value === 'string') {\n    try {\n      return JSON.parse(value);\n    } catch (err) {\n      return { __parse_error: err.message, __raw: value };\n    }\n  }\n  return { __parse_error: 'Unsupported user_session type', __raw: value };\n}\n\nconst outputs = [];\nfor (const item of items) {\n  const parsedSession = safeParseSession(item.json.user_session);\n\n  const out = {\n    json: {\n      ...item.json,\n      user_session: parsedSession,\n    },\n  };\n\n  // Try to pull base64 from user_session.invoice_metadata.pdf_invoice_content\n  const pdfB64 = parsedSession?.invoice_metadata?.invoice_file?.pdf_invoice_content;\n  const file_name = parsedSession?.invoice_metadata?.invoice_file?.file_name;\n  \n\n  if (typeof pdfB64 === 'string' && pdfB64.trim().length > 0) {\n    try {\n      const buf = Buffer.from(pdfB64.trim(), 'base64');\n\n      // Name the file using invoice_id if available\n      const invoiceId = parsedSession?.invoice_metadata?.invoice_id ?? 'invoice';\n      const fileName = file_name;\n\n      // Prepare binary for n8n\n      const binary = await this.helpers.prepareBinaryData(\n        buf,\n        fileName,\n        'application/pdf'\n      );\n\n      out.binary = { pdf_invoice: binary };\n\n      // Optional: remove the large base64 string from JSON to keep items light\n      try {\n        if (out.json.user_session?.invoice_metadata) {\n          delete out.json.user_session.invoice_metadata.pdf_invoice_content;\n        }\n      } catch (_) {}\n    } catch (err) {\n      out.json.__binary_error = `Failed to decode PDF: ${err.message}`;\n    }\n  } else {\n    out.json.__binary_error = 'pdf_invoice_content not found or not a string';\n  }\n\n  outputs.push(out);\n}\n\nreturn outputs;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        320
+      ],
+      "id": "439215d1-3eca-4b8b-83fb-ab86b9e689c1",
+      "name": "Parse1"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "pdf_invoice"
+              }
+            ]
+          },
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        500,
+        220
+      ],
+      "id": "3cd6db44-9291-4888-be8b-404db1a22de7",
+      "name": "Reply1",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "513760a2-4f86-48fa-a637-c4507607291e",
+              "leftValue": "={{ Object.keys($('Parse1').first().binary || {}).length > 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        200,
+        320
+      ],
+      "id": "db035c16-4e5d-4720-b431-2329486412c1",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        500,
+        420
+      ],
+      "id": "33c75946-ce2e-489d-a002-716b9f5b1a83",
+      "name": "Reply2",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "=No nudge or manager update needed.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -820,
+        1020
+      ],
+      "id": "4e765aed-1f9d-4fa7-a5d0-fd4fd11e9dc7",
+      "name": "FormatResponse3"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -3540,
+        1180
+      ],
+      "id": "0bdca2fe-4686-4840-923b-dd70c13f46ee",
+      "name": "SendEmail2",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "=No nudge or manager update needed.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        700
+      ],
+      "id": "fef9b00e-1d70-42d7-83d8-da58aafc7ba7",
+      "name": "FormatResponse4"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=thread_199320b43e092d51"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3540,
+        1700
+      ],
+      "id": "77f90369-e512-4064-8dcd-47506920d49b",
+      "name": "GetUserSession1",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.message_for_manager }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -3540,
+        1440
+      ],
+      "id": "44b2113c-0541-494f-be59-cf322ce2015e",
+      "name": "Reply",
+      "webhookId": "5ef9dca7-7796-4988-9384-f3d6dbc77ea7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -460,
+        820
+      ],
+      "id": "69d0a1e4-9164-4430-a3d5-d7634c2d62c2",
+      "name": "SendEmail",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n{\n  \"recipients\": [$json.output.Manager.address],\n  \"cc\": [],               \n  \"MessageId\": $('WTrigger').first().json.messageId,\n  \"References\": (() => {\n    const refs = $('WTrigger').first().json?.references;\n    if (!refs) return [];\n    if (Array.isArray(refs)) return refs;\n    if (typeof refs === 'string') return [refs];    \n    return [];\n  })(),\n  \"subject\": $('WTrigger').first().json.subject,\n  \"ThreadId\": $('PrepareMessage1').first().json.ThreadId,\n  \"message\": $json.output.message_for_manager\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -680,
+        820
+      ],
+      "id": "d9186283-2a82-4bab-9366-f29b2cc03509",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hGJNP7KZFpKxxspK",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.5"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -500,
+        560
+      ],
+      "id": "cbce6bd7-1c36-4817-8c2a-aa00169699de",
+      "name": "SendEmail1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n{\n  \"recipients\": [$json.output.Manager.address],\n  \"cc\": [],               \n  \"MessageId\": $('WTrigger').first().json.messageId,\n  \"References\": (() => {\n    const refs = $('WTrigger').first().json?.references;\n    if (!refs) return [];\n    if (Array.isArray(refs)) return refs;\n    if (typeof refs === 'string') return [refs];    \n    return [];\n  })(),\n  \"subject\": $('WTrigger').first().json.subject,\n  \"ThreadId\": $('PrepareMessage1').first().json.ThreadId,\n  \"message\": $json.output.message_for_manager\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -720,
+        560
+      ],
+      "id": "a01ea955-dcd2-4536-87c3-c5b3d6358dec",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "513760a2-4f86-48fa-a637-c4507607291e",
+              "leftValue": "={{ $json.binary && Object.keys($json.binary).length > 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        380,
+        1180
+      ],
+      "id": "14794f06-2d2d-4fc2-9914-098223724fa1",
+      "name": "If"
+    }
+  ],
+  "pinData": {
+    "WTrigger": [
+      {
+        "json": {
+          "id": "19a60ebaa5e1ff9a",
+          "threadId": "19a3cf72a3480273",
+          "labelIds": [
+            "UNREAD",
+            "IMPORTANT",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 1433575,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from smtpclient.apple (unknown [17.57.152.38])\r\n\tby p00-icloudmta-asmtp-us-west-2a-20-percent-2 (Postfix) with ESMTPSA id A913D1800A98\r\n\tfor <asst@patchbay.xyz>; Sat,  8 Nov 2025 00:44:02 +0000 (UTC)",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IFOAD+/6bn5kBaaou62nb0JGB3dDkdMkfy2abLA6TwTNpPAGN3FVzwHuiaKc1MVahd75Cdz",
+            "x-received": "X-Received: by 2002:a05:620a:4613:b0:7fd:50bd:193b with SMTP id af79cd13be357-8b257ef9521mr176402885a.14.1762562648785;\r\n        Fri, 07 Nov 2025 16:44:08 -0800 (PST)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1762562648; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=X6BhvVOUCyUVuDkicp8y7GMA93mBZog8aWFSge6aN1hMXzyDWCNdhQ2T/RFCERBSOT\r\n         K/Mu7kZkFtrrocjhGU5P53flILglpW6LYOarRxq26WgMHRCeL362Wv5G7FrvxCEyLU/2\r\n         nMgn5jLNBXcefzaGwwb3OmnsLSfYodFGAjcrs0jyLf0CM19F857+vdMImbkY0bXHM6jl\r\n         luCu7yQbHoWhA5kbGuAxgbQGdFq2hXoDg+EjTiepmqQMqx8iTx+Jnuu2/WNcUs8tQPN3\r\n         1CdsHkbRuV3mLzLZmaWPE3VV6IXgrMCpVoEukJosAH9crZSTKisW8bU4HH22tOLdZp11\r\n         Lt6g==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=date:to:references:message-id:subject:mime-version:from\r\n         :dkim-signature;\r\n        bh=jIr6fZLZ0nXbqQIqbpxKAHC/y9uI9LQe7eTS7LHhAAY=;\r\n        fh=fyDnHDG9e7aIl2hAf/TfXX5p4zzWq4+iawtd+KwFY84=;\r\n        b=g86BqGk9ToT6S5dwtaRKaOSN9I1LaI35FAqNc7SgFwhslfVjvNGcDiBAnTuOM/v0EF\r\n         bES8+lMRFtAREv0XirJtdYBZsBdRZ1VtNdC26ycIaOlyW25mTG8YaJ4lVcZI2s3EN6tW\r\n         rFMxxQm3dflg6zcJdjGPfVG0SYZ4Q37H5BQ8qRoviPwLqnlxRD5yrx4POuKVlAKnUJlE\r\n         xUWKXjhEI9yEG6ufrYAC1ROd0PJIpFqjFk8osH9+X1+dgm5F0ke81mExvsUk2dIr1pJJ\r\n         4CmpQ+C3NI4+dOpmVy5VgHvZ5Q0Qyf02v0a4azp1WEVidyJo4lCulfm+p40mDDoHFlm8\r\n         NpLw==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@me.com header.s=1a1hai header.b=05P5SZ1R;\r\n       spf=pass (google.com: domain of evanlipschutz@me.com designates 57.103.68.213 as permitted sender) smtp.mailfrom=evanlipschutz@me.com;\r\n       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=me.com",
+            "return-path": "Return-Path: <evanlipschutz@me.com>",
+            "received-spf": "Received-SPF: pass (google.com: domain of evanlipschutz@me.com designates 57.103.68.213 as permitted sender) client-ip=57.103.68.213;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@me.com header.s=1a1hai header.b=05P5SZ1R;\r\n       spf=pass (google.com: domain of evanlipschutz@me.com designates 57.103.68.213 as permitted sender) smtp.mailfrom=evanlipschutz@me.com;\r\n       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=me.com",
+            "dkim-signature": "Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=me.com; s=1a1hai; bh=jIr6fZLZ0nXbqQIqbpxKAHC/y9uI9LQe7eTS7LHhAAY=; h=From:Content-Type:Mime-Version:Subject:Message-Id:To:Date:x-icloud-hme; b=05P5SZ1RBTm3xa02Lx9S83CyrSyNO257j1T3uyqyBPcunREVBzIGq6hsk43MBURGGosLOf2ols0KzRMoqqkqaUnr5Ftph7BGEGUcsvsQOqe6DW5xQbpc7c4B/dTteu46aKMyEmWpskOZGPUsun9Q+Q9QmOcazWduMYTv1YLNgSRqYKRPES2OcdfsW59a37oLWJo7yHZbLWWM5OXUmQv1f2sUWjAGcWfnMXJNd0jA+IN3jjjBTA2MtPM5mXAgvlqwfka9Xp0LCxWgAU4Cfbi6rFmmPqWLIgOcSQdG1nO94B739jw4uBEZQEpORAjoh0n35lOmW9ch/xqx+siBGZZ2Yg==",
+            "from": "From: Evan Lipschutz <evanlipschutz@me.com>",
+            "content-type": "Content-Type: multipart/alternative;\r\n\tboundary=\"Apple-Mail=_21E6220A-A7F1-4D08-A27D-BFF6EF4CE5A6\"",
+            "mime-version": "Mime-Version: 1.0 (Mac OS X Mail 16.0 \\(3864.200.81.1.5\\))",
+            "subject": "Subject: Fwd: Contracting Info",
+            "message-id": "Message-Id: <5443DEF3-0BC8-4C4B-B9E2-8C205CB5BE38@me.com>",
+            "references": "References: <9D5A2FEE-7EB2-493E-9FAB-8B4D84B2CE2D@ashleyfulton.com>",
+            "to": "To: Asst@patchbay.xyz",
+            "date": "Date: Fri, 7 Nov 2025 16:43:51 -0800",
+            "x-mailer": "X-Mailer: Apple Mail (2.3864.200.81.1.5)",
+            "x-authority-info": "X-Authority-Info: v=2.4 cv=TpTrRTXh c=1 sm=1 tr=0 ts=690e9256 cx=c_apl:c_pps\r\n a=9OgfyREA4BUYbbCgc0Y0oA==:117 a=9OgfyREA4BUYbbCgc0Y0oA==:17\r\n a=6UeiqGixMTsA:10 a=x7bEGLp0ZPQA:10 a=HgSS8NolZBcA:10 a=jRFDXU6MAAAA:8\r\n a=jU4qhlNgAAAA:8 a=HHGDD-5mAAAA:8 a=7CARDvs8AAAA:8 a=ZrYWbDZrYVZ891um4CQA:9\r\n a=QEXdDO2ut3YA:10 a=Yy2QvTj5Gm1VcbdlQjMA:9 a=fX3mBW41HNheg7vw:21\r\n a=_W_S_7VecoQA:10 a=bBl-cJSRdyXcJViHyswA:9 a=n3BslyFRqc0A:10\r\n a=rls1ZAiwvL0A:10 a=zgiPjhLxNE0A:10 a=tclcd6dtLQvEqt9_mmAA:9\r\n a=CjuIK1q_8ugA:10 a=0Srpr0L8Qcf68OBx7GgA:9 a=kB0iWyrDpB9otyP-EVpT:22\r\n a=9ZuGFdSAMgmoe2Gd5DEG:22",
+            "x-proofpoint-orig-guid": "X-Proofpoint-ORIG-GUID: 3-JwdlSvAnQh8c1nXkMiGR7GrX5Pa0z-",
+            "x-proofpoint-spam-details-enc": "X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA4MDAwNCBTYWx0ZWRfXw45+MivLL2OA\r\n qrNS7S/RNa+4c6kTCXfSn42k7Y6LGckF8/eeXVZD2hhm2J458Vmc7I1MpWtLSZr0YpeDjy/Pn+b\r\n 6PST0E5D+YvVWPIKPwjXu0k4X2kfEaMueB1TrG0TcbEvDnT9riKScIkryszOjmwK/Kgm8BOU3Z0\r\n PzLj8is7V6UUwUf7glRKItkQvlCpZdRu6eWiezzpcKUm1hpq1QAF9aBmrb7mYmLMG0WHI4F5VL5\r\n 0JkjZCcWjUCBRTsPleSxHvcclrd4YwvetVtH6UxlAO+F45Zn20+8QVZyIjo93Ft4/ZjN1RhI07h\r\n /6Dbve6c5s4w+yfv2LP",
+            "x-proofpoint-guid": "X-Proofpoint-GUID: 3-JwdlSvAnQh8c1nXkMiGR7GrX5Pa0z-",
+            "x-proofpoint-virus-version": "X-Proofpoint-Virus-Version: vendor=baseguard\r\n engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49\r\n definitions=2025-11-08_01,2025-11-06_01,2025-10-01_01",
+            "x-proofpoint-spam-details": "X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0\r\n bulkscore=0 mlxscore=0 malwarescore=0 clxscore=1015 mlxlogscore=999\r\n adultscore=0 suspectscore=0 phishscore=0 classifier=spam authscore=0 adjust=0\r\n reason=mlx scancount=1 engine=8.22.0-2509250000 definitions=main-2511080004",
+            "x-jnj": "X-JNJ: AAAAAAABnCjUW3q2gHiL7+YC9UdwR+NtxqPxQfmOW6+AhS6rMfpAYXkGqQBIwnbNZ2XcFmsgpmTY9Cb2kEIswfPSerGr0KYMcwSVaHlRlTgnbILgEHjpDiSxcSFoHOabFzxPYzV6x0Qs0QIIhzquBLIbkrlCPVA4dJly7PZZOPg1wSw/JUAHY120dNxIWRkwJ62g90FPWwcNi8PRItPzKLn/xxPlph14PQ2kg8URXy3y92RDeYcGm0AOOu/gVo1ljfE0EPTnINMcszu/P3eWfr95pual3yV1um1N9DU51YnKQXRmxkmP8puo/OFgCggAgh18/SSEabTN+6bQpgSnJ/JBkMK8N2IbEPPC8Pam2Q1k4+HCGlJ9PISP8350buAq0sNw4XJ2WXy5yL/jOcgiKg1kE3cUqbcevB/Txe6KHx/bxvPlyhuIh+A+UoracU75Qr1gR3fRLw0O2ukAxO0ZVWfGs8x8zq+StRtg++2MP2tUGfgWW8Xyh+k0RLStrH2gCou+7c6+NV1/rETXS1cCXvJTmlxsrzQyBCYnh+PfKvXBoCJLIanKPamhB95edWzo3onSUH/zRbOR63rsQfXEar0crtoPnAY52SLcMK5Vakqv3SmQqff1"
+          },
+          "html": "<html aria-label=\"message body\"><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"></head><body style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\">Can we please make a new workspace?<div>The Clients name is Ashley Fulton and the documents attached provide lots of her required details…can we do this?</div><div><br id=\"lineBreakAtBeginningOfMessage\"><div>\n<div>Evan Lipschutz</div><div>evanlipschutz@me.com</div><div>917-330-5186</div><div><br></div><br class=\"Apple-interchange-newline\">\n\n</div>\n\n<div><br><blockquote type=\"cite\"><div>Begin forwarded message:</div><br class=\"Apple-interchange-newline\"><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>From: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\">Larry Fulton &lt;larry@ashleyfulton.com&gt;<br></span></div><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>Subject: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\"><b>Re: Contracting Info</b><br></span></div><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>Date: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\">October 31, 2025 at 5:56:48 PM PDT<br></span></div><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>To: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\">Evan Lipschutz &lt;evanlipschutz@me.com&gt;<br></span></div><div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;\"><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);\"><b>Cc: </b></span><span style=\"font-family: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif;\">legal@ashleyfulton.com, Ashley Fulton &lt;ashley@ashleyfulton.com&gt;, Miles Opton &lt;miles@dbldwn11.com&gt;<br></span></div><br><div><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><div style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div></div><div>Good news. Good to hear.&nbsp;</div><div><br></div><div>I realize Arlishea already sent you some information. I’m following up to make sure that you have Ashley’s full remittance data and preferred methods of payment. You may also need her W-9 for certain instances. Please see attached.&nbsp;</div><div><br></div><div><br></div><div>\n<meta charset=\"UTF-8\"><div dir=\"auto\" style=\"caret-color: rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div dir=\"auto\" style=\"caret-color: rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div dir=\"auto\" style=\"text-align: start; text-indent: 0px; overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div dir=\"auto\" style=\"text-align: start; text-indent: 0px; overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div dir=\"auto\" style=\"text-align: start; text-indent: 0px; overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div dir=\"auto\" style=\"text-align: start; text-indent: 0px; overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div style=\"caret-color: rgb(0, 0, 0); letter-spacing: normal; text-transform: none; white-space: normal; word-spacing: 0px; text-decoration: none; -webkit-text-stroke-width: 0px;\"><b>LARRY FULTON, MBA</b><br><font face=\"Avenir-Book\"><span style=\"font-style: normal; font-size: 11px;\">Business Manager<br>216-496-4206<br>Larry@AshleyFulton.com</span></font><br><br><span style=\"font-style: normal;\"><b>ASHLEY FULTON</b></span><br><font face=\"Avenir-Book\"><span style=\"font-size: 11px;\">Producer | Composer |&nbsp;Songwriter |&nbsp;Artist</span></font></div><div style=\"caret-color: rgb(0, 0, 0); letter-spacing: normal; text-transform: none; white-space: normal; word-spacing: 0px; text-decoration: none; -webkit-text-stroke-width: 0px;\"><font face=\"Avenir-Book\"><span style=\"font-size: 11px;\"><a href=\"http://www.ashleyfulton.com/\">Website</a>&nbsp;|&nbsp;<a href=\"https://www.linkedin.com/in/ashley-fulton-1a29661b1/\">linkedIn</a></span></font></div></div></div></div></div></div></div><br class=\"Apple-interchange-newline\">\n</div>\n<div><br><blockquote type=\"cite\"><div>On Oct 31, 2025, at 1:54 PM, Evan Lipschutz &lt;evanlipschutz@me.com&gt; wrote:</div><br class=\"Apple-interchange-newline\"><div><meta http-equiv=\"content-type\" content=\"text/html; charset=us-ascii\"><div style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\">Hey guys,<div><br><div>Solidified a WFH buyout for 2500 for a project Ashley helped with. What is the appropriate contracting info to send to the vendor to make the form?</div><div><br></div><div>Thanks!</div><div><br></div><div>e</div><div><br><div>\n<div>Evan Lipschutz</div><div>evanlipschutz@me.com</div><div>917-330-5186</div></div></div></div></div></div></blockquote></div><br></div></div></blockquote></div></div></body></html><br/>\n<html aria-label=\"message body\"><body style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><head><meta http-equiv=\"content-type\" content=\"text/html; charset=us-ascii\"></head><div><div class=\"AppleOriginalContents\"><blockquote type=\"cite\"><div><div style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><meta http-equiv=\"content-type\" content=\"text/html; charset=us-ascii\"></div></div></blockquote></div></div></body></html><br/>\n<html aria-label=\"message body\"><head><meta http-equiv=\"content-type\" content=\"text/html; charset=us-ascii\"></head><body style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"><div><div><blockquote type=\"cite\"><div><meta http-equiv=\"content-type\" content=\"text/html; charset=us-ascii\"><div style=\"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;\"></div></div></blockquote></div><br></div></body></html>",
+          "text": "Can we please make a new workspace?\nThe Clients name is Ashley Fulton and the documents attached provide lots of her required details…can we do this?\n\nEvan Lipschutz\nevanlipschutz@me.com\n917-330-5186\n\n\n\n> Begin forwarded message:\n> \n> From: Larry Fulton <larry@ashleyfulton.com>\n> Subject: Re: Contracting Info\n> Date: October 31, 2025 at 5:56:48 PM PDT\n> To: Evan Lipschutz <evanlipschutz@me.com>\n> Cc: legal@ashleyfulton.com, Ashley Fulton <ashley@ashleyfulton.com>, Miles Opton <miles@dbldwn11.com>\n> \n> Good news. Good to hear. \n> \n> I realize Arlishea already sent you some information. I’m following up to make sure that you have Ashley’s full remittance data and preferred methods of payment. You may also need her W-9 for certain instances. Please see attached. \n> \n> \n> LARRY FULTON, MBA\n> Business Manager\n> 216-496-4206\n> Larry@AshleyFulton.com\n> \n> ASHLEY FULTON\n> Producer | Composer | Songwriter | Artist\n> Website <http://www.ashleyfulton.com/> | linkedIn <https://www.linkedin.com/in/ashley-fulton-1a29661b1/>\n> \n>> On Oct 31, 2025, at 1:54 PM, Evan Lipschutz <evanlipschutz@me.com> wrote:\n>> \n>> Hey guys,\n>> \n>> Solidified a WFH buyout for 2500 for a project Ashley helped with. What is the appropriate contracting info to send to the vendor to make the form?\n>> \n>> Thanks!\n>> \n>> e\n>> \n>> Evan Lipschutz\n>> evanlipschutz@me.com\n>> 917-330-5186\n> \n￼\n￼\n\n",
+          "textAsHtml": "<p>Can we please make a new workspace?<br/>The Clients name is Ashley Fulton and the documents attached provide lots of her required details&mldr;can we do this?</p><p>Evan Lipschutz<br/><a href=\"mailto:evanlipschutz@me.com\">evanlipschutz@me.com</a><br/>917-330-5186</p><p>&gt; Begin forwarded message:<br/>&gt;<br/>&gt; From: Larry Fulton &lt;<a href=\"mailto:larry@ashleyfulton.com\">larry@ashleyfulton.com</a>&gt;<br/>&gt; Subject: Re: Contracting Info<br/>&gt; Date: October 31, 2025 at 5:56:48&#x202F;PM PDT<br/>&gt; To: Evan Lipschutz &lt;<a href=\"mailto:evanlipschutz@me.com\">evanlipschutz@me.com</a>&gt;<br/>&gt; Cc: <a href=\"mailto:legal@ashleyfulton.com\">legal@ashleyfulton.com</a>, Ashley Fulton &lt;<a href=\"mailto:ashley@ashleyfulton.com\">ashley@ashleyfulton.com</a>&gt;, Miles Opton &lt;<a href=\"mailto:miles@dbldwn11.com\">miles@dbldwn11.com</a>&gt;<br/>&gt;<br/>&gt; Good news. Good to hear.<br/>&gt;<br/>&gt; I realize Arlishea already sent you some information. I&rsquo;m following up to make sure that you have Ashley&rsquo;s full remittance data and preferred methods of payment. You may also need her W-9 for certain instances. Please see attached.<br/>&gt;<br/>&gt;<br/>&gt; LARRY FULTON, MBA<br/>&gt; Business Manager<br/>&gt; 216-496-4206<br/>&gt; <a href=\"mailto:Larry@AshleyFulton.com\">Larry@AshleyFulton.com</a><br/>&gt;<br/>&gt; ASHLEY FULTON<br/>&gt; Producer | Composer | Songwriter | Artist<br/>&gt; Website &lt;<a href=\"http://www.ashleyfulton.com/\">http://www.ashleyfulton.com/</a>&gt; | linkedIn &lt;<a href=\"https://www.linkedin.com/in/ashley-fulton-1a29661b1/\">https://www.linkedin.com/in/ashley-fulton-1a29661b1/</a>&gt;<br/>&gt;<br/>&gt;&gt; On Oct 31, 2025, at 1:54&#x202F;PM, Evan Lipschutz &lt;<a href=\"mailto:evanlipschutz@me.com\">evanlipschutz@me.com</a>&gt; wrote:<br/>&gt;&gt;<br/>&gt;&gt; Hey guys,<br/>&gt;&gt;<br/>&gt;&gt; Solidified a WFH buyout for 2500 for a project Ashley helped with. What is the appropriate contracting info to send to the vendor to make the form?<br/>&gt;&gt;<br/>&gt;&gt; Thanks!<br/>&gt;&gt;<br/>&gt;&gt; e<br/>&gt;&gt;<br/>&gt;&gt; Evan Lipschutz<br/>&gt;&gt; <a href=\"mailto:evanlipschutz@me.com\">evanlipschutz@me.com</a><br/>&gt;&gt; 917-330-5186<br/>&gt;<br/>&#xFFFC;<br/>&#xFFFC;</p>",
+          "subject": "Fwd: Contracting Info",
+          "references": "<9D5A2FEE-7EB2-493E-9FAB-8B4D84B2CE2D@ashleyfulton.com>",
+          "date": "2025-11-08T00:43:51.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "Asst@patchbay.xyz",
+                "name": ""
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><a href=\"mailto:Asst@patchbay.xyz\" class=\"mp_address_email\">Asst@patchbay.xyz</a></span>",
+            "text": "Asst@patchbay.xyz"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "evanlipschutz@me.com",
+                "name": "Evan Lipschutz"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Evan Lipschutz</span> &lt;<a href=\"mailto:evanlipschutz@me.com\" class=\"mp_address_email\">evanlipschutz@me.com</a>&gt;</span>",
+            "text": "\"Evan Lipschutz\" <evanlipschutz@me.com>"
+          },
+          "messageId": "<5443DEF3-0BC8-4C4B-B9E2-8C205CB5BE38@me.com>"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-08T05:47:39.125Z",
+  "versionId": "20d238ac-5f32-4c14-a209-511628a29fea"
+}
