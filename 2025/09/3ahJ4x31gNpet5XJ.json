@@ -1,0 +1,728 @@
+{
+  "active": true,
+  "connections": {
+    "GetSession1": {
+      "main": [
+        [
+          {
+            "node": "SessionData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SessionData": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Add Label1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data": {
+      "main": [
+        [
+          {
+            "node": "CallAssistant1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Labeler",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Label": {
+      "main": [
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Label1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data1": {
+      "main": [
+        [
+          {
+            "node": "Call Bulk Processor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreateSession": {
+      "main": [
+        [
+          {
+            "node": "Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "CreateSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Metadata": {
+      "main": [
+        [
+          {
+            "node": "Labeler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Labeler": {
+      "main": [
+        [
+          {
+            "node": "Add Label1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add Label",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add Label",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GTrigger": {
+      "main": [
+        [
+          {
+            "node": "GetSession1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "GTrigger",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-15T05:31:53.913Z",
+  "id": "3ahJ4x31gNpet5XJ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Test",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "session",
+        "key": "=thread_{{ $json.threadId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        -40
+      ],
+      "id": "32d212e2-223c-4865-a834-a45583980cd6",
+      "name": "GetSession1",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const sessionData = $input.item.json.session;\n\nif (typeof sessionData === \"string\") {\n  try {\n    const parsed = JSON.parse(sessionData);\n    return {\"sessionStatus\": parsed.sessionStatus, \"Label\": parsed.Label};\n  } catch {\n    return { sessionStatus: false }; // Invalid JSON\n  }\n} else {\n  return { sessionStatus: false }; // No session data\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        -40
+      ],
+      "id": "62b240ac-d20c-4e18-bbda-8a83ca9a33e0",
+      "name": "SessionData"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "fdb6c60e-5d50-4d5c-80ab-c1335d3e92c1",
+                    "leftValue": "={{ $json.sessionStatus && $json.Label == \"BULK-DEALS-ASSISTANT\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "56c1e8d3-2b0a-4e3c-82f1-358ba33b4c1d",
+                    "leftValue": "={{ $json.sessionStatus }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "false",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.sessionStatus && $json.Label == \"CRUD-ASSISTANT\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "8606025a-9f90-4028-880e-f80ad60170ef"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        0,
+        -40
+      ],
+      "id": "44cd11af-88f2-4e74-9649-e06d7ba7ca7e",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "2D9znxEhMDXMJrah",
+          "mode": "list",
+          "cachedResultName": "Chat-Orchestrator-1.0.4 Beta"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1480,
+        40
+      ],
+      "id": "85a30c5c-0dc4-4c88-b21f-76316fa99d22",
+      "name": "CallAssistant"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all items from the GTrigger node\nconst items = $('GTrigger').all();\n\nreturn items.map(item => {\n  return {\n    json: {\n      ...item.json,   // copy json content\n    },\n    binary: item.binary || {} // keep binary if present\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        140
+      ],
+      "id": "5a2b929f-7d4d-4ed9-910b-081bf0a72cde",
+      "name": "Data"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        588,
+        185
+      ],
+      "id": "6b12e13b-ec13-49a4-b980-7a9802d9142c",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "thread",
+        "operation": "addLabels",
+        "threadId": "={{ $('GTrigger').item.json.threadId }}",
+        "labelIds": [
+          "Label_6620791052158273947"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        876,
+        15
+      ],
+      "id": "72d1bedd-f3fb-47f2-9d77-f9896ee63f79",
+      "name": "Add Label",
+      "webhookId": "8d6d0fc0-5c17-4a8b-b8b4-b99a202a4797",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "thread",
+        "operation": "addLabels",
+        "threadId": "={{ $('GTrigger').item.json.threadId }}",
+        "labelIds": [
+          "Label_8900561339644229618"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        876,
+        -260
+      ],
+      "id": "114ec25c-e96e-4a7a-a511-ae6d25fc2bb5",
+      "name": "Add Label1",
+      "webhookId": "1a8449cc-6a37-4567-8453-fd6a174624a9",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=session_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1316,
+        -260
+      ],
+      "id": "7657cccc-5a01-4673-b0aa-580910e1c1f7",
+      "name": "CreateSession",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all items from the GTrigger node\nconst items = $('GTrigger').all();\n\nreturn items.map(item => {\n  const binaries = {};\n\n  // Loop over all binary keys and rename them under \"data_*\"\n  for (const [key, value] of Object.entries(item.binary || {})) {\n    binaries[`data_${key}`] = value;\n  }\n\n  return {\n    json: {\n      ...item.json,  // keep original json content\n    },\n    binary: binaries\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1536,
+        -260
+      ],
+      "id": "913251f7-da62-43be-9810-df44b5fb8996",
+      "name": "Data1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "63fed44c-a31d-474a-8df7-994c7a9cb0bf",
+              "name": "ThreadId",
+              "value": "={{ $('GTrigger').first().json.threadId }}",
+              "type": "string"
+            },
+            {
+              "id": "a46526fc-743d-47e5-8748-e575fd7a683c",
+              "name": "Label",
+              "value": "BULK-DEALS-ASSISTANT",
+              "type": "string"
+            },
+            {
+              "id": "99680fd6-5c40-4187-9cf1-7bb2e1d39473",
+              "name": "sessionStatus",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1096,
+        -260
+      ],
+      "id": "2c33e5a8-120a-4aec-9a0c-0c3110f6c0f3",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $('GTrigger').all();\n\nreturn items.map(item => {\n  const binaries = item.binary || {};\n  const attachments_metadata = Object.keys(binaries).map(key => {\n    const b = binaries[key];\n    return {\n      fileName: b?.fileName || null,\n      mimeType: b?.mimeType || null,\n    };\n  });\n\n  return {\n    json: {\n      attachments_metadata,\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        280,
+        -35
+      ],
+      "id": "f99be248-3fa2-47b5-8d06-65a9bd5daef1",
+      "name": "Metadata"
+    },
+    {
+      "parameters": {
+        "inputText": "=Subject: {{ $('GTrigger').item.json.headers.subject }},\nemail_text = {{ $('GTrigger').item.json.text.slice(0,120000) }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "BULK-DEALS-ASSISTANT",
+              "description": "=**BULK-DEALS-ASSISTANT**\nChoose this category **only if all the following apply**:\n\n* The subject and email text clearly indicate that the user wants to **process multiple deals** (e.g., extract or create in bulk).\n* The conversation is **only between two people** (a manager and the assistant/system).\n* There is an attachment present in the email, either:\n\n  * a single `.zip` file, or\n  * multiple deal files (shown in `attachments_metadata`).\n\n👉 Attachments Metadata example:\n\n```js\n{{ JSON.stringify($json.attachments_metadata, null, ' ') }}\n```"
+            },
+            {
+              "category": "CRUD-ASSISTANT",
+              "description": "=**CRUD-ASSISTANT**\nChoose this category if **all of the following apply**:\n\n* The conversation is **multiparties** (more than two participants).\n* The topic is a **single deal only**, which may involve discussions around:\n\n  * deal creation\n  * deal updates or modifications\n  * invoices, catalogs, song splits, confirmations, etc.\n* Attachments may be present, but **never a `.zip` file**."
+            },
+            {
+              "category": "Invalid",
+              "description": "Nothing matched to the above to categories"
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "=You are a strict labeler for Gmail threads.\n\nPlease classify the text provided by the user into one of the following categories: \n[\"BULK-DEALS-ASSISTANT\", \"CRUD-ASSISTANT\"]\n\nClassification Rules:\n- BULK-DEALS-ASSISTANT: For 2-party conversations, processing multiple deals, always with .zip or multiple deal files in attachments_metadata.\n- CRUD-ASSISTANT: For multiparty conversations, discussing a single deal, possibly with attachments (but never .zip).\n\nOutput Format:\nReturn only valid JSON in the following structure:\nDo not explain your reasoning. Do not add extra fields.\n``\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        500,
+        -35
+      ],
+      "id": "f17be6e8-b3c8-4304-95d1-f18d41376ac7",
+      "name": "Labeler",
+      "executeOnce": true,
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "CdHgURIIFXW8hZSO",
+          "mode": "list",
+          "cachedResultName": "BD-Orchestrator"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1756,
+        -260
+      ],
+      "id": "969e7d4b-19a9-4591-9821-484f0dbb21e5",
+      "name": "Call Bulk Processor",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "4Kkiv36SflWDjFpT",
+          "mode": "list",
+          "cachedResultName": "Chat-Orchestrator-1.0.6"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1260,
+        140
+      ],
+      "id": "abe877b9-99ca-42aa-8a3e-72eb6d0dd5d5",
+      "name": "CallAssistant1"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "simple": false,
+        "filters": {
+          "readStatus": "unread"
+        },
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -660,
+        -40
+      ],
+      "id": "9b3f5715-f3bb-4e30-ba2d-5ff07ece51b8",
+      "name": "GTrigger",
+      "webhookId": "45e8c167-65c8-479e-99d4-8ad81cdfe6dd",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 60
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -820,
+        -40
+      ],
+      "id": "b44ffc1d-b47a-4c2a-9c8d-463f0234f73d",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2025-11-11T11:23:00.003+00:00",
+          "Readable date": "November 11th 2025, 11:23:00 am",
+          "Readable time": "11:23:00 am",
+          "Day of week": "Tuesday",
+          "Year": "2025",
+          "Month": "November",
+          "Day of month": "11",
+          "Hour": "11",
+          "Minute": "23",
+          "Second": "00",
+          "Timezone": "UTC (UTC+00:00)"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 3600,
+    "timeSavedPerExecution": 0,
+    "saveDataSuccessExecution": "none"
+  },
+  "staticData": {
+    "node:GTrigger": {
+      "GTrigger": {
+        "lastTimeChecked": 1762762822,
+        "possibleDuplicates": [
+          "19a6cda40717893f"
+        ]
+      }
+    },
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    },
+    "node:GTrigger-legacy": {
+      "GTrigger-legacy": {
+        "lastTimeChecked": 1762765096,
+        "possibleDuplicates": [
+          "19a6cee08a8656cb"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-11T14:23:42.637Z",
+  "versionId": "f57a96fb-9118-436d-b1af-3934013600d4"
+}
