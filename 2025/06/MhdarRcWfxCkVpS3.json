@@ -1,0 +1,1314 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "VectorStore",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres PGVector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Postgres PGVector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "DataLoader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Arrange": {
+      "main": [
+        [
+          {
+            "node": "UpdateVectorstore",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test": {
+      "main": [
+        [
+          {
+            "node": "Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent": {
+      "main": [
+        [
+          {
+            "node": "Format",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format": {
+      "main": [
+        [
+          {
+            "node": "Route1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VectorStore": {
+      "main": [
+        [
+          {
+            "node": "ReSet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DataLoader": {
+      "ai_document": [
+        [
+          {
+            "node": "VectorStore",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ReSet": {
+      "main": [
+        [
+          {
+            "node": "Arrange",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateVectorstore": {
+      "main": [
+        [
+          {
+            "node": "Route2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route2": {
+      "main": [
+        [
+          {
+            "node": "SetInput1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SetInput2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AssignUUID": {
+      "main": [
+        [
+          {
+            "node": "VectorStore",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route1": {
+      "main": [
+        [
+          {
+            "node": "AssignUUID",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "checkEntry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SchemaParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetInput1": {
+      "main": [
+        [
+          {
+            "node": "WriteToDB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetInput2": {
+      "main": [
+        [
+          {
+            "node": "WriteToDB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "checkEntry": {
+      "main": [
+        [
+          {
+            "node": "checkEntry1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OnError2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "checkEntry1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "OnError2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-03T04:24:59.273Z",
+  "id": "MhdarRcWfxCkVpS3",
+  "meta": null,
+  "name": "New_Fields_Recommender",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2640,
+        80
+      ],
+      "id": "54ca90b8-adfe-42ea-ae55-7bc0a6f4fc71",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2420,
+        400
+      ],
+      "id": "960759a6-1b53-46a2-8a00-39b0e09268cd",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -980,
+        520
+      ],
+      "id": "256d9ad7-f9e2-491f-8d77-3dd2eeecba0c",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "CheckField",
+        "toolDescription": "Call this tool to check if the field is existed or not in the vectorstore. Query must contain field_name and field_description as input.",
+        "tableName": "deals_newfields_embeddings",
+        "topK": 2,
+        "includeDocumentMetadata": false,
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "deal_type",
+                "value": "={{ $('Trigger').item.json.deal_type }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1.1,
+      "position": [
+        -2300,
+        420
+      ],
+      "id": "c865081c-a7b0-413d-8b3e-06f171234250",
+      "name": "Postgres PGVector Store1",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2220,
+        600
+      ],
+      "id": "0b5979a7-09a8-481e-b5b0-6dd3fb0e69a0",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        680
+      ],
+      "id": "1a551457-34b5-41ac-b446-bdd6f100fa1f",
+      "name": "Token Splitter"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "347dae1b-912f-444a-8b46-3d1ed0bd48ec",
+              "name": "text",
+              "value": "=uuid: {{ $json.uuid }}\n------\n{{ $json.text }} \n",
+              "type": "string"
+            },
+            {
+              "id": "d8cec7f9-6e50-40b2-accf-0f5f3d9abf2c",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bfaac5a2-0986-49cb-82d8-f7d2d4d5b660",
+              "name": "metadata",
+              "value": "={{ $json.metadata.removeField('full_payload') }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        140
+      ],
+      "id": "740c5dd9-9588-4b1d-b9e8-e08cdf5d0f7b",
+      "name": "Arrange"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2640,
+        280
+      ],
+      "id": "760fb696-a4c6-4503-85b9-9c804334a680",
+      "name": "Test"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=existing_fields: {{ $json.extracted_schema }}\nDeal Document: {{ $json.deal_document }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a smart agent tasked with analyzing the provided 'Deal Document'  and 'existing_fields' to recommend a structured list of new fields or keys that need to be extracted. Make sure not recommend the existing filds in the recommendations list. Consider below instructions while recommending the new fields.\n- The new fields must not be of descriptive nature.\n- It could be values, dates, times, names of certian parties, some musical tersm/rights etc.\n- Make sure to be as correct as possible to correctly related the fields to either deals, aggreements or credits. \n- For reference, deal is the major document which may contain one or more agreements. Moreover, agreement may contain credits.\n\nReturn your recommendations **ONLY** in the following JSON format:\n\n\nDo **NOT** output or include the schema structure itself. Only return an array containing the recommended fields, each with the three required properties."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -2300,
+        180
+      ],
+      "id": "f7eb5c44-1a8b-46d0-869e-afe7568ceadb",
+      "name": "Agent",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = items[0].json.output;\n\nconst updated = input.map(field => ({\n  ...field,\n  deal_type: $('Trigger').first().json.deal_type\n}));\n\nreturn updated;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1820,
+        180
+      ],
+      "id": "a44aec1d-5c05-4d3e-88a3-73d7a111e85e",
+      "name": "Format"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "deals_newfields_embeddings",
+        "embeddingBatchSize": 20,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1.1,
+      "position": [
+        -880,
+        160
+      ],
+      "id": "7ea7793d-cecc-43b3-81f2-ddd4dfb5e3c3",
+      "name": "VectorStore",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "=field_name: {{ $('AssignUUID').item.json.field_name }}\n------\nfield_description: {{ $('AssignUUID').item.json.field_description }}\n------",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "field_tag",
+                "value": "={{ $('AssignUUID').item.json.field_tag }}"
+              },
+              {
+                "name": "associated_to",
+                "value": "={{ $('AssignUUID').item.json.associated_to }}"
+              },
+              {
+                "name": "uuid",
+                "value": "={{ $('AssignUUID').item.json.uuid }}"
+              },
+              {
+                "name": "deal_type",
+                "value": "={{ $('AssignUUID').item.json.deal_type }}"
+              },
+              {
+                "name": "field_name",
+                "value": "={{ $('AssignUUID').item.json.field_name }}"
+              },
+              {
+                "name": "field_description",
+                "value": "={{ $('AssignUUID').item.json.field_description }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        -700,
+        520
+      ],
+      "id": "bdac1101-d13c-4cd1-803e-5d1c2922b87a",
+      "name": "DataLoader"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, metadata->>'uuid' AS uuid, text, metadata\nFROM deals_newfields_embeddings\nWHERE metadata->>'uuid' = '{{ $json.metadata.uuid }}' AND metadata->>'deal_type' = '{{ $json.metadata.deal_type }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -440,
+        140
+      ],
+      "id": "fbdb9213-84fe-45ef-b2c9-074bd2746dae",
+      "name": "ReSet",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "deals_newfields_embeddings",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "text": "={{ $json.text }}",
+            "metadata": "={{ $json.metadata }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "embedding",
+              "displayName": "embedding",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "options",
+              "canBeUsedToMatch": true,
+              "options": [],
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -120,
+        140
+      ],
+      "id": "a7d49863-1b73-48f2-ac22-0140f6d066ea",
+      "name": "UpdateVectorstore",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "58149d3e-bf61-4725-a638-f2c89770456a",
+              "leftValue": "deal_master, deal_records",
+              "rightValue": "={{ $json.metadata.deal_type }}",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        120
+      ],
+      "id": "9c8737f9-95e2-45ce-b6ff-820d2c65170d",
+      "name": "Route2"
+    },
+    {
+      "parameters": {
+        "action": "generate",
+        "dataPropertyName": "uuid"
+      },
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        -1340,
+        160
+      ],
+      "id": "4eab8d47-86e6-44d8-8ed1-14fbf08604d7",
+      "name": "AssignUUID"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b4d365c6-499c-4f78-8f4d-5fc23adb0c86",
+              "leftValue": "={{ $json.exist_in_db }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1620,
+        180
+      ],
+      "id": "9f97452c-9cab-46a6-8e57-adf323b7dd5d",
+      "name": "Route1"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"array\",\n  \"description\": \"List of 10 new fields recommended for future schema extensions. These fields are inferred from the Deal Document, excluding already extracted fields. Each recommended field is actionable and specific, avoiding descriptive or narrative-style content. These recommendations aim to support data modeling and automation use cases.\",\n  \"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"field_name\": {\n        \"type\": \"string\",\n        \"description\": \"A concise and descriptive name for the new field to be extracted.\"\n      },\n      \"field_description\": {\n        \"type\": \"string\",\n        \"description\": \"A clear explanation of the purpose and meaning of this field, based on document analysis.\"\n      },\n      \"field_tag\": {\n        \"type\": \"string\",\n        \"description\": \"A unique machine-friendly identifier for this field, usually lowercase with underscores.\"\n      },\n      \"associated_to\": {\n        \"type\": \"string\",\n        \"description\": \"The entity in the schema this field belongs to. Choose from: 'deal', 'agreement', or 'credit'. For your reference, a deal is a single documents which could contain one or more agreements. An agreement may contain one or more credits.\",\n        \"enum\": [\"deal\", \"agreement\", \"credit\"]\n      },\n      \"exist_in_db\": {\n        \"type\": \"boolean\",\n        \"description\": \"Indicates whether the field already exists in the database based on the result of tool:CheckField.\"\n      },\n      \"uuid\": {\n        \"type\": [\"string\", \"boolean\"],\n        \"description\": \"The UUID of the field if it exists in the database(extracted from tool:CheckField payload); otherwise, set to false.\"\n      }\n    },\n    \"required\": [\"field_name\", \"field_description\", \"field_tag\", \"associated_to\", \"exist_in_db\", \"uuid\"],\n    \"additionalProperties\": false\n  }\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -2000,
+        400
+      ],
+      "id": "abc39f9b-4ce3-467c-9559-ed390e595823",
+      "name": "SchemaParser"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3c5cd434-082f-47b3-acde-1b73da1f6620",
+              "name": "id",
+              "value": "={{ $json.metadata.uuid }}",
+              "type": "string"
+            },
+            {
+              "id": "bd30336a-c23d-4793-8d18-71e5ba1335b3",
+              "name": "field_name",
+              "value": "={{ $json.metadata.field_name }}",
+              "type": "string"
+            },
+            {
+              "id": "f72c9774-d103-428c-bb0a-2db4a531fab2",
+              "name": "field_tag",
+              "value": "={{ $json.metadata.field_tag }}",
+              "type": "string"
+            },
+            {
+              "id": "ea73596a-85b6-498e-b7f3-759f4e073a4d",
+              "name": "associated_with",
+              "value": "={{ $json.metadata.associated_to }}",
+              "type": "string"
+            },
+            {
+              "id": "9a00f369-3f79-4397-9b8e-daac19fd5345",
+              "name": "field_description",
+              "value": "={{ $json.metadata.field_description }}",
+              "type": "string"
+            },
+            {
+              "id": "eb15dc8a-c8a6-4d6b-a5ef-2c5eee3df2b1",
+              "name": "deal_type",
+              "value": "={{ $json.metadata.deal_type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        300,
+        -40
+      ],
+      "id": "25ef559b-93c0-45f8-a944-b7135e1efa82",
+      "name": "SetInput1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3c5cd434-082f-47b3-acde-1b73da1f6620",
+              "name": "id",
+              "value": "={{ $json.metadata.uuid }}",
+              "type": "string"
+            },
+            {
+              "id": "bd30336a-c23d-4793-8d18-71e5ba1335b3",
+              "name": "field_name",
+              "value": "={{ $json.metadata.field_name }}",
+              "type": "string"
+            },
+            {
+              "id": "f72c9774-d103-428c-bb0a-2db4a531fab2",
+              "name": "field_tag",
+              "value": "={{ $json.metadata.field_tag }}",
+              "type": "string"
+            },
+            {
+              "id": "ea73596a-85b6-498e-b7f3-759f4e073a4d",
+              "name": "associated_with",
+              "value": "={{ $json.metadata.associated_to }}",
+              "type": "string"
+            },
+            {
+              "id": "9a00f369-3f79-4397-9b8e-daac19fd5345",
+              "name": "field_description",
+              "value": "={{ $json.metadata.field_description }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        340,
+        280
+      ],
+      "id": "317ad39c-e075-48c1-8f6e-7773fefa5353",
+      "name": "SetInput2"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "deal_newfields",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "rank": 0,
+            "id": "={{ $json.id }}",
+            "field_name": "={{ $json.field_name }}",
+            "field_tag": "={{ $json.field_tag }}",
+            "associated_with": "={{ $json.associated_with }}",
+            "field_description": "={{ $json.field_description }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "field_name",
+              "displayName": "field_name",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "field_tag",
+              "displayName": "field_tag",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "field_description",
+              "displayName": "field_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "associated_with",
+              "displayName": "associated_with",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "deal_type",
+              "displayName": "deal_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "rank",
+              "displayName": "rank",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "skipOnConflict": true
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        520,
+        120
+      ],
+      "id": "4d4ac9c4-93a6-4360-a829-c737306fd507",
+      "name": "WriteToDB",
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "deal_newfields",
+          "mode": "name"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $json.uuid }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -1380,
+        680
+      ],
+      "id": "5fe7bc09-f527-4759-813c-dbcb890071d1",
+      "name": "checkEntry",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "deal_newfields",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "rank": "={{ $json.rank + 1 }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "field_name",
+              "displayName": "field_name",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "field_tag",
+              "displayName": "field_tag",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "field_description",
+              "displayName": "field_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "associated_with",
+              "displayName": "associated_with",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "deal_type",
+              "displayName": "deal_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "rank",
+              "displayName": "rank",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -860,
+        880
+      ],
+      "id": "327ee0a0-09f0-447b-90bc-d4096df38a02",
+      "name": "checkEntry1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"error\": \"Detected Error: Check workflow logs\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        60,
+        520
+      ],
+      "id": "c0f6609e-6b1c-4cc4-8300-9136836ff9f0",
+      "name": "OnError"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"error\": \"Detected Error: Check workflow logs\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1620,
+        680
+      ],
+      "id": "622b450e-aa85-4f44-b756-81d9dc297390",
+      "name": "OnError1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"error\": \"Detected Error: Check workflow logs\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -720,
+        1080
+      ],
+      "id": "484a8b15-01aa-4a63-ad7d-1690f4654c1f",
+      "name": "OnError2"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        -2240,
+        1220
+      ],
+      "id": "e1975180-d238-4b38-9ef5-82f2f95340be",
+      "name": "Slack",
+      "webhookId": "919afc39-9836-4713-aeb7-7cd9409f8b6f"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "daysInterval": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2440,
+        1220
+      ],
+      "id": "0b0e8099-f26d-4690-a705-679d1320465a",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "extracted_schema": {
+            "type": "Producer",
+            "person_name": "Michael Francis Gonzalez",
+            "person_number": "a452643f-2ffa-4642-a5cc-87e79ae5c36d",
+            "artist_name": "Mikayla Geier",
+            "artist_number": "ed3aecef-7dae-4c52-a3b4-7c11515e1de9",
+            "work_for_hire": true,
+            "active": true,
+            "status": "Needs Review",
+            "status_updated_at": "2024-07-01T00:00:00Z",
+            "payment_status": "Unpaid",
+            "fee_amount": 2000,
+            "fee_currency": "USD",
+            "fee_schedule": "50% Up Front, 50% On Delivery",
+            "kill_fee_currency": "USD",
+            "kill_fee_amount": 0,
+            "percent_recoupable": 100,
+            "executed_contract": "Producer_Agreement_2024",
+            "execution_date": "2024-07-01",
+            "priority": 1,
+            "notes": null,
+            "original_file_name": "Producer_Agreement_Mikoi-la_LLC",
+            "start_date": "2024-07-01",
+            "agreements": [
+              {
+                "person_name": "Michael Francis Gonzalez",
+                "person_number": "a452643f-2ffa-4642-a5cc-87e79ae5c36d",
+                "master_name": "Lose A Friend",
+                "master_number": "UUID-1",
+                "status": "Credit Only",
+                "effective_date": null,
+                "master_royalty": 20,
+                "master_royalty_type": "Net Profit",
+                "fee": 0,
+                "upstream_threshold_type": "Streams",
+                "upstream_threshold": 0,
+                "upstream_threshold_currency": "USD",
+                "upstream_royalty": 0,
+                "upstream_royalty_type": "None",
+                "upstream_fee": 0,
+                "upstream_fee_currency": "USD",
+                "neighboring_rights_royalty": 0,
+                "sx_percentage": 15,
+                "start_date": null,
+                "credits": [
+                  {
+                    "credit": "Producer",
+                    "instrument": null
+                  },
+                  {
+                    "credit": "Musician",
+                    "instrument": "Guitar"
+                  }
+                ]
+              }
+            ]
+          },
+          "deal_document": "# PRODUCER AGREEMENT \n\nThis agreement (\"Agreement\") dated as of July 1, 2024 sets forth the material terms of the agreement between Mikoi-la LLC (\"Company\", \"we\" or \"us\"), on the one hand, and Paradise Publishing Inc. (\"Lender\" or \"you\") f/s/o Michael Francis Gonzalez p/k/a \"Mike Del Rio\" (\"Mike\") and Konstantinos Galanopoulous p/k/a \"Kosta\" (\"Kosta\") (Mike and Kosta individually and collectively, \"Producer\"), on the other hand, for Producer's non-exclusive services in connection with the master recording(s) set forth below featuring the recorded performance(s) of the artist professionally known as Mikayla Geier (\"Artist\") recorded in connection with and/or for possible inclusion on, among other things, Artist's upcoming release (the \"Release\") subject to Company's exclusive distribution agreements with AWAL Recordings America Inc. (\"Distributor\"), dated as of April 5, 2024, as amended (collectively and individually, \"Distribution Agreement\"). Capitalized terms used herein and not specifically defined herein shall have the meaning(s) ascribed to them in the Distribution Agreement; in the event of any discrepancy, the definitions set forth in this Agreement shall be deemed controlling. Lender and Company agree to the following:\n\n| 1. ARTIST: | Mikayla Geier |  |\n| :--: | :--: | :--: |\n| 2. PRODUCER: | Michael Francis Gonzalez p/k/a \"Mike Del Rio\" and Konstantinos Galanopoulous p/k/a \"Kosta\" |  |\n| 3. COMPANY: ADDRESS: | c/o Mark Music \\& Media Law, P.C. 120 El Camino Drive, Suite 104 Beverly Hills, CA 90212 | Contact: Harrison S. Roberts, Esq. <br> Email: harry@markmml.com <br> Phone: |\n| 4. LENDER ADDRESS: | Paradise Publishing, Inc. c/o Freemark Financial, LLC 8383 Wilshire Boulevard, Suite 1000 Beverly Hills, California 90211 | Contact: Nick Anderson <br> Email: <br> Phone: |\n\n\n| 5. COMPOSITION(S) / <br> MASTER(S): | One (1) master recording(s) (\"Master(s)\") embodying Artist's featured performance of the musical composition(s) listed on Schedule 1 (the \"Composition(s)\" and each a \"Composition\") attached hereto and made a part hereof. |\n| :--: | :--: |\n| 6. SERVICES: | Producer; Producer shall perform all services in connection with the Master(s) as are customarily performed by producers in the recording industry and Deliver the Masters to Company and Distributor. The Master(s) shall be commercially and technically satisfactory to both Company and Distributor for the manufacture and sale of records. <br> If you and/or Producer performs vocally, instrumentally, as a mixer, or in any other way in connection with the Master (collectively, the \"Producer Side Artist Services\"), this Agreement shall be automatically deemed to cover the Producer Side Artist Services with respect thereto, and you and Producer hereby acknowledge that neither you nor Producer will be entitled to any additional compensation hereunder for such Producer Side Artist Services. <br> Company hereby acknowledges the satisfactory completion of Producer's services and delivery and acceptance of the Master(s) hereunder, provided the foregoing acknowledgement shall not in any way prejudice Company's or Artist's rights hereunder in the event of any breach of Lender's or Producer's representations, warranties, and covenants set forth in this Agreement. |\n\n7. FUND / ROYALTY: Fund. Company shall pay or shall instruct and use reasonable efforts to cause Distributor to pay you a fund in the amount of Two Thousand Dollars $(\\$ 2,000)$ (the \"Fund\"), Fifty Percent (50\\%) of which such Fund shall be deemed a recording cost, and Fifty Percent (50\\%) of which such Fund shall be deemed a fully recoupable advance (\"Advance\") against Producer's Royalty (as defined below). The Advance will be paid as follows: (a) Fifty Percent (50\\%) upon the later of (i) Producer's commencement of services hereunder and (ii) the complete execution of this Agreement; and (b) the balance upon the later of (i) Producer's delivery and Company's and Distributor's acceptance of the Master(s) as technically and commercially satisfactory in Company's/Distributor's sole discretion, such delivery elements including, but not be limited to, session files and releases, mixes, radio edits, sample clearances, and all documentation reasonably required by us and/or Distributor to perfect our rights in and to the Master(s) as sole owner and copyright holder thereof, to timely comply with applicable law, all union requirements (including providing such unions with the appropriate credit for all performers on the Master(s), identifying their performances) and our obligations to Distributor, and (ii) the complete execution of this Agreement. Notwithstanding the foregoing the Fund shall be paid following the complete execution of this Agreement.\n\nRoyalty. Company shall pay or shall instruct and use reasonable efforts to cause Distributor to pay to you a royalty (\"Producer's Royalty\") in connection with the Master(s) as follows:\nUnless Producer's Royalty is calculated as a Base Price Royalty as set forth below, Producer's Royalty shall be an amount equal to twenty percent ( $20 \\%$ ) of Net Profits (the \"Net Profits Royalty\"). For these purposes, \"Net Profits\" means all monies received by Company or Artist directly and identifiably attributable to the sale and exploitation of the Master(s) (excluding mechanical royalties, publishing receipts, or any so-called \"Direct Monies\") less any and all thirdparty costs, fees, and expenses incurred by and/or charged to Company or Artist (and/or an affiliated company) in connection with the creation, sale and exploitation of the Master(s), including, without limitation, recording costs (including that portion of Fund deemed a recording cost), manufacturing costs, marketing costs, distribution fees (including but not limited to the AWAL Revenue Share), publishing royalties, clearance fees, costs incurred in the production of audio-visual recordings embodying the Master(s), and other bona fide, verifiable third party costs incurred by or charged to Company or Artist. The Net Profits Royalty shall be subject to the terms and conditions on which Distributor pays third party royalty participants.\n\nNotwithstanding the foregoing, in the event that Company or Artist enters into a recording or distribution agreement pertaining to the Master(s) pursuant to which Company's or Artist's royalty is calculated based on the published price to dealers (or retail, wholesale, or similar royalty base price equivalent) (\"Base Price\") or the applicable label or distributor accounts to third party royalty participants on such a basis using the label's or distributor's standard deemed royalty provisions, your royalty shall, in lieu of the Net Profits Royalty, be an amount equal to four percent ( $4 \\%$ ) of the Base Price with respect top-line, full-priced, net sales of records solely embodying the Master(s) sold through normal retail channels in the United States (\"USNRC Net Sales\"), and otherwise calculated, determined, adjusted, reduced, pro-rated, and paid as set forth in the applicable agreement with a third-party distributor and/or deemed royalty provisions (the \"Base Price Royalty\").\n\nProducer's Royalty shall be further subject to the terms set forth in Schedule 2 attached hereto and made part hereof.\n8. CONTROLLED COMPOSITION\n\nLender, on behalf of itself and Producer, acknowledges and agrees that neither Lender nor Producer nor Producer Personnel (hereafter defined) has contributed or will contribute to the authorship of the Composition(s). Accordingly, Lender, on behalf of itself and Producer, warrants, represents, covenants and agrees that neither Lender, Producer nor Producer Personnel shall assert any claims of ownership in or to the Composition(s), and shall not have the right to claim or receive any income derived from any exploitations of the Composition(s).\n9. OWNERSHIP OF MASTER(S) / GRANT OF RIGHTS:\n\nAll results and proceeds of the services of Lender, Producer and/or any third party furnished or engaged by Lender or Producer (hereinafter individually and collectively referred to as \"Producer Personnel\"), including the Master(s) (but excluding the Composition(s) to the extent of Lender's and/or Producer's interest therein and thereto) shall be deemed \"works-for-hire\" for Company within the meaning of the Copyright Act of 1976 (Title 17, U.S.C.), as amended, shall be subject to the provisions of this Agreement, and Lender shall cause any such Producer Personnel to be bound in writing by the terms hereof. If it is determined that the Master(s) do not so qualify, then the Master(s), together with all rights therein (other than the Composition(s)), shall be automatically assigned to Company, Artist, Distributor, and each of their respective designees, licensees, and assignees (sometimes referred to herein collectively as \"Company's Designees\") by this Agreement. Upon signature of this Agreement, Lender and Producer shall immediately transfer to Company all rights (including but not limited to copyright) in and to the Master(s) (excluding the Composition(s)). Lender and Producer further grant to Company and Company's Designees the right, throughout the universe and in perpetuity, to use Lender's name and Producer's professional name, and Producer's approved likeness and approved biographical material solely in the packaging and metadata of Records embodying the Master(s) and in all promotion and advertising therefor. We shall provide you for your approval any likeness, portrait or pictures of Producer or biographical material about Producer which we propose to use in connection therewith. We will not use any such material which you disapprove in writing within five (5) business days following the date on which such materials are provided to you, provided you furnish substitute material, satisfactory to us in our sole and reasonable discretion, in time for use within Distributor's production and release schedules. No inadvertent, non-repetitive failure to comply with this paragraph will constitute a breach of this Agreement, and you will not be entitled to injunctive relief to restrain the continuing use of any material used in contravention of this paragraph. You shall have the right to submit photographs and likenesses of, and biographical material concerning Producer, and your submission\nof the same shall constitute your approval thereof. Company and Distributor shall have the exclusive right to exploit the Master(s) in all methods, manner and media, now known or hereafter developed, throughout the universe and in perpetuity, or to refrain therefrom. Lender shall cause Producer to waive any claims based on infringement of Producer's \"moral rights\", and understands that the Master(s) may be changed, altered, remixed, or coupled with any other recording(s) or other material in Company's and Distributor's sole discretion, subject to the terms and conditions of the Distribution Agreement. Lender and Producer shall have the right to request that Producer's credit be removed from the Master(s) if the Master(s) are materially altered in any way (other than for timing or formatting purposes) by giving Company written notice thereof. Upon receipt of such written notice, Company will promptly instruct and use reasonable efforts to cause Distributor to promptly remove Producer's credit as aforesaid (i.e., on a prospective basis). For avoidance of doubt, neither Lender nor Producer is an original author of the copyright underlying the Master(s) and shall not in any event claim any reversionary right under the United States Copyright Act Section 203, or otherwise.\n10. CREDIT: With respect to the Master(s), Company shall accord, or shall instruct and use reasonable commercial efforts to cause Distributor to provide, credit to Mike as set forth on Schedule 1 in the liner notes of any record containing the Master(s) and any \"single\" embodying the Master(s) on the \"A-side\", on metadata in connection with electronic transmissions and in all print ads placed or controlled by Company or Distributor of one-quarter (1/4) page or larger featuring the Master(s). Company shall also accord, or instruct and use reasonable commercial efforts to cause Distributor to provide, the following additional credit to Kosta in liner notes (if applicable) and label copy of records containing the Master: \"Additional Production by Kosta Galanopoulos\". Company's inadvertent, non-repetitive failure, or any failure by Distributor, to provide such credits shall not be deemed to be a breach of this Agreement, provided that following written notice from Producer, Company uses reasonable commercial efforts to cure or instruct Distributor or other applicable third parties to prospectively cure any such credit failure. In no event shall Lender or Producer be entitled to an injunction in connection with a breach of these credit provisions.\n11. SAMPLES: Lender and Producer will not \"sample\", \"interpolate\", or otherwise incorporate into (\"Sample,\" \"Sampling\") the Master(s) or Composition(s) (if applicable), or permit any Producer Personnel to Sample any copyrighted or otherwise proprietary material (\"Proprietary Material\") belonging to any person, other than such material owned and/or supplied to Lender or Producer by Company or Artist for such purpose, unless approved by Company or Artist in writing. Lender shall advise us in writing of any such Proprietary Material and shall provide us with all information necessary to obtain appropriate permissions to use same, without restriction, on and in connection with the applicable Master(s). We shall have no obligation to accept any master recordings containing Proprietary Material furnished and/or embodied by you, Producer and/or Producer Personnel, and our or Distributor's acceptance or use of same shall not relieve you of any obligations hereunder nor deprive us of any rights hereunder.\n\nWithout limitation of Company's other rights: (a) in connection with any Approved Sample (as hereinafter defined), (i) any sums payable by or on behalf of Company or Company's Designees in connection with the clearance of Samples that have been disclosed to and approved by us in writing prior to commercial release of the applicable Master (\"Approved Sample\") shall be deemed additional recoupable recording costs, (ii) you and/or Producer shall be solely responsible for paying for a pro-rata amount equal to any and all other recurring obligations and similar costs therefor (e.g., royalties or any contingency participation conveyed [whether expressed in royalty or penny-rate terms], etc.), multiplied by the Fraction (hereinafter defined), and (iii) any copyright ownership in the Composition that must be conveyed to a third party with respect to such Approved Sample shall be borne pro-rata by all writers; and (b) notwithstanding anything to the contrary contained herein, any sums payable (including, without limitation, record royalties) by or on behalf of Company or Company's Designees in connection with the clearance of Samples embodied by you, Producer and/or Producer Personnel that have not been disclosed to and approved by us prior to commercial release of the applicable Master (\"Undisclosed Sample\") shall be deductible from any and all sums and/or interest due or accorded to Lender and/or Producer hereunder, and any copyright ownership in the Composition that must be conveyed to a third party with respect to such Undisclosed Sample shall be borne entirely by Lender, Producer, Producer Personnel and/or Producer and Producer Personnel's respective publishing designee(s), as applicable.\n\nThe parties hereby acknowledge that there are no Approved Samples embodied within the Master.\n12. REPRESENTATIONS / WARRANTIES:\n\nLender, on one hand, and Company, on the other hand, each warrant and represent, solely on their own behalf, that (a) it has the right to enter into this Agreement, grant their respective rights hereunder, and perform material terms and obligations hereunder; and (b) to the extent of their respective contributions to the Master(s), there shall be no liens, encumbrances or other charges against the Master(s) at the time of delivery, including, without limitation, any Undisclosed Samples. Lender further represents and warrants that: (i) Producer shall not re-record, produce, arrange, mix or remix for any person or entity other than Company, Artist, or Distributor a master recording embodying the Composition(s) for at least three (3) years from the later of the date of delivery or commercial release of each Master; (ii) no selections, materials, ideas, or other properties furnished by Lender, Producer or Producer Personnel and embodied or contained in the Master(s) or the Composition(s) will violate or infringe upon any law or statutory right of any person or entity; (iii) Lender has a valid and binding agreement with Producer that grants Lender the rights to furnish Producer's services and to grant the rights granted hereunder in accordance with the provisions hereof; and (iii) Lender shall be solely responsible for and shall pay any withholding, employment or other taxes required in connection with Producer's services hereunder.\n\nCompany further represents and warrants that no selections, materials, ideas, or other properties furnished by Company or Artist or anyone engaged or furnished by Company or Artist (other than Lender, Producer and/or Producer Personnel) and embodied or contained in the Master(s) or the Composition(s) will violate or infringe upon any law or statutory right of any person or entity.\n13. INDEMNITY / GOVERNING LAW / VENUE:\n(a) Each party hereto agrees to indemnify the other party and the other party's designees, licensees and assigns (collectively, the \"Indemnified Party\") from all damages, liabilities, costs, losses and expenses arising out of or connected with any third party claim, demand, or action arising out of a breach of any of the warranties, representations, or covenants made by such indemnifying party in this Agreement, to the extent reduced to a final adverse judgment in a court of competent jurisdiction or settled with the indemnifying party's prior written consent, such consent not to be unreasonably withheld. Notwithstanding the foregoing, in the event of a claim alleging copyright or other intellectual property infringement, each party's foregoing indemnity obligation shall be immediate. Further, you hereby agree to indemnify Company, Artist, and Distributor, and their respective designees, licensees, and assigns from all damages, liabilities, costs, losses and expenses arising out of or connected with any third party claim, demand, or action in connection with Undisclosed Samples incorporated by you. The indemnifying party will reimburse the Indemnified Party upon written demand for any payment made by the Indemnified Party at any time in respect of any such third party claim, liability, damage or expense to which the foregoing indemnity relates. The Indemnified Party shall give the indemnifying party prompt written notice of any claim to which the foregoing indemnity applies and the indemnifying party may participate in the defense of same with counsel of its choosing at its sole cost and expense; provided that the Company's decision in connection with the defense of any such claim shall be final.\n(b) Pending the determination of any claim relating to Lender's foregoing indemnity obligation, unless Lender posts a bond in a form and amount acceptable to Company in Company's reasonable discretion, Company shall have the right to withhold from any sums due Lender hereunder an amount equal to Lender's potential liability pursuant to this paragraph. If as of the date twelve (12) months following the date such sums were initially withheld, no litigation on the claim has commenced or is imminent and no settlement discussions are then taking place, then the sums so withheld shall be credited to Lender's account (subject to Company's right to once again withhold if litigation subsequently is instigated or becomes imminent).\n(c) If either party hereto institutes any action, suit or proceeding based upon any matter, claim or controversy arising hereunder or relating hereto, such action shall be brought solely in the State Courts or Federal Courts of the State of New York, County of New York and shall be governed by New York law and the parties hereto (and Lender shall cause Producer to and Company shall cause Artist to) submit to the jurisdiction and venue of said court, provided that notwithstanding anything to the contrary in this paragraph, if Company or Artist, or Lender or Producer, is sued or joined (e.g. by joinder or impleader) in any other court or forum by a person, or entity other than Lender or Producer, or Company or Artist, respectively, in respect of any matter that may give rise to a claim by or against Lender or Producer, or Company or Artist, hereunder, Lender and Company consent (and shall cause Producer and Artist, as applicable, to consent) to the jurisdiction of such court or forum over any such claim asserted against Lender or Producer or Company or Artist.\n(d) Regardless of the forum in which any action hereunder is pursued, and without limitation of the right of either party hereunder to pursue other lawful methods of service of process, service of process on the respective party in writing and which is either (a) delivered personally, (b) by Express Mail, Federal Express or other express delivery service (receipt requested), or (c) via registered or certified mail, return receipt requested and received, at the respective address set forth above, shall be deemed for all purposes personal service upon such party under the New York Rules of Civil Procedure and the Federal Rules of Civil Procedure, respectively.\n14. MISCELLANEOUS:\n(a) Nothing contained herein shall be deemed to obligate Company or Company's Designees to embody any of the Master(s) on any Record or any other medium recorded, exploited or released by Company or Company's Designees. The terms and conditions herein shall be subject to Distributor's policies and procedures.\n(b) No party will be deemed to be in breach of any of such party's obligations hereunder unless and until the other party will have given written notice setting forth the nature of such breach and the breaching party will have failed to cure such breach within thirty (30) days after the effective date of such notice (reduced to fifteen [15] days for failure to pay amounts due hereunder). In the event of any breach of this Agreement by Company, Lender and Producer's sole remedy shall be an action at law for damages actually incurred, if any, and, except in the case of fraud, in no event shall Lender or Producer be entitled to seek equitable or other injunctive relief. It is expressly agreed that Lender is acting as an independent contractor and that nothing herein contained shall constitute a partnership, a joint venture, agency or employment relationship between Lender and Company. The obligations and liability of each person comprising Producer hereunder shall be joint and several.\n(c) Company shall have the right, at its election, to assign any of its rights hereunder, in whole or in part, to any person or entity. Lender shall not have the right to assign any of Lender's or Producer's obligations or rights hereunder, absent the express consent of Company, except for the one-time right to assign payment.\n(d) This Agreement supersedes all prior agreements between the parties pertaining to the subject matter hereof, whether verbal or written, and any further modification(s) to this Agreement shall not be binding unless in writing and signed by the parties hereto. This Agreement may be signed in any number of counterparts, each such counterpart being deemed to be an original instrument, but all of which shall constitute one document. Delivery of a signed counterpart of a signature page to this Agreement by facsimile or other electronic means shall be deemed effective as delivery of a manually executed original counterpart of this Agreement.\n(e) All notices to be given by either party hereunder shall be in writing and shall be delivered by hand or by United States certified mail, postage prepaid, return receipt requested, to the address of each party as first set forth above until notice of a new address shall be duly given, except that royalty statements and any payments due hereunder, shall be sent to you at such address by regular mail. Copies of notices to you/Producer shall be sent via email to Tiffany R. Almy, Esq. (tiffany@pkalaw.co), provided failure to send such copies of notices shall not be a breach of this Agreement nor affect the validity of such notice.\n(f) The parties acknowledge that they have participated jointly in the negotiation and drafting of this Agreement and, in the event an ambiguity or question of intent or interpretation arises, this Agreement shall be construed consistent with the joint drafting of this Agreement by the parties and no presumption or burden of proof shall arise favoring or disfavoring any party by virtue of the authorship of any of the provisions of this Agreement.\n(g) THE PARTIES EACH ACKNOWLEDGE AND AGREE THAT THEY HAVE READ THIS AGREEMENT AND HAVE BEEN ADVISED BY THE OTHER PARTY OF THE SIGNIFICANT IMPORTANCE OF RETAINING AN INDEPENDENT ATTORNEY OF THIER CHOICE TO REVIEW THIS AGREEMENT ON THEIR BEHALF. EACH PARTY HEREBY ACKNOWLEDGES AND AGREES THAT IT HAS HAD THE UNRESTRICTED OPPORTUNITY TO BE REPRESENTED BY AN INDEPENDENT ATTORNEY. IN THE EVENT OF EITHER PARTY'S FAILURE TO OBTAIN AN INDEPENDENT ATTORNEY OR WAIVER THEREOF, SUCH PARTY HEREBY WARRANTS AND REPRESENTS THAT IT\n![img-0.jpeg](img-0.jpeg)\n\n# AGREED AND ACCEPTED: Mikoi-la LLC \n\nBy: $\\qquad$\n\nAn Authorized Signatory\n\n## AGREED AND ACCEPTED:\n\nParadise Publishing, Inc.\n\nBy: Michael Gongale\nAn Authorized Signat\nPrinted Name: Michael Francis Gonzalez\n\n## INDUCEMENT\n\nTo induce Mikoi-la LLC (\"Company\") to enter into the foregoing agreement (\"Agreement\") with Paradise Publishing Inc. (\"Lender\"), the undersigned hereby:\n(a) acknowledges that the undersigned understands and is familiar with all the terms and conditions of the Agreement;\n(b) assents to the execution of the Agreement and agrees to be bound by the terms and conditions thereof, including, without limitation, each and every provision of the Agreement that relates to the undersigned in any way, directly or indirectly, the services to be rendered thereunder by the undersigned and restrictions imposed upon the undersigned in accordance with the provisions of the Agreement, and hereby guarantees to Company the full and faithful performance of all the terms and conditions of the Agreement by the undersigned and Lender (including, without limitation, all representations, warranties and indemnification obligations set forth in the Agreement); and\n(c) acknowledges and agrees that Company shall be under no obligation to make any payments to the undersigned or otherwise, for or in connection with this inducement and for or in connection with the services rendered by the undersigned or in connection with the rights granted to Company thereunder and the fulfillment of the undersigned's obligations pursuant to the Agreement (except mechanical royalties and other publishing monies, if any).\n\n## AGREED AND ACCEPTED:\n\n## Michael Gongale\n\nMichael Francis Gonzalez $\\mathrm{k} / \\mathrm{k} / \\mathrm{a}$ Mike Del Rio\"\n\n## AGREED AND ACCEPTED:\n\nKonstantinos Galanopoulous p/k/a \"Kosta\"\n# Schedule 1 \n\nList of Master(s) and Composition(s) and Credit(s)\n\n| Master(s) / Composition(s) | Credit |\n| :-- | :-- |\n| \"Lose A Friend\" | Produced by Mike Del Rio |\n# Schedule 2 <br> Producer Royalty Provisions \n\n1. Producer's Royalty for records that embody the Master(s) together with master recordings that are not the Master(s) shall be pro-rated by a fraction, the numerator of which is the number of times the Master(s) embodied thereon and the denominator of which is the number of master recordings (including the Master(s)) embodied thereon.\n2. On exploitations of audio-visual recordings embodying a Master or Masters, Producer's Royalty will be equal to fifty percent $(50 \\%)$ of the otherwise applicable royalty.\n3. In the event Company or Artist receives or is credited with any so-called \"Direct Monies\" directly from third-parties other than Distributor (e.g., monies from SoundExchange) solely and directly attributable to the Master(s) (but specifically excluding sources from which Lender or Producer is directly paid its share), Company will pay, or shall instruct such third party to pay, Lender or Producer its pro-rata share of such Direct Monies determined by multiplying such Direct Monies received by Company or Artist by the Net Profits Royalty percentage. Company shall submit the irrevocable letter of direction in the form of Exhibit B-1/B-2 attached hereto and incorporated herein by this reference as signed by Artist instructing SoundExchange to account directly to Lender or Producer its pro-rata share at the same time and subject to the same conditions pursuant to which SoundExchange accounts to Artist. In the event Company and/or Artist contract with a featured artist for the Master(s), Company and/or Artist shall use reasonable efforts to obtain and submit a letter of direction in the form of Exhibit B-1/B-2 in favor of the Producer. In the event that SoundExchange does not directly account to Lender or Producer for its share of Direct Monies, Company shall account for and pay Lender or Producer their share of SoundExchange Direct Monies pursuant to the terms of the \"Accounting\" paragraphs below, without regard to the recoupment status of Lender's/Producer's royalty account hereunder.\n4. Producer's Royalty shall not be reduced by amounts payable to any third-party producers or mixers who perform additional services with respect to the Master(s) (subject to our rights and remedies pursuant to the Agreement).\n\nBase Price Royalty Provisions: If Producer's Royalty is calculated as a Base Price Royalty:\n\n1. Producer's Royalty shall be paid retroactively from \"record one\" after recoupment of recording costs (excluding any in-pocket advances paid to Artist) incurred in connection with the Master(s) from the \"net artist royalties\" (i.e. the gross \"all-in\" royalties payable to Artist in connection with all exploitations of the Master(s) minus the royalty payable to you and all third-party producers and mixers (other than Artist) rendering services with respect to the Master) and further subject to recoupment of the Advance from Producer's Royalty.\n2. On exploitations of the Master(s) for which a percentage of net receipts, including without limitation so-called \"flat fee\" income, or the like, is payable pursuant to an agreement with a third-party distributor or deemed royalty provisions, Producer's Royalty will be equal to that portion of net receipts on such exploitations that is payable to Artist pursuant to an agreement with a third-party distributor or applicable deemed royalty provisions multiplied by a fraction, the numerator of which is the Base Price Royalty and the denominator of which is the Artist's unescalated \"all-in\" base royalty rate for USNRC Net Sales of albums pursuant to the applicable agreement or deemed royalty provisions (the \"Fraction\").\n3. With respect to videos embodying the Master(s), you shall not be entitled to any royalty until we and Distributor have recouped the production costs of such videos and thereafter on a prospective basis.\n\n## Accounting:\n\n1. Company shall use reasonable efforts to cause Distributor to pay to Lender royalties, fees and/or advances directly via an irrevocable letter of direction in substantially the form attached hereto as Exhibit A (or such form as required by Distributor). In the event that Distributor refuses or fails to pay royalties, fees, or advances directly to you, and following your written notice to Company of such failure, Company shall send you statements regarding royalties, fees or advances payable to you within forty-five (45) days of Company's receipt thereof (but not more frequently than a calendar semi-annual basis) together with any payments due to you thereunder. Company shall have the right to deduct from any amounts payable to you hereunder solely such portion thereof as may be required to be deducted under the provisions of any applicable statute, regulation, treaty, or other law, or under any applicable union or guild agreement, and Lender and Producer shall promptly execute and deliver to Company such forms and other documents as may be reasonably required by Company in connection therewith.\n2. Lender and Producer understand and agree that Company will be relying on statements provided to Company by Distributor and other applicable third parties. Accordingly, Lender shall be deemed to have consented to all royalty statements and all other accountings rendered by Company hereunder and each such royalty statement or other accounting shall be conclusive, final,\nand binding, shall constitute an account stated, and shall not be subject to any objection for any reason whatsoever unless specific objection in writing, stating the basis thereof, is given by Lender to Company by the date that is the earlier of twentyfour (24) months from the date such statement is rendered or three (3) months prior to the date Company has to inspect the books of Distributor (the \"Audit Period\"). At any time within the Audit Period, Lender may, on reasonable notice to Company, appoint a certified public accountant to audit, at Producer's own expense, our books and records solely as they relate to the sale and other exploitation of the Master(s) (and related expenditures) solely for the purpose of verifying the royalties or credits due to Lender under this Agreement. Lender shall furnish Company with a copy of the audit report within thirty (30) days after the completion of the applicable audit. No accounting statement shall be subject to audit more than once and no more than one (1) audit shall be conducted in any calendar year. No action, suit, or proceeding of any nature in respect of any royalty statement or other accounting rendered hereunder may be maintained against Company unless such action, suit, or proceeding is commenced against Company in a court of competent jurisdiction by the date that is the earlier of thirty (30) months from the date such statement is rendered or three (3) months prior to the date Company has to commence action against Distributor. Producer and Lender shall not have the right to audit the books and records of Distributor. Company shall credit Lender's account with Lender's pro rata share of any monies recovered by Company with respect to the Master(s) pursuant to any audit Company may elect to conduct of Distributor or claim against Distributor in connection with the Masters, or any recoveries or settlements with Distributor or any third party, after deduction \"off-the-top\" of any actual, out-of-pocket costs actually incurred as a result of such audit, claim or settlement (to the extent such costs have not been reimbursed by Distributor or such other third party). At Lender's written request Company shall promptly provide Lender with relevant portions of the audit report submitted to Distributor.\n# EXHIBIT A <br> Letter of Direction \n\nMikoi-la LLC and Mikayla Geier<br>c/o Mark Music \\& Media Law, P.C.<br>120 El Camino Drive, Suite 104<br>Beverly Hills, CA 90212<br>Attn: Harrison S. Roberts, Esq.\n\nDated as of: July 1, 2024\nAWAL Recordings America, Inc.\n2 Gansevoort Street, 6th Floor\nNew York, NY 10014\nRe: Producer Agreement\nTo Whom It May Concern:\n\n1. We have engaged Paradise Publishing, Inc. (\"Lender\") to furnish the non-exclusive services of Michael Francis Gonzalez p/k/a \"Mike Del Rio\" and Konstantinos Galanopoulous p/k/a \"Kosta\" (individually and collectively, \"Producer\") as an independent contractor to produce the master recording(s) embodying the composition(s) entitled \"Lose A Friend\" to be recorded by us and delivered to you for possible embodiment on the single, EP, or LP required to be delivered to you pursuant to the distribution agreement between you and us.\n2. We hereby request and irrevocably authorize you, solely as an accommodation to us, to account for and pay advances, fees, and royalties to Lender on our behalf, and to credit Producer pursuant to the applicable terms and conditions of the agreement attached hereto.\n3. Your compliance with this authorization will constitute an accommodation to us alone, and nothing herein shall constitute Producer as a beneficiary of or a party to this instrument or any other agreement between you and us. All payments hereunder will constitute payment to us, and you will have no liability by reason of any erroneous payment you may make or failure to comply with this authorization. We will indemnify and hold you harmless against any claims asserted against you and any damages, losses or expenses incurred by you by reason of any such payment or otherwise in connection herewith.\n\nVery truly yours,\nMIKAYLA GEIER\n\n## Thakol\n\nOn behalf of herself and as an authorized signatory of Mikoi-la LLC\n# Exhibit B-1 \n\n## SOUNDEXCHANGE, INC. LETTER OF DIRECTION\n\nSolely as a service and accommodation to those featured artists entitled to royalties under 17 U.S.C. § 114(g)(2)(D) who specifically authorize SoundExchange to collect and distribute royalties on their behalf, SoundExchange permits such featured artists to designate that a percentage of the royalties due them from SoundExchange relating to certain sound recordings be remitted to creative personnel (i.e., producers, mixers, or engineers) credited or recognized publicly for the commercially released sound recording on which the featured artist performs.\n\nPlease note that a performer need not execute this Letter of Direction in order to be paid statutory royalties by SoundExchange.\n\nTo make such a designation, the performer submitting this Letter of Direction (\"LOD\") must be registered with SoundExchange.\nSections with asterisks are required.\n*Name of Solo Artist(s) or Group on recording(s): $\\qquad$ Mikayla Geier $\\qquad$\n*Legal Name of Performer(s) for this LOD: $\\qquad$ Mikayla Geier $\\qquad$\n*Name of Producer, Mixer, or Engineer (\"Payee\") - Only Include One Payment Name: PARADISE PUBLISHING, INC.\n\n* Required if paying to a company: $\\boxtimes$ I certify that company listed above is owned solely by the producer, mixer, or engineer involved in the creative process for the recordings listed in the attached LOD Repertoire Chart\n\nPayee ID (If known): 1000116580\n*Payee Address - include c/o’s here: c/o Freemark Financial LLC, Attn: Richelle Santos 8383 Wilshire Boulevard, Suite 1000 Beverly Hills, CA 90211\n\nPayee Telephone Number: $\\qquad$\n*Payee E-Mail: gonzalezm@freemarkcpa.com\n*An LOD Repertoire Chart is required to complete the LOD. Please submit a complete LOD Repertoire Chart along with all the pages in this Letter of Direction.\n*Effective Date: (choose one)\n$\\square$ Check here if this LOD applies to payments as of $\\qquad$ [date]\n$\\boxtimes$ Check here if this LOD applies retroactively for all tracks listed on the LOD Repertoire Chart.\n$\\square$ Check here if the Effective Payment Date varies by track. Enter the Effective Dates on the LOD Repertoire Chart.\nPlease note that retroactive application of an LOD is limited to available SoundExchange royalties for the tracks listed on the LOD Repertoire Chart.\n*Payment Percentage (\"Percentage\"): check applicable box\n$15 \\%$ of Performer royalties are applicable to all tracks listed on the LOD Repertoire Chart.\n$\\square$ Percentage varies by each track covered by this LOD. Enter percentages on the LOD Repertoire Chart.\n# TERMS AND CONDITIONS \n\nBy signing this Letter of Direction and submitting it to SoundExchange, Performer agrees as follows:\n\n1. Performer represents and warrants that Performer is the featured recording artist who performed on the sound recording(s) identified on the \"LOD Repertoire Chart\" attached hereto as Schedule 1 (the \"Recordings\").\n2. Performer represents and warrants that Payee is an individual credited or recognized publicly for the commercially released sound recording identified on the LOD Repertoire Chart (i.e., a producer, mixer, or engineer).\n3. Performer requests and authorizes SoundExchange to pay to and in the name of Payee an amount equal to Percentage of the royalties otherwise payable by SoundExchange to Performer in respect of the Recordings, thereby reducing the payments from SoundExchange to Performer. If a previous \"Royalty Distribution Information for Featured Artist\" or other letter of direction has been provided to SoundExchange that conflicts with this Letter of Direction, then any and all previous letters of direction or similar documents conflicting herewith are hereby revoked.\n4. All monies becoming payable under this Letter of Direction shall be remitted to Payee at the address identified above or as Payee otherwise directs SoundExchange in writing. If SoundExchange requires additional information (e.g., Payee tax information) to remit payments under this Letter of Direction, then Performer and Payee shall be responsible for providing SoundExchange with such information promptly. To the extent SoundExchange is not provided with sufficient or correct information to remit payment to Payee, or checks mailed to Payee's last known address are returned, SoundExchange may hold the monies pending receipt of such information or pay the royalties to Performer.\n5. SoundExchange will honor a written revocation by Performer of the designation made by this Letter of Direction. In the event of such a revocation, SoundExchange may, but need not, mail notice of the revocation to the last known address of Payee. The foregoing is without prejudice to any other contractual arrangements between Performer and Payee requiring payment of the Percentage by Performer. SoundExchange has no responsibility for Performer's performance or nonperformance of any such obligation.\n6. SoundExchange may discontinue making payments under this Letter of Direction at any time, including if checks mailed to Payee's last known address are returned, Performer ceases to be a registrant of SoundExchange, or SoundExchange modifies its policies concerning letters of direction. If it does so, then SoundExchange may, but need not, mail notice thereof to the last known address of Performer and Payee, and monies that otherwise would have been payable under this Letter of Direction will be paid to Performer.\n7. Performer acknowledges that SoundExchange is providing payments to Payee solely as an accommodation to Performer but that all royalties distributed by SoundExchange to Payee are taxable to Payee. Payee shall be solely responsible for providing SoundExchange with tax paperwork required by any governmental agency, including the Internal Revenue Service, to avoid tax withholding.\n8. SoundExchange may rely conclusively, and shall have no liability when acting, upon any written notice, instruction, other document, or signature that is reasonably believed by SoundExchange to be genuine and to be authorized by Performer. SoundExchange shall not be responsible for failure to act as a result of causes beyond the reasonable control of SoundExchange. SoundExchange shall not be liable to Performer, Payee or to any third party for, and Performer agrees to defend (with counsel satisfactory to SoundExchange), indemnify and hold harmless SoundExchange from, any damages or loss (including reasonable attorney's fees) in any way related to this Letter of Direction, unless such loss is caused by SoundExchange's gross negligence or willful misconduct. The provisions of this Paragraph 8 shall survive the revocation or other termination of this Letter of Direction.\n9. In order to maintain flexibility in administering this Letter of Direction, SoundExchange may modify these Terms and Conditions from time to time, in its sole discretion. Such changes shall be effective immediately and Performer shall be deemed to have notice of such changes when they are made available on the SoundExchange website. Notwithstanding the foregoing, if Performer does not wish to accept any changes, Performer must provide SoundExchange written notice within thirty (30) days of notice of any changes to this Letter of Direction.\n10. This Letter of Direction shall be governed by and construed in accordance with the substantive laws of the District of Columbia. Any dispute relating to or arising from this Letter of Direction shall be subject to the exclusive jurisdiction of courts sitting in the District of Columbia.\n\n# ACKNOWLEDGED AND ACCEPTED BY: \n\n(The signature of each Performer or Authorized Signatory for each Performer is required.)\nPerformer Signature: $\\frac{\\text { 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\n# Schedule 1: Repertoire Chart for Featured Artist Letter of Direction \n\n*Name of Solo Artist(s) or Group(s) on Recording(s): Mikayla Geier\n*Name of Producer, Mixer, or Engineer (\"Payee\"): Paradise Publishing, Inc. f/s/o Michael Francis Gonzalez p/k/a \"Mike Del Rio\"\n\n* Indicates a Required Field. Other fields are optional but assist in identifying reported performances.\n\n|  | * Sound <br> Recording <br> Track <br> Name(s) | * <br> Percentage <br> Share of artist royalties, for this track, to be assigned to the LOD recipient (as a $\\%$ only, do not use \"points\" or fractions) | Effective Date of the LOD for this track (required if tracks have different effective dates) | Track Version (e.g., studio, remix version, etc.) | Sound <br> Recording <br> Track ISRC | Album or Release Name | Label | Release Date | Other artists on this track (if applicable) |\n| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |\n| Track 1 | Lose A <br> Friend | $15 \\%$ | N/A | Studio |  | here we go again | AWAL | $\\begin{gathered} \\text { Aug 23, } \\\\ 2024 \\end{gathered}$ | N/A |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n# Exhibit B-2 \n\n## SOUNDEXCHANGE, INC. LETTER OF DIRECTION\n\nSolely as a service and accommodation to those featured artists entitled to royalties under 17 U.S.C. § 114(g)(2)(D) who specifically authorize SoundExchange to collect and distribute royalties on their behalf, SoundExchange permits such featured artists to designate that a percentage of the royalties due them from SoundExchange relating to certain sound recordings be remitted to creative personnel (i.e., producers, mixers, or engineers) credited or recognized publicly for the commercially released sound recording on which the featured artist performs.\n\nPlease note that a performer need not execute this Letter of Direction in order to be paid statutory royalties by SoundExchange.\n\nTo make such a designation, the performer submitting this Letter of Direction (\"LOD\") must be registered with SoundExchange.\nSections with asterisks are required.\n*Name of Solo Artist(s) or Group on recording(s): $\\qquad$ Mikayla Geier $\\qquad$\n*Legal Name of Performer(s) for this LOD: $\\qquad$ Mikayla Geier $\\qquad$\n*Name of Producer, Mixer, or Engineer (\"Payee\") - Only Include One Payment Name: Konstantinos Galanopoulous\n\n* Required if paying to a company: $\\square$ I certify that company listed above is owned solely by the producer, mixer, or engineer involved in the creative process for the recordings listed in the attached LOD Repertoire Chart\n\nPayee ID (If known): $\\qquad$\n*Payee Address - include c/o's here: $\\qquad$\n\nPayee Telephone Number: $\\qquad$\n*Payee E-Mail: kostagalanopoulos@gmail.com\n*An LOD Repertoire Chart is required to complete the LOD. Please submit a complete LOD Repertoire Chart along with all the pages in this Letter of Direction.\n*Effective Date: (choose one)\n$\\square$ Check here if this LOD applies to payments as of $\\qquad$ [date]\n$\\boxtimes$ Check here if this LOD applies retroactively for all tracks listed on the LOD Repertoire Chart.\n$\\square$ Check here if the Effective Payment Date varies by track. Enter the Effective Dates on the LOD Repertoire Chart.\nPlease note that retroactive application of an LOD is limited to available SoundExchange royalties for the tracks listed on the LOD Repertoire Chart.\n*Payment Percentage (\"Percentage\"): check applicable box\nx 5\\% of Performer royalties are applicable to all tracks listed on the LOD Repertoire Chart.\n$\\square$ Percentage varies by each track covered by this LOD. Enter percentages on the LOD Repertoire Chart.\n# TERMS AND CONDITIONS \n\nBy signing this Letter of Direction and submitting it to SoundExchange, Performer agrees as follows:\n\n1. Performer represents and warrants that Performer is the featured recording artist who performed on the sound recording(s) identified on the \"LOD Repertoire Chart\" attached hereto as Schedule 1 (the \"Recordings\").\n2. Performer represents and warrants that Payee is an individual credited or recognized publicly for the commercially released sound recording identified on the LOD Repertoire Chart (i.e., a producer, mixer, or engineer).\n3. Performer requests and authorizes SoundExchange to pay to and in the name of Payee an amount equal to Percentage of the royalties otherwise payable by SoundExchange to Performer in respect of the Recordings, thereby reducing the payments from SoundExchange to Performer. If a previous \"Royalty Distribution Information for Featured Artist\" or other letter of direction has been provided to SoundExchange that conflicts with this Letter of Direction, then any and all previous letters of direction or similar documents conflicting herewith are hereby revoked.\n4. All monies becoming payable under this Letter of Direction shall be remitted to Payee at the address identified above or as Payee otherwise directs SoundExchange in writing. If SoundExchange requires additional information (e.g., Payee tax information) to remit payments under this Letter of Direction, then Performer and Payee shall be responsible for providing SoundExchange with such information promptly. To the extent SoundExchange is not provided with sufficient or correct information to remit payment to Payee, or checks mailed to Payee's last known address are returned, SoundExchange may hold the monies pending receipt of such information or pay the royalties to Performer.\n5. SoundExchange will honor a written revocation by Performer of the designation made by this Letter of Direction. In the event of such a revocation, SoundExchange may, but need not, mail notice of the revocation to the last known address of Payee. The foregoing is without prejudice to any other contractual arrangements between Performer and Payee requiring payment of the Percentage by Performer. SoundExchange has no responsibility for Performer's performance or nonperformance of any such obligation.\n6. SoundExchange may discontinue making payments under this Letter of Direction at any time, including if checks mailed to Payee's last known address are returned, Performer ceases to be a registrant of SoundExchange, or SoundExchange modifies its policies concerning letters of direction. If it does so, then SoundExchange may, but need not, mail notice thereof to the last known address of Performer and Payee, and monies that otherwise would have been payable under this Letter of Direction will be paid to Performer.\n7. Performer acknowledges that SoundExchange is providing payments to Payee solely as an accommodation to Performer but that all royalties distributed by SoundExchange to Payee are taxable to Payee. Payee shall be solely responsible for providing SoundExchange with tax paperwork required by any governmental agency, including the Internal Revenue Service, to avoid tax withholding.\n8. SoundExchange may rely conclusively, and shall have no liability when acting, upon any written notice, instruction, other document, or signature that is reasonably believed by SoundExchange to be genuine and to be authorized by Performer. SoundExchange shall not be responsible for failure to act as a result of causes beyond the reasonable control of SoundExchange. SoundExchange shall not be liable to Performer, Payee or to any third party for, and Performer agrees to defend (with counsel satisfactory to SoundExchange), indemnify and hold harmless SoundExchange from, any damages or loss (including reasonable attorney's fees) in any way related to this Letter of Direction, unless such loss is caused by SoundExchange's gross negligence or willful misconduct. The provisions of this Paragraph 8 shall survive the revocation or other termination of this Letter of Direction.\n9. In order to maintain flexibility in administering this Letter of Direction, SoundExchange may modify these Terms and Conditions from time to time, in its sole discretion. Such changes shall be effective immediately and Performer shall be deemed to have notice of such changes when they are made available on the SoundExchange website. Notwithstanding the foregoing, if Performer does not wish to accept any changes, Performer must provide SoundExchange written notice within thirty (30) days of notice of any changes to this Letter of Direction.\n10. This Letter of Direction shall be governed by and construed in accordance with the substantive laws of the District of Columbia. Any dispute relating to or arising from this Letter of Direction shall be subject to the exclusive jurisdiction of courts sitting in the District of Columbia.\n\nACKNOWLEDGED AND ACCEPTED BY:\n(The signature of each Performer or Authorized Signatory for each Performer is required.)\nPerformer Signature: $\\qquad$\n*Performer Printed Legal Name: Mikayla Geier $\\qquad$\nOR SoundExchange Authorized LOD Signatory: $\\qquad$\nSoundExchange Authorized LOD Signatory Printed Name: $\\qquad$\n\nDate of Signature: $\\qquad$ Feb. 19, 2025 $\\qquad$\nReturn the original of this form to:\nSoundExchange, Inc.\n733 10th Street NW, 10th Floor\nWashington, DC 20001\nYou may also scan and email the completed forms to accounts@soundexchange.com\nOr fax to 202.640.5859\nIf you have questions, please call 1-800-961-2091 or email accounts@soundexchange.com\n# Schedule 1: Repertoire Chart for Featured Artist Letter of Direction \n\n*Name of Solo Artist(s) or Group(s) on Recording(s): Mikayla Geier\n*Name of Producer, Mixer, or Engineer (\"Payee\"): Konstantinos Galanopoulous\n\n* Indicates a Required Field. Other fields are optional but assist in identifying reported performances.\n\n|  | * Sound <br> Recording <br> Track <br> Name(s) | * <br> Percentage <br> Share of artist royalties, for this track, to be assigned to the LOD recipient (as a $\\%$ only, do not use \"points\" or fractions) | Effective Date of the LOD for this track (required if tracks have different effective dates) | Track <br> Version <br> (e.g., <br> studio, re- <br> mix <br> version, <br> etc.) | Sound <br> Recording <br> Track ISRC | Album or Release Name | Label | Release Date | Other artists on this track (if applicable) |\n| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |\n| Track 1 | Lose A <br> Friend | $5 \\%$ | N/A | studio |  | here we go again | AWAL | $\\begin{gathered} \\text { Aug 23, } \\\\ 2024 \\end{gathered}$ | N/A |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |  |  |  |",
+          "deal_type": "Master"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-03T04:25:38.057Z",
+  "versionId": "d7455fe8-5ff0-46ef-af80-a54624d6d3c5"
+}
