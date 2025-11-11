@@ -1,0 +1,1268 @@
+{
+  "active": false,
+  "connections": {
+    "HTTP Request6": {
+      "main": [
+        [
+          {
+            "node": "RetrieveClients",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Route",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Invoice Customer",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Postgres PGVector Store1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Invoice Reciepient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres PGVector Store": {
+      "main": [
+        [
+          {
+            "node": "Postgres4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Postgres PGVector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Postgres PGVector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres3": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Postgres PGVector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RetrieveClients": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Postgres PGVector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres PGVector Store1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extract Invoice Customer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Invoice Customer": {
+      "main": [
+        [
+          {
+            "node": "Payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Success1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "firebaseId1": {
+      "main": [
+        [
+          {
+            "node": "Register Customer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "access_token": {
+      "main": [
+        [
+          {
+            "node": "firebaseId1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Success1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Register Customer": {
+      "main": [
+        [
+          {
+            "node": "Success",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Success1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Postgres3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Payload": {
+      "main": [
+        [
+          {
+            "node": "access_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "output1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-20T06:52:15.269Z",
+  "id": "bGR4MMtu87q0YiD9",
+  "meta": null,
+  "name": "InvoiceCustomer-V-1.0.6",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -640,
+        100
+      ],
+      "id": "58a3599b-5539-4ac5-966d-134aece51752",
+      "name": "HTTP Request6",
+      "retryOnFail": false,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1460,
+        760
+      ],
+      "id": "68816867-5ed7-4b06-9e03-d11158afc04a",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -940,
+        100
+      ],
+      "id": "5db3a942-5e7d-4bac-bdf5-da3ed3a83ab3",
+      "name": "Postgres",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.action===\"embed\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "28e3ffed-32fb-4392-b084-6dcaf01cb580"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e4df6fe9-c26c-409c-a064-5d72c24eccab",
+                    "leftValue": "={{ $json.action===\"create\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "07d60566-e75a-45a9-aa61-1dca85cbbca9",
+                    "leftValue": "={{ $json.action===\"retrieve\" && $json.data.invoice_recipient!=\"\"}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1cc4d877-eccb-4be3-8aa0-fcca62a0efe4",
+                    "leftValue": "={{ $json.action===\"retrieve\" && $json.data.invoice_recipient===\"\"}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1240,
+        740
+      ],
+      "id": "6f34bdb7-a5a3-44c1-bb42-07b09a0da348",
+      "name": "Route"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": "invoice_client_embeddings",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        -40
+      ],
+      "id": "c7101a84-4b91-4503-bf34-ea06802a20ff",
+      "name": "Postgres PGVector Store",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        460,
+        180
+      ],
+      "id": "af01251f-7c8b-4ff3-a6ce-8ab8dc39f04e",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('RetrieveClients').item.json.address.name }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "book_number",
+                "value": "={{ $('RetrieveClients').item.json.book_number }}"
+              },
+              {
+                "name": "=client_number",
+                "value": "={{ $('RetrieveClients').item.json.client_number }}"
+              },
+              {
+                "name": "address",
+                "value": "={{   Object.entries($('RetrieveClients').item.json.address)     .filter(([key, value]) => key.toLowerCase() !== 'name' && value != null && value !== '')     .map(([key, value]) => `**${key.charAt(0).toUpperCase() + key.slice(1)}:** ${value}`)     .join('\\n') }}"
+              },
+              {
+                "name": "name",
+                "value": "={{ $('RetrieveClients').item.json.address.name }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        580,
+        200
+      ],
+      "id": "09f5f0cb-208a-4c4b-a652-9c3ec8087aaf",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "chunkSize": 10000
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        680,
+        380
+      ],
+      "id": "0e727535-6666-4f9b-8f11-a7ca11ddd395",
+      "name": "Token Splitter"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ca5e5011-7198-4301-99a9-b21bb2449375",
+              "name": "message",
+              "value": "Operation Failed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -200,
+        200
+      ],
+      "id": "fcc150db-9112-496d-a35d-4bdf6b3177f7",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT EXISTS (\n    SELECT 1\n    FROM invoice_client_embeddings\n    WHERE trim(metadata->>'client_number') = trim($1)\n      AND trim(metadata->>'book_number')   = trim($2)\n) AS is_matched;",
+        "options": {
+          "queryReplacement": "={{ $json.client_number }},{{ $json.book_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        20,
+        -40
+      ],
+      "id": "6880bb73-8961-4a3d-83f2-b31817828834",
+      "name": "Postgres3",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "aacbe24a-fc7a-4760-a676-054ca025a0a5",
+              "leftValue": "={{ $json.is_matched }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        240,
+        -40
+      ],
+      "id": "d76d5621-fbc7-4484-b537-b092cd1dd2b1",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/clients/{{ $('Trigger').first().json.data.book_number }}/invoiceClients",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$json.access_token}}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $('Postgres').item.json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -420,
+        20
+      ],
+      "id": "6519daaf-e70d-4bc4-8b52-d0e1af73a1a9",
+      "name": "RetrieveClients",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE invoice_client_embeddings\nSET text = CONCAT(\n              'Invoice Client Name: ', text, E'\\n',\n              'Invoice Client Number: ', metadata->>'client_number', E'\\n',\n              'Address: ', metadata->>'address'\n           ),\n    metadata = (metadata::jsonb) - 'address'\nWHERE metadata->>'book_number' = $1\n  AND metadata->>'client_number' = $2\n",
+        "options": {
+          "queryReplacement": "={{ $json.metadata.book_number }},{{ $json.metadata.client_number }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        960,
+        -40
+      ],
+      "id": "2d35d858-2be1-4bb1-9e57-f55d22495921",
+      "name": "Postgres4",
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -920,
+        1120
+      ],
+      "id": "ecea4df1-626e-4161-bbc2-7284dbb45b8f",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "tableName": "invoice_client_embeddings",
+        "prompt": "={{ $json.data.invoice_recipient }}",
+        "topK": 1,
+        "options": {
+          "distanceStrategy": "cosine",
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "book_number",
+                "value": "={{ $('Trigger').item.json.data.book_number }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "typeVersion": 1.1,
+      "position": [
+        -1020,
+        900
+      ],
+      "id": "d8a5d14d-f4d9-4147-ba49-f1200e42fc9e",
+      "name": "Postgres PGVector Store1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ \n{\ninvoice_recipient: {\nstatus: 'exists',\nname: $json.document.metadata.name,\ninvoice_recipient_number: $json.document.metadata.client_number\n\n}\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -420,
+        860
+      ],
+      "id": "8f7c126c-b315-4edb-9908-ca4a13612c1e",
+      "name": "output"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ \n{\ninvoice_recipient: {\nstatus: 'missing',\nname: $('Route').item.json.data.invoice_recipient\n}\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -420,
+        1100
+      ],
+      "id": "95e41c95-f84f-4ce4-a7e5-e64bff7137bd",
+      "name": "output1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ \n{\ninvoice_recipient: {\nstatus: 'not_provided',\nname: \"Not Provided\"\n}\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -940,
+        1300
+      ],
+      "id": "b5313165-878d-4153-b6dd-40e85f1e4119",
+      "name": "No Invoice Reciepient"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -840,
+        660
+      ],
+      "id": "3b9ab51f-4b6d-4586-964b-b6a15b326078",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "=Invoice Recipient:  {{ $('Trigger').item.json.data.invoice_recipient.name }}\n---\nEmail Thread:{{ $json.data.thread.Emails\n}}\n----\nbook = {{ $('Trigger').item.json.data.metadata.client_verification.book_number }}",
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"required\": [\"invoice_client_info\"],\n  \"additionalProperties\": false,\n  \"properties\": {\n    \"invoice_client_info\": {\n      \"type\": \"object\",\n      \"description\": \"Parse exactly from text. If any field is not found, set it to \\\"\\\" (empty string). Do not guess.\",\n      \"required\": [\"book_number\", \"organization\", \"address\"],\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"book_number\": {\n          \"type\": \"string\",\n          \"description\": \"Exact book_number from context. If absent, set to \\\"\\\".\",\n          \"default\": \"\"\n        },\n        \"organization\": {\n          \"type\": \"object\",\n          \"description\": \"Recipient's organization (may be the recipient itself). No guessing—use \\\"\\\" when unknown.\",\n          \"required\": [\n            \"name\",\n            \"city\",\n            \"state\",\n            \"country_code\",\n            \"url_website\",\n            \"url_linkedin\",\n            \"verified\",\n            \"email\"\n          ],\n          \"additionalProperties\": false,\n          \"properties\": {\n            \"name\": {\n              \"type\": \"string\",\n              \"description\": \"Organization name.\",\n              \"default\": \"\"\n            },\n            \"city\": {\n              \"type\": \"string\",\n              \"description\": \"Organization city.\",\n              \"default\": \"\"\n            },\n            \"state\": {\n              \"type\": \"string\",\n              \"description\": \"Organization state/region.\",\n              \"default\": \"\"\n            },\n            \"country_code\": {\n              \"type\": \"string\",\n              \"description\": \"ISO 2-letter code if provided; otherwise \\\"\\\".\",\n              \"default\": \"\"\n            },\n            \"url_website\": {\n              \"type\": \"string\",\n              \"description\": \"Website URL if provided; otherwise \\\"\\\".\",\n              \"default\": \"\"\n            },\n            \"url_linkedin\": {\n              \"type\": \"string\",\n              \"description\": \"LinkedIn URL if provided; otherwise \\\"\\\".\",\n              \"default\": \"\"\n            },\n            \"verified\": {\n              \"type\": \"boolean\",\n              \"description\": \"Always set to false unless explicitly stated as verified.\",\n              \"default\": false\n            },\n            \"email\": {\n              \"type\": \"string\",\n              \"description\": \"Organization email if provided; otherwise \\\"\\\".\",\n              \"default\": \"\"\n            }\n          }\n        },\n        \"address\": {\n          \"type\": \"object\",\n          \"description\": \"Invoice recipient's mailing details only. Use \\\"\\\" when not present.\",\n          \"required\": [\n            \"name\",\n            \"address_line_1\",\n            \"address_line_2\",\n            \"city\",\n            \"state\",\n            \"postal_code\",\n            \"country\"\n          ],\n          \"additionalProperties\": false,\n          \"properties\": {\n            \"name\": {\n              \"type\": \"string\",\n              \"description\": \"Invoice Recipient provided.\",\n              \"default\": \"\"\n            },\n            \"address_line_1\": {\n              \"type\": \"string\",\n              \"description\": \"Primary street address.\",\n              \"default\": \"\"\n            },\n            \"address_line_2\": {\n              \"type\": \"string\",\n              \"description\": \"Apt/Suite/Unit/etc.\",\n              \"default\": \"\"\n            },\n            \"city\": {\n              \"type\": \"string\",\n              \"description\": \"Recipient city.\",\n              \"default\": \"\"\n            },\n            \"state\": {\n              \"type\": \"string\",\n              \"description\": \"Recipient state/region.\",\n              \"default\": \"\"\n            },\n            \"postal_code\": {\n              \"type\": \"string\",\n              \"description\": \"Postal/ZIP code.\",\n              \"default\": \"\"\n            },\n            \"country\": {\n              \"type\": \"string\",\n              \"description\": \"Country name or code.\",\n              \"default\": \"\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+        "options": {
+          "systemPromptTemplate": "=You are an expert extraction algorithm. You will be provided with below data;\n- Invoice Recipient: Name of the invoice recipient.\n- Email Thread: A conversation between different agents which could provide information/context required for the extraction of data.\n\nWhat you will do:\n- Locate all the information relevant to the invoice Recipient in the email thread.\n- Extract all the data if available, otherwise set to null.\nOnly extract relevant information from the text.\nIf you do not know the value of an attribute asked to extract, you may omit the attribute's value."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        -940,
+        460
+      ],
+      "id": "fabb782e-0d78-4f3f-8a60-d03ec17a0c80",
+      "name": "Extract Invoice Customer",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT firebase_uid as x_acting_as_user FROM hub_user_hubuser WHERE number= $1",
+        "options": {
+          "queryReplacement": "={{ $('Trigger').item.json.data.user_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -200,
+        420
+      ],
+      "id": "350c53a0-a731-480b-8d10-cd2c9eabd30c",
+      "name": "firebaseId1",
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hub-api-prod-649845453193.us-central1.run.app/api/v1/authentication/system-user/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "=5dd3450f93dfb2415c97e282"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -400,
+        440
+      ],
+      "id": "079760d8-a5c0-4a01-bd98-04cb87fe3ded",
+      "name": "access_token",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "googleApi": {
+          "id": "Hue2Vve59bazs83Y",
+          "name": "Google Service Account account 2"
+        },
+        "httpBearerAuth": {
+          "id": "db2me6PVtNUH5oYv",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://hub-api-prod-649845453193.us-central1.run.app/api/v1/clients/{{ $('Trigger').item.json.data.metadata.client_verification.book_number }}/invoiceClients",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('access_token').item.json.access_token }}"
+            },
+            {
+              "name": "X-Acting-As-User",
+              "value": "={{ $json.x_acting_as_user }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Payload').item.json.output.invoice_client_info }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        20,
+        420
+      ],
+      "id": "9ed0deb3-f13f-4f77-b8ad-9c07ea3089e8",
+      "name": "Register Customer",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e7d12d1-3833-4556-b960-cd799bbb0661",
+              "name": "invoice_recipient.status",
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "id": "21577be9-5129-44c8-906a-2472d7d9fdc6",
+              "name": "invoice_recipient.name",
+              "value": "={{ $('Trigger').item.json.data.invoice_recipient.name }}",
+              "type": "string"
+            },
+            {
+              "id": "62a65c46-0f0e-4af3-ab40-15d4747def30",
+              "name": "invoice_recipient.data",
+              "value": "={{$json}}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        300
+      ],
+      "id": "94b307bb-113c-41b3-b863-5bbd18fc4343",
+      "name": "Success"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e7d12d1-3833-4556-b960-cd799bbb0661",
+              "name": "invoice_recipient.status",
+              "value": "failed",
+              "type": "string"
+            },
+            {
+              "id": "21577be9-5129-44c8-906a-2472d7d9fdc6",
+              "name": "invoice_recipient.name",
+              "value": "={{ $('Trigger').item.json.data.invoice_recipient.name }}",
+              "type": "string"
+            },
+            {
+              "id": "2eaa22dd-1a7a-4536-9872-298630e2bda0",
+              "name": "invoice_recipient.failure_reason",
+              "value": "Technical",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        660
+      ],
+      "id": "3adb848c-2b42-4796-8e19-ef48d0903d05",
+      "name": "Success1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d3487969-4d1c-419d-93a8-ce2bd133f3f3",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -200,
+        -40
+      ],
+      "id": "1ff71a3c-0f0e-45c5-b025-1ce8dd2caffa",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4394c3ba-c9fe-4abc-a21a-2bbe48a25402",
+              "name": "output.invoice_client_info.book_number",
+              "value": "={{ $('Trigger').item.json.data.metadata.client_verification.book_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -600,
+        440
+      ],
+      "id": "10c55a8b-83ee-451e-9127-d7a21b89df2d",
+      "name": "Payload"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "338bc58f-57c0-4ac1-b00d-a3b635ce0016",
+              "leftValue": "={{ $json.isNotEmpty() && $json.score<=$('Trigger').item.json.data.threshold }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -640,
+        1000
+      ],
+      "id": "4a72bc28-3971-4786-85c4-559109100f5c",
+      "name": "If1"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "action": "create",
+          "data": {
+            "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+            "invoice_recipient": {
+              "status": "missing",
+              "name": "1234 Music"
+            },
+            "metadata": {
+              "type": "wf_deal_and_invoice",
+              "thread_id": "19a4eb4904f6f96d",
+              "Manager": {
+                "name": "Dwayne Hoover",
+                "address": "dwayne@patchbay.xyz",
+                "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2"
+              },
+              "client_verification": {
+                "client_legal_name": "Quincy  Jones",
+                "client_performer_name": "Quincy Jones",
+                "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                "book_id": 620,
+                "client_role": "Songwriter",
+                "provide_services": true,
+                "message": "Songwriter Quincy  Jones is verified in Dwayne Hoover's workspace"
+              },
+              "task_metadata": {
+                "deal_type": "Publishing",
+                "deal_discussion": true,
+                "deal_id": 284,
+                "thread_last_updated": "2025-11-04T11:50:00Z",
+                "deal_next_step": null,
+                "publishing_deal_type": "Co-Publishing",
+                "publisher": "1234 Music",
+                "administrator": null
+              },
+              "deal_metadata": [
+                {
+                  "deal_type": "publishing",
+                  "deal_id": "284",
+                  "deal_number": "91867489-b518-4753-853a-03cb15d0e2ea",
+                  "person_name": "Quincy  Jones",
+                  "publisher_name": "1234 Music",
+                  "administrator_name": "",
+                  "status": "Needs Review",
+                  "publishing_deal_type": "Co-Publishing",
+                  "reversion_type": ""
+                }
+              ],
+              "invoice_metadata": {
+                "invoice_recipient": {
+                  "status": "missing",
+                  "name": "1234 Music"
+                },
+                "invoices": []
+              }
+            },
+            "thread": {
+              "ThreadId": "19a4eb4904f6f96d",
+              "Emails": "---------------\nFrom: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Tue, Nov 4, 2025, 11:50 AM\nBody: From: Dwayne Hoover (dwayne@patchbay.xyz)\nTo: Patchbay Assistant (asst@patchbay.xyz)\nDate: Tuesday, November 4, 2025 at 11:50 AM\nSubject: PublishingDeal X Quincy Jones X 1234 Music\nBody:\nSong writer: Quincy Jones\nDeal Type: Publishing\nSub Type: Co-publishing\n\nThe deal status needs updated to counter party signature.\n\n---------------",
+              "Subject": "PublishingDeal X Quincy Jones X 1234 Music",
+              "Others": [],
+              "Managers": [
+                {
+                  "name": "Dwayne Hoover",
+                  "address": "dwayne@patchbay.xyz",
+                  "user_id": "2edfd81b-b1a1-4cb9-89b5-6c84b8bd6dc2",
+                  "person_number": "2752c92b-b570-4f0f-a082-611fe1770ec4",
+                  "Role": "Manager",
+                  "Clients": [
+                    {
+                      "client_legal_name": "Quincy  Jones",
+                      "client_performer_name": "Quincy Jones",
+                      "book_number": "38930866-9e7a-424c-9492-bf9dd476bde6",
+                      "book_id": 620,
+                      "client_role": "Songwriter",
+                      "message": "Songwriter Quincy  Jones is verified in Dwayne Hoover's workspace",
+                      "verification_status": true
+                    }
+                  ]
+                },
+                {
+                  "name": "Agent",
+                  "address": "asst@patchbay.xyz",
+                  "user_id": "9cd5749c-7e7d-4a92-98cd-c1356b626258",
+                  "person_number": "03014402-449b-48bb-8973-212449e99e2f",
+                  "Role": "Manager",
+                  "Clients": []
+                }
+              ],
+              "references": [
+                "<CAP=u+8CYD1LfeSCqTttdKSLqaeFfyRhSMeZrkSMjUu1NxzhCgA@mail.gmail.com>",
+                "<CAEaeWjSr3gs_O9rKbfHpyKS8+nTFOvJhTa8_zDGBOhxSzv7oSA@mail.gmail.com>",
+                "<CAP=u+8Cqz3v9c8wH-41ei2LzJVjEfDO8foY+1n4EC9cK97sYng@mail.gmail.com>",
+                "<CAEaeWjSBEW0ReiMoL_f9iLOkQy-N_M3yRZJKO2UtXX2nk3YfuQ@mail.gmail.com>",
+                "<CAP=u+8AXg1cAVEu90a2ab5S1jKMQFQ5_gOS+BRch6f00c-BWJQ@mail.gmail.com>",
+                "<CAEaeWjSLJtf1VWbcAW9Z6SCFgBb0XZng5t35_v8Fy8tKe5Fc6g@mail.gmail.com>",
+                "<CAP=u+8DPuTkKe+g=dyZnCNaY+qF3fbeT5Fj1-znnPYDGsj5L4g@mail.gmail.com>",
+                "<CAEaeWjQWeXZ-T1YQ6o37=wnGfD-koTsdvLyZurH+z+aQ7a+9kg@mail.gmail.com>",
+                "<CAP=u+8DT-V5Lc_hjhyzG04P8M_c2S2S-+RfxWDJ53v6aZ7_dzg@mail.gmail.com>",
+                "<CAEaeWjS33UqAi1DL8YC7TN9BUfG0FwiANnwSuVd1eAAn9H0tXw@mail.gmail.com>",
+                "<CAP=u+8B=7EO-4UrsS8DFyfOGZRT6ty5BEGBE-PmzkM5PQOuV5g@mail.gmail.com>",
+                "<CAEaeWjRiOgaKwiiYBuJnw5NO5fG9q1BVev4a6a-LG+YkF6z1yw@mail.gmail.com>",
+                "<CAP=u+8D8VW-iGVndmyAELMM8ng==vyKecxvrQpqf=J1i6vK5Mw@mail.gmail.com>",
+                "<CAEaeWjTtukge0X=76Z42H9r1qGMPgKiNZa2adGvq1Fi1yhe4Ow@mail.gmail.com>"
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    },
+    {
+      "createdAt": "2025-10-10T18:41:25.635Z",
+      "updatedAt": "2025-10-10T18:41:25.635Z",
+      "id": "AlGcOoQu5NWKEayQ",
+      "name": "development"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-05T06:22:35.684Z",
+  "versionId": "1ad87439-74cc-4910-857e-15239bfef575"
+}
