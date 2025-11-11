@@ -1,0 +1,1515 @@
+{
+  "active": false,
+  "connections": {
+    "IdentifyUsers": {
+      "main": [
+        [
+          {
+            "node": "Route1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion": {
+      "main": [
+        [
+          {
+            "node": "LocateUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckUser": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply6": {
+      "main": [
+        []
+      ]
+    },
+    "EmailPath": {
+      "main": [
+        [
+          {
+            "node": "UpdateSession",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MarkRead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSession": {
+      "main": [
+        [
+          {
+            "node": "CheckUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route1": {
+      "main": [
+        [
+          {
+            "node": "UpdateUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatResponse": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateUsers": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LocateUser": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage": {
+      "main": [
+        [
+          {
+            "node": "GetUserSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetUserSession": {
+      "main": [
+        [
+          {
+            "node": "FormatUserSession",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WTrigger": {
+      "main": [
+        [
+          {
+            "node": "EmailPath",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatUserSession": {
+      "main": [
+        [
+          {
+            "node": "Recommender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrepareMessage1": {
+      "main": [
+        [
+          {
+            "node": "GetLatestSession9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recommender1": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "PrepareMessage",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IdentifyUsers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PrepareMessage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession9": {
+      "main": [
+        [
+          {
+            "node": "Recommender1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Reply6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetLatestSession10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetLatestSession10": {
+      "main": [
+        [
+          {
+            "node": "Parse1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse1": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply1": {
+      "main": [
+        []
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "Reply1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "SendEmail2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatResponse4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-07T07:21:50.248Z",
+  "id": "2D9znxEhMDXMJrah",
+  "meta": null,
+  "name": "Chat-Orchestrator-1.0.4 Beta",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ [{\"address\": $json.address}] }}",
+            "action": "user_identification"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        960,
+        705
+      ],
+      "id": "dd347561-81e3-4e22-b8ce-91150a44d515",
+      "name": "IdentifyUsers",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=thread_{{ $json.ThreadId }}",
+        "value": "={{ $json.toJsonString() }}",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        480
+      ],
+      "id": "539eeace-f6af-477c-b88a-611b6275fd1c",
+      "name": "UpdateSesssion",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json?.from?.value?.[0]?.address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\" + senderAddress\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        720
+      ],
+      "id": "0ca94409-939b-48a7-94df-be856702732e",
+      "name": "CheckUser"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3160,
+        280
+      ],
+      "id": "c0a61104-0652-4420-ae97-80bf71eb0560",
+      "name": "Reply6",
+      "webhookId": "5ef9dca7-7796-4988-9384-f3d6dbc77ea7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const assistantEmail = 'asst@patchbay.xyz';\n\nreturn items.map(item => {\n  const data = item.json;\n\n  const from = data.from?.value?.[0]?.address || '';\n  const toList = data.to?.value?.map(e => e.address.toLowerCase()) || [];\n  const ccList = data.cc?.value?.map(e => e.address.toLowerCase()) || [];\n  const bccList = data.bcc?.value?.map(e => e.address.toLowerCase()) || [];\n\n  const toIncludesAssistant = toList.includes(assistantEmail);\n  const ccIncludesAssistant = ccList.includes(assistantEmail);\n  const bccIncludesAssistant = bccList.includes(assistantEmail);\n  const totalToRecipients = toList.length;\n\n  let routing = 'unclassified';\n\n  if (from === assistantEmail) {\n    routing = 'self';\n  } else if (toIncludesAssistant && totalToRecipients > 1) {\n    routing = 'bot_and_others';\n  } else if (toIncludesAssistant && totalToRecipients === 1) {\n    routing = 'bot_only';\n  } else if (ccIncludesAssistant || bccIncludesAssistant) {\n    routing = 'bot_ccd_bccd';\n  }\n\n  return {\n    json: {\n      ...data,\n      routing,\n    },\n    binary: item.binary || {}\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        600
+      ],
+      "id": "d90fda4a-da5b-4edb-a926-7616b826c445",
+      "name": "EmailPath",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "1qiftJdGy4sT3cbC",
+          "mode": "list",
+          "cachedResultName": "ProcessData-V-1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        300,
+        700
+      ],
+      "id": "e8355d08-5df1-4c3f-89fe-d89f74b97048",
+      "name": "UpdateSession",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a75d3ba0-14c6-49ff-bb4c-9846c7b8c281",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1180,
+        705
+      ],
+      "id": "f51dbb76-65fb-4af4-bba6-5b1e8ee6b2dc",
+      "name": "Route1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "={{ $('CheckUser').item.json}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1400,
+        805
+      ],
+      "id": "8ae770b0-602e-4246-9b30-a1c3125b4ba4",
+      "name": "FormatResponse"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const thread = $(\"UpdateSession\").item.json;\nlet newManagers = $input.item.json;\n\n// Ensure Managers key exists\nif (!Array.isArray(thread.Managers)) {\n  thread.Managers = [];\n}\n\n// Normalize to array\nif (!Array.isArray(newManagers)) {\n  newManagers = [newManagers];\n}\n\n// Collect existing user_ids\nconst existingIds = new Set(thread.Managers.map(m => m.address));\n\n// Append only if user_id not already present\nnewManagers.forEach(manager => {\n  if (!existingIds.has(manager.address)) {\n    thread.Managers.push(manager);\n  }\n});\n\nreturn { json: thread };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        480
+      ],
+      "id": "0c06787a-022b-46f1-b3cc-da616e38b0b2",
+      "name": "UpdateUsers"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\n\nconst senderAddress = $('EmailPath').first().json.from.value[0].address;\n\n// Step 2: Match sender against Managers list\nconst matchedManager = item.Managers.find(manager => manager.address === senderAddress);\n\n// Step 3: Return response based on match\nif (matchedManager) {\n  // Destructure to exclude person_number, Clients, and Role\n  const { person_number, Clients, Role, ...cleanManager } = matchedManager;\n\n  return [\n    {\n      json: {\n        status: true,\n        message: \"Sender verified as a Patchbay manager.\",\n        manager: cleanManager\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        status: false,\n        address: senderAddress,\n        message: \"We couldn't verify you as a Patchbay user. If you're not yet registered, please visit https://hub.patchbay.xyz/account/signup to sign up and get started.\"\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1840,
+        480
+      ],
+      "id": "5a251c4c-d309-425f-a8d5-7cfd09681244",
+      "name": "LocateUser"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n\n  let newest = cutAtFirst(t, cutoffPatterns);\n\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// ---------- Build result ----------\nlet raw = pickBody(lastEmail);\nlet emailText = firstBodyOnly(raw);\n\n// Final normalization to a single-line-ish text (optional; keep line breaks by removing the next line)\nemailText = emailText.replace(/\\n/g, \" \").replace(/\\s+/g, \" \").trim();\n\nreturn [\n  {\n    json: {\n      ThreadId: lastEmail.threadId || null,\n      email_text: emailText,\n      from: extractAddresses(\"from\"),\n      to: extractAddresses(\"to\"),\n      cc: extractAddresses(\"cc\"),\n      bcc: extractAddresses(\"bcc\"),\n      manager: $input.first().json.manager\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2040,
+        360
+      ],
+      "id": "f5e0516d-8cdc-432d-bc53-31bce3d76ea7",
+      "name": "PrepareMessage"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.ThreadId+$('PrepareMessage').item.json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        380
+      ],
+      "id": "160b090f-6728-4755-97ba-b621d87a2810",
+      "name": "GetUserSession",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JbQKc28zggBE6YGz",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.4-beta"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').first().json,\nlast_email: $('PrepareMessage').first().json.email_text,\nManager: $('PrepareMessage').first().json.manager,\nprompt_routing: $('EmailPath').first().json.routing\n}\n\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2720,
+        380
+      ],
+      "id": "d6af24f6-2cc3-4a92-978e-d3656cc9e2c3",
+      "name": "Recommender",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        300,
+        500
+      ],
+      "id": "09df2ff5-01ef-4216-9445-d110b1cd277e",
+      "name": "MarkRead1",
+      "webhookId": "65f2b319-adb6-4e7b-be07-373aedbe7dd7",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -140,
+        600
+      ],
+      "id": "ca43cbe0-d361-49be-a858-b57cd8b1d88e",
+      "name": "WTrigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the reply ID to match\nconst inReplyTo = $('EmailPath').first()?.json?.inReplyTo;\n\n// Scan all incoming items\nconst items = $input.all();\n\nlet matched = null;\n\nfor (const it of items) {\n  const sessionStr = it.json?.user_session;\n  if (typeof sessionStr !== 'string') continue;\n\n  try {\n    const sessionObj = JSON.parse(sessionStr);\n    if (sessionObj?.routing_id && sessionObj.routing_id === inReplyTo) {\n      matched = sessionObj;\n      break;\n    }\n  } catch (e) {\n    // skip invalid JSON\n  }\n}\n\nreturn [\n  {\n    json: {\n      output: matched\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        380
+      ],
+      "id": "57b275c7-6791-4e00-9db1-3ca43ac5912d",
+      "name": "FormatUserSession"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the last email object from the Switch node\nconst lastEmail = $('EmailPath').first().json || {};\n\n// Get the managers list from the Managers node and filter out asst@patchbay.xyz\nconst managersList = ($('UpdateSession').first().json.Managers || [])\n  .filter(manager => manager.address !== 'asst@patchbay.xyz');\n\n// ---------- Helpers ----------\nconst htmlDecode = (s = \"\") =>\n  s\n    .replace(/&nbsp;/gi, \" \")\n    .replace(/&amp;/gi, \"&\")\n    .replace(/&lt;/gi, \"<\")\n    .replace(/&gt;/gi, \">\")\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\")\n    .replace(/&#x2F;/gi, \"/\");\n\nconst htmlToText = (html = \"\") => {\n  if (!html) return \"\";\n  let s = html;\n  // Remove scripts/styles\n  s = s.replace(/<script[\\s\\S]*?<\\/script>/gi, \"\")\n       .replace(/<style[\\s\\S]*?<\\/style>/gi, \"\");\n  // Block-level breaks → newlines\n  s = s.replace(/<(br|hr)\\s*\\/?>/gi, \"\\n\")\n       .replace(/<\\/(p|div|li|h[1-6]|tr|table)>/gi, \"\\n\")\n       .replace(/<(p|div|li|h[1-6]|tr|table)[^>]*>/gi, \" \");\n  // Remove all remaining tags\n  s = s.replace(/<\\/?[^>]+>/g, \"\");\n  // Decode entities & normalize whitespace\n  s = htmlDecode(s).replace(/\\r/g, \"\").replace(/[ \\t\\u00A0]+/g, \" \");\n  return s;\n};\n\nconst cutAtFirst = (text, patterns) => {\n  let cut = -1;\n  for (const re of patterns) {\n    const idx = text.search(re);\n    if (idx !== -1 && (cut === -1 || idx < cut)) cut = idx;\n  }\n  return cut === -1 ? text : text.slice(0, cut);\n};\n\nconst stripSignature = (text) => {\n  // Find earliest likely signature delimiter\n  const sigPatterns = [\n    /\\n--\\s*\\n/i,                                  // RFC-ish\n    /\\nSent from my (iPhone|Android).*$/i,        // mobile footers\n    /\\nBest regards[,\\s]*\\n.*$/i,\n    /\\nRegards[,\\s]*\\n.*$/i,\n    /\\nThanks[,\\s]*\\n.*$/i\n  ];\n  const cutIdx = sigPatterns\n    .map(re => text.search(re))\n    .filter(i => i !== -1)\n    .sort((a,b) => a - b)[0];\n  return (cutIdx !== undefined) ? text.slice(0, cutIdx) : text;\n};\n\nconst cleanWhitespace = (s) =>\n  s.replace(/\\u200B/g, \"\")        // zero-width space\n   .replace(/\\r/g, \"\")\n   .replace(/[ \\t]+/g, \" \")\n   .replace(/\\n{3,}/g, \"\\n\\n\")\n   .trim();\n\nconst firstBodyOnly = (s) => {\n  // Normalize line endings for pattern matching\n  const t = s.replace(/\\r\\n/g, \"\\n\");\n  // Cut off quoted/forwarded/reply headers\n  const cutoffPatterns = [\n    /\\n\\s*On .*? wrote:\\s*\\n/mi,                         // Gmail/Apple \"On … wrote:\"\n    /\\n\\s*-{2,}\\s*Original Message\\s*-{2,}\\s*\\n/mi,      // -----Original Message-----\n    /\\n\\s*Begin forwarded message:\\s*\\n/mi,              // Apple Mail\n    /\\n\\s*-{2,}\\s*Forwarded message\\s*-{2,}\\s*\\n/mi,     // ---------- Forwarded message ----------\n    /\\n>+/m,                                             // First quoted line\n    // Header block: From/Sent/To/Subject cluster\n    /\\nFrom:\\s.*\\n(?:.*\\n){0,12}?Subject:\\s.*\\n/mi\n  ];\n  let newest = cutAtFirst(t, cutoffPatterns);\n  // Also cut custom separators you mentioned\n  newest = cutAtFirst(newest, [\n    /<asst@patchbay\\.xyz>/i,\n    /Forwarded message/i\n  ]);\n  // Remove signature and tidy whitespace\n  newest = stripSignature(newest);\n  return cleanWhitespace(newest);\n};\n\nconst pickBody = (email) => {\n  // Prefer plain text if present; otherwise, convert HTML\n  const text = (email.text && email.text.trim()) ? email.text : \"\";\n  const html = (!text && email.html) ? email.html : \"\";\n  return text ? text : htmlToText(html);\n};\n\nconst extractAddresses = (field) =>\n  (lastEmail?.[field]?.value || [])\n    .map(e => (e && typeof e === \"object\") ? e.address : e)\n    .filter(Boolean);\n\n// Helper to format email with full headers\nconst formatEmailText = (email) => {\n  // Format From\n  const fromArray = email?.from?.value || [];\n  const fromFormatted = fromArray.length > 0\n    ? `${fromArray[0].name} (${fromArray[0].address})`\n    : '';\n  \n  // Format To\n  const toArray = email?.to?.value || [];\n  const toFormatted = toArray\n    .map(t => `${t.name} (${t.address})`)\n    .join(', ');\n  \n  // Format CC (filtered)\n  const ccArray = email?.cc?.value || [];\n  const filteredCC = ccArray.filter(cc => cc.address !== 'asst@patchbay.xyz');\n  const ccFormatted = filteredCC\n    .map(c => `${c.name} (${c.address})`)\n    .join(', ');\n  \n  // Format Date\n  const dateFormatted = email.date \n    ? new Date(email.date).toLocaleString('en-US', {\n        weekday: 'long',\n        year: 'numeric',\n        month: 'long',\n        day: 'numeric',\n        hour: 'numeric',\n        minute: '2-digit',\n        hour12: true\n      })\n    : '';\n  \n  // Get the email body\n  let raw = pickBody(email);\n  let emailBody = firstBodyOnly(raw);\n  \n  // Build formatted email text\n  let formattedEmail = `From: ${fromFormatted}\\n`;\n  formattedEmail += `To: ${toFormatted}\\n`;\n  if (ccFormatted) {\n    formattedEmail += `CC: ${ccFormatted}\\n`;\n  }\n  formattedEmail += `Date: ${dateFormatted}\\n`;\n  formattedEmail += `Subject: ${email.subject || ''}\\n`;\n  formattedEmail += `Body:\\n${emailBody}`;\n  \n  return formattedEmail;\n};\n\n// ---------- Build result ----------\nconst emailText = formatEmailText(lastEmail);\n\n// Create the base email object structure\nconst baseEmailObject = {\n  ThreadId: lastEmail.threadId || null,\n  email_text: emailText,\n  from: extractAddresses(\"from\"),\n  to: extractAddresses(\"to\"),\n  cc: extractAddresses(\"cc\"),\n  bcc: extractAddresses(\"bcc\")\n};\n\n// If managers list is empty or not provided, return the original behavior\nif (!Array.isArray(managersList) || managersList.length === 0) {\n  return [\n    {\n      json: {\n        ...baseEmailObject,\n        manager: $input.first().json.manager\n      }\n    }\n  ];\n}\n\n// Create structured object for each manager in the list\nreturn managersList.map(manager => ({\n  json: {\n    ...baseEmailObject,\n    manager: manager\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1620,
+        955
+      ],
+      "id": "9e83dd1a-d9ea-4c6b-87b7-49754a2399ca",
+      "name": "PrepareMessage1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JbQKc28zggBE6YGz",
+          "mode": "list",
+          "cachedResultName": "Recommend-V1.0.4-beta"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ \n{\nthread: $('UpdateSession').first().json,\nlast_email: $('PrepareMessage1').first().json.email_text,\nManager: $('PrepareMessage1').first().json.manager,\nprompt_routing: $('EmailPath').item.json.routing\n}\n}}"
+          },
+          "matchingColumns": [
+            "data"
+          ],
+          "schema": [
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2060,
+        955
+      ],
+      "id": "b26c587b-e41a-4049-a6bc-6032d5f156e6",
+      "name": "Recommender1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status===true && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "df9dfabf-eb51-443e-b267-28085d36d2c1"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3a5d1230-4212-475d-8552-662b69cd2b68",
+                    "leftValue": "={{ $json.status===false && ($('EmailPath').item.json.routing===\"bot_only\" || $('EmailPath').item.json.routing===\"bot_and_others\")  }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9c08ad0b-ac17-4b81-bee7-d1c5532fc8fb",
+                    "leftValue": "={{ $json.status===false && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "977406f0-aa5b-4392-bf73-638834764d54",
+                    "leftValue": "={{ $json.status===true && $('EmailPath').item.json.routing===\"bot_ccd_bccd\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        740,
+        684
+      ],
+      "id": "09c9ed0e-2e3e-4981-b5ac-973c2189bdef",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $json.ThreadId+$json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        955
+      ],
+      "id": "6abeaead-bd27-4091-8a90-541ff7b63c8d",
+      "name": "GetLatestSession9",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2b32a7f8-013c-4578-b1a2-59ba8c0e3fa2",
+                    "leftValue": "={{ $json.output.nudge===true && $json.output.skip_manager_update===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_other_user"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.nudge===false &&  $json.output.skip_manager_update===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "2deffe09-b334-4c58-b9d7-563137c16ee9"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_manager"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f773b437-3505-4564-9e65-c723aea21ac8",
+                    "leftValue": "={{ $json.output.nudge===true &&  $json.output.skip_manager_update===false}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_both"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "69af329f-98dd-4c84-88f1-27c955959a40",
+                    "leftValue": "={{ $json.output.nudge===false &&  $json.output.skip_manager_update===true}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "to_none"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2280,
+        934
+      ],
+      "id": "7dfe1422-6ea2-4334-822e-cb37218e5ada",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8b131df7-3143-4f66-84ec-2c01ed7952b7",
+              "leftValue": "={{ $json.output.invoice_next_step }}",
+              "rightValue": "send_file_to_user",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2940,
+        380
+      ],
+      "id": "3eb7d544-289c-4be0-80c7-230b7ff09f2a",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "user_session",
+        "key": "=user_session_{{ $('PrepareMessage').first().json.ThreadId+$('PrepareMessage').first().json.manager.user_id }}",
+        "keyType": "string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        3160,
+        480
+      ],
+      "id": "a8cd60c1-829b-448f-ac8b-998f3f9ff0ac",
+      "name": "GetLatestSession10",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse, extract base64 PDF, attach as binary\n// Works with multiple incoming items.\n\nconst items = $input.all();\n\nfunction safeParseSession(value) {\n  if (value && typeof value === 'object') return value;\n  if (typeof value === 'string') {\n    try {\n      return JSON.parse(value);\n    } catch (err) {\n      return { __parse_error: err.message, __raw: value };\n    }\n  }\n  return { __parse_error: 'Unsupported user_session type', __raw: value };\n}\n\nconst outputs = [];\nfor (const item of items) {\n  const parsedSession = safeParseSession(item.json.user_session);\n\n  const out = {\n    json: {\n      ...item.json,\n      user_session: parsedSession,\n    },\n  };\n\n  // Try to pull base64 from user_session.invoice_metadata.pdf_invoice_content\n  const pdfB64 = parsedSession?.invoice_metadata?.pdf_invoice_content;\n\n  if (typeof pdfB64 === 'string' && pdfB64.trim().length > 0) {\n    try {\n      const buf = Buffer.from(pdfB64.trim(), 'base64');\n\n      // Name the file using invoice_id if available\n      const invoiceId = parsedSession?.invoice_metadata?.invoice_id ?? 'invoice';\n      const fileName = `invoice_${invoiceId}.pdf`;\n\n      // Prepare binary for n8n\n      const binary = await this.helpers.prepareBinaryData(\n        buf,\n        fileName,\n        'application/pdf'\n      );\n\n      out.binary = { pdf_invoice: binary };\n\n      // Optional: remove the large base64 string from JSON to keep items light\n      try {\n        if (out.json.user_session?.invoice_metadata) {\n          delete out.json.user_session.invoice_metadata.pdf_invoice_content;\n        }\n      } catch (_) {}\n    } catch (err) {\n      out.json.__binary_error = `Failed to decode PDF: ${err.message}`;\n    }\n  } else {\n    out.json.__binary_error = 'pdf_invoice_content not found or not a string';\n  }\n\n  outputs.push(out);\n}\n\nreturn outputs;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3380,
+        480
+      ],
+      "id": "078ea4ac-1b42-4568-be3b-f71de900b874",
+      "name": "Parse1"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "pdf_invoice"
+              }
+            ]
+          },
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3820,
+        380
+      ],
+      "id": "4070d47f-00da-4c1b-b4a0-9ad960de835e",
+      "name": "Reply1",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "513760a2-4f86-48fa-a637-c4507607291e",
+              "leftValue": "={{ !!$json.pdf_invoice }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3600,
+        480
+      ],
+      "id": "823c7126-533a-4c53-8707-05394c0e5e8e",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $('Recommender').item.json.output.response }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3820,
+        580
+      ],
+      "id": "c3bf7007-e244-4581-bd2d-e956ff2d9641",
+      "name": "Reply2",
+      "webhookId": "2bd989af-1658-4e80-9b75-77857f656b1c",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('EmailPath').first().json.id }}",
+        "message": "={{ $json.output.message_for_manager }}",
+        "options": {
+          "replyToSenderOnly": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2720,
+        960
+      ],
+      "id": "32d0ad03-05d5-46ce-92ef-e68356046da0",
+      "name": "Reply",
+      "webhookId": "5ef9dca7-7796-4988-9384-f3d6dbc77ea7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0X16CjC69yGvvRLO",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "=No nudge or manager update needed.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2500,
+        1080
+      ],
+      "id": "c4ac3927-5007-4632-825e-2a2b9c950895",
+      "name": "FormatResponse3"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PHv86CxcQr7XIUMm",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.4"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "deliver_email",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2720,
+        580
+      ],
+      "id": "76aaf5b8-7cd0-47b8-9f06-b70ee3985e70",
+      "name": "SendEmail2",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7d83d4cb-fc89-4bec-a428-48b9e66e753e",
+              "leftValue": "={{ $json.output.nudge_data.days_pending<3 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2500,
+        680
+      ],
+      "id": "44bc1a50-de0c-4b15-83d1-f0df151a7490",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40b1861-459c-4d42-aa6b-4eb018cc6e93",
+              "name": "message",
+              "value": "=No nudge or manager update needed.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2720,
+        780
+      ],
+      "id": "909687f5-355b-4c64-a9a4-311360d4fec8",
+      "name": "FormatResponse4"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_198a7af5c9b407ddb07af3f8-c51e-42df-b5c7-6b5248a5ee5e"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        520,
+        1360
+      ],
+      "id": "7e63d4d5-3496-47b0-95f6-2788e3e2fd8c",
+      "name": "GetUserSession1",
+      "retryOnFail": true,
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "WTrigger": [
+      {
+        "json": {
+          "id": "199c3bc97eac5fd7",
+          "threadId": "199320b43e092d51",
+          "labelIds": [
+            "UNREAD",
+            "IMPORTANT",
+            "CATEGORY_PERSONAL",
+            "INBOX"
+          ],
+          "sizeEstimate": 98291,
+          "headers": {
+            "delivered-to": "Delivered-To: asst@patchbay.xyz",
+            "received": "Received: from AM0PR05MB4801.eurprd05.prod.outlook.com ([2603:1026:207:c9::5])\r\n        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33b510e919esm3242982a91.5.2025.10.08.05.12.17\r\n        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);\r\n        Wed, 08 Oct 2025 05:12:18 -0700 (PDT)",
+            "x-forwarded-encrypted": "X-Forwarded-Encrypted: i=1; AJvYcCV/gB4BZf+HR8fDO7n8pLpNMyHgi3W3DPSr3fVKmBkJa70mIx8DtPVMxUlSOUKkMrrYleAV@patchbay.xyz",
+            "x-received": "X-Received: by 2002:a17:90b:3b50:b0:32b:8b8d:c2d1 with SMTP id 98e67ed59e1d1-33b5127ba49mr3527505a91.21.1759925539411;\r\n        Wed, 08 Oct 2025 05:12:19 -0700 (PDT)",
+            "arc-seal": "ARC-Seal: i=1; a=rsa-sha256; t=1759925540; cv=none;\r\n        d=google.com; s=arc-20240605;\r\n        b=I10UFXNzxDSiwzrQM2HVVtxfYN8zVLGbznGdZhWHrSIEUcYnK0wJ6GVu3BH3w19zFN\r\n         ul1KK0wx4ZfEmJDf4PbZVzCCSPYlGaIdtgcWg//WQuuAnoFsyN0A+BdZCWgKZ6VYSALY\r\n         U+h4cDE22OJuLoshfubc33YVIWWu8K2wmWw5lmlZ1JQG2UO4u2HBvlhOoumDGX66kcrb\r\n         bDw/tnUfb4Ktsnu5TveNShM1tuMTJA+yXy2G7bzlF10UqQkAP/Y5FXyxNL3wUBMeFbJV\r\n         SlnmSY+jxmN/vUk7I2tEyoAHAz0yArVMIsE+g0D1+nYvsUej+rAtpdMGmS5jiTAZdWej\r\n         E6/Q==",
+            "arc-message-signature": "ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;\r\n        h=mime-version:content-language:accept-language:in-reply-to\r\n         :references:message-id:date:thread-index:thread-topic:subject:cc:to\r\n         :from:dkim-signature;\r\n        bh=AU5PTnkplfhxYu+lFYIXalc4QjjsnpBRyk+3fGobXvc=;\r\n        fh=iotBgI+jnVwIDcjBmy6NUds8Dhz445i6+bU5JyRN9zA=;\r\n        b=QETeEhDgWKBYBLPR/SHSPPl19BgYzvjP0M0wzCFfiItWZlqm+lKAlW5sC2qMYbZkrP\r\n         Me7bsgP0b6Pz/je4+yosk1avjs+PAMDY0kKV6K0yb3czaXYQuwhCNXG5hCo+hvleOrVA\r\n         /8oJXHjE04DU/uqX1EmD3bmtAm7+CEgUVNxd7Wm7SYdcyGrkbXOOxQ9fXfYF0h1bU9Fs\r\n         w0QDQ4miHl4FhqazLRKV9KrZ1zBSXUPcleMeepbFMd7kDMA/jb1980mJij8nodPJfdvG\r\n         z0flPurJ1v1/EEbxIFybkd1m01/lnsLXrK5j/TgNwYMI6mW4+Vfdpvi2SpG7LK2MdZn+\r\n         yeRQ==;\r\n        dara=google.com",
+            "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@disordergroup.com header.s=google header.b=\"c+My/XWH\";\r\n       spf=pass (google.com: domain of david@disordergroup.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=david@disordergroup.com;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=disordergroup.com;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "return-path": "Return-Path: <david@disordergroup.com>",
+            "received-spf": "Received-SPF: pass (google.com: domain of david@disordergroup.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;",
+            "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@disordergroup.com header.s=google header.b=\"c+My/XWH\";\r\n       spf=pass (google.com: domain of david@disordergroup.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=david@disordergroup.com;\r\n       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=disordergroup.com;\r\n       dara=neutral header.i=@patchbay.xyz",
+            "dkim-signature": "DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=disordergroup.com; s=google; t=1759925540; x=1760530340; darn=patchbay.xyz;\r\n        h=mime-version:content-language:accept-language:in-reply-to\r\n         :references:message-id:date:thread-index:thread-topic:subject:cc:to\r\n         :from:from:to:cc:subject:date:message-id:reply-to;\r\n        bh=AU5PTnkplfhxYu+lFYIXalc4QjjsnpBRyk+3fGobXvc=;\r\n        b=c+My/XWHjJOa9DZ0W8fvhMZNrFAY8i6izjFZI7HQCtqz6D+hW2hNJQMh7fkp6WjvuH\r\n         0oZFIoURaduzAAOcuf9uqFbuMhNESAzckiwPmdULV8C8rV/VMgK/TCcW4subog/3wpbS\r\n         Ar2pSmTEROtYlGK2DfMY48BJsGgY0GFSOpoq6jfw/CcAa7y2Kp7M5QX5MvhmxtNoLlfS\r\n         Q6o9ZUmcuO/fmvNLWE/M7b2nMAjFaafspK47zy+NSWR1derOn3vEwFs1pKF8N3ZbetSE\r\n         u1woe7tUkMrImLuPfUqX/iqTlb4TYMy+LsfETcHIcWPNiGik9cRjZ+TI9ezbibvIXqB1\r\n         pAzA==",
+            "x-google-dkim-signature": "X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n        d=1e100.net; s=20230601; t=1759925540; x=1760530340;\r\n        h=mime-version:content-language:accept-language:in-reply-to\r\n         :references:message-id:date:thread-index:thread-topic:subject:cc:to\r\n         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;\r\n        bh=AU5PTnkplfhxYu+lFYIXalc4QjjsnpBRyk+3fGobXvc=;\r\n        b=Nr4D02RsPXHhrOvILEXYm6LtbcDH1f6mNTJxYQsorPowMW7VqgdWHkrGH8oyP7zUcq\r\n         pRqvnXRZG1cm2rQestjh2UJNLe4PL50Ahc5/TfKaxYkbZWlDpv1WEWIpCtLa9z494qq/\r\n         nQ61P1YWaY4KzzKXjtx0BmWVE/qhSnJK8SyQdq1+0kSbqNsnCvclqRpM9RdvKtyE1Mwo\r\n         3NB7rvWs6ZYfy6cfB5dnQF1ZLPxJowYP10v00KBfTZeLAs1EPldr3BkceDOQN1cXG9Fn\r\n         cwLT2lXqlWmiBMSnrgvAFqEFBiP44gyXCYNQtObT9EloayqWzqW99RXESejb6g692E9y\r\n         O7kw==",
+            "x-gm-message-state": "X-Gm-Message-State: AOJu0YxsY/e5A4Rq00AFsz/9rVDV0+eCR0dk3wkwKxvnRArTa7RJoWzc\r\n\tDCc+WRT32+EhJikEu1JeZK9Jli8vo2UshAodFyZqvDmA0Fhcb/cDBjXqg2+qiC+UAow=",
+            "x-gm-gg": "X-Gm-Gg: ASbGncs3tAXeoCl1urRhMJ8LB6fC2uKZXIk6AuVe74nDOALgqbJ+LFuVHL9gz4yCCEl\r\n\tv9cLAyiOx9BzvianeGLbKuF963Ob3Z6KWr5/+4ReGBxdlnZPqyxjjEKurg/UvebMCQoitN6qtiF\r\n\tyup4eM5L4bkop9ed2QeV++emF3A0WQ1eJeDhJ7zr9bWECftv3pzbeZuOtz93BRk8atCFKT8ULBV\r\n\t8uIKr+Qzq4+v3fhM8SHL/7CHgVWOtcA4oPZny4tq7kqJ6WBlZoVUgo8BGLeXyycydfl5SSStI+U\r\n\tjYfEUDOIHN4BgWo+7o4EYT5JP+tsww1EIZLEvfYw1IuONCBgmRXVg/miWqLbtD7mvvtR5HFKxBB\r\n\tpYJRbkXvxowJJGGcETOSOrSXOE70ey4g8ZG5Ob4QShslXRf7ZzgYLBVdvPpeyNuJljDE6BtSLf7\r\n\tswUNu4gWaJdvfNk2Yv5w4O0zFuFClGMRooZndAp6RFogylm9v46SmB1iBDt0g=",
+            "x-google-smtp-source": "X-Google-Smtp-Source: AGHT+IH2s6m21+FqqSqMmY4NPrvgJWGUWCBxnfGRUNaBvUWk1sH+p2L5jfJhNvV42fRx2qDzlAT2Lg==",
+            "from": "From: David Dollimore <david@disordergroup.com>",
+            "to": "To: Aidan Schechter <aidan@1916mgmt.com>",
+            "cc": "CC: \"matt@1916mgmt.com\" <matt@1916mgmt.com>, \"mikey@1916mgmt.com\"\r\n\t<mikey@1916mgmt.com>, Assistant Assistant <asst@patchbay.xyz>",
+            "subject": "Subject: Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to\r\n signed contract",
+            "thread-topic": "Thread-Topic: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to\r\n signed contract",
+            "thread-index": "Thread-Index:\r\n\tAXctTEdLLunM5ffZ1hXm0tNxoziKF7SjvrlQgAAAOxCVXzxIgIAABDGAgAALFYCAAAUtAIAAGbsAgBKRuICAAEW4FQ==",
+            "x-ms-exchange-messagesentrepresentingtype": "X-MS-Exchange-MessageSentRepresentingType: 1",
+            "date": "Date: Wed, 8 Oct 2025 12:12:16 +0000",
+            "message-id": "Message-ID:\r\n\t<AM0PR05MB48018FE767089CCCC0624270A4E1A@AM0PR05MB4801.eurprd05.prod.outlook.com>",
+            "references": "References:\r\n\t<CAMUZ99npNKOCza3hCvcGEXdQ_NqJALFTqkX3u9U-iyUXm5aBmw@mail.gmail.com>\r\n <DB8PR01MB639259134849AF2E280D1A13971FA@DB8PR01MB6392.eurprd01.prod.exchangelabs.com>\r\n <VI0PR01MB1062676DD8E4B935B7742D8DFE31FA@VI0PR01MB10626.eurprd01.prod.exchangelabs.com>\r\n <CAMUZ99nqoo_dsOOMDuTnOP6EjH0Sd2fcHOFRT4FZZaq8+3CcCA@mail.gmail.com>\r\n <VI0PR01MB10626D7A60EE6B78095303215E31EA@VI0PR01MB10626.eurprd01.prod.exchangelabs.com>\r\n <CAMUZ99=T5zi71M+wt92jWZ6tr6s=zT1ZvK3iW4J8EnZ4cyWRZQ@mail.gmail.com>\r\n <VI0PR01MB10626AEB926F778951B3FB6B2E31EA@VI0PR01MB10626.eurprd01.prod.exchangelabs.com>\r\n <CAMUZ99=aajr33yYf4s7jxYbc=TZ5Jr+-c50O5R_Wq0km7FYuPA@mail.gmail.com>\r\n <mghp936s.656eb7e7-083d-4bbe-9725-6847c3901441@we.are.superhuman.com>",
+            "in-reply-to": "In-Reply-To:\r\n\t<mghp936s.656eb7e7-083d-4bbe-9725-6847c3901441@we.are.superhuman.com>",
+            "accept-language": "Accept-Language: en-US",
+            "content-language": "Content-Language: en-GB",
+            "x-ms-has-attach": "X-MS-Has-Attach: yes",
+            "x-ms-exchange-organization-scl": "X-MS-Exchange-Organization-SCL: -1",
+            "x-ms-tnef-correlator": "X-MS-TNEF-Correlator:",
+            "x-ms-exchange-organization-recordreviewcfmtype": "X-MS-Exchange-Organization-RecordReviewCfmType: 0",
+            "x-ms-reactions": "x-ms-reactions: allow",
+            "content-type": "Content-Type: multipart/related;\r\n\tboundary=\"_004_AM0PR05MB48018FE767089CCCC0624270A4E1AAM0PR05MB4801eurp_\";\r\n\ttype=\"multipart/alternative\"",
+            "mime-version": "MIME-Version: 1.0"
+          },
+          "html": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n</head>\n<body>\n<div dir=\"ltr\">\n<div dir=\"ltr\" style=\"font-family: Aptos, Arial, Helvetica, sans-serif; font-size: 12pt;\">\nThank you Aidan&nbsp;</div>\n<div dir=\"ltr\" style=\"font-family: Aptos, Arial, Helvetica, sans-serif; font-size: 12pt;\">\nAre you guys on Uni Port U.S?</div>\n<div dir=\"ltr\"><br>\n</div>\n<div id=\"mail-editor-reference-message-container\">\n<div class=\"ms-outlook-mobile-reference-message skipProofing\"><span style=\"mso-bookmark:_MailOriginalBody\">\n<div style=\"font-family: Aptos; font-size: 12pt; text-align: left; border-width: 1pt medium medium; border-style: solid none none; border-color: rgb(181, 196, 223) currentcolor currentcolor; padding: 3pt 0in 0in; color: black;\">\n<span style=\"font-weight:bold\">From: </span>Aidan Schechter &lt;aidan@1916mgmt.com&gt;<br>\n<span style=\"font-weight:bold\">Date: </span>Wednesday, 8 October 2025 at 09:02<br>\n<span style=\"font-weight:bold\">To: </span>Disorder Legal &lt;legal@disordergroup.com&gt;, Michael Rivalland &lt;michael@disordergroup.com&gt;, Amy Collins &lt;amy@disordergroup.com&gt;<br>\n<span style=\"font-weight:bold\">Cc: </span>matt@1916mgmt.com &lt;matt@1916mgmt.com&gt;, mikey@1916mgmt.com &lt;mikey@1916mgmt.com&gt;, David Dollimore &lt;david@disordergroup.com&gt;, Assistant Assistant &lt;asst@patchbay.xyz&gt;<br>\n<span style=\"font-weight:bold\">Subject: </span>Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract<br>\n<br>\n</div>\n<div>\n<div>\n<div>\n<div class=\"\">Hi all, see Matt's invoice attached, let us know&nbsp;if you need anything else.&nbsp;<br>\n</div>\n<div class=\"\"><br>\n</div>\n<div class=\"\">Thanks!&nbsp;</div>\n</div>\n<div>\n<div style=\"display:none; border:0px; width:0px; height:0px; overflow:hidden; visibility:hidden\">\n<img src=\"https://r.superhuman.com/nEiV66EIiVh5A27JruVUzONabeOyKjH1VPxXrIETI3HxK6Nvu0q-Abpp_Qf5rTWP8Jsbfc-4KD2TxzT9q8d4QKOxrUFNjtnjjF87xMYVt-45NRXPkgAyrIW1AQL_YNpQzjImwxIvd68vnxNHKYjREV4195CaA_LvCqkG_L12XqLCp3o2vhePhegHEw.gif\" alt=\" \" width=\"1\" height=\"0\" style=\"display:none; border:0px; width:0px; height:0px; overflow:hidden; visibility:hidden\"></div>\n<br>\n<div class=\"gmail_signature\">\n<div>\n<div dir=\"ltr\"><font face=\"arial, sans-serif\" class=\"sh-preserve-font-family\">Best,</font>\n<div><font face=\"arial, sans-serif\" class=\"sh-preserve-font-family\">Aidan Schechter</font></div>\n<div><font face=\"arial, sans-serif\" class=\"sh-preserve-font-family\"><br class=\"sh-preserve-font-family\">\n</font></div>\n<div><span>\n<div align=\"left\" dir=\"ltr\" style=\"margin-left:0pt\">\n<table style=\"border:none; border-collapse:collapse\">\n<colgroup><col width=\"176\"><col width=\"403\"></colgroup>\n<tbody>\n<tr style=\"height:78.28947265625001pt\">\n<td style=\"vertical-align:top; padding:5pt 5pt 5pt 5pt; overflow:hidden\">\n<p dir=\"ltr\" class=\"sh-preserve-line-height\" style=\"line-height:2.0736; margin-top:0pt; margin-bottom:0pt\">\n<span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 11pt; font-family: Arial; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\"><span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"border:none; display:inline-block; overflow:hidden; width:131px; height:67px\"><img height=\"67\" width=\"131\" src=\"https://lh6.googleusercontent.com/jUH4I5j5gaLI5AKRjzsucG3zpOMuMvL7V1K7YYbY_kuiM8qGy2W3MFBNsn-5XZi40Wi81ZCU8viXUAAWDFZZqgPCdA0WC-e77shX-B8GVBto1F6iarQdDrkLyTuS-Vna7F_PBuE\" class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"margin-left:0px; margin-top:0px\"></span></span><span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 11pt; font-family: Arial; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\">\n &nbsp; </span><span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 11pt; font-family: Arial; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\"></span></p>\n</td>\n<td style=\"vertical-align:top; padding:5pt 5pt 5pt 5pt; overflow:hidden\">\n<p dir=\"ltr\" class=\"sh-preserve-line-height\" style=\"line-height:1.56; margin-top:0pt; margin-bottom:0pt\">\n<span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 11pt; font-family: Archivo, sans-serif; font-weight: 700; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\">AIDAN\n SCHECHTER&nbsp;</span></p>\n<p dir=\"ltr\" class=\"sh-preserve-line-height\" style=\"line-height:1.56; margin-top:0pt; margin-bottom:0pt\">\n<span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 9pt; font-family: Archivo, sans-serif; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\">P:\n</span><span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 9pt; font-family: Archivo, sans-serif; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\">+1\n 310.467.6229</span><span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 9pt; font-family: Archivo, sans-serif; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\">\n | E: </span><span class=\"sh-preserve-line-height sh-preserve-color sh-preserve-font-family sh-preserve-font-size\" style=\"font-size: 9pt; font-family: Archivo, sans-serif; vertical-align: baseline; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;\"><a href=\"mailto:AIDAN@1916MGMT.COM\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-preserve-line-height sh-preserve-font-family sh-preserve-font-size\" data-outlook-id=\"db8b9ea3-de4a-43c8-a410-5e81799b7381\">AIDAN@1916MGMT.COM</a></span></p>\n</td>\n</tr>\n</tbody>\n</table>\n</div>\n</span></div>\n</div>\n</div>\n<br>\n</div>\n</div>\n<br>\n<div>\n<div class=\"gmail_quote\">On Fri, Sep 26, 2025 at 5:27 AM, Disorder Legal <span dir=\"ltr\">\n&lt;<a href=\"mailto:legal@disordergroup.com\" target=\"_blank\" data-outlook-id=\"82d8d71c-e456-4f27-ac5c-7a1bdc90d78e\">legal@disordergroup.com</a>&gt;</span> wrote:<br>\n<blockquote class=\"gmail_quote\" style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\n<div class=\"gmail_extra\">\n<div class=\"gmail_quote sh-color-black sh-color\">\n<div dir=\"ltr\" class=\"sh-color-black sh-color\">Thanks Sarah&nbsp;\n<div class=\"sh-color-black sh-color\"><br>\n</div>\n<div class=\"sh-color-black sh-color\">Here is the fully executed for your files.&nbsp;</div>\n<div class=\"sh-color-black sh-color\"><br>\n</div>\n<div class=\"sh-color-black sh-color\">Best wishes</div>\n<div class=\"sh-color-black sh-color\"><br>\n</div>\n<div class=\"sh-color-black sh-color\">Sophie&nbsp;</div>\n</div>\n<br>\n<div class=\"gmail_quote gmail_quote_container sh-color-black sh-color\">\n<div class=\"gmail_attr sh-color-black sh-color\" dir=\"ltr\">On Fri, Sep 26, 2025 at 11:55 AM Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"c184ee68-3e3a-4380-978a-3e541cee0534\">Sarah@<wbr>ssb.<wbr>co.<wbr>uk</a>&gt;\n wrote:<br>\n</div>\n<blockquote class=\"gmail_quote sh-color-black sh-color\" style=\"margin:0px 0px 0px 0.8ex; border-left:1px solid rgb(204,204,204); padding-left:1ex\">\n<div class=\"msg646127471267463864 sh-color-black sh-color\">\n<div lang=\"EN-GB\" class=\"sh-color-black sh-color\" style=\"\">\n<div class=\"m_646127471267463864WordSection1 sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\">Hi Ridley,<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></span></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></span></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\">Please see attached the PE copy.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></span></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></span></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\">Looking forward to receiving a FE copy.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></span></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></span></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\">Respectfully reserving rights.</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></span></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Best wishes,</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Sarah Buckley</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Paralegal</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:11pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"color: black;\"><img alt=\"SSB-Logo-2017-RGB-tiny\" src=\"data:image/png;base64,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\" id=\"m_646127471267463864Picture_x0020_785766012\" height=\"35\" width=\"108\" class=\"sh-im-maintain-aspect-ratio sh-color-black sh-color\" style=\"width:1.125in; height:0.3645in\"></span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">93-95 Hammersmith Grove London W6 0NQ</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">W:\n</span><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt\"><a href=\"http://www.ssb.co.uk/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"7e0b9612-55d9-4f80-9321-14a81f897add\"><span lang=\"EN-GB\" class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">www.<wbr>ssb.<wbr>co.<wbr>uk</span></a></span><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">\n</span><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">| T: 020 8741 7194</span><span class=\"sh-color-red sh-color\" style=\"font-size: 11pt; color: red;\">\n</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 8pt; color: black;\">We use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 8pt; color: black;\">SSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors\n Regulation Authority is&nbsp;638890.</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-modified-inline sh-color sh-color-black\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent;\">\n<i class=\"sh-color-black sh-color\"><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size: 7pt; color: black;\">This e-mail, and any attachment(s), may contain information which is confidential and/or privileged,&nbsp;and is intended for the addressee\n only. If you are not the intended recipient, you may not use,&nbsp;disclose, copy or distribute this information in any manner whatsoever. If you have received this&nbsp;e-mail in error, please contact the sender immediately and delete it.</span></i><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:11pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><b class=\"sh-color-black sh-color\"><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">Data Protection Notice</span></i></b><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">Your data may be used by us for the provision of our legal services, administration purposes and for other related business\n purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data\n we hold, please email </span></i><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt\"><a href=\"mailto:legal@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"09783aa4-7bc5-4797-b177-a36819c20445\"><i class=\"sh-color-blue sh-color\"><span lang=\"EN-GB\" class=\"sh-color-blue sh-color\" style=\"font-size: 8pt; color: rgb(5, 99, 193);\">legal@<wbr>ssb.<wbr>co.<wbr>uk</span></i></a></span><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">.</span></i><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n<div class=\"sh-color-black sh-color\" style=\"border-right:none; border-bottom:none; border-left:none; border-top:1pt solid rgb(225,225,225); padding:3pt 0cm 0cm\">\n<p class=\"MsoNormal sh-color-black sh-color\"><b class=\"sh-color-black sh-color\"><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">From:</span></b><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">\n Disorder Legal &lt;<a href=\"mailto:legal@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"a7040a19-f690-47d3-82eb-5bf781ac70e1\">legal@<wbr>disordergroup.<wbr>com</a>&gt;\n<br>\n<b class=\"sh-color-black sh-color\">Sent:</b> 26 September 2025 11:37<br>\n<b class=\"sh-color-black sh-color\">To:</b> Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"69da453a-66c5-4a50-9ec6-0858767b5b88\">Sarah@<wbr>ssb.<wbr>co.<wbr>uk</a>&gt;<br>\n<b class=\"sh-color-black sh-color\">Cc:</b> Taylor Davies &lt;<a href=\"mailto:Taylor@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"a1400ea9-ac51-4448-8cc3-6b2ce571aaa7\">Taylor@<wbr>ssb.<wbr>co.<wbr>uk</a>&gt;;\n<a href=\"mailto:mattwills.lib@gmail.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"65f9ff80-4646-4a52-a920-c47dd5747fc7\">\nmattwills.<wbr>lib@<wbr>gmail.<wbr>com</a>; <a href=\"mailto:matt@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"1119f8e4-2519-4f6b-a9d5-5b4b97568779\">\nmatt@<wbr>1916mgmt.<wbr>com</a>; <a href=\"mailto:aidan@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"3331ef1f-2c8e-4d19-bf64-c601e5f0028a\">\naidan@<wbr>1916mgmt.<wbr>com</a>; <a href=\"mailto:mikey@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"f85ade04-ca87-49cf-907e-5a37abb55adf\">\nmikey@<wbr>1916mgmt.<wbr>com</a>; David Dollimore &lt;<a href=\"mailto:david@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"bd246faf-f580-43bc-a8b4-73f322cf0ff8\">david@<wbr>disordergroup.<wbr>com</a>&gt;;\n Michael Rivalland &lt;<a href=\"mailto:michael@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"7cba548f-115e-446e-bd23-3ed3d4f5ac25\">michael@<wbr>disordergroup.<wbr>com</a>&gt;;\n<a href=\"mailto:amy@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"1b69f9a8-7788-4d52-8ade-90db6fe8aaf1\">\namy@<wbr>disordergroup.<wbr>com</a><br>\n<b class=\"sh-color-black sh-color\">Subject:</b> Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></span></p>\n</div>\n<p class=\"MsoNormal sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Thanks, Sarah&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Signature copy attached here. Let us know if you need anything else, or otherwise please return a partially executed copy at your earliest convenience!&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">We look forward to hearing from you&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Rights remain reserved&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Best,<br>\nRidley&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n</div>\n<p class=\"MsoNormal sh-color-black sh-color\"><u class=\"sh-color-black sh-color\"></u>&nbsp;<u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">On Fri, Sep 26, 2025 at 10:57<span class=\"sh-color-black sh-color\" style=\"font-family:Arial,sans-serif\"> </span>AM Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"2de0def6-0deb-48f7-8213-6410f721d42a\">Sarah@<wbr>ssb.<wbr>co.<wbr>uk</a>&gt;\n wrote:<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<blockquote class=\"sh-color-black sh-color\" style=\"border-top:none; border-right:none; border-bottom:none; border-left:1pt solid rgb(204,204,204); padding:0cm 0cm 0cm 6pt; margin-left:4.8pt; margin-right:0cm\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Hi Ridley,<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">Thanks for this, we are happy to close on this basis.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">Please can you use <a href=\"mailto:mattwills.lib@gmail.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"f4afa73b-5a0b-4ba9-903e-0322d488616b\">\n<span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">mattwills.<wbr>lib@<wbr>gmail.<wbr>com</span></a> for the accounting statements.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">We look forward to receiving a signature copy.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">Respectfully reserving rights.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Best wishes,</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Sarah Buckley</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Paralegal</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:11pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"color: black;\"><img alt=\"SSB-Logo-2017-RGB-tiny\" src=\"data:image/png;base64,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\" id=\"m_646127471267463864m_4517364921898615086Picture_x0020_785766012\" height=\"35\" width=\"108\" border=\"0\" class=\"sh-im-maintain-aspect-ratio sh-color-black sh-color\" style=\"width:1.125in; height:0.3645in\"></span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">93-95 Hammersmith Grove London W6 0NQ</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">W:\n</span><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt\"><a href=\"http://www.ssb.co.uk/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"d58e74b9-54c4-4a5b-9625-bd6d3e211ff6\"><span lang=\"EN-GB\" class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">www.<wbr>ssb.<wbr>co.<wbr>uk</span></a></span><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">\n</span><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">| T: 020 8741 7194</span><span class=\"sh-color-red sh-color\" style=\"font-size: 11pt; color: red;\">\n</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 8pt; color: black;\">We use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 8pt; color: black;\">SSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors\n Regulation Authority is&nbsp;638890.</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-modified-inline sh-color sh-color-black\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent;\">\n<i class=\"sh-color-black sh-color\"><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size: 7pt; color: black;\">This e-mail, and any attachment(s), may contain information which is confidential and/or privileged,&nbsp;and is intended for the addressee\n only. If you are not the intended recipient, you may not use,&nbsp;disclose, copy or distribute this information in any manner whatsoever. If you have received this&nbsp;e-mail in error, please contact the sender immediately and delete it.</span></i><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:11pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><b class=\"sh-color-black sh-color\"><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">Data Protection Notice</span></i></b><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">Your data may be used by us for the provision of our legal services, administration purposes and for other related business\n purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data\n we hold, please email </span></i><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt\"><a href=\"mailto:legal@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"3b20eb99-d758-4df1-bd4f-86f1e45ee1c4\"><i class=\"sh-color-blue sh-color\"><span lang=\"EN-GB\" class=\"sh-color-blue sh-color\" style=\"font-size: 8pt; color: rgb(5, 99, 193);\">legal@<wbr>ssb.<wbr>co.<wbr>uk</span></i></a></span><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">.</span></i><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n<div class=\"sh-color-black sh-color\" style=\"border-right:none; border-bottom:none; border-left:none; border-top:1pt solid rgb(225,225,225); padding:3pt 0cm 0cm\">\n<p class=\"MsoNormal sh-color-black sh-color\"><b class=\"sh-color-black sh-color\"><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">From:</span></b><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">\n Disorder Legal &lt;<a href=\"mailto:legal@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"7aac444a-4b36-4f0d-84a1-0b0f6a27d293\">legal@<wbr>disordergroup.<wbr>com</a>&gt;\n<br>\n<b class=\"sh-color-black sh-color\">Sent:</b> 26 September 2025 10:43<br>\n<b class=\"sh-color-black sh-color\">To:</b> Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"8e8c3f6f-95b4-4d58-a0df-56cac3526f45\">Sarah@<wbr>ssb.<wbr>co.<wbr>uk</a>&gt;<br>\n<b class=\"sh-color-black sh-color\">Cc:</b> Taylor Davies &lt;<a href=\"mailto:Taylor@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"d61bbf01-35c5-4eab-8523-57f34c6db072\">Taylor@<wbr>ssb.<wbr>co.<wbr>uk</a>&gt;;\n<a href=\"mailto:mattwills.lib@gmail.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"ada35048-c83e-4a08-ae36-f20f1c8467a3\">\nmattwills.<wbr>lib@<wbr>gmail.<wbr>com</a>; <a href=\"mailto:matt@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"8da37a58-3f88-44f9-b44b-3feb0ae40aca\">\nmatt@<wbr>1916mgmt.<wbr>com</a>; <a href=\"mailto:aidan@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"e1fdbdf0-9f37-4be7-b53b-3403d38f89fa\">\naidan@<wbr>1916mgmt.<wbr>com</a>; <a href=\"mailto:mikey@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"27bae840-d8b5-4a7a-b828-28d3edd78cfc\">\nmikey@<wbr>1916mgmt.<wbr>com</a>; David Dollimore &lt;<a href=\"mailto:david@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"6d35bb69-b384-4072-a305-88d8395d48ca\">david@<wbr>disordergroup.<wbr>com</a>&gt;;\n Michael Rivalland &lt;<a href=\"mailto:michael@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"db03a946-84f6-4483-8a10-29dc147d4859\">michael@<wbr>disordergroup.<wbr>com</a>&gt;;\n<a href=\"mailto:amy@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"458a3cc8-e298-4041-aa1c-761a113d182e\">\namy@<wbr>disordergroup.<wbr>com</a><br>\n<b class=\"sh-color-black sh-color\">Subject:</b> Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Hi Sarah&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">See attached a revised draft with a couple of minor amendments.&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Let us know if you have any further comments - otherwise, if you could let us know an email address for accounting statements to be sent to, we'll incorporate and issue a signature copy on this basis.&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">We look forward to hearing form you&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Rights remain reserved&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Best,<br>\nRidley&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n</div>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">On Thu, Sep 25, 2025 at 11:03<span class=\"sh-color-black sh-color\" style=\"font-family:Arial,sans-serif\"> </span>AM Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"e2f68a3f-ede6-4bd5-a8d4-417fe4c7733e\">Sarah@<wbr>ssb.<wbr>co.<wbr>uk</a>&gt;\n wrote:<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<blockquote class=\"sh-color-black sh-color\" style=\"border-top:none; border-right:none; border-bottom:none; border-left:1pt solid rgb(204,204,204); padding:0cm 0cm 0cm 6pt; margin:5pt 0cm 5pt 4.8pt\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Hi Ridely,<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">I hope you’re well.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">Please see attached our updated draft of the agreement.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">We look forward to hearing back from you.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">Respectfully reserving rights.<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Best wishes,</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Sarah Buckley</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:10pt\">Paralegal</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:11pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"color: black;\"><img alt=\"SSB-Logo-2017-RGB-tiny\" src=\"data:image/png;base64,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\" id=\"m_646127471267463864m_4517364921898615086m_7706462433643408279Picture_x0020_1\" height=\"35\" width=\"108\" border=\"0\" class=\"sh-im-maintain-aspect-ratio sh-color-black sh-color\" style=\"width:1.125in; height:0.3645in\"></span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">93-95 Hammersmith Grove London W6 0NQ</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">W:\n</span><a href=\"http://www.ssb.co.uk/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"07d4ca8e-5fc7-4530-a01c-df70cbd01de0\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">www.<wbr>ssb.<wbr>co.<wbr>uk</span></a><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">\n | T: 020 8741 7194</span><span class=\"sh-color-red sh-color\" style=\"font-size: 11pt; color: red;\">\n</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; color: black;\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 8pt; color: black;\">We use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 8pt; color: black;\">SSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors\n Regulation Authority is&nbsp;638890.</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-modified-inline sh-color sh-color-black\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent;\">\n<i class=\"sh-color-black sh-color\"><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size: 7pt; color: black;\">This e-mail, and any attachment(s), may contain information which is confidential and/or privileged,&nbsp;and is intended for the addressee\n only. If you are not the intended recipient, you may not use,&nbsp;disclose, copy or distribute this information in any manner whatsoever. If you have received this&nbsp;e-mail in error, please contact the sender immediately and delete it.</span></i><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:11pt\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><b class=\"sh-color-black sh-color\"><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">Data Protection Notice</span></i></b><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\"><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">Your data may be used by us for the provision of our legal services, administration purposes and for other related business\n purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data\n we hold, please email </span></i><a href=\"mailto:legal@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"605c9b84-7c2d-4f9a-80ad-940adf35161a\"><i class=\"sh-color-blue sh-color\"><span class=\"sh-color-blue sh-color\" style=\"font-size: 8pt; color: rgb(5, 99, 193);\">legal@<wbr>ssb.<wbr>co.<wbr>uk</span></i></a><i class=\"sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size:8pt\">.</span></i><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n<p class=\"MsoNormal sh-color-black sh-color\"><span class=\"sh-color-black sh-color\" style=\"font-size: 10pt; font-family: Verdana, sans-serif; color: black;\">&nbsp;</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\" style=\"border-right:none; border-bottom:none; border-left:none; border-top:1pt solid rgb(225,225,225); padding:3pt 0cm 0cm\">\n<p class=\"MsoNormal sh-color-black sh-color\"><b class=\"sh-color-black sh-color\"><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">From:</span></b><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">\n Disorder Legal &lt;</span><a href=\"mailto:legal@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"c88db22f-5a0f-4e14-b4db-0b2398c97e49\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">legal@<wbr>disordergroup.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">&gt;\n<br>\n<b class=\"sh-color-black sh-color\">Sent:</b> 09 September 2025 09:24<br>\n<b class=\"sh-color-black sh-color\">To:</b> Taylor Davies &lt;</span><a href=\"mailto:Taylor@ssb.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"553c7ec4-13a8-44ee-90b6-467f6843de77\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">Taylor@<wbr>ssb.<wbr>co.<wbr>uk</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">&gt;<br>\n<b class=\"sh-color-black sh-color\">Cc:</b> </span><a href=\"mailto:mattwills.lib@gmail.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"55147143-ab17-4d6f-b8ba-24d2ceb4b704\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">mattwills.<wbr>lib@<wbr>gmail.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">;\n</span><a href=\"mailto:matt@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"c92e32a1-892b-45fa-8eb9-5833c1e73086\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">matt@<wbr>1916mgmt.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">;\n</span><a href=\"mailto:aidan@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"c86643e1-9a6d-43a0-969c-41171372820a\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">aidan@<wbr>1916mgmt.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">;\n</span><a href=\"mailto:mikey@1916mgmt.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"63f59aa1-1d26-47eb-86aa-951f2eb881f1\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">mikey@<wbr>1916mgmt.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">;\n David Dollimore &lt;</span><a href=\"mailto:david@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"82b5654e-eb84-493c-9972-caf66eade666\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">david@<wbr>disordergroup.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">&gt;;\n Michael Rivalland &lt;</span><a href=\"mailto:michael@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"441db3c9-2449-4f27-a924-8388dbd52eb8\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">michael@<wbr>disordergroup.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">&gt;;\n</span><a href=\"mailto:amy@disordergroup.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"sh-color-blue sh-color\" data-outlook-id=\"cdfc01f1-649e-4ce8-9dfb-c97144c35839\"><span lang=\"EN-US\" class=\"sh-color-blue sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\">amy@<wbr>disordergroup.<wbr>com</span></a><span lang=\"EN-US\" class=\"sh-color-black sh-color\" style=\"font-size:11pt; font-family:Calibri,sans-serif\"><br>\n<b class=\"sh-color-black sh-color\">Subject:</b> DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract</span><u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Hi all&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Please find attached a draft agreement in respect of Matt's work with DJ Kogis.&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Let us know if you have any questions or comments - otherwise, we just need an email address for electronic accounting statements to be sent to, and we'll incorporate this into the agreement and send you a clean\n copy for execution.&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">As the label have not yet had sight of the attached, their right to make any further comments and changes is reserved prior to full execution&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">We look forward to hearing from you&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">&nbsp;<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Best,<u class=\"sh-color-black sh-color\"></u><u class=\"sh-color-black sh-color\"></u></p>\n</div>\n<div class=\"sh-color-black sh-color\">\n<p class=\"MsoNormal sh-color-black sh-color\">Ridley&nbsp;</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</blockquote>\n</div>\n</div>\n</div>\n</div>\n</blockquote>\n</div>\n</div>\n</div>\n</div>\n</blockquote>\n</div>\n</div>\n</div>\n</blockquote>\n</div>\n</div>\n<br>\n</div>\n</div>\n</span></div>\n</div>\n</div>\n</body>\n</html>\n",
+          "text": "Thank you Aidan\nAre you guys on Uni Port U.S?\n\nFrom: Aidan Schechter <aidan@1916mgmt.com>\nDate: Wednesday, 8 October 2025 at 09:02\nTo: Disorder Legal <legal@disordergroup.com>, Michael Rivalland <michael@disordergroup.com>, Amy Collins <amy@disordergroup.com>\nCc: matt@1916mgmt.com <matt@1916mgmt.com>, mikey@1916mgmt.com <mikey@1916mgmt.com>, David Dollimore <david@disordergroup.com>, Assistant Assistant <asst@patchbay.xyz>\nSubject: Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract\n\nHi all, see Matt's invoice attached, let us know if you need anything else.\n\nThanks!\n\n\nBest,\nAidan Schechter\n\n\n[https://lh6.googleusercontent.com/jUH4I5j5gaLI5AKRjzsucG3zpOMuMvL7V1K7YYbY_kuiM8qGy2W3MFBNsn-5XZi40Wi81ZCU8viXUAAWDFZZqgPCdA0WC-e77shX-B8GVBto1F6iarQdDrkLyTuS-Vna7F_PBuE]\n\nAIDAN SCHECHTER\n\nP: +1 310.467.6229 | E: AIDAN@1916MGMT.COM<mailto:AIDAN@1916MGMT.COM>\n\n\nOn Fri, Sep 26, 2025 at 5:27 AM, Disorder Legal <legal@disordergroup.com<mailto:legal@disordergroup.com>> wrote:\nThanks Sarah\n\nHere is the fully executed for your files.\n\nBest wishes\n\nSophie\n\nOn Fri, Sep 26, 2025 at 11:55 AM Sarah Buckley <Sarah@ssb.co.uk<mailto:Sarah@ssb.co.uk>> wrote:\n\nHi Ridley,\n\n\n\nPlease see attached the PE copy.\n\n\n\nLooking forward to receiving a FE copy.\n\n\n\nRespectfully reserving rights.\n\n\n\nBest wishes,\n\n\n\nSarah Buckley\n\nParalegal\n\n\n\n[SSB-Logo-2017-RGB-tiny]\n\n93-95 Hammersmith Grove London W6 0NQ\n\nW: www.ssb.co.uk<http://www.ssb.co.uk/> | T: 020 8741 7194\n\n\n\nWe use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.\n\nSSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors Regulation Authority is 638890.\n\nThis e-mail, and any attachment(s), may contain information which is confidential and/or privileged, and is intended for the addressee only. If you are not the intended recipient, you may not use, disclose, copy or distribute this information in any manner whatsoever. If you have received this e-mail in error, please contact the sender immediately and delete it.\n\n\n\nData Protection Notice\n\nYour data may be used by us for the provision of our legal services, administration purposes and for other related business purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data we hold, please email legal@ssb.co.uk<mailto:legal@ssb.co.uk>.\n\n\n\nFrom: Disorder Legal <legal@disordergroup.com<mailto:legal@disordergroup.com>>\nSent: 26 September 2025 11:37\nTo: Sarah Buckley <Sarah@ssb.co.uk<mailto:Sarah@ssb.co.uk>>\nCc: Taylor Davies <Taylor@ssb.co.uk<mailto:Taylor@ssb.co.uk>>; mattwills.lib@gmail.com<mailto:mattwills.lib@gmail.com>; matt@1916mgmt.com<mailto:matt@1916mgmt.com>; aidan@1916mgmt.com<mailto:aidan@1916mgmt.com>; mikey@1916mgmt.com<mailto:mikey@1916mgmt.com>; David Dollimore <david@disordergroup.com<mailto:david@disordergroup.com>>; Michael Rivalland <michael@disordergroup.com<mailto:michael@disordergroup.com>>; amy@disordergroup.com<mailto:amy@disordergroup.com>\nSubject: Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract\n\n\n\nThanks, Sarah\n\n\n\nSignature copy attached here. Let us know if you need anything else, or otherwise please return a partially executed copy at your earliest convenience!\n\n\n\nWe look forward to hearing from you\n\n\n\nRights remain reserved\n\n\n\nBest,\nRidley\n\n\n\nOn Fri, Sep 26, 2025 at 10:57 AM Sarah Buckley <Sarah@ssb.co.uk<mailto:Sarah@ssb.co.uk>> wrote:\n\nHi Ridley,\n\n\n\nThanks for this, we are happy to close on this basis.\n\n\n\nPlease can you use mattwills.lib@gmail.com<mailto:mattwills.lib@gmail.com> for the accounting statements.\n\n\n\nWe look forward to receiving a signature copy.\n\n\n\nRespectfully reserving rights.\n\n\n\nBest wishes,\n\n\n\nSarah Buckley\n\nParalegal\n\n\n\n[SSB-Logo-2017-RGB-tiny]\n\n93-95 Hammersmith Grove London W6 0NQ\n\nW: www.ssb.co.uk<http://www.ssb.co.uk/> | T: 020 8741 7194\n\n\n\nWe use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.\n\nSSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors Regulation Authority is 638890.\n\nThis e-mail, and any attachment(s), may contain information which is confidential and/or privileged, and is intended for the addressee only. If you are not the intended recipient, you may not use, disclose, copy or distribute this information in any manner whatsoever. If you have received this e-mail in error, please contact the sender immediately and delete it.\n\n\n\nData Protection Notice\n\nYour data may be used by us for the provision of our legal services, administration purposes and for other related business purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data we hold, please email legal@ssb.co.uk<mailto:legal@ssb.co.uk>.\n\n\n\nFrom: Disorder Legal <legal@disordergroup.com<mailto:legal@disordergroup.com>>\nSent: 26 September 2025 10:43\nTo: Sarah Buckley <Sarah@ssb.co.uk<mailto:Sarah@ssb.co.uk>>\nCc: Taylor Davies <Taylor@ssb.co.uk<mailto:Taylor@ssb.co.uk>>; mattwills.lib@gmail.com<mailto:mattwills.lib@gmail.com>; matt@1916mgmt.com<mailto:matt@1916mgmt.com>; aidan@1916mgmt.com<mailto:aidan@1916mgmt.com>; mikey@1916mgmt.com<mailto:mikey@1916mgmt.com>; David Dollimore <david@disordergroup.com<mailto:david@disordergroup.com>>; Michael Rivalland <michael@disordergroup.com<mailto:michael@disordergroup.com>>; amy@disordergroup.com<mailto:amy@disordergroup.com>\nSubject: Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract\n\n\n\nHi Sarah\n\n\n\nSee attached a revised draft with a couple of minor amendments.\n\n\n\nLet us know if you have any further comments - otherwise, if you could let us know an email address for accounting statements to be sent to, we'll incorporate and issue a signature copy on this basis.\n\n\n\nWe look forward to hearing form you\n\n\n\nRights remain reserved\n\n\n\nBest,\nRidley\n\n\n\nOn Thu, Sep 25, 2025 at 11:03 AM Sarah Buckley <Sarah@ssb.co.uk<mailto:Sarah@ssb.co.uk>> wrote:\n\nHi Ridely,\n\n\n\nI hope you’re well.\n\n\n\nPlease see attached our updated draft of the agreement.\n\n\n\nWe look forward to hearing back from you.\n\n\n\nRespectfully reserving rights.\n\n\n\nBest wishes,\n\n\n\nSarah Buckley\n\nParalegal\n\n\n\n[SSB-Logo-2017-RGB-tiny]\n\n93-95 Hammersmith Grove London W6 0NQ\n\nW: www.ssb.co.uk<http://www.ssb.co.uk/> | T: 020 8741 7194\n\n\n\nWe use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.\n\nSSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors Regulation Authority is 638890.\n\nThis e-mail, and any attachment(s), may contain information which is confidential and/or privileged, and is intended for the addressee only. If you are not the intended recipient, you may not use, disclose, copy or distribute this information in any manner whatsoever. If you have received this e-mail in error, please contact the sender immediately and delete it.\n\n\n\nData Protection Notice\n\nYour data may be used by us for the provision of our legal services, administration purposes and for other related business purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data we hold, please email legal@ssb.co.uk<mailto:legal@ssb.co.uk>.\n\n\n\n\n\nFrom: Disorder Legal <legal@disordergroup.com<mailto:legal@disordergroup.com>>\nSent: 09 September 2025 09:24\nTo: Taylor Davies <Taylor@ssb.co.uk<mailto:Taylor@ssb.co.uk>>\nCc: mattwills.lib@gmail.com<mailto:mattwills.lib@gmail.com>; matt@1916mgmt.com<mailto:matt@1916mgmt.com>; aidan@1916mgmt.com<mailto:aidan@1916mgmt.com>; mikey@1916mgmt.com<mailto:mikey@1916mgmt.com>; David Dollimore <david@disordergroup.com<mailto:david@disordergroup.com>>; Michael Rivalland <michael@disordergroup.com<mailto:michael@disordergroup.com>>; amy@disordergroup.com<mailto:amy@disordergroup.com>\nSubject: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract\n\n\n\nHi all\n\n\n\nPlease find attached a draft agreement in respect of Matt's work with DJ Kogis.\n\n\n\nLet us know if you have any questions or comments - otherwise, we just need an email address for electronic accounting statements to be sent to, and we'll incorporate this into the agreement and send you a clean copy for execution.\n\n\n\nAs the label have not yet had sight of the attached, their right to make any further comments and changes is reserved prior to full execution\n\n\n\nWe look forward to hearing from you\n\n\n\nBest,\n\nRidley\n\n",
+          "textAsHtml": "<p>Thank you Aidan<br/>Are you guys on Uni Port U.S?</p><p>From: Aidan Schechter &lt;<a href=\"mailto:aidan@1916mgmt.com\">aidan@1916mgmt.com</a>&gt;<br/>Date: Wednesday, 8 October 2025 at 09:02<br/>To: Disorder Legal &lt;<a href=\"mailto:legal@disordergroup.com\">legal@disordergroup.com</a>&gt;, Michael Rivalland &lt;<a href=\"mailto:michael@disordergroup.com\">michael@disordergroup.com</a>&gt;, Amy Collins &lt;<a href=\"mailto:amy@disordergroup.com\">amy@disordergroup.com</a>&gt;<br/>Cc: <a href=\"mailto:matt@1916mgmt.com\">matt@1916mgmt.com</a> &lt;<a href=\"mailto:matt@1916mgmt.com\">matt@1916mgmt.com</a>&gt;, <a href=\"mailto:mikey@1916mgmt.com\">mikey@1916mgmt.com</a> &lt;<a href=\"mailto:mikey@1916mgmt.com\">mikey@1916mgmt.com</a>&gt;, David Dollimore &lt;<a href=\"mailto:david@disordergroup.com\">david@disordergroup.com</a>&gt;, Assistant Assistant &lt;<a href=\"mailto:asst@patchbay.xyz\">asst@patchbay.xyz</a>&gt;<br/>Subject: Re: DJ Kogis / Matt Wills co-producing &apos;Missing You&apos; (subject to signed contract</p><p>Hi all, see Matt&apos;s invoice attached, let us know if you need anything else.</p><p>Thanks!</p><p>Best,<br/>Aidan Schechter</p><p>[<a href=\"https://lh6.googleusercontent.com/jUH4I5j5gaLI5AKRjzsucG3zpOMuMvL7V1K7YYbY_kuiM8qGy2W3MFBNsn-5XZi40Wi81ZCU8viXUAAWDFZZqgPCdA0WC-e77shX-B8GVBto1F6iarQdDrkLyTuS-Vna7F_PBuE\">https://lh6.googleusercontent.com/jUH4I5j5gaLI5AKRjzsucG3zpOMuMvL7V1K7YYbY_kuiM8qGy2W3MFBNsn-5XZi40Wi81ZCU8viXUAAWDFZZqgPCdA0WC-e77shX-B8GVBto1F6iarQdDrkLyTuS-Vna7F_PBuE</a>]</p><p>AIDAN SCHECHTER</p><p>P: +1 310.467.6229 | E: <a href=\"mailto:AIDAN@1916MGMT.COM\">AIDAN@1916MGMT.COM</a>&lt;<a href=\"mailto:AIDAN@1916MGMT.COM\">mailto:AIDAN@1916MGMT.COM</a>&gt;</p><p>On Fri, Sep 26, 2025 at 5:27 AM, Disorder Legal &lt;<a href=\"mailto:legal@disordergroup.com\">legal@disordergroup.com</a>&lt;<a href=\"mailto:legal@disordergroup.com\">mailto:legal@disordergroup.com</a>&gt;&gt; wrote:<br/>Thanks Sarah</p><p>Here is the fully executed for your files.</p><p>Best wishes</p><p>Sophie</p><p>On Fri, Sep 26, 2025 at 11:55&#x202F;AM Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\">Sarah@ssb.co.uk</a>&lt;<a href=\"mailto:Sarah@ssb.co.uk\">mailto:Sarah@ssb.co.uk</a>&gt;&gt; wrote:</p><p>Hi Ridley,</p><p>Please see attached the PE copy.</p><p>Looking forward to receiving a FE copy.</p><p>Respectfully reserving rights.</p><p>Best wishes,</p><p>Sarah Buckley</p><p>Paralegal</p><p>[SSB-Logo-2017-RGB-tiny]</p><p>93-95 Hammersmith Grove London W6 0NQ</p><p>W: <a href=\"http://www.ssb.co.uk\">www.ssb.co.uk</a>&lt;<a href=\"http://www.ssb.co.uk/\">http://www.ssb.co.uk/</a>&gt; | T: 020 8741 7194</p><p>We use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.</p><p>SSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors Regulation Authority is 638890.</p><p>This e-mail, and any attachment(s), may contain information which is confidential and/or privileged, and is intended for the addressee only. If you are not the intended recipient, you may not use, disclose, copy or distribute this information in any manner whatsoever. If you have received this e-mail in error, please contact the sender immediately and delete it.</p><p>Data Protection Notice</p><p>Your data may be used by us for the provision of our legal services, administration purposes and for other related business purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data we hold, please email <a href=\"mailto:legal@ssb.co.uk\">legal@ssb.co.uk</a>&lt;<a href=\"mailto:legal@ssb.co.uk\">mailto:legal@ssb.co.uk</a>&gt;.</p><p>From: Disorder Legal &lt;<a href=\"mailto:legal@disordergroup.com\">legal@disordergroup.com</a>&lt;<a href=\"mailto:legal@disordergroup.com\">mailto:legal@disordergroup.com</a>&gt;&gt;<br/>Sent: 26 September 2025 11:37<br/>To: Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\">Sarah@ssb.co.uk</a>&lt;<a href=\"mailto:Sarah@ssb.co.uk\">mailto:Sarah@ssb.co.uk</a>&gt;&gt;<br/>Cc: Taylor Davies &lt;<a href=\"mailto:Taylor@ssb.co.uk\">Taylor@ssb.co.uk</a>&lt;<a href=\"mailto:Taylor@ssb.co.uk\">mailto:Taylor@ssb.co.uk</a>&gt;&gt;; <a href=\"mailto:mattwills.lib@gmail.com\">mattwills.lib@gmail.com</a>&lt;<a href=\"mailto:mattwills.lib@gmail.com\">mailto:mattwills.lib@gmail.com</a>&gt;; <a href=\"mailto:matt@1916mgmt.com\">matt@1916mgmt.com</a>&lt;<a href=\"mailto:matt@1916mgmt.com\">mailto:matt@1916mgmt.com</a>&gt;; <a href=\"mailto:aidan@1916mgmt.com\">aidan@1916mgmt.com</a>&lt;<a href=\"mailto:aidan@1916mgmt.com\">mailto:aidan@1916mgmt.com</a>&gt;; <a href=\"mailto:mikey@1916mgmt.com\">mikey@1916mgmt.com</a>&lt;<a href=\"mailto:mikey@1916mgmt.com\">mailto:mikey@1916mgmt.com</a>&gt;; David Dollimore &lt;<a href=\"mailto:david@disordergroup.com\">david@disordergroup.com</a>&lt;<a href=\"mailto:david@disordergroup.com\">mailto:david@disordergroup.com</a>&gt;&gt;; Michael Rivalland &lt;<a href=\"mailto:michael@disordergroup.com\">michael@disordergroup.com</a>&lt;<a href=\"mailto:michael@disordergroup.com\">mailto:michael@disordergroup.com</a>&gt;&gt;; <a href=\"mailto:amy@disordergroup.com\">amy@disordergroup.com</a>&lt;<a href=\"mailto:amy@disordergroup.com\">mailto:amy@disordergroup.com</a>&gt;<br/>Subject: Re: DJ Kogis / Matt Wills co-producing &apos;Missing You&apos; (subject to signed contract</p><p>Thanks, Sarah</p><p>Signature copy attached here. Let us know if you need anything else, or otherwise please return a partially executed copy at your earliest convenience!</p><p>We look forward to hearing from you</p><p>Rights remain reserved</p><p>Best,<br/>Ridley</p><p>On Fri, Sep 26, 2025 at 10:57&#x202F;AM Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\">Sarah@ssb.co.uk</a>&lt;<a href=\"mailto:Sarah@ssb.co.uk\">mailto:Sarah@ssb.co.uk</a>&gt;&gt; wrote:</p><p>Hi Ridley,</p><p>Thanks for this, we are happy to close on this basis.</p><p>Please can you use <a href=\"mailto:mattwills.lib@gmail.com\">mattwills.lib@gmail.com</a>&lt;<a href=\"mailto:mattwills.lib@gmail.com\">mailto:mattwills.lib@gmail.com</a>&gt; for the accounting statements.</p><p>We look forward to receiving a signature copy.</p><p>Respectfully reserving rights.</p><p>Best wishes,</p><p>Sarah Buckley</p><p>Paralegal</p><p>[SSB-Logo-2017-RGB-tiny]</p><p>93-95 Hammersmith Grove London W6 0NQ</p><p>W: <a href=\"http://www.ssb.co.uk\">www.ssb.co.uk</a>&lt;<a href=\"http://www.ssb.co.uk/\">http://www.ssb.co.uk/</a>&gt; | T: 020 8741 7194</p><p>We use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.</p><p>SSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors Regulation Authority is 638890.</p><p>This e-mail, and any attachment(s), may contain information which is confidential and/or privileged, and is intended for the addressee only. If you are not the intended recipient, you may not use, disclose, copy or distribute this information in any manner whatsoever. If you have received this e-mail in error, please contact the sender immediately and delete it.</p><p>Data Protection Notice</p><p>Your data may be used by us for the provision of our legal services, administration purposes and for other related business purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data we hold, please email <a href=\"mailto:legal@ssb.co.uk\">legal@ssb.co.uk</a>&lt;<a href=\"mailto:legal@ssb.co.uk\">mailto:legal@ssb.co.uk</a>&gt;.</p><p>From: Disorder Legal &lt;<a href=\"mailto:legal@disordergroup.com\">legal@disordergroup.com</a>&lt;<a href=\"mailto:legal@disordergroup.com\">mailto:legal@disordergroup.com</a>&gt;&gt;<br/>Sent: 26 September 2025 10:43<br/>To: Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\">Sarah@ssb.co.uk</a>&lt;<a href=\"mailto:Sarah@ssb.co.uk\">mailto:Sarah@ssb.co.uk</a>&gt;&gt;<br/>Cc: Taylor Davies &lt;<a href=\"mailto:Taylor@ssb.co.uk\">Taylor@ssb.co.uk</a>&lt;<a href=\"mailto:Taylor@ssb.co.uk\">mailto:Taylor@ssb.co.uk</a>&gt;&gt;; <a href=\"mailto:mattwills.lib@gmail.com\">mattwills.lib@gmail.com</a>&lt;<a href=\"mailto:mattwills.lib@gmail.com\">mailto:mattwills.lib@gmail.com</a>&gt;; <a href=\"mailto:matt@1916mgmt.com\">matt@1916mgmt.com</a>&lt;<a href=\"mailto:matt@1916mgmt.com\">mailto:matt@1916mgmt.com</a>&gt;; <a href=\"mailto:aidan@1916mgmt.com\">aidan@1916mgmt.com</a>&lt;<a href=\"mailto:aidan@1916mgmt.com\">mailto:aidan@1916mgmt.com</a>&gt;; <a href=\"mailto:mikey@1916mgmt.com\">mikey@1916mgmt.com</a>&lt;<a href=\"mailto:mikey@1916mgmt.com\">mailto:mikey@1916mgmt.com</a>&gt;; David Dollimore &lt;<a href=\"mailto:david@disordergroup.com\">david@disordergroup.com</a>&lt;<a href=\"mailto:david@disordergroup.com\">mailto:david@disordergroup.com</a>&gt;&gt;; Michael Rivalland &lt;<a href=\"mailto:michael@disordergroup.com\">michael@disordergroup.com</a>&lt;<a href=\"mailto:michael@disordergroup.com\">mailto:michael@disordergroup.com</a>&gt;&gt;; <a href=\"mailto:amy@disordergroup.com\">amy@disordergroup.com</a>&lt;<a href=\"mailto:amy@disordergroup.com\">mailto:amy@disordergroup.com</a>&gt;<br/>Subject: Re: DJ Kogis / Matt Wills co-producing &apos;Missing You&apos; (subject to signed contract</p><p>Hi Sarah</p><p>See attached a revised draft with a couple of minor amendments.</p><p>Let us know if you have any further comments - otherwise, if you could let us know an email address for accounting statements to be sent to, we&apos;ll incorporate and issue a signature copy on this basis.</p><p>We look forward to hearing form you</p><p>Rights remain reserved</p><p>Best,<br/>Ridley</p><p>On Thu, Sep 25, 2025 at 11:03&#x202F;AM Sarah Buckley &lt;<a href=\"mailto:Sarah@ssb.co.uk\">Sarah@ssb.co.uk</a>&lt;<a href=\"mailto:Sarah@ssb.co.uk\">mailto:Sarah@ssb.co.uk</a>&gt;&gt; wrote:</p><p>Hi Ridely,</p><p>I hope you&rsquo;re well.</p><p>Please see attached our updated draft of the agreement.</p><p>We look forward to hearing back from you.</p><p>Respectfully reserving rights.</p><p>Best wishes,</p><p>Sarah Buckley</p><p>Paralegal</p><p>[SSB-Logo-2017-RGB-tiny]</p><p>93-95 Hammersmith Grove London W6 0NQ</p><p>W: <a href=\"http://www.ssb.co.uk\">www.ssb.co.uk</a>&lt;<a href=\"http://www.ssb.co.uk/\">http://www.ssb.co.uk/</a>&gt; | T: 020 8741 7194</p><p>We use the word partner to refer to a director of SSB Solicitors Limited, or an employee or consultant of equivalent standing and qualifications.</p><p>SSB Solicitors Limited is regulated by the Solicitors Regulation Authority. The number under which the firm is recognised by the Solicitors Regulation Authority is 638890.</p><p>This e-mail, and any attachment(s), may contain information which is confidential and/or privileged, and is intended for the addressee only. If you are not the intended recipient, you may not use, disclose, copy or distribute this information in any manner whatsoever. If you have received this e-mail in error, please contact the sender immediately and delete it.</p><p>Data Protection Notice</p><p>Your data may be used by us for the provision of our legal services, administration purposes and for other related business purposes, such as to inform you about us or our clients. Your data held by us will not be disclosed to any third party except when necessary for the provision of our legal services or if we are required to do so by law. If you have any queries about the data we hold, please email <a href=\"mailto:legal@ssb.co.uk\">legal@ssb.co.uk</a>&lt;<a href=\"mailto:legal@ssb.co.uk\">mailto:legal@ssb.co.uk</a>&gt;.</p><p>From: Disorder Legal &lt;<a href=\"mailto:legal@disordergroup.com\">legal@disordergroup.com</a>&lt;<a href=\"mailto:legal@disordergroup.com\">mailto:legal@disordergroup.com</a>&gt;&gt;<br/>Sent: 09 September 2025 09:24<br/>To: Taylor Davies &lt;<a href=\"mailto:Taylor@ssb.co.uk\">Taylor@ssb.co.uk</a>&lt;<a href=\"mailto:Taylor@ssb.co.uk\">mailto:Taylor@ssb.co.uk</a>&gt;&gt;<br/>Cc: <a href=\"mailto:mattwills.lib@gmail.com\">mattwills.lib@gmail.com</a>&lt;<a href=\"mailto:mattwills.lib@gmail.com\">mailto:mattwills.lib@gmail.com</a>&gt;; <a href=\"mailto:matt@1916mgmt.com\">matt@1916mgmt.com</a>&lt;<a href=\"mailto:matt@1916mgmt.com\">mailto:matt@1916mgmt.com</a>&gt;; <a href=\"mailto:aidan@1916mgmt.com\">aidan@1916mgmt.com</a>&lt;<a href=\"mailto:aidan@1916mgmt.com\">mailto:aidan@1916mgmt.com</a>&gt;; <a href=\"mailto:mikey@1916mgmt.com\">mikey@1916mgmt.com</a>&lt;<a href=\"mailto:mikey@1916mgmt.com\">mailto:mikey@1916mgmt.com</a>&gt;; David Dollimore &lt;<a href=\"mailto:david@disordergroup.com\">david@disordergroup.com</a>&lt;<a href=\"mailto:david@disordergroup.com\">mailto:david@disordergroup.com</a>&gt;&gt;; Michael Rivalland &lt;<a href=\"mailto:michael@disordergroup.com\">michael@disordergroup.com</a>&lt;<a href=\"mailto:michael@disordergroup.com\">mailto:michael@disordergroup.com</a>&gt;&gt;; <a href=\"mailto:amy@disordergroup.com\">amy@disordergroup.com</a>&lt;<a href=\"mailto:amy@disordergroup.com\">mailto:amy@disordergroup.com</a>&gt;<br/>Subject: DJ Kogis / Matt Wills co-producing &apos;Missing You&apos; (subject to signed contract</p><p>Hi all</p><p>Please find attached a draft agreement in respect of Matt&apos;s work with DJ Kogis.</p><p>Let us know if you have any questions or comments - otherwise, we just need an email address for electronic accounting statements to be sent to, and we&apos;ll incorporate this into the agreement and send you a clean copy for execution.</p><p>As the label have not yet had sight of the attached, their right to make any further comments and changes is reserved prior to full execution</p><p>We look forward to hearing from you</p><p>Best,</p><p>Ridley</p>",
+          "subject": "Re: DJ Kogis / Matt Wills co-producing 'Missing You' (subject to signed contract",
+          "references": [
+            "<CAMUZ99npNKOCza3hCvcGEXdQ_NqJALFTqkX3u9U-iyUXm5aBmw@mail.gmail.com>",
+            "<DB8PR01MB639259134849AF2E280D1A13971FA@DB8PR01MB6392.eurprd01.prod.exchangelabs.com>",
+            "<VI0PR01MB1062676DD8E4B935B7742D8DFE31FA@VI0PR01MB10626.eurprd01.prod.exchangelabs.com>",
+            "<CAMUZ99nqoo_dsOOMDuTnOP6EjH0Sd2fcHOFRT4FZZaq8+3CcCA@mail.gmail.com>",
+            "<VI0PR01MB10626D7A60EE6B78095303215E31EA@VI0PR01MB10626.eurprd01.prod.exchangelabs.com>",
+            "<CAMUZ99=T5zi71M+wt92jWZ6tr6s=zT1ZvK3iW4J8EnZ4cyWRZQ@mail.gmail.com>",
+            "<VI0PR01MB10626AEB926F778951B3FB6B2E31EA@VI0PR01MB10626.eurprd01.prod.exchangelabs.com>",
+            "<CAMUZ99=aajr33yYf4s7jxYbc=TZ5Jr+-c50O5R_Wq0km7FYuPA@mail.gmail.com>",
+            "<mghp936s.656eb7e7-083d-4bbe-9725-6847c3901441@we.are.superhuman.com>"
+          ],
+          "date": "2025-10-08T12:12:16.000Z",
+          "to": {
+            "value": [
+              {
+                "address": "aidan@1916mgmt.com",
+                "name": "Aidan Schechter"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Aidan Schechter</span> &lt;<a href=\"mailto:aidan@1916mgmt.com\" class=\"mp_address_email\">aidan@1916mgmt.com</a>&gt;</span>",
+            "text": "\"Aidan Schechter\" <aidan@1916mgmt.com>"
+          },
+          "from": {
+            "value": [
+              {
+                "address": "david@disordergroup.com",
+                "name": "David Dollimore"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">David Dollimore</span> &lt;<a href=\"mailto:david@disordergroup.com\" class=\"mp_address_email\">david@disordergroup.com</a>&gt;</span>",
+            "text": "\"David Dollimore\" <david@disordergroup.com>"
+          },
+          "cc": {
+            "value": [
+              {
+                "address": "matt@1916mgmt.com",
+                "name": ""
+              },
+              {
+                "address": "mikey@1916mgmt.com",
+                "name": ""
+              },
+              {
+                "address": "asst@patchbay.xyz",
+                "name": "Assistant Assistant"
+              }
+            ],
+            "html": "<span class=\"mp_address_group\"><a href=\"mailto:matt@1916mgmt.com\" class=\"mp_address_email\">matt@1916mgmt.com</a></span>, <span class=\"mp_address_group\"><a href=\"mailto:mikey@1916mgmt.com\" class=\"mp_address_email\">mikey@1916mgmt.com</a></span>, <span class=\"mp_address_group\"><span class=\"mp_address_name\">Assistant Assistant</span> &lt;<a href=\"mailto:asst@patchbay.xyz\" class=\"mp_address_email\">asst@patchbay.xyz</a>&gt;</span>",
+            "text": "matt@1916mgmt.com, mikey@1916mgmt.com, \"Assistant Assistant\" <asst@patchbay.xyz>"
+          },
+          "messageId": "<AM0PR05MB48018FE767089CCCC0624270A4E1A@AM0PR05MB4801.eurprd05.prod.outlook.com>",
+          "inReplyTo": "<mghp936s.656eb7e7-083d-4bbe-9725-6847c3901441@we.are.superhuman.com>"
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-14T15:45:12.694Z",
+  "versionId": "f2ba8a7d-8d9f-401c-a869-2ebd542929d6"
+}
