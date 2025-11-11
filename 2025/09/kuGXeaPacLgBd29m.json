@@ -1,0 +1,3778 @@
+{
+  "active": false,
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "WPS1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WPS1": {
+      "main": [
+        [
+          {
+            "node": "Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CustomerLookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Classifier",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SchemaParser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser3",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classifier",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CustomerResolution": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "EmbedInvoiceClients",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Session",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CustomerConflict",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch3": {
+      "main": [
+        [
+          {
+            "node": "Session2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceRecipient": {
+      "main": [
+        [
+          {
+            "node": "InvoiceInfo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CustomerConflict": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceInfo": {
+      "main": [
+        [
+          {
+            "node": "Invoice Lookup inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invoice Lookup inputs": {
+      "main": [
+        [
+          {
+            "node": "InvoiceCheck",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceCheck": {
+      "main": [
+        [
+          {
+            "node": "GuidedResponses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WPS-Upd-14": {
+      "main": [
+        [
+          {
+            "node": "FormatSessionData22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "DealUpdates",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser5",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DealUpdates": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser7": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser5",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceTerms5": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "WPS-Upd-16": {
+      "main": [
+        [
+          {
+            "node": "InvoiceInstructions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatSessionData23": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion14": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres": {
+      "main": [
+        [
+          {
+            "node": "FormatSessionData24",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatSessionData24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invoice Client3": {
+      "main": [
+        [
+          {
+            "node": "WPS-Upd-16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser5": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "DealUpdates",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classifier": {
+      "main": [
+        [
+          {
+            "node": "CustomerResolution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session": {
+      "main": [
+        [
+          {
+            "node": "DIRouting",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Add clients",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GuidedResponses": {
+      "main": [
+        [
+          {
+            "node": "Session1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion16": {
+      "main": [
+        [
+          {
+            "node": "FormatSessionData25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion16",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatSessionData26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DIRouting": {
+      "main": [
+        [
+          {
+            "node": "Switch3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatSessionData22": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatSessionData26": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "InvoiceRecipient",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "InvoiceRecipient1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "WPS-Upd-14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "RecipientExists",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RecipientExists3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RecipientExists4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceRecipient1": {
+      "main": [
+        [
+          {
+            "node": "FormatSessionData2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatSessionData2": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion20": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "FormatSessionData23",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatSessionData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FormatSessionData": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateSesssion": {
+      "main": [
+        [
+          {
+            "node": "Postgres1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres1": {
+      "main": [
+        [
+          {
+            "node": "FormatSessionData27",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FormatSessionData27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session2": {
+      "main": [
+        [
+          {
+            "node": "Deal Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deal Search": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Session3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invoice Client",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Await Confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session3": {
+      "main": [
+        [
+          {
+            "node": "InvoiceTerms5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compile Input": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InvoiceInstructions": {
+      "main": [
+        [
+          {
+            "node": "Compile Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "DealUpdates",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "New/Options1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New/Options1": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session4": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New/Options2": {
+      "main": [
+        []
+      ]
+    },
+    "UpdateSesssion1": {
+      "main": [
+        [
+          {
+            "node": "New/Options2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invoice Client": {
+      "main": [
+        [
+          {
+            "node": "Session4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Await Confirmation": {
+      "main": [
+        [
+          {
+            "node": "UpdateSesssion21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "WPS-Upd-16",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invoice Client3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-15T04:48:26.574Z",
+  "id": "kuGXeaPacLgBd29m",
+  "meta": null,
+  "name": "DealAndInvoice-V1.0.3",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "ai_input"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -8920,
+        1080
+      ],
+      "id": "5b18cb11-8d64-41f4-b390-730015005f3b",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $('Trigger').first()?.json?.data;\n\nreturn [\n  {\n    json: {\n      sub_session: { type: \"deals_and_invoices\" },\n      data: data\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -8600,
+        1080
+      ],
+      "id": "be4d0884-01ef-403c-b909-5c5eadb31aa5",
+      "name": "WPS1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DI0OK2QjzXrFmcrM",
+          "mode": "list",
+          "cachedResultName": "InvoiceCustomer-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "embed",
+            "data": "={{\n{\nuser_id: $('Trigger').first().json.data.user_id,\nbook_number: $json.person.book_number\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -7140,
+        720
+      ],
+      "id": "3c1a6c61-18c8-4ece-9481-e8b3909e0c62",
+      "name": "EmbedInvoiceClients"
+    },
+    {
+      "parameters": {
+        "name": "VerifyClient",
+        "description": "Call this tool to verify customer/client associated with the Manager. If no strong bong is found, pass the names available in the thread. This must be called wherever this agent is triggered.",
+        "workflowId": {
+          "__rl": true,
+          "value": "9oc9YDvdPI0zvKah",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{  {\n\"user_id\": $('Trigger').first().json.data.user_id,\n\"person_legal_name\": $fromAI(\"person_legal_name\", \"Extract name(Exclude nickname or performer name) of the individual human (e.g., contributor, producer, mixer etc) represented by the manager in the email thread. A 'person' in this refers strictly to a human individual involved in the creation or production of music. This is not the same as an Artist. Set to '' if not provided\", \"string\"),\n\"person_performer_name\": $fromAI(\"person_performer_name\", \"Extract perfomer name for the person represented by the manager in the email thread. This may be A 'performer' mentioned in the email conversation/reference document involved in the creation or production of music. Strictly. don't include the artist or masters names in this. Set to legal name or '' if legal name is not provided\", \"string\"),\n\n} }}",
+            "action": "verify_client"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -8260,
+        1320
+      ],
+      "id": "7ed659d4-07a4-4ac6-936d-dd17a4a5f3d2",
+      "name": "CustomerLookup"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"title\": \"Deal and Invoice Output Handling Schema\",\n  \"description\": \"Structured output for client verification (from tool output), deal classification, and invoice detection in entertainment industry agreements.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"persons\": {\n      \"type\": \"array\",\n      \"description\": \"List of individuals (clients) represented by or working with the manager. Must be extracted by analyzing the email conversation.\",\n      \"minItems\": 0,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"person_legal_name\": {\n            \"type\": \"string\",\n            \"minLength\": 0,\n            \"description\": \"Exact legal human name from the response message from tool: VerifyClient. Empty string if no legal name found.\"\n          },\n          \"person_performer_name\": {\n            \"type\": \"string\",\n            \"minLength\": 0,\n            \"description\": \"Exact performer/stage name from tool: VerifyClient. Empty string if missing or same as legal name.\"\n          },\n          \"status\": {\n            \"type\": \"string\",\n            \"description\": \"Verification status from the tool output.\",\n            \"enum\": [\"verified\", \"not_found\"]\n          },\n          \"role\": {\n            \"type\": \"string\",\n            \"description\": \"Role or service provided by person/performer on the project (e.g., Producer, Mixer, Songwriter). Use music industry standard terms.\"\n          },\n          \"book_number\": {\n            \"type\": [\"string\", \"null\"],\n            \"description\": \"Book number (UUID) if verified; null otherwise.\",\n            \"format\": \"uuid\"\n          },\n          \"book_id\": {\n            \"type\": [\"string\", \"null\"],\n            \"description\": \"Book ID if verified; null otherwise.\"\n          }\n        },\n        \"required\": [\"person_legal_name\", \"person_performer_name\", \"status\", \"role\", \"book_number\", \"book_id\"],\n        \"additionalProperties\": false\n      }\n    },\n    \"deal\": {\n      \"type\": \"object\",\n      \"description\": \"Classification details for the identified deal type.\",\n      \"additionalProperties\": false,\n      \"required\": [\n        \"deal_type\",\n        \"deal_discussion\",\n        \"artist_name\",\n        \"masters\",\n        \"deal_id\",\n        \"deal_next_step\"\n      ],\n      \"properties\": {\n        \"deal_discussion\": {\n          \"type\": \"boolean\",\n          \"description\": \"True if a recognized deal type is discussed; false for Unrecognized.\"\n        },\n        \"deal_type\": {\n          \"type\": \"string\",\n          \"description\": \"Primary classification of the deal type.\",\n          \"enum\": [\n            \"Record\",\n            \"Master\",\n            \"Simple Royalty\",\n            \"Live Performance\",\n            \"Sync License\",\n            \"Publishing\",\n            \"Neighboring Rights\",\n            \"Unrecognized\"\n          ]\n        },\n        \"deal_id\": {\n          \"type\": [\"integer\", \"null\"],\n          \"description\": \"Numerical deal ID explicitly selected/refered to by the user in the User Message or 'Conversation History' (e.g., 'Deal #12345'). Extract numbers only. Set this to null if the the user is insterested to search the deal by client and masters etc.\",\n          \"minimum\": 1\n        },\n        \"artist_name\": {\n          \"description\": \"Name of the performing/releasing entity associated with the deal (e.g., solo artist or group name). Null if not found.\",\n          \"anyOf\": [\n            {\n              \"type\": \"null\"\n            },\n            {\n              \"type\": \"string\",\n              \"minLength\": 1\n            }\n          ]\n        },\n        \"masters\": {\n          \"description\": \"Array of master recording names referenced in the document. Use exact titles without extra text. Null if not found.\",\n          \"anyOf\": [\n            {\n              \"type\": \"null\"\n            },\n            {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\",\n                \"minLength\": 1\n              },\n              \"minItems\": 1,\n              \"uniqueItems\": true\n            }\n          ]\n        },\n        \"deal_next_step\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Set to 'create_new' if last_email rejects previous deal terms, otherwise null.\",\n          \"enum\": [\"create_new\", null]\n        }\n      },\n      \"allOf\": [\n        {\n          \"if\": {\n            \"properties\": {\n              \"deal_type\": {\n                \"const\": \"Unrecognized\"\n              }\n            },\n            \"required\": [\"deal_type\"]\n          },\n          \"then\": {\n            \"properties\": {\n              \"deal_discussion\": {\n                \"const\": false\n              },\n              \"artist_name\": {\n                \"type\": \"null\"\n              },\n              \"masters\": {\n                \"type\": \"null\"\n              }\n            }\n          },\n          \"else\": {\n            \"properties\": {\n              \"deal_discussion\": {\n                \"const\": true\n              }\n            }\n          }\n        }\n      ]\n    },\n    \"invoice\": {\n      \"type\": \"object\",\n      \"description\": \"Invoice-related detection and details.\",\n      \"properties\": {\n        \"request_status\": {\n          \"type\": \"boolean\",\n          \"description\": \"True only if the context clearly indicates invoice creation, lookup, or payment processing.\"\n        },\n        \"request_type\": {\n          \"type\": [\"string\", \"null\"],\n          \"description\": \"Type of invoice request when present.\",\n          \"enum\": [\"remittance_payment\", \"general\", null]\n        },\n        \"next_step\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Valid only when invoices are recommended previously by checking the conversation history. If true, and the Manager explicitly regects the previous options, set to create_new. Set to 'request_as_file' when the user want one of the invoices as file/pdf/doc. Set to null in all other cases. Decide based on conversation history and latest message.\",\n          \"enum\": [\"create_new\", \"request_as_file\", null]\n        },\n        \"recipient\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Entity responsible for paying. Must not match any person_name, artist_name, or master name. Null if not located.\",\n          \"minLength\": 1\n        },\n        \"amount\": {\n          \"type\": [\"number\", null],\n          \"description\": \"Exact payment amount (most recently discussed/approved). Null if not provided.\",\n          \"minimum\": 0\n        },\n        \"currency\": {\n          \"type\": [\"string\", null],\n          \"description\": \"ISO 4217 currency code (e.g., USD, EUR, THB). Default to USD if amount present but currency not specified.\",\n          \"pattern\": \"^[A-Z]{3}$\"\n        },\n        \"invoice_id\": {\n          \"type\": [\"string\", null],\n          \"description\": \"Invoice number extracted as digits only (e.g., 'INV-00123' becomes '123'). Null if not found.\",\n          \"pattern\": \"^[0-9]+$\"\n        }\n      },\n      \"required\": [\"request_status\", \"request_type\", \"next_step\", \"recipient\", \"amount\", \"currency\", \"invoice_id\"],\n      \"additionalProperties\": false,\n      \"allOf\": [\n        {\n          \"if\": {\n            \"properties\": {\n              \"request_status\": {\n                \"const\": true\n              }\n            },\n            \"required\": [\"request_status\"]\n          },\n          \"then\": {\n            \"properties\": {\n              \"request_type\": {\n                \"type\": \"string\",\n                \"enum\": [\"remittance_payment\", \"general\"]\n              }\n            },\n            \"required\": [\"request_type\"]\n          },\n          \"else\": {\n            \"properties\": {\n              \"request_type\": {\n                \"const\": null\n              },\n              \"next_step\": {\n                \"const\": null\n              },\n              \"recipient\": {\n                \"const\": null\n              },\n              \"amount\": {\n                \"const\": null\n              },\n              \"currency\": {\n                \"const\": null\n              },\n              \"invoice_id\": {\n                \"const\": null\n              }\n            }\n          }\n        }\n      ]\n    }\n  },\n  \"required\": [\"persons\", \"deal\", \"invoice\"],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -8080,
+        1480
+      ],
+      "id": "d0c2a65d-c32f-4b55-810e-9a2ed8af2f29",
+      "name": "SchemaParser1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -8100,
+        1280
+      ],
+      "id": "9ed9ece3-171f-4843-8286-ca7c702c7ef3",
+      "name": "Auto-fixing Output Parser3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -8380,
+        1460
+      ],
+      "id": "11956190-0d37-44f3-a7ce-edf62bce29cc",
+      "name": "OpenAI Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// --- Helpers (strip any IDs, keep only name & status) ---\nconst norm = (v) => (typeof v === \"string\" ? v.trim() : (v ?? \"\"));\nconst statusOf = (s) => String(s ?? \"\").trim().toLowerCase();\n\n// New function to normalize person names according to your rules\nconst normalizePersonNames = (person_legal_name, person_performer_name) => {\n  const legal = norm(person_legal_name);\n  const performer = norm(person_performer_name);\n  \n  // Check if both are not null/empty\n  const legalPresent = legal !== \"\";\n  const performerPresent = performer !== \"\";\n  \n  if (legalPresent && performerPresent) {\n    // Both provided\n    if (legal === performer) {\n      // Same names - add only as person_name\n      return { person_name: legal };\n    } else {\n      // Different names - add both\n      return { person_name: legal, performer_name: performer };\n    }\n  } else if (performerPresent && !legalPresent) {\n    // Only performer name provided - use as person_name\n    return { person_name: performer };\n  } else if (legalPresent && !performerPresent) {\n    // Only legal name provided - use as person_name\n    return { person_name: legal };\n  } else {\n    // Neither provided\n    return { person_name: \"\" };\n  }\n};\n\nconst sanitizePerson = (p = {}) => {\n  const normalizedNames = normalizePersonNames(p.person_legal_name, p.person_performer_name);\n  \n  return {\n    ...normalizedNames,\n    status: statusOf(p.status),\n    book_number: p.book_number,\n    book_id: p.book_id,\n    role: p.role\n  };\n};\n\n// --- Ingest input ---\nconst items = $input.all();\nconst payload = items?.[0]?.json?.output ?? {};\nconst personsRaw = Array.isArray(payload.persons) ? payload.persons : [];\n\n// Clean copies (no IDs)\nconst persons = personsRaw.map(sanitizePerson);\nconst verified = persons.filter(p => p.status === \"verified\");\n\n// For messages\nconst namesList = (arr) => arr.map(p => `\"${p.person_name || \"Unknown\"}\"`).join(\", \");\n\n// --- Core logic (messages without IDs) ---\nlet result;\n\nif (verified.length === 1) {\n  const selected = verified[0];\n  result = {\n    person_verification: \"resolved\",\n    person: selected, // name + status only (no IDs)\n    message_for_manager: `${selected.role} ${selected.person_name} is verified in the Manager's workspace. Inform the manager.`\n  };\n} else if (verified.length > 1) {\n  result = {\n    person_verification: \"duplicate\",\n    persons: verified, // names + statuses only\n    message_for_manager: `Multiple persons ${namesList(verified)} are associated with the manager. Confirm from the manager to select the one he wants to proceed with.`\n  };\n} else if (persons.length > 1 && verified.length === 0) {\n  // NEW branch: multiple persons mentioned, none verified\n  result = {\n    person_verification: \"unverified_multiple\",\n    persons, // names + statuses only\n    message_for_manager: `I found ${namesList(persons)} with the conversation. But none of them is verified in Manager's workspace. Confirm from the manager which individual he is representing.`\n  };\n} else if (persons.length === 1 && verified.length === 0) {\n  const selected = persons?.[0];\n  result = {\n    person_verification: \"not_found\",\n    message_for_manager: `The ${selected.role}: ${selected.person_name} could not be verified in the Manager's workspace. Inform the manager that deal's and invoices cannot be processed until ${selected.person_name} is registered. Confirm, if there is a misunderstanding in locating the right client and ask for correct information.`\n  };\n} else {\n  // Safe fallback when there are no persons at all\n  result = {\n    person_verification: \"not_found\",\n    message_for_manager: \"I was not able to associate anyone from the conversation with the Manager's. Ask the Manager who he/she is representing.\"\n  };\n}\n\n// --- Return ---\nreturn [{ json: result }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -7520,
+        1080
+      ],
+      "id": "87b3fd16-3d5d-4dd0-baa0-b0a150d68ef0",
+      "name": "CustomerResolution"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c5a88c43-be7b-47c9-80d3-44f4825ede2e",
+              "leftValue": "={{ $json.person_verification }}",
+              "rightValue": "resolved",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -7320,
+        1080
+      ],
+      "id": "d27225de-c36e-4976-8972-361a41b0c8be",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{$json}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -7120,
+        1400
+      ],
+      "id": "2ccac28b-3770-437c-a6e8-4888cd00211e",
+      "name": "CustomerConflict"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route_to }}",
+                    "rightValue": "deal",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "7c15fe57-4eb5-46f9-8483-3c8eb8e3a06b"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "32aa5725-5fd7-4965-ac28-14f869828e46",
+                    "leftValue": "={{ $json.route_to === 'missing_requirement' || $json.route_to === 'no_match' || $json.route_to === 'unsupported_deal'}}",
+                    "rightValue": "missing_requirement",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5d4f22b1-04ed-4d0e-80e2-af9633d48bd3",
+                    "leftValue": "={{$json.route_to === 'invoice_with_unsupported_deal' || $json.route_to === 'invoice_no_deal'}}",
+                    "rightValue": "invoice",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -6440,
+        1060
+      ],
+      "id": "44b82511-9924-4d5c-be23-00a6a2c38716",
+      "name": "Switch3"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DI0OK2QjzXrFmcrM",
+          "mode": "list",
+          "cachedResultName": "InvoiceCustomer-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "retrieve",
+            "data": "={{  \n{\n\"invoice_recipient\": $json?.invoice?.recipient ?? \"\", \"threshold\": 0.05,\nbook_number: $('Session').item.json.sub_session.person_verification.book_number\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5940,
+        1280
+      ],
+      "id": "b3024f89-1a1c-4342-accb-64a39fd0b137",
+      "name": "InvoiceRecipient"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "014d4325-ba45-49cd-af2d-332b2d7e4587",
+              "name": "propose_to_manager_on_deal",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            },
+            {
+              "id": "b55fee7f-3109-4735-a3fe-bfe9c31ac8f3",
+              "name": "deal_status",
+              "value": "={{ $json.deal.deal_type }}",
+              "type": "string"
+            },
+            {
+              "id": "0fb5010a-977c-474c-aae6-b771cc2ce747",
+              "name": "invoice_status",
+              "value": "no_action",
+              "type": "string"
+            },
+            {
+              "id": "8e9fb9a5-c905-4ff4-86d2-b43f4b8b1599",
+              "name": "propose_to_manager_on_invoice",
+              "value": "Invoice not under discussion. Don't mention anything.",
+              "type": "string"
+            },
+            {
+              "id": "b8a4ab18-331e-43a7-93c3-ce492cfdb1ab",
+              "name": "metadata",
+              "value": "={{ $('Session').item.json.sub_session }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -6240,
+        1040
+      ],
+      "id": "056a0062-341e-4fa3-9708-8d5b98f836f1",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -6920,
+        1400
+      ],
+      "id": "321a6ff7-f002-43fa-ae74-b23a662b8193",
+      "name": "UpdateSesssion13",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8e218b64-283b-44f7-a51e-2ba9b79f89a8",
+              "name": "output.person_verification",
+              "value": "={{ $('Session').item.json.sub_session.person_verification }}",
+              "type": "object"
+            },
+            {
+              "id": "51239a39-855a-41b1-967b-749b253329bf",
+              "name": "output.deal",
+              "value": "={{ $('DIRouting').first().json.deal }}",
+              "type": "object"
+            },
+            {
+              "id": "49ff862f-37a2-42f3-b2a5-9a39de5119c2",
+              "name": "output.invoice",
+              "value": "={{ $('DIRouting').first().json.invoice }}",
+              "type": "object"
+            },
+            {
+              "id": "5f5831de-0a47-4a3a-8592-075f0a829e76",
+              "name": "output.invoice.recipient",
+              "value": "={{ $json.invoice_recipient }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5760,
+        1280
+      ],
+      "id": "ae5b4c3f-92ed-4b38-9194-61301847dae6",
+      "name": "InvoiceInfo"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Safe reads\nconst book_id = $json?.output?.person_verification?.book_id\nconst inv = $json?.output?.invoice ?? {};\nconst invoiceId = (inv.invoice_id ?? \"\").toString().trim() || null;\nconst inv_next_step = (inv.next_step ?? \"\").toString().trim() || null;\n\nconst rec = inv.recipient ?? {};\nconst recStatus = (rec.status ?? \"not_provided\").trim();\nconst recName = (rec.name ?? \"\").trim();\nconst recNumber = rec.invoice_recipient_number ?? null;\n\nconst amount = Number.isFinite(Number(inv.amount)) ? Number(inv.amount) : null;\n\n// Build all valid routes (not exclusive)\nconst routes = [];\n\n/**\n * Rule 1: by_invoice_id\n * - No other parameter needs to be checked.\n */\nif (invoiceId) {\n  routes.push({\n    route_by: \"by_invoice_id\",\n    invoice_id: invoiceId,\n    next_step: inv_next_step,\n    book_id \n  });\n}\n\nconst recipientIsValid = recStatus === \"exists\" && !!recName;\n\nif (recipientIsValid && amount !== null) {\n  routes.push({\n    route_by: \"by_recipient_with_amount\",\n    recipient_number: recNumber ?? null,\n    recipient_name: recName,\n    amount,\n    book_id\n  });\n}\n\nif (recipientIsValid) {\n  routes.push({\n    route_by: \"by_recipient_no_amount\",\n    recipient_number: recNumber ?? null,\n    recipient_name: recName,\n    book_id\n  });\n}\n\n/**\n * Rule 4: by_amount_only\n * - Only when no other scenarios are valid AND amount is provided\n */\nif (amount !== null) {\n  routes.push({\n    route_by: \"by_amount_only\",\n    amount,\n    book_id\n  });\n}\n\n/**\n * Fallback ONLY if no valid routes at all\n */\nif (routes.length === 0) {\n  routes.push({\n    route_by: \"no_info_provided\",\n    recipient_name: recName || null,\n    book_id\n  });\n}\n\n// Output\nreturn { json: { routes } };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5580,
+        1280
+      ],
+      "id": "cd986b7b-bfaa-4743-b9c9-4a5abc94e956",
+      "name": "Invoice Lookup inputs"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "n96hPjBXd1UxhkSO",
+          "mode": "list",
+          "cachedResultName": "invoice_helpers-V1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "check",
+            "data": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_input",
+              "displayName": "ai_input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5360,
+        1280
+      ],
+      "id": "3afd5e8d-c5ea-4fb7-a523-4363d72d4b74",
+      "name": "InvoiceCheck"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pull previous payload and current input\nconst prev = $('Session').first()?.json;\nconst invoiceInfo = {};\nconst last_response = \"No enough information for invoice search\";\n\n// Validate presence of sub_session\nif (!prev || !prev.sub_session) {\n  throw new Error(\"Missing sub_session\");\n}\n\n// Prepare invoice_metadata\nlet invoice_metadata;\nif (Object.keys(invoiceInfo).length > 0) {\n  invoice_metadata = {\n    invoice_status: \"missing\",\n  };\n} else {\n  invoice_metadata = {\n    invoice_status: \"missing\"\n  };\n}\n\n// Update only sub_session (do not mutate original data)\nconst updatedSubSession = {\n  ...prev.sub_session,\n  invoice_metadata,\n  last_bot_response: last_response\n};\n\n// Return original data unchanged + updated sub_session\nreturn [\n  {\n    json: {\n      data: prev.data,\n      sub_session: updatedSubSession\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6016,
+        1871.25
+      ],
+      "id": "0b1ffa1d-ce30-4581-8a9f-5bc5c717c0e2",
+      "name": "WPS-Upd-14"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a25d4362-1dbe-4a26-8fc9-a4e0ea3071d1",
+              "name": "message",
+              "value": "=The thread lacks enough information to locate the invoice for the payee {{ $json.sub_session.customer_verification.customer_name }}. Ask the manager if he is still interested, he can provide details such as invoice ID, Payer or amout details.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5796,
+        1871.25
+      ],
+      "id": "6c6fda15-f689-4824-ba82-cc99d8ede61d",
+      "name": "FormatSessionData22"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -3780,
+        620
+      ],
+      "id": "00e39f60-3e91-417f-a555-9e27b84b9751",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "mxdHDElSd4VQZiDt",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Email Conversation:   {{\nJSON.stringify(\n    $('WPS-Upd-16').item.json.data.session_data.Emails.map(e => {\n      const { ThreadId, EmailId, MessageId, References, last_attachment, cc, ...rest } = e;\n      return {\n        ...rest\n      };\n    }),\n  null,\n  ' '\n) \n}}\n\nDeal Current Details:\n{{ $json.deal_search_output }}\n\nInvoice Current Details:\n{{ $json.invoice_search_output }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are the **Patchbay Analysis Agent**. Your sole function is to analyze email conversations and detect discrepancies between current deal/invoice terms and what is stated in emails.\n\n---\n\n## YOUR PRIMARY DIRECTIVE\nCompare EVERY field in the current deal/invoice against EVERY statement in the email thread. Any discrepancy must be reported as a change needed.\n\n---\n\n## INPUT STRUCTURE\nYou will receive:\n1. **Email Thread**: Chronological email correspondence\n2. **Deal Current Details**: Including status, payment status, amounts, and all terms\n3. **Invoice Current Details**: Including status, amounts, and terms\n4. **Context Identifiers**: person_name, artist_name, master_name\n\n---\n\n## CRITICAL ANALYSIS POINTS\n\n### Must Check for Deals:\n- **Deal Status Changes**: Look for phrases like \"fully executed\", \"signed\", \"waiting for signature\", \"in review\"\n- **Payment Status**: Look for \"paid\", \"Prcoessing\", \"amount paid\", \"invoice settled\"\n- **Amount Changes**: Any mention of specific amounts, fees, or financial terms. Also, compare and tally the amount with payment_amount provided in the deal.\n- **Signature Status**: \"counter party signed\", \"both parties signed\", \"awaiting signature\"\n- **Date Changes**: Any new dates mentioned for payment, execution, or delivery\n\n### Must Check for Invoices:\n- **Payment Confirmations**: \"paid\", \"payment sent\", \"received payment\"\n- **Amount Confirmations**: Any specific amounts mentioned\n- **Invoice Recipients**: Client names, company names, email addresses\n- **Status Changes**: From draft to sent, sent to paid, etc.\n\n---\n\n## CHANGE DETECTION RULES\n\n### A change IS REQUIRED when:\n1. Email states a fact that contradicts current terms\n   - Example: Email says \"paid yesterday\" but status shows \"Unpaid\"\n   - Example: Email says \"fully executed\" but status shows \"Counterparty Signature\"\n   \n2. Email confirms new information not in current terms\n   - Example: Email mentions specific fee amount, current shows \"NaN\"\n   - Example: Email identifies invoice recipient, current has none\n\n3. Email shows progression of status\n   - Example: Email confirms signature received, current shows awaiting\n   - Example: Email confirms payment made, current shows unpaid\n\n### IMPORTANT: \n- Treat factual statements in emails as truth\n- \"The counter party has signed\" = Deal status should be updated\n- \"Amount is paid\" = Payment status should be updated\n- Do NOT require both parties to confirm obvious facts\n\n---\n\n## DECISION LOGIC\n\n### Deal Status Rules\nSet `deal_status` to:\n- **\"update\"** IF:\n  * ANY discrepancy exists between email facts and current terms\n  * Email states deal progression (signed, paid, executed)\n  * Current data has errors (NaN, null) but email has correct values\n  * UNLESS deal is already \"Fully Executed\" in current status\n  \n- **\"not_update\"** ONLY IF:\n  * Email information perfectly matches ALL current terms\n  * No new information provided in emails\n  * Deal is already \"Fully Executed\" AND no payment updates\n\n### Invoice Status Rules  \nSet `invoice_status` to:\n- **\"update\"** IF:\n  * Payment confirmation in email but invoice shows \"Draft\" or \"Sent\"\n  * Amount discussed differs from current invoice amount\n  * Invoice recipient identified in email\n  * UNLESS invoice already shows \"Paid\"\n  \n- **\"create_new\"** IF:\n  * No existing invoice but email requests invoice creation\n  * Email mentions new invoice needed\n\n---\n\n## SPECIFIC EXTRACTION PATTERNS\n\nLook for these exact phrases and their variations:\n- \"is paid\" / \"amount paid\" / \"payment received\" → Update payment status\n- \"has signed\" / \"fully executed\" / \"signature received\" → Update deal status  \n- \"waiting for\" / \"pending\" → Status not complete\n- \"create invoice\" / \"send invoice to\" → Invoice action needed\n- Specific amounts mentioned → Update fee/invoice amounts\n\n---\n\n## OUTPUT REQUIREMENTS\nFor EVERY discrepancy found:\n1. State the current value\n2. State what the email says\n3. Provide the specific email quote\n4. Recommend the exact change needed\n\n---\n\n## EXAMPLE ANALYSIS\nGiven:\n- Current Deal Status: \"Counterparty Signature\"\n- Email states: \"The counter party has signed the deal now and is fully executed\"\n\nRequired Output:\n- deal_status: \"update\"\n- Change: Update Deal Status from \"Counterparty Signature\" to \"Fully Executed\"\n- Evidence: \"The counter party has signed the deal now and is fully executed\" (2025-09-18)\n\n\nTo reflect correct scenario, the recent chat history is provided below for yout assistance;\n\n{{ $('WPS1').item.json.data.history }}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -3840,
+        200
+      ],
+      "id": "59d6cc20-ba9e-4942-8740-4166451e43d1",
+      "name": "DealUpdates"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"deal_status\": {\n\t\t\t\"type\": \"string\",\n            \"enum\": [\"update\", \"not_update\", \"create_new\"],\n            \"description\": \"deal status based on the analysis\"\n    \t},\n      \t\"propose_to_manager_on_deal\": {\n\t\t\t\"type\": \"string\",\n            \"description\": \"<Terms proposed for update on the deal analysis>. For example: I found below invoice terms which need update; /n <Terms>. Create a nice deal draft for the manager with proposed terms and ask for his approval\"\n\t\t},\n\t\t\"invoice_status\": {\n\t\t\t\"type\": \"string\",\n            \"enum\": [\"update\", \"not_update\", \"create_new\"],\n            \"description\": \"invoice status based on the analysis. If need updation, set to update otherwise not_update. If no invoice is present, set to create_new\"\n    \t},\n\n        \"propose_to_manager_on_invoice\": {\n\t\t\t\"type\": \"string\",\n            \"description\": \"<Terms proposed for update on the invoice analysis>. For example: I found below invoice terms which need update; /n <Terms>. Create a nice draft for the manager with proposed terms and ask for his approval\"\n\t\t}\n    }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -3620,
+        600
+      ],
+      "id": "fcfe9394-5aff-4d7c-b50d-ec059802d5e2",
+      "name": "Structured Output Parser7"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  COALESCE(\n    jsonb_build_object(\n      'invoice_id', i.invoice_number,\n      'invoice_number', i.number,\n      'invoice_amount', i.amount,\n      'invoice_status', i.status,\n      'invoice_customer_id', i.customer_id,\n      'person_name', $3\n    ),\n    NULL\n  ) AS invoice_info\nFROM invoices_invoice i\nWHERE i.book_id = $1 AND i.master_deal_id = $2\nLIMIT 1;",
+        "options": {
+          "queryReplacement": "={{ $json.sub_session.person_verification.book_id }}, {{ $json.sub_session.deal_metadata.deal_id }}, {{$json.sub_session.person_verification.person_name }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -5356,
+        596.25
+      ],
+      "id": "2a4d38c3-1d97-4a99-84ff-376961175dba",
+      "name": "InvoiceTerms5",
+      "retryOnFail": true,
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const prev = $('Session3').first()?.json;\nconst invoiceInfo = $(\"InvoiceTerms5\").first()?.json?.invoice_info ?? {};\nconst last_response = \"Deal Identification Successful\";\n\n// Validate presence of sub_session\nif (!prev || !prev.sub_session) {\n  throw new Error(\"Missing sub_session\");\n}\n\n// Prepare invoice_metadata\nlet invoice_metadata;\nif (Object.keys(invoiceInfo).length > 0) {\n  invoice_metadata = {\n    \"exists\": true,\n    invoice_id: invoiceInfo.invoice_id,\n    invoice_number: invoiceInfo.invoice_number,\n    customer_name: invoiceInfo.customer_name,\n    invoice_recipient: $input.first().json.invoice_recipient\n  };\n} else {\n  invoice_metadata = {\n    \"exists\": false,\n    invoice_recipient: $input.first().json.invoice_recipient\n  };\n}\n\n// Update only sub_session (do not mutate original data)\nconst updatedSubSession = {\n  ...prev.sub_session,\n  invoice_metadata,\n  last_bot_response: last_response\n};\n\n// Return original data unchanged + updated sub_session\nreturn [\n  {\n    json: {\n      data: prev.data,\n      sub_session: updatedSubSession\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4696,
+        596.25
+      ],
+      "id": "58f640a0-b048-400d-853f-8a071f0eebfa",
+      "name": "WPS-Upd-16"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "710d8b9c-abd7-4e7a-aff7-f5309e664517",
+              "name": "=data",
+              "value": "={{ $('WPS-Upd-16').item.json.data }}",
+              "type": "object"
+            },
+            {
+              "id": "493829b4-55b2-49b9-83b4-3a4c9097d353",
+              "name": "=sub_session",
+              "value": "={{ $('WPS-Upd-16').item.json.sub_session }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3100,
+        100
+      ],
+      "id": "d9e20ae5-1995-48d4-944b-241def743bd3",
+      "name": "FormatSessionData23"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -2880,
+        100
+      ],
+      "id": "8f9b0e21-de5a-416d-8149-c5f754b726d6",
+      "name": "UpdateSesssion14",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"output\":  {{ $('DealUpdates').item.json.output }},\n  \"metadata\": {{ $('FormatSessionData23').item.json.sub_session }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        100
+      ],
+      "id": "d0b4db3d-98ed-4943-a437-d9f80c8dfae7",
+      "name": "FormatSessionData24"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "deals_masterdeal",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email_thread_last_updated_at": "={{ $now.toISO() }}",
+            "book_id": "={{ $('WPS-Upd-16').item.json.sub_session.person_verification.book_id }}",
+            "number": "={{ $('WPS-Upd-16').item.json.sub_session.deal_metadata.deal_number }}",
+            "id": "={{ $('WPS-Upd-16').item.json.sub_session.deal_metadata.deal_id }}"
+          },
+          "matchingColumns": [
+            "number",
+            "id",
+            "book_id"
+          ],
+          "schema": [
+            {
+              "id": "number",
+              "displayName": "number",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_by",
+              "displayName": "created_by",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "deleted_at",
+              "displayName": "deleted_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "payment_status",
+              "displayName": "payment_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fee_amount",
+              "displayName": "fee_amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fee_currency",
+              "displayName": "fee_currency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fee_schedule",
+              "displayName": "fee_schedule",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "executed_contract",
+              "displayName": "executed_contract",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "execution_date",
+              "displayName": "execution_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "priority",
+              "displayName": "priority",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "artist_id",
+              "displayName": "artist_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "book_id",
+              "displayName": "book_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "person_id",
+              "displayName": "person_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "kill_fee_amount",
+              "displayName": "kill_fee_amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "kill_fee_currency",
+              "displayName": "kill_fee_currency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "percent_recoupable",
+              "displayName": "percent_recoupable",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "agreement_file_key",
+              "displayName": "agreement_file_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status_updated_at",
+              "displayName": "status_updated_at",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "active",
+              "displayName": "active",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "work_for_hire",
+              "displayName": "work_for_hire",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "original_file_name",
+              "displayName": "original_file_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "start_date",
+              "displayName": "start_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email_thread_last_updated_at",
+              "displayName": "email_thread_last_updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sx_lod_status",
+              "displayName": "sx_lod_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sx_lod_file_download_link",
+              "displayName": "sx_lod_file_download_link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sx_lod_file_inline_link",
+              "displayName": "sx_lod_file_inline_link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sx_lod_file_key",
+              "displayName": "sx_lod_file_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2660,
+        100
+      ],
+      "id": "5fbf8cee-6470-4b5f-acf3-c0eaa6053b34",
+      "name": "Postgres",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DI0OK2QjzXrFmcrM",
+          "mode": "list",
+          "cachedResultName": "InvoiceCustomer-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "retrieve",
+            "data": "={{  \n{\n  \"invoice_recipient\": String($('DIRouting').first().json.invoice.recipient || \"\"),\n  \"threshold\": 0.05,\n  \"book_number\": $('Session3').first().json.sub_session.person_verification.book_number\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -4916,
+        671.25
+      ],
+      "id": "d93a9730-0907-43f3-aaad-60ed0467e5ff",
+      "name": "Invoice Client3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -3732,
+        420
+      ],
+      "id": "723d24aa-31d4-41ff-912d-50853d1560e4",
+      "name": "Auto-fixing Output Parser5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyse the below recent email, previous discussion on the deal an details from document(If provided) to decide the correct classify and extract the data in a welll structured format according to the provided schema.;\n\nlast_email: {{ $json.data.last_email }}\n\nprevious Discussion: {{\n  JSON.stringify(\n    $json.data.session_data.Emails\n      .filter(e => !e.From?.some(f => f.address?.toLowerCase() === \"asst@patchbay.xyz\"))\n      .map(e => {\n        const { EmailId, MessageId, References, last_attachment, date, ...rest } = e;\n        return rest;\n      }),\n    null,\n    \" \"\n  )\n}}\n\ndeal_document: {{ $json.data.session_data.last_attachment?.document || '' }}\n\nManager's Metadata: {{ JSON.stringify($json.data.Manager, null, ' ') }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an expert contract classifier and structured information extraction agent for entertainment industry agreements.\nPerform tasks sequentially and never skip a step, even if information is incomplete.\nAlways output normalized JSON strictly following the provided schema.\nDo not hallucinate values. Always include all fields even if empty, null, or 0.\nUse snake_case for all field names.\n\n---\n\n## Step 1. Client/Person Verification and Extraction\nExtract all individuals (clients) represented by or working with the manager in this deal:\n- person_legal_name: Full legal name of individual contributors (producers, mixers, songwriters, performers) from last_email, previous_discussion, or Deal Document\n- person_performer_name: Stage/performer name if different from legal name\n- Exclude: The manager themselves, organizations, and artist entities (these are separate from individuals)\n- Important: \"Artist\" refers to the musical entity/brand, while \"person\" refers to individual contributors\n- If more than one valid name/performer_name is present, extract all\n- For each person_legal_name and/or person_performer_name first check the 'Clients' list of the Manager list and locate the identified person details. \n- If not provided, for each person_legal_name and/or person_performer_name call tool: VerifyClient and assign results to:\n  - person_legal_name: Extract Legal Name exactly as provided by tool response\n  - person_performer_name: Extract the Performer Name exactly as provided by the tool\n  - person_status (verified | unknown | not_found)\n  - book_number (UUID if verified, null otherwise)\n  - book_id (if verified, null otherwise)\n- If no valid name exists, set person_legal_name = \"\" and status = \"unknown\"\n- If duplicated person_name/performer_name are verified and you receive a clarification from user, proceed with verifying the latest recommendation by the manager\n- This tool is mandatory and should be called every time when this agent is triggered\n\n## Tool Usage Rules\n- Always call VerifyClient for EVERY extracted person name\n- Call once per unique name (avoid duplicate calls)\n- Process tool responses before moving to Step 2\n- If tool times out after 3 attempts → proceed with status = \"unknown\"\n\n---\n\n## Step 2. Deal Classification and Extraction\nAnalyze last_email, previous_discussion, or Deal Document for deal type.\n\n### Decision Tree for Deal Classification:\n1. Does it involve master recordings + producer/mixer credits? → Master Deal\n2. Does it involve an artist signing with a label? → Record Deal\n3. Does it involve licensing for visual media? → Sync License\n4. Does it involve composition rights/publishing? → Publishing Deal\n5. Does it involve manager/agent commissions only? → Simple Royalty\n6. Does it involve live shows/tours? → Live Performance\n7. Does it involve performer rights societies? → Neighboring Rights\n8. None of the above? → Unrecognized\n\n### Detailed Deal Type Definitions:\n\n**Record Deal (Record)**\n- Agreement between an artist and a label\n- Mentions recording rights, label_split, distribution_split\n- Often contains reversion_type or reversion_period\n- Language includes record label, recording contract, royalty, ownership\n\n**Master Deal (Master)**\n- Focused on creation and ownership of master recordings (songs, sound recordings)\n- Parties: label/company and producer/musician/mixer\n- Mentions master recording, sound recordings, work_for_hire, recoupable, advance, PPD, royalty, fee_schedule\n- Covers delivery, ownership transfer, sample clearance, credit terms\n- May grant rights to use name, likeness, or composition shares\n- Song-specific discussions between parties also qualify\n- If a customer, artist and master are present, it's a master deal\n\n**Simple Royalty Deal (Simple Royalty)**\n- Agreement with a manager, attorney, or agent\n- Focused on royalty percentages, representation, or commissions\n- Does NOT involve recording or publishing rights\n\n**Live Performance Deal (Live Performance)**\n- Related to live shows, touring, or performances\n- Mentions performance fee, date, venue, payment\n- Includes technical riders, hospitality requirements\n\n**Sync License Deal (Sync License)**\n- Licensing of a song or master recording for use in visual media (film, TV, ads, games)\n- Indicators: sync rights, synchronization license, use in film/TV/ad, visual media\n- Parties: artist and licensor/production company\n- Payment typically a flat fee or sync fee\n\n**Publishing Deal (Publishing)**\n- Involves compositions and publishing rights\n- Covers royalty splits for compositions\n- Mentions Publisher, Administrator, Co-Publisher, Sub-Publisher, or Self-Publisher\n\n**Neighboring Rights Deal (Neighboring Rights)**\n- Related to performer or rights owner mandates, societies, territories, repertoire\n\n### Additional Extraction Rules:\n- If multiple types are found, select the most specific\n- If uncertain, set deal_type = \"Unrecognized\"\n- deal_status = true if any recognized deal type is discussed\n- Ignore emails from asst@gmail.com\n- artist_name: Name of the performing or releasing musical entity (e.g., 'Bella Poarch'). Artist cannot be same as the person\n- masters: Extract complete master recording names without additional information. May be multiple masters per deal\n- deal_next_step determination:\n  • If conversation_history is empty/missing → set to null\n  • If last_email explicitly rejects previously proposed deal terms → set to \"create_new\"\n  • Otherwise → set to null\n\n---\n\n## Step 3. Invoice Detection and Extraction\nDetect invoice intent using these triggers:\n- request_status = true if ANY of these appear:\n  • Direct invoice request: \"send invoice,\" \"create invoice,\" \"invoice for\"\n  • Payment discussion: \"payment of $X,\" \"invoice amount,\" \"billing for\"\n  • Invoice lookup: \"find invoice,\" \"check invoice #,\" \"invoice status\"\n  • Remittance: \"payment confirmation,\" \"remittance advice\"\n- request_status = false for all other contexts\n\nAssign request_type:\n- remittance_payment → if context relates to remittance advice or payment confirmation\n- general → for all other invoice-related contexts\n\nExtract recipient:\n- The paying entity (label, promoter, company, etc.)\n- Cannot be person_legal_name, person_performer_name, artist_name, or any master name\n- If not identifiable → recipient = null\n\nExtract amount:\n- Exact numeric amount from context (most recently discussed/confirmed value)\n- If not provided → amount = null\n\nExtract currency:\n- ISO 4217 currency code (e.g., USD, EUR, THB)\n- Default to USD if amount present but currency not specified\n\nExtract invoice_id:\n- Invoice number without leading zeros or special characters\n- Extract numbers only (e.g., \"INV-00123\" becomes \"123\")\n\nnext_step:\n- If the user explicitly rejects the previous invoice options, set this to next_step = create_new.\n- If the user confirm invoice and wants it as file, set next_step = request_as_file.\n- If none of the above is valid, set next_step = null.\n\n---\n\n## Extraction Priority Rules\nWhen multiple sources contain conflicting information:\n1. Priority Order: last_email > previous_discussion > deal_document\n2. For amounts/numbers: Use most recently discussed/confirmed value\n3. For names: Use most formal/complete version found\n4. If uncertain between multiple valid options: Extract all and note in output\n\n---\n\n## Error Handling\n- If VerifyClient tool fails → set status = \"unknown\" and continue\n- If required fields conflict → use highest priority source (see Extraction Priority Rules)\n- If date formats vary → normalize to ISO 8601\n- Never skip extraction due to missing information → use null values\n\n---\n\n## Output Rules\n- Output results in normalized JSON strictly following the schema\n- Include three top-level objects: persons, deal, invoice\n- Do not infer or guess values\n- Always process in this exact order:\n  1. Person Verification (with tool calls)\n  2. Deal Classification\n  3. Invoice Detection and Extraction\n\nA brief conversation history is provided below for your reference to help you assess the updates/changes proposed by user to previous recommendations:\n\nConversation History: {{ $('Trigger').item.json.data.history }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -8280,
+        1080
+      ],
+      "id": "95591b77-bc15-4e63-be16-475a4bba58b8",
+      "name": "Classifier",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const prev = $('WPS1').first()?.json;\nconst output = $input.first()?.json ?? {};\n// Validate presence of sub_session\nif (!prev || !prev.sub_session) {\n  throw new Error(\"Missing sub_session\");\n}\n// Build updated sub_session safely\nconst updatedSubSession = {\n  ...prev.sub_session,\n  person_verification: {\n    ...(output.person ?? {}),\n    message: output.message_for_manager ?? null\n  }\n};\n// Return original data unchanged + updated sub_session\nreturn [\n  {\n    json: {\n      data: prev.data,\n      sub_session: updatedSubSession\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -7040,
+        1060
+      ],
+      "id": "20e1d4e6-4a93-450c-864d-cce48177fe68",
+      "name": "Session"
+    },
+    {
+      "parameters": {
+        "jsCode": "function toStr(v) {\n  if (v === null || v === undefined) return \"\";\n  return String(v);\n}\n\nfunction isPaid(status) {\n  return toStr(status).trim().toLowerCase() === \"paid\";\n}\n\nfunction stripHtml(s) {\n  const str = toStr(s);\n  return str.replace(/<[^>]*>/g, \" \").replace(/\\s+/g, \" \").trim();\n}\n\nfunction mdEscape(s) {\n  return toStr(s).replace(/\\|/g, \"\\\\|\").replace(/`/g, \"\\\\`\").replace(/\\r?\\n/g, \" \");\n}\n\nfunction tableForInvoices(invoices) {\n  const header = `| # | Title | Details | Invoice ID | Amount | Status | Recipient |\n|---:|-------|---------|-----------:|-------:|--------|-----------|`;\n\n  const rows = invoices.map((inv, idx) => {\n    const t = mdEscape(inv.title ?? \"—\");\n    const d = mdEscape(stripHtml(inv.details ?? \"—\"));\n    const id = mdEscape(inv.invoice_id ?? \"—\");\n    const amt = typeof inv.invoice_amount === \"number\" ? inv.invoice_amount : (toStr(inv.invoice_amount) || \"—\");\n    const st = mdEscape(inv.invoice_status ?? \"—\");\n    const rec = mdEscape(inv.invoice_recipient ?? \"—\");\n    return `| ${idx + 1} | ${t} | ${d} | ${id} | ${amt} | ${st} | ${rec} |`;\n  });\n\n  return [header, ...rows].join(\"\\n\");\n}\n\n// ---------- Main ----------\nconst data = $json;\nconst data_add = $(\"DIRouting\").first().json\n\nconst route = toStr(data.route_by).trim();\nconst invoices = Array.isArray(data.invoices) ? data.invoices : [];\nconst invoiceType = toStr(data_add.invoice?.request_type || data.request_type || \"\").toLowerCase();\nconst recipient = data_add.invoice?.recipient || {};\nconst routeTo = toStr(data_add.route_to).trim();\nconst nextStep = toStr(data.invoice_next_step || \"\").trim();\n\nlet crafted_message = \"\";\nlet invoice_status = \"no_action\";\n\n// ---------- Routing Logic ----------\nif (route === \"by_invoice_id\") {\n  const inv = invoices[0] || {};\n  if (Object.keys(inv).length > 0) {\n    // Special case: File request - takes priority over paid/unpaid status\n    if (nextStep === \"request_as_file\") {\n      crafted_message =\n        \"I found below invoice which has been requested by the Manager. Please confirm from the manager if he wants this invoice delivered to him as PDF file. The metadata should include the data and should not be missing.\\n\\n\" +\n        tableForInvoices([inv]);\n      invoice_status = \"invoice_file_requested\";\n    } else if (isPaid(inv.invoice_status)) {\n      crafted_message =\n        \"I found below invoice which shows that the status is already Paid. There are no updates due to this invoice.\\n\\n\" +\n        tableForInvoices([inv]);\n      invoice_status = \"no_action\";\n    } else {\n      crafted_message =\n        `I found the below invoice which has a current status of ${toStr(inv.invoice_status)}. ` +\n        \"Recommend changes discussed in the thread to the invoice and ask for manager's approval.\\n\\n\" +\n        tableForInvoices([inv]);\n      invoice_status = \"update\";\n    }\n  } else {\n    if (invoiceType === \"general\") {\n      crafted_message =\n        \"I could not locate any invoice for the <payee: customer_name>. Propose a nice invoice draft to the manager and ask for his approval?\";\n      invoice_status = \"create_new\";\n    } else {\n      crafted_message =\n        \"I could not locate any invoice matching this request. Offer further invoice and deals related help to the manager\";\n      invoice_status = \"no_action\";\n    }\n  }\n} else {\n  // route_by != by_invoice_id\n  if (invoices.length > 1) {\n    crafted_message =\n      \"I found multiple invoices matching this request. Ask the manager to select the correct invoice relevant to this discussion from given below:\\n\\n\" +\n      tableForInvoices(invoices);\n    invoice_status = \"await_confirmation\";\n  } else if (invoices.length === 1) {\n    const inv = invoices[0];\n    if (isPaid(inv.invoice_status)) {\n      crafted_message =\n        \"I found below invoice with status being Paid. Ask manager to confirm below invoice being discussed in this conversation..\\n\\n\" +\n        tableForInvoices([inv]);\n      invoice_status = \"await_confirmation\";\n    } else {\n      crafted_message =\n        `I found the below invoice which has a current status of ${toStr(inv.invoice_status)}.` +\n        \"Confirm from manager if this is the invoice he is refering to.\\n\\n\" +\n        tableForInvoices([inv]);\n      invoice_status = \"await_confirmation\";\n    }\n  } else {\n    if (invoiceType === \"general\") {\n      crafted_message =\n        \"I could not locate any invoice. Find and draft an invoice with below fields;\\n -Amount, \\n -Due Date, \\-Invoice Recipient. Finally ask for Manager's approval.\";\n      invoice_status = \"create_new\";\n    } else {\n      crafted_message =\n        \"I could not locate any invoice matching this request.\";\n      invoice_status = \"no_action\";\n    }\n  }\n}\n\n// ---------- Recipient Handling (general invoices only) ----------\nif (invoiceType === \"general\") {\n  if (recipient.status === \"missing\") {\n    crafted_message +=\n      \"\\n\\nThe invoice recipient is not registered. Also confirm if the Manager wants to register the current recipient?\";\n  } else if (recipient.status === \"not_provided\") {\n    crafted_message +=\n      \"\\n\\nNo recipient provided\";\n  }\n}\n\n// ---------- Deal Handling ----------\nlet deal_status = \"no_action\";\nlet propose_to_manager_on_deal = \"\";\n\nif (routeTo === \"invoice_no_deal\") {\n  propose_to_manager_on_deal =\n    \"No deal is under discussion. Focus only on the invoice handling.\";\n} else if (routeTo === \"invoice_with_unsupported_deal\") {\n  propose_to_manager_on_deal =\n    `I see that ${toStr(data.deal?.deal_type || \"this deal type\")} is under discussion but this deal type is not supported yet by the Patchbay Email Assistant. I'll continue with invoice handling only.`;\n}\n\n// ---------- Build Result (updated invoice_summary spec) ----------\nlet invoices_summary;\n\n// Helper to exclude recipient from the summary objects\nconst toInvoiceObj = (inv) => ({\n  invoice_id: inv.invoice_id ?? null,\n  invoice_number: inv.invoice_number ?? null,\n  invoice_amount: inv.invoice_amount ?? null,\n  invoice_status: inv.invoice_status ?? null,\n  title: inv.title ?? null,\n  details: stripHtml(inv.details ?? null),\n  book_id: inv.book_id ?? null,\n  invoice_customer_id: inv.invoice_customer_id ?? null,\n});\n\n// Structure per spec:\n// - 1 invoice  -> { invoice: { ... } }  (no recipient inside)\n// - >1 invoices -> { invoices: [ ... ] } (no recipient inside each)\n// - 0 invoices -> { invoice: { invoice_status: 'missing' } }\nif (invoices.length === 1) {\n  invoices_summary = { invoice: toInvoiceObj(invoices[0]) };\n} else if (invoices.length > 1) {\n  invoices_summary = { invoices: invoices.map(toInvoiceObj) };\n} else {\n  // Assumption: \"length > 0\" in your note was a typo; using 0 => 'missing'\n  invoices_summary = { invoice: { invoice_status: \"missing\" } };\n}\n\nreturn {\n  route_by: route,\n  invoice_status,\n  propose_to_manager_on_invoice: crafted_message,\n  deal_status,\n  propose_to_manager_on_deal,\n  invoice_recipient: $(\"InvoiceRecipient\").first().json.invoice_recipient || {},  // recipient returned separately\n  invoices_summary\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5160,
+        1280
+      ],
+      "id": "ada80bf8-ab73-4d26-aa6f-2b7b2f3f1986",
+      "name": "GuidedResponses"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "17d041a3-c2bd-48f3-a9e9-6e6446bcca93",
+              "leftValue": "={{ $('GuidedResponses').item.json.invoice_status==='update' ||\n$('GuidedResponses').item.json.invoice_status==='invoice_file_requested' ||\n$('GuidedResponses').item.json.invoice_status==='create_new' || $('Classifier').item.json.output.invoice.next_step==='create_new' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -4780,
+        1280
+      ],
+      "id": "0e5321b9-b542-4b85-a9ed-eba096848633",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n\n// --- Ingest previous session and current input ---\nconst prev = $('Session').first()?.json;\nif (!prev || !prev.sub_session) {\n  throw new Error(\"Missing sub_session\");\n}\n\n// Current input can be an array or object\nconst incoming = $input.first()?.json ?? {};\nconst payload = Array.isArray(incoming) ? (incoming[0] ?? {}) : incoming;\n\n// Helper to safely pluck only desired keys\nconst pick = (obj, keys) =>\n  Object.fromEntries(\n    keys\n      .map(k => [k, obj?.[k]])\n      .filter(([, v]) => v !== undefined)\n  );\n\n// --- Build invoice_metadata ---\nlet invoice_metadata = {};\nconst inv = payload?.invoices_summary?.invoice ?? {};\nconst recipient = payload?.invoice_recipient ?? null;\n\nif (inv!=={}) {\n  invoice_metadata = {\n    ...pick(inv, [\"invoice_id\", \"invoice_number\", \"book_id\"]),\n    invoice_recipient: recipient\n  };\n} else {\n  invoice_metadata = {\n    invoice_status: \"missing\",\n    invoice_recipient: recipient\n  };\n}\n\n// --- Update sub_session ONLY with invoice_metadata + last_bot_response ---\nconst updatedSubSession = {\n  ...prev.sub_session,\n  invoice_metadata,\n  last_bot_response: \"Session updated with Inovice data\"\n};\n\n// --- Return original data unchanged + updated sub_session ---\nreturn [\n  {\n    json: {\n      data: prev.data,\n      sub_session: updatedSubSession,\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4960,
+        1280
+      ],
+      "id": "6e5f1069-19d2-4f77-9a70-68e01177d82a",
+      "name": "Session1"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -4476,
+        1071.25
+      ],
+      "id": "fbc1c573-2005-46de-9ada-fd2f4ddd9a5d",
+      "name": "UpdateSesssion16",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e0b9b562-59c5-4803-85f9-5d0389fb3824",
+              "name": "output",
+              "value": "={{ \n  (() => {\n    const data = $('GuidedResponses').item.json;\n    const { route_by, invoice_recipient, invoices_summary, ...cleaned } = data;\n    return cleaned;\n  })()\n}}",
+              "type": "object"
+            },
+            {
+              "id": "a781553d-f783-453c-8daf-d66e9fc2416f",
+              "name": "steps_state",
+              "value": "={{ $json.sub_session }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4256,
+        1071.25
+      ],
+      "id": "2d1b0d0f-e512-4559-812e-c713781cae3b",
+      "name": "FormatSessionData25"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e0b9b562-59c5-4803-85f9-5d0389fb3824",
+              "name": "output",
+              "value": "={{ \n  (() => {\n    const data = $('GuidedResponses').item.json;\n    const { route_by, invoice_recipient, invoices_summary, ...cleaned } = data;\n    return cleaned;\n  })()\n}}",
+              "type": "object"
+            },
+            {
+              "id": "a781553d-f783-453c-8daf-d66e9fc2416f",
+              "name": "steps_state",
+              "value": "={{ $json.sub_session }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4476,
+        1371.25
+      ],
+      "id": "aa1f48a9-71e8-448d-9ed9-d93ba872488a",
+      "name": "FormatSessionData26"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ------- Constants -------\nconst DEAL_TYPES = {\n  MASTER: \"master\",\n  UNRECOGNIZED: \"unrecognized\",\n};\n\nconst ROUTES = {\n  DEAL: \"deal\",\n  INVOICE_NO_DEAL: \"invoice_no_deal\",\n  INVOICE_WITH_UNSUPPORTED_DEAL: \"invoice_with_unsupported_deal\",\n  UNSUPPORTED_DEAL: \"unsupported_deal\",\n  NO_MATCH: \"no_match\",\n};\n\n// ------- Helpers -------\nconst isPresent = (v) =>\n  typeof v === \"string\" ? v.trim().length > 0 : v != null;\n\n// Map assorted spellings to canonical types\nconst normalizeDealType = (t) => {\n  const s = String(t || \"\").toLowerCase().trim();\n  if ([\"master\", \"master deal\", \"masters\"].includes(s)) return DEAL_TYPES.MASTER;\n  if ([\"unrecognized\", \"unrecognised\", \"unknown\"].includes(s)) return DEAL_TYPES.UNRECOGNIZED;\n  return s; // e.g., \"record\", \"publishing\", etc.\n};\n\n// Interpret invoice request status explicitly (adjust list as you standardize)\nconst toInvoiceStatus = (status) => {\n  const s = String(status || \"\").toLowerCase().trim();\n  return [\"create\", \"update\", \"exists\", \"present\", \"true\"].includes(s);\n};\n\n// Build a single-item n8n return\nconst respond = (route_to, payload = {}, message, meta = {}) => ([\n  {\n    json: {\n      route_to,\n      message,\n      ...payload,\n    },\n  },\n]);\n\n// ------- Ingest -------\nconst input = $(\"Classifier\").first()?.json ?? {};\nconst person_verification = $(\"Session\").first().json.sub_session?.person_verification ?? {}\nconst output = input.output ?? {};\nconst deal = output.deal ?? {};\nconst invoice = output.invoice ?? null;\nconst persons = output.persons ?? []; // From classifier output\n\n// ------- Normalize -------\nconst dealStatus = Boolean(deal.deal_discussion);\nconst dealType = normalizeDealType(deal.deal_type);\nconst artist = String(deal.artist_name ?? \"\").trim();\nconst masters = Array.isArray(deal.masters) ? deal.masters : []; // Handle new masters array\nconst invoiceStatus = toInvoiceStatus(invoice?.request_status);\n\n// Extract person details from Session node\nconst p_name = person_verification.person_name ?? \"\";\nconst performer_name = person_verification.performer_name ?? \"\";\n\n// Enhanced deal object with person details from Session node\nconst enhancedDeal = {\n  ...deal,\n  ...(isPresent(p_name) && { person_name: p_name }),\n  ...(isPresent(performer_name) && { performer_name: performer_name })\n};\n\nconst isMaster = dealType === DEAL_TYPES.MASTER;\nconst isUnrecognized = dealType === DEAL_TYPES.UNRECOGNIZED;\n\n// ------- Routing Logic -------\n// Case 1: deal present + master type (no missing requirements check)\nif (dealStatus && isMaster) {\n  return respond(\n    ROUTES.DEAL,\n    { deal: enhancedDeal, invoice, person: person_verification },\n    \"Requirements for deal check satisfied.\"\n  );\n}\n\n// Case 2: no deal, but invoice present, and type is explicitly unrecognized\nif (!dealStatus && invoiceStatus && isUnrecognized) {\n  return respond(\n    ROUTES.INVOICE_NO_DEAL,\n    { deal: enhancedDeal, invoice, person: person_verification },\n    \"No deal identified. Proceed with invoice handling without associating a deal.\"\n  );\n}\n\n// Case 3a: deal present + invoice present + unsupported (non-master, non-unrecognized) deal type\nif (dealStatus && invoiceStatus && !isUnrecognized && !isMaster) {\n  return respond(\n    ROUTES.INVOICE_WITH_UNSUPPORTED_DEAL,\n    { deal: enhancedDeal, invoice, person: person_verification },\n    `A \"${dealType}\" deal appears to be discussed, which is not yet supported. Continue with invoice handling and inform the manager.`\n  );\n}\n\n// Case 3b: deal present + invoice absent + unsupported deal type\nif (dealStatus && !invoiceStatus && !isUnrecognized && !isMaster) {\n  return respond(\n    ROUTES.UNSUPPORTED_DEAL,\n    { deal: enhancedDeal, invoice, person: person_verification },\n    `A \"${dealType}\" deal appears to be discussed, which is not yet supported. Inform the manager and seek clarification.`\n  );\n}\n\n// Case 4: unrecognized deal type\nif (isUnrecognized) {\n  return respond(\n    ROUTES.UNSUPPORTED_DEAL,\n    { deal: enhancedDeal, invoice, persons, person: person_verification },\n    `A \"${dealType}\" deal under discussion. Inform the manager and seek clarification.`\n  );\n}\n\n// Fallback\nreturn respond(\n  ROUTES.NO_MATCH,\n  { deal: enhancedDeal, invoice, persons, person: person_verification },\n  \"The information in the conversation is insufficient to proceed. Ask the manager for clarification with any deal or invoice related operations.\"\n);"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6660,
+        1060
+      ],
+      "id": "6723251e-69c7-4f04-8dbc-2e3a7243d8c8",
+      "name": "DIRouting"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -5576,
+        1871.25
+      ],
+      "id": "a8945d77-411a-4b95-a39a-de4921eddd3f",
+      "name": "UpdateSesssion17",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -4256,
+        1371.25
+      ],
+      "id": "1c64fdb4-cc2d-4f0f-be62-cc811ac40fa3",
+      "name": "UpdateSesssion18",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ ($json.invoice.amount != null || $json.invoice.invoice_id != null || $json.invoice.recipient != null) && $json.invoice.next_step!==\"create_new\"}}",
+                    "rightValue": "deal",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "7c15fe57-4eb5-46f9-8483-3c8eb8e3a06b"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "32aa5725-5fd7-4965-ac28-14f869828e46",
+                    "leftValue": "={{ ($json.invoice.amount != null || $json.invoice.invoice_id != null || $json.invoice.recipient != null) && $json.invoice.next_step===\"create_new\"}}",
+                    "rightValue": "missing_requirement",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ec123837-3c81-4088-a699-fc0403b6d7b2",
+                    "leftValue": "={{ $json.invoice.amount === null && $json.invoice.invoice_id === null && $json.invoice.recipient === null}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -6236,
+        1671.25
+      ],
+      "id": "e16582c8-0278-416d-bae1-efc0f9d78bd6",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('InvoiceRecipient1').first().json.invoice_recipient.status }}",
+                    "rightValue": "exists",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "90e11aeb-642d-426d-93d2-fa273f4c2a7e"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ee73d168-6e5a-4959-87b1-fc4b0bc1a1d8",
+                    "leftValue": "={{ $('InvoiceRecipient1').first().json.invoice_recipient.status }}",
+                    "rightValue": "missing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "896d3af9-f039-47c2-b468-d6500651f7d6",
+                    "leftValue": "={{ $('InvoiceRecipient1').first().json.invoice_recipient.status }}",
+                    "rightValue": "not_provided",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -5356,
+        1671.25
+      ],
+      "id": "dc024532-b157-416b-a75b-1717c6646bae",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "982fe381-5913-4fd1-9387-d3d0542e072b",
+              "name": "deal_status",
+              "value": "no_action",
+              "type": "string"
+            },
+            {
+              "id": "20bd2970-9407-41fa-be66-76c066341493",
+              "name": "propose_to_manager_on_deal",
+              "value": "Don't discuss deal related matters",
+              "type": "string"
+            },
+            {
+              "id": "ef717563-6078-4afb-9b82-863c231d9763",
+              "name": "invoice_status",
+              "value": "create_new",
+              "type": "string"
+            },
+            {
+              "id": "262e2ff8-84a1-474c-bc7e-9625becd99a6",
+              "name": "propose_to_manager_on_invoice",
+              "value": "=Draft a new invoice for the Manager and ask for approval/changes.  Inclide the following terms in the drafted invoice: \n\nPayee: {{ $('FormatSessionData2').first().json.sub_session.customer_verification.customer_name }}\nService: <Service Provided by Payee>\nFee: <latest discussed/proposed fee> \nStatus: <latest discussed status or Draft(by default)> \nDue Date: <Due Date if provided> \nInvoice Recipient: {{ $('InvoiceRecipient1').first().json.invoice_recipient.name }}  \n\nIf you could not find the invoice due date from the conversation, ask the manager to provide it while approving the draft.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5136,
+        1471.25
+      ],
+      "id": "3497b0df-818a-4c8e-add2-a0dbff18c7af",
+      "name": "RecipientExists"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DI0OK2QjzXrFmcrM",
+          "mode": "list",
+          "cachedResultName": "InvoiceCustomer-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "retrieve",
+            "data": "={{  \n{\n\"invoice_recipient\": $json?.invoice?.recipient ?? \"\", \"threshold\": 0.05,\nbook_number: $('Session').item.json.sub_session.person_verification.book_number\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -6016,
+        1671.25
+      ],
+      "id": "5c1ad520-8746-43d0-adee-fe30e79a8519",
+      "name": "InvoiceRecipient1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "710d8b9c-abd7-4e7a-aff7-f5309e664517",
+              "name": "=data",
+              "value": "={{ $('Session').first().json.data }}",
+              "type": "object"
+            },
+            {
+              "id": "493829b4-55b2-49b9-83b4-3a4c9097d353",
+              "name": "=sub_session",
+              "value": "={{ $('Session').first().json.sub_session.toJsonString() }}",
+              "type": "object"
+            },
+            {
+              "id": "bf16a3be-daad-416d-8931-376da6ce36f8",
+              "name": "sub_session.deal_metadata.deal_status",
+              "value": "missing",
+              "type": "string"
+            },
+            {
+              "id": "8196241f-8365-4699-ab3f-265d01a29459",
+              "name": "sub_session.invoice_metadata",
+              "value": "={{ \n{\ninvoice_status: \"missing\",\ninvoice_recipient: $json.invoice_recipient\n}\n}}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5796,
+        1671.25
+      ],
+      "id": "740914c1-ebc1-4fb0-b333-2ec16405fd5c",
+      "name": "FormatSessionData2"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -5580,
+        1680
+      ],
+      "id": "b5ce881f-a623-45e1-bf37-3a61866ebe59",
+      "name": "UpdateSesssion20",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "982fe381-5913-4fd1-9387-d3d0542e072b",
+              "name": "deal_status",
+              "value": "no_action",
+              "type": "string"
+            },
+            {
+              "id": "20bd2970-9407-41fa-be66-76c066341493",
+              "name": "propose_to_manager_on_deal",
+              "value": "Don't discuss deal related matters",
+              "type": "string"
+            },
+            {
+              "id": "ef717563-6078-4afb-9b82-863c231d9763",
+              "name": "invoice_status",
+              "value": "create_new",
+              "type": "string"
+            },
+            {
+              "id": "262e2ff8-84a1-474c-bc7e-9625becd99a6",
+              "name": "propose_to_manager_on_invoice",
+              "value": "=Draft a new invoice for the Manager and ask for approval/changes.  Inclide the following terms in the drafted invoice: \n\nPayee: {{ $('FormatSessionData2').first().json.sub_session.customer_verification.customer_name }}\nServices: <Services provided by Payee>\nFee: <latest discussed/proposed fee> \nStatus: <latest discussed status or Draft(by defauld)> \nDue Date: <Due Date if provided> \nInvoice Recipient: {{ $('InvoiceRecipient1').first().json.invoice_recipient.name }} \n\nIf you could not find the invoice due date from the conversation, ask the manager to provide it while approving the draft. Also, ask the manager if he wants to proceed with mentioned 'Invoice Recipient' and if not, provide another one.\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5136,
+        1671.25
+      ],
+      "id": "0a9c3ddf-edf9-4b36-9950-58c04ef667d3",
+      "name": "RecipientExists3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "982fe381-5913-4fd1-9387-d3d0542e072b",
+              "name": "deal_status",
+              "value": "no_action",
+              "type": "string"
+            },
+            {
+              "id": "20bd2970-9407-41fa-be66-76c066341493",
+              "name": "propose_to_manager_on_deal",
+              "value": "Don't discuss deal related matters",
+              "type": "string"
+            },
+            {
+              "id": "ef717563-6078-4afb-9b82-863c231d9763",
+              "name": "invoice_status",
+              "value": "create_new",
+              "type": "string"
+            },
+            {
+              "id": "262e2ff8-84a1-474c-bc7e-9625becd99a6",
+              "name": "propose_to_manager_on_invoice",
+              "value": "=Draft an invoice for the Manager and ask for approval/changes.  Inclide the following terms in the drafted invoice: \nPayee: {{ $('FormatSessionData2').first().json.sub_session.customer_verification.customer_name }} \nServices: <What services are provided by payee>\nFee: <latest discussed/proposed fee> \nStatus: <latest discussed status or Draft(by defauld)> Due Date: <Due Date if provided> \nInvoice Recipient: Not Provided\n\nIf you could not find the invoice due date from the conversation, ask the manager to provide it while approving the draft. Also, ask the manager to provided an Invoice Recipient.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5136,
+        1871.25
+      ],
+      "id": "d9b75acb-01f2-45a9-a1bf-887ff9e18046",
+      "name": "RecipientExists4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "85e9954b-4df5-492c-a9b6-20f9fe801ec6",
+              "leftValue": "={{ $json.output.deal_status==\"not_update\" &&  $json.output.invoice_status==\"not_update\"}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3320,
+        200
+      ],
+      "id": "317890a0-0803-4733-a4cf-8c7e96f61f37",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "710d8b9c-abd7-4e7a-aff7-f5309e664517",
+              "name": "=data",
+              "value": "={{ $('WPS-Upd-16').item.json.data }}",
+              "type": "object"
+            },
+            {
+              "id": "493829b4-55b2-49b9-83b4-3a4c9097d353",
+              "name": "=sub_session",
+              "value": "={{ $('WPS-Upd-16').item.json.sub_session }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3100,
+        300
+      ],
+      "id": "e433eb98-f20a-4bda-9e51-656671125a10",
+      "name": "FormatSessionData"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -2880,
+        300
+      ],
+      "id": "b65ec09b-a7ce-46a0-9677-fae426492b2b",
+      "name": "UpdateSesssion",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"output\":  {{ $('DealUpdates').item.json.output }},\n  \"metadata\": {{ $('FormatSessionData').item.json.sub_session }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        300
+      ],
+      "id": "718b71d9-2d52-4c4f-bf9e-f86929a38be4",
+      "name": "FormatSessionData27"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "deals_masterdeal",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email_thread_last_updated_at": "={{ $now.toISO() }}",
+            "book_id": "={{ $('WPS-Upd-16').item.json.sub_session.person_verification.book_id }}",
+            "number": "={{ $('WPS-Upd-16').item.json.sub_session.deal_metadata.deal_number }}",
+            "id": "={{ $('WPS-Upd-16').first().json.sub_session.deal_metadata.deal_id }}"
+          },
+          "matchingColumns": [
+            "number",
+            "id",
+            "book_id"
+          ],
+          "schema": [
+            {
+              "id": "number",
+              "displayName": "number",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_by",
+              "displayName": "created_by",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "deleted_at",
+              "displayName": "deleted_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "payment_status",
+              "displayName": "payment_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fee_amount",
+              "displayName": "fee_amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fee_currency",
+              "displayName": "fee_currency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fee_schedule",
+              "displayName": "fee_schedule",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "executed_contract",
+              "displayName": "executed_contract",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "execution_date",
+              "displayName": "execution_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "priority",
+              "displayName": "priority",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "artist_id",
+              "displayName": "artist_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "book_id",
+              "displayName": "book_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "person_id",
+              "displayName": "person_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "kill_fee_amount",
+              "displayName": "kill_fee_amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "kill_fee_currency",
+              "displayName": "kill_fee_currency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "percent_recoupable",
+              "displayName": "percent_recoupable",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "agreement_file_key",
+              "displayName": "agreement_file_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status_updated_at",
+              "displayName": "status_updated_at",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "active",
+              "displayName": "active",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "work_for_hire",
+              "displayName": "work_for_hire",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "original_file_name",
+              "displayName": "original_file_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "start_date",
+              "displayName": "start_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email_thread_last_updated_at",
+              "displayName": "email_thread_last_updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2660,
+        300
+      ],
+      "id": "b95d3825-47b8-4c65-90c0-2705e6da3983",
+      "name": "Postgres1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "wYLes21z9h3njdSn",
+          "name": "postgress-prod"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tssc2QZ0cc5XC6aP",
+          "mode": "list",
+          "cachedResultName": "deal_helpers-V1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "search",
+            "data": "={{ $json.sub_session }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_input",
+              "displayName": "ai_input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -6016,
+        696.25
+      ],
+      "id": "642e8728-3197-4941-91f3-c5165cf99342",
+      "name": "Deal Search"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n\n// --- Ingest previous session and current input ---\nconst prev = $('Session').first()?.json;\nif (!prev || !prev.sub_session) {\n  throw new Error(\"Missing sub_session\");\n}\n\n// Current input can be an array or object\nconst incoming = $input.first()?.json ?? {};\nconst payload = Array.isArray(incoming) ? (incoming[0] ?? {}) : incoming;\n\n// --- Extract deal object and exclude deal_status ---\nlet dealObj = {};\nif (payload.deal && typeof payload.deal === \"object\") {\n  dealObj = { ...payload.deal };\n  delete dealObj.deal_status;\n}\n\n// --- task_metadata should only have deal fields + message ---\nconst task_metadata = {\n  ...dealObj,                       // deal fields directly\n  message: payload.message ?? null, // attach short message\n};\n\n// --- Determine last bot response ---\nconst last_response = task_metadata.message || \"Deal routing metadata recorded\";\n\n// --- Update sub_session only ---\nconst updatedSubSession = {\n  ...prev.sub_session,\n  task_metadata,\n  last_bot_response: last_response,\n};\n\n// --- Return original data unchanged + updated sub_session ---\nreturn [\n  {\n    json: {\n      data: prev.data,\n      sub_session: updatedSubSession,\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6236,
+        696.25
+      ],
+      "id": "a4c19951-ff50-4a42-bad9-ee7baaebe13b",
+      "name": "Session2"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.next_route==='update' || $json.next_route==='no_action'}}",
+                    "rightValue": "update",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "71342f4a-2400-4e54-b22d-146ccd749bff"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1091d242-1c23-44da-9c5b-8ef217ab1ae3",
+                    "leftValue": "={{ $json.next_route==\"create_new\"}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2cb427ec-75c5-4f84-9f34-d6c53c1e4eaf",
+                    "leftValue": "={{ $json.next_route==\"confirm\"}}",
+                    "rightValue": "create_new",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -5796,
+        696.25
+      ],
+      "id": "71077cb5-d4e6-4386-bbf7-97158e6de0f8",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pull previous payload and current input\nconst prev = $('Session2').first()?.json;\nconst deal_metadata = $input.first()?.json.deal_metadata[0] ?? {};\nconst last_response = \"Deal Identification Successful\";\n\n// Validate presence of sub_session\nif (!prev || !prev.sub_session) {\n  throw new Error(\"Missing sub_session\");\n}\n\n// Update sub_session only (do not mutate original)\nconst updatedSubSession = {\n  ...prev.sub_session,\n  deal_metadata: {\n    ...(prev.sub_session?.deal_metadata || {}),\n    ...deal_metadata, // Merge in the new deal_metadata from input\n  },\n  last_bot_response: last_response\n};\n\n// Return original data untouched + updated sub_session\nreturn [\n  {\n    json: {\n      data: prev.data,\n      sub_session: updatedSubSession\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5576,
+        421.25
+      ],
+      "id": "67766439-2d12-458e-9fcf-d5bb6b2ccd88",
+      "name": "Session3"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -5356,
+        1071.25
+      ],
+      "id": "47009750-e331-4923-b7ba-8c34b841aaff",
+      "name": "UpdateSesssion21",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f5588e06-1a3f-4a6a-82dc-a9913d43728e",
+              "name": "invoice_search_output",
+              "value": "={{ $json.invoice_search_output }}",
+              "type": "string"
+            },
+            {
+              "id": "5a22c648-f520-4598-abd5-fd17edd2c9c4",
+              "name": "invoice_metadata",
+              "value": "={{ $json.metadata }}",
+              "type": "object"
+            },
+            {
+              "id": "fe38eb32-3b65-43ef-946f-4c99476f3e8c",
+              "name": "deal_search_output",
+              "value": "={{ $('Deal Search').item.json.deal_search_output }}",
+              "type": "string"
+            },
+            {
+              "id": "9c33f428-c252-4c3f-8be8-58ba8fb37d88",
+              "name": "deal_metadata",
+              "value": "={{ $('WPS-Upd-16').item.json.sub_session.deal_metadata }}",
+              "type": "object"
+            }
+          ]
+        },
+        "includeOtherFields": "={{ false }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4256,
+        596.25
+      ],
+      "id": "b2c67ca7-33cc-444e-8833-e629cb873c1b",
+      "name": "Compile Input"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node - Invoice Analysis Prompt Generator\nfunction generateAnalysisPrompt(invoiceMetadata, invoiceTerms = null, dealStage = null) {\n  const { exists } = invoiceMetadata;\n  const recipient = invoiceMetadata?.invoice_recipient|| {};\n  \n  // Check if deal is in review stage\n  if (dealStage === 'Needs Review') {\n    return {\n      promptInstructions: `There is no invoice due at this stage of the deal negotiations. Don't mention anything to the Manager on the invoice related to this deal.`,\n      process_invoice: false\n    };\n  }\n  \n  if (exists) {\n    // Condition 1: Invoice exists (exists = true)\n    if (!invoiceTerms) {\n      throw new Error('InvoiceTerms is required when invoice exists');\n    }\n    \n    if (invoiceTerms.status === 'Paid') {\n      return {\n        promptInstructions: `\nThe invoice already exists and has been paid. Please compile the following information:\n- Invoice ID: ${invoiceTerms.invoice_id || 'N/A'}\n- Status: ${invoiceTerms.status}\n- Amount: ${invoiceTerms.amount || 'N/A'}\nDESCRIPTION: This invoice with the above details is already paid and requires no further changes or actions.\n        `.trim(),\n        process_invoice: true\n      };\n    } else {\n      return {\n        promptInstructions: `\nAn existing invoice has been found with the following terms:\n${JSON.stringify(invoiceTerms, null, 2)}\nPlease analyze and compare these invoice terms with the email conversation to identify the final agreed terms. Look for any discrepancies, updates, or modifications discussed in the email thread and provide recommendations for aligning the invoice with the agreed terms.\n        `.trim(),\n        process_invoice: true\n      };\n    }\n  } else {\n    // Condition 2: Invoice does not exist (exists = false)\n    let recipientInstructions = '';\n    \n    switch (recipient.status) {\n      case 'exists':\n        recipientInstructions = `- Recipient: ${recipient.name}`;\n        break;\n      case 'missing':\n        recipientInstructions = `- Recipient: ${recipient.name}\n  NOTE: Ask the manager whether they want to register this recipient or not.`;\n        break;\n      case 'not_provided':\n        recipientInstructions = `- Recipient: Ask the manager about the invoice recipient details.`;\n        break;\n      default:\n        recipientInstructions = `- Recipient: Status unknown - please clarify with manager.`;\n    }\n    \n    return {\n      promptInstructions: `\nNo existing invoice found. Please extract the latest agreed details from the email conversation for the following:\n1. Deal Title: Create a well-suited deal title based on what's being discussed in the thread.\n2. Amount: Extract the latest agreed amount if provided in the email. If not available, set to \"Not Provided\".\n3. Due Date: Identify the due date for the invoice from the conversation. If not mentioned, set to \"Not Provided\".\n4. Status: Set the current status to \"Draft\".\n5. ${recipientInstructions}\nFINAL STEP: \"Ask the manager for approval to proceed with creating this invoice based on the extracted details.\n      `.trim(),\n      process_invoice: true\n    };\n  }\n}\n\n// Main execution for n8n\nconst invoiceMetadata = $json.sub_session.invoice_metadata;\nconst invoiceTerms = $(\"InvoiceTerms5\").first().json?.invoice_info || null;\n// Remove invoice number if it exists\nif (invoiceTerms && invoiceTerms.invoice_number) {\n  delete invoiceTerms.invoice_number;\n  delete invoiceTerms.invoice_customer_id;\n}\n\nconst deal_stage = $input.first()?.json?.sub_session?.deal_metadata?.status;\n\ntry {\n  const result = generateAnalysisPrompt(invoiceMetadata, invoiceTerms, deal_stage);\n  \n  return [\n    {\n      json: {\n        invoice_search_output: result.promptInstructions,\n        process_invoice: result.process_invoice,\n        metadata: invoiceMetadata,\n      }\n    }\n  ];\n} catch (error) {\n  throw new Error(`Prompt generation failed: ${error.message}`);\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4476,
+        596.25
+      ],
+      "id": "563cfb9d-c009-4bc7-a6a4-e61daa0b5417",
+      "name": "InvoiceInstructions"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ccc4caab-fbff-48f6-8b38-e1bb3b5d1426",
+              "leftValue": "={{ $json.invoice_metadata.invoice_stats === \"Paid\" &&  $json.deal_metadata.status === \"Fully Executed\"}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -4036,
+        596.25
+      ],
+      "id": "c680d060-3bff-432e-b1a1-c887c84700fa",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "40d7397e-7161-46b6-a482-274968d356d7",
+              "name": "output.propose_to_manager_on_deal",
+              "value": "={{ $json.deal_search_output }}",
+              "type": "string"
+            },
+            {
+              "id": "a9ed1e37-8287-4f3f-ba01-ea4b440e889b",
+              "name": "output.deal_status",
+              "value": "={{ $json.next_route}}",
+              "type": "string"
+            },
+            {
+              "id": "3d7e6d61-aa49-4fbb-a886-aa771301ea88",
+              "name": "output.propose_to_manager_on_invoice",
+              "value": "Don't mention invoice at this stage of convesation at all.",
+              "type": "string"
+            },
+            {
+              "id": "14badaf4-8add-4207-8ca7-8b2955a0d4b1",
+              "name": "output.invoice_status",
+              "value": "no_action",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3696,
+        795
+      ],
+      "id": "8f3f7a7c-fdf6-4385-9882-25f17848598d",
+      "name": "New/Options1"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3356,
+        795
+      ],
+      "id": "952ce8d4-707f-46de-8d95-7f170a68b693",
+      "name": "UpdateSesssion22",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pull previous payload and current input\nconst prev = $('Session2').first()?.json;\nconst last_response = \"Deal Identification Successful\";\n\n// Validate presence of sub_session\nif (!prev || !prev.sub_session) {\n  throw new Error(\"Missing sub_session\");\n}\n\n// Update sub_session only (do not mutate original)\nconst updatedSubSession = {\n  ...prev.sub_session,\n  deal_metadata: {\n    ...(prev.sub_session?.deal_metadata || {}),\n    deal_status: \"missing\",\n  },\n  invoice_metadata: {\n    invoice_status: \"missing\",\n    invoice_recipient: $input.first().json.invoice_recipient\n  },\n  last_bot_response: last_response\n};\n\n// Return original data untouched + updated sub_session\nreturn [\n  {\n    json: {\n      data: prev.data,\n      sub_session: updatedSubSession\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5356,
+        871.25
+      ],
+      "id": "f7852dc6-a094-4c60-be4d-78c0f7dad38b",
+      "name": "Session4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "40d7397e-7161-46b6-a482-274968d356d7",
+              "name": "output.propose_to_manager_on_deal",
+              "value": "={{ $('Deal Search').item.json.deal_search_output }}",
+              "type": "string"
+            },
+            {
+              "id": "f6f9f910-0297-41dc-a18b-5076731f6203",
+              "name": "deal_status",
+              "value": "create_new",
+              "type": "string"
+            },
+            {
+              "id": "3d7e6d61-aa49-4fbb-a886-aa771301ea88",
+              "name": "output.propose_to_manager_on_invoice",
+              "value": "Don't mention invoice at this stage of convesation at all.",
+              "type": "string"
+            },
+            {
+              "id": "0ae6f016-cd14-4493-85e4-c6d78251535c",
+              "name": "invoice_status",
+              "value": "no_action",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4916,
+        871.25
+      ],
+      "id": "f1db0162-3f07-41a8-b2f4-be165335fcad",
+      "name": "New/Options2"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -6020,
+        1040
+      ],
+      "id": "be85725e-ba68-4a62-9259-eb0ef19ea1f0",
+      "name": "UpdateSesssion19",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=user_session_{{ $('WPS1').first().json.data.session_data.ThreadId+$('WPS1').first().json.data.user_id }}",
+        "value": "={{ $json.sub_session.toJsonString() }}",
+        "keyType": "string",
+        "expire": true,
+        "ttl": "={{ 60 * 60 * 24 * 30 }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -5136,
+        871.25
+      ],
+      "id": "49eb3354-1699-4539-9858-f2abce299e83",
+      "name": "UpdateSesssion1",
+      "credentials": {
+        "redis": {
+          "id": "ujdbLpmKXmUC4bPj",
+          "name": "Redis account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DI0OK2QjzXrFmcrM",
+          "mode": "list",
+          "cachedResultName": "InvoiceCustomer-V-1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "retrieve",
+            "data": "={{  \n{\n  \"invoice_recipient\": String($('DIRouting').first().json.invoice.recipient || \"\"),\n  \"threshold\": 0.05,\n  \"book_number\": $('Session2').first().json.sub_session.person_verification.book_number\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5560,
+        880
+      ],
+      "id": "a3f25b77-114a-4390-9b2c-1378b3bc94f5",
+      "name": "Invoice Client"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "40d7397e-7161-46b6-a482-274968d356d7",
+              "name": "output.propose_to_manager_on_deal",
+              "value": "={{ $json.deal_search_output }}",
+              "type": "string"
+            },
+            {
+              "id": "c8e97af4-8637-491c-b83d-e1e61b14cd07",
+              "name": "deal_status",
+              "value": "await_confirmation",
+              "type": "string"
+            },
+            {
+              "id": "3d7e6d61-aa49-4fbb-a886-aa771301ea88",
+              "name": "output.propose_to_manager_on_invoice",
+              "value": "Don't mention invoice at this stage of convesation at all.",
+              "type": "string"
+            },
+            {
+              "id": "569e0986-9195-4475-b3a3-652f65d8d577",
+              "name": "invoice_status",
+              "value": "no_action",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5576,
+        1071.25
+      ],
+      "id": "d251585c-000e-41bf-b5a2-b7e0b992d6e7",
+      "name": "Await Confirmation"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "9oc9YDvdPI0zvKah",
+          "mode": "list",
+          "cachedResultName": "agent_helpers-V1.0.3"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "add_client",
+            "data": "={{ \n{\nsession_manager: $('Trigger').item.json.data.Manager,\nclient: $json.sub_session.person_verification,\nsessioin_data: $json.data.session_data\n}\n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "binary",
+              "displayName": "binary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -6860,
+        720
+      ],
+      "id": "b37acf6b-4b38-46a2-8ff0-f3a6dd76f95b",
+      "name": "Add clients"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "589cc8a3-030f-4bbe-9ed2-1dd9140464b9",
+              "leftValue": "={{ $json.isNotEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -5136,
+        596.25
+      ],
+      "id": "d4780f6a-eea6-4561-bd19-271d3b90011c",
+      "name": "If4"
+    }
+  ],
+  "pinData": {
+    "Trigger": [
+      {
+        "json": {
+          "action": "deals_and_invoices",
+          "data": {
+            "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+            "session_data": {
+              "ThreadId": "19819de6fb8afc8b",
+              "Subject": "RE: Lizzo / Jasper Harris and Alex Goldblatt",
+              "Emails": "---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Sami I. Kazi (skazi@raineslaw.com)\nCc: Josh Hefner (jh@markmml.com), Seamus Blair (seamus@markmml.com)\nDate: Wed, Sep 24, 2025, 4:57 PM\nBody: Checking in here thanks Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Sami I. Kazi (skazi@raineslaw.com)\nCc: Josh Hefner (jh@markmml.com), Seamus Blair (seamus@markmml.com)\nDate: Wed, Sep 24, 2025, 4:57 PM\nBody: Checking in here thanks Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Sami I. Kazi (skazi@raineslaw.com)\nCc: Josh Hefner (jh@markmml.com), Seamus Blair (seamus@markmml.com)\nDate: Wed, Sep 24, 2025, 4:57 PM\nBody: Checking in here thanks Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Assistant Assistant (asst@patchbay.xyz)\nDate: Tue, Sep 16, 2025, 3:53 AM\nBody: Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: asst@patchbay.xyz\nDate: Fri, Sep 5, 2025, 6:11 PM\nBody: Create deal Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: asst@patchbay.xyz\nDate: Fri, Sep 5, 2025, 6:11 PM\nBody: Create deal Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: asst@patchbay.xyz\nDate: Fri, Sep 5, 2025, 6:11 PM\nBody: Create deal Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nDate: Thu, Aug 28, 2025, 1:13 PM\nBody: We're working on it. Extra step coordinating with Jasper's team. Joshua Hefner Partner Mark Music & Media Law, P.C. E: jh@markmml.com<mailto:jh@markmml.com> M: (337) 739-1312 ________________________________\n---------------\n\n---------------\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nDate: Thu, Aug 28, 2025, 1:13 PM\nBody: We're working on it. Extra step coordinating with Jasper's team. Joshua Hefner Partner Mark Music & Media Law, P.C. E: jh@markmml.com<mailto:jh@markmml.com> M: (337) 739-1312 ________________________________\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nDate: Thu, Aug 28, 2025, 4:38 AM\nBody: Bumping this to get it done. Let me know current status. Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nDate: Tue, Aug 19, 2025, 2:18 PM\nBody: Hey, how are we looking here? Best,\nAidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@ 1916MGMT. COM ( AIDAN@1916MGMT.COM )\n---------------\n\n---------------\nFrom: Josh Hefner (jh@markmml.com)\nTo: Aidan Schechter (aidan@1916mgmt.com)\nDate: Tue, Jul 29, 2025, 4:14 PM\nBody: Haha all good. Comments attached! Jasper’s team sent them over, but I’ll copy you in on the next correspondence.\nJoshua Hefner Partner Mark Music & Media Law, P.C. *E:* jh@ markmml. com ( jh@markmml.com ) *M:* (337) 739-1312 *\n---------------\n\n---------------\nFrom: asst@patchbay.xyz (asst@patchbay.xyz)\nTo: Aidan Schechter (AIDAN@1916MGMT.COM)\nDate: Tue, Jul 29, 2025, 4:20 AM\nBody: Ignore the AI assistant (which is in Alpha and wrong here haha) Best, Aidan Schechter *AIDAN SCHECHTER* P: +1 310.467.6229 | E: AIDAN@1916MGMT. COM ( AIDAN@1916MGMT.COM )\n---------------\n\n---------------\nFrom: asst@patchbay.xyz\nTo: Aidan Schechter (aidan@1916mgmt.com), Josh Hefner (jh@markmml.com)\nDate: Tue, Jul 29, 2025, 4:20 AM\nBody: It seems there is no existing deal for Alex Goldblatt regarding the track 'STILL CANT FUH' by Lizzo. I can assist you in creating a new deal for this track to ensure all paperwork and agreements are properly documented. Let me know how you would like to proceed!\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Josh Hefner (jh@markmml.com)\nDate: Mon, Jul 28, 2025, 11:22 PM\nBody: Ignore the AI assistant (which is in Alpha and wrong here haha)\n\nBest,\nAidan Schechter\n\nAIDAN SCHECHTER\nP: +1 310.467.6229 | E: AIDAN@1916MGMT.COM (AIDAN@1916MGMT.COM)\n---------------\n\n---------------\nFrom: Aidan Schechter (AIDAN@1916MGMT.COM)\nTo: \nDate: Sun, Oct 1, 2023, 12:00 AM\nBody: Best,\nAidan Schechter\nAIDAN SCHECHTER\nP: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------\n\n---------------\nFrom: Aidan Schechter (aidan@1916mgmt.com)\nTo: Sami I. Kazi (skazi@raineslaw.com)\nCc: Josh Hefner (jh@markmml.com), Seamus Blair (seamus@markmml.com)\nDate: Wed, Sep 24, 2025, 4:57 PM\nBody: Checking in here thanks Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM\n---------------",
+              "Others": [
+                {
+                  "name": "Josh Hefner",
+                  "address": "jh@markmml.com"
+                }
+              ],
+              "Managers": [
+                {
+                  "name": "Aidan Schechter",
+                  "address": "aidan@1916mgmt.com",
+                  "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+                  "person_number": "beeb7d89-c123-4bf1-90a6-f4a279a0164a",
+                  "Role": "Manager",
+                  "Clients": [
+                    {
+                      "person_name": "Alexander B. Goldblatt",
+                      "performer_name": "Alex Goldblatt",
+                      "status": "verified",
+                      "book_number": "f9fe49b9-7b34-4926-bd85-32a66377e5ba",
+                      "book_id": "7",
+                      "role": "Producer",
+                      "message": "Producer Alexander B. Goldblatt is verified in the Manager's workspace. Inform the manager."
+                    }
+                  ]
+                },
+                {
+                  "name": "Agent",
+                  "address": "asst@patchbay.xyz",
+                  "user_id": "9cd5749c-7e7d-4a92-98cd-c1356b626258",
+                  "person_number": "03014402-449b-48bb-8973-212449e99e2f",
+                  "Role": "Manager",
+                  "Clients": []
+                }
+              ],
+              "Label": "CRUD-ASSISTANT",
+              "sessionStatus": true
+            },
+            "last_email": "Checking in here thanks Best, Aidan Schechter AIDAN SCHECHTER P: +1 310.467.6229 | E: AIDAN@1916MGMT.COM",
+            "Manager": {
+              "name": "Aidan Schechter",
+              "address": "aidan@1916mgmt.com",
+              "user_id": "b07af3f8-c51e-42df-b5c7-6b5248a5ee5e",
+              "Clients": [
+                {
+                  "person_name": "Alexander B. Goldblatt",
+                  "performer_name": "Alex Goldblatt",
+                  "status": "verified",
+                  "book_number": "f9fe49b9-7b34-4926-bd85-32a66377e5ba",
+                  "book_id": "7",
+                  "role": "Producer",
+                  "message": "Producer Alexander B. Goldblatt is verified in the Manager's workspace. Inform the manager."
+                }
+              ]
+            },
+            "history": "Missing"
+          },
+          "ai_input": null
+        }
+      }
+    ]
+  },
+  "repo_name": "hub-n8n",
+  "repo_owner": "ck-bit",
+  "repo_path": "",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-15T17:50:30.024Z",
+      "updatedAt": "2025-05-15T17:50:30.024Z",
+      "id": "lqzFxyosGtACqbc3",
+      "name": "Abid"
+    },
+    {
+      "createdAt": "2025-07-17T04:49:58.248Z",
+      "updatedAt": "2025-07-17T04:49:58.248Z",
+      "id": "lsVrWvDOcUhldARt",
+      "name": "in-devop"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-25T10:03:09.245Z",
+  "versionId": "97a0a5fe-deb5-43b2-a821-bd88d2649a6e"
+}
